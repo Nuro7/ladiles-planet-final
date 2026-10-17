@@ -1,0 +1,5 @@
+.history-metadata{position:absolute;inset:auto 8px 46px;z-index:3;padding:13px;border:1px solid #bf9654;border-radius:12px;background:rgba(27,12,17,.96);color:#f5e8d6;opacity:0;transform:translateY(7px);transition:opacity .15s,transform .15s;pointer-events:none;max-height:calc(100% - 90px);overflow:auto;font-size:11px}
+.history-card:hover .history-metadata,.history-card:focus-within .history-metadata{opacity:1;transform:none}
+.history-metadata>strong{display:block;color:#ebc67f;font-size:13px;margin-bottom:9px}
+.history-metadata dl{margin:0;display:grid;gap:6px}.history-metadata dl>div{display:grid;grid-template-columns:42% 58%;gap:3px}.history-metadata dt{color:#c5aba2}.history-metadata dd{margin:0;overflow-wrap:anywhere}.history-metadata small{display:block;margin-top:10px;color:#bda38e;font-size:10px}
+@media(prefers-reduced-motion:reduce){.history-metadata{transition:none}}

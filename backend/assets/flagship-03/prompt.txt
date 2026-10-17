@@ -1,0 +1,277 @@
+PROJECT: LADIES PLANET — FLAGSHIP BRIDAL VIDEO TRANSFORMATION
+VIDEO 03: THE MOMENT WE DREAMED
+BACKEND ENGINE: GENJUTSU
+
+PRIMARY OBJECTIVE
+
+Transform the supplied reference video into a photorealistic wedding video featuring the exact bride and groom from the user's identity references and the exact bridal outfit from the supplied garment references.
+
+Preserve the original video's emotional performance, choreography, body movements, facial expressions, camera movements, blue spotlight atmosphere, slow-motion moments, and transitions as faithfully as possible.
+
+This is a reference-driven video transformation. Do not invent a different wedding scene or replace the original performance with generic romantic choreography.
+
+REFERENCE AUTHORITY
+
+1. SOURCE VIDEO
+Use "03 - The Moment We Dreamed.mp4" as the authoritative reference for the original scene, actions, expressions, choreography, timing, camera angles, lighting, visual effects, and transitions.
+
+2. BRIDE IDENTITY
+Use the supplied bride image as the definitive reference for the bride's identity. Preserve her facial structure, eyes, nose, lips, jawline, skin tone, natural skin texture, and recognizable features across every frame.
+
+3. GROOM IDENTITY
+Use the supplied groom image as the definitive reference for the groom's identity. Preserve his facial structure, eyes, nose, lips, hairstyle, skin tone, and recognizable features throughout the video.
+
+4. BRIDAL DRESS
+Use the supplied dress photographs as garment references. Reproduce the exact dress design, colour, fabric, embroidery, neckline, sleeves, silhouette, stitching, and decorative details.
+
+5. DUPATTA
+Use the supplied dupatta image as the authoritative reference for its colour, fabric, embroidery, border, transparency, and styling.
+
+6. JEWELLERY
+Use the supplied jewellery sheet to reproduce the actual bridal jewellery, maintaining consistent designs, colours, and placement.
+
+VIDEO-SPECIFIC SCENE RECONSTRUCTION
+
+Recreate the original romantic wedding-stage sequence shown in the source video.
+
+Preserve the original dramatic blue and white spotlight atmosphere, stage environment, couple positioning, romantic interaction, and cinematic mood.
+
+Follow the actual sequence of actions in the reference video.
+
+Reproduce the original movements, gestures, head turns, body orientation, and interaction between the bride and groom. Maintain their relative positions and the timing of their actions.
+
+Do not invent additional embraces, dance moves, proposals, gestures, or romantic interactions that are not present in the source video.
+
+The output must retain the original scene's emotional character rather than turning it into a different performance.
+
+EXACT EMOTION TRANSFER
+
+Emotional fidelity is a primary requirement.
+
+Transfer the original performers' visible emotional performance to the user's bride and groom while preserving their identities.
+
+Preserve the source video's:
+- Natural happiness and smiles.
+- Romantic affection.
+- Eye contact and gaze direction.
+- Facial reactions to one another.
+- Head tilts and expression changes.
+- Emotional timing.
+- Relationship between facial expressions and body movements.
+
+If a smile develops gradually in the source, reproduce that progression naturally.
+
+If an expression becomes more intense, subtle, or relaxed, preserve that change at the corresponding moment.
+
+Do not apply a permanent smile to either person.
+
+Do not freeze their facial expressions while their bodies move.
+
+Avoid exaggerated grins, artificial mouth movements, stiff facial muscles, or expressions unrelated to the source performance.
+
+The objective is to reproduce the original emotional performance using the user's exact bride and groom—not to reproduce the original performers' faces.
+
+EXACT BRIDE IDENTITY LOCK
+
+The supplied bride reference is the sole authority for the bride's identity.
+
+Maintain her identity across all frames, expressions, head movements, camera angles, and lighting changes.
+
+Prevent:
+- Facial identity drift.
+- Changes in facial proportions.
+- Changes in eye, nose, or lip shape.
+- Changes in jawline.
+- Unintended skin-tone changes.
+- Excessive facial smoothing.
+- Plastic-looking or doll-like skin.
+- Blending with the original source bride.
+- Substitution with a different generated person.
+
+Allow natural facial expressions and head movements required by the original performance without altering her underlying identity.
+
+EXACT GROOM IDENTITY LOCK
+
+The supplied groom reference is the sole authority for the groom's identity.
+
+Maintain the same recognizable person throughout the video.
+
+Prevent facial morphing, identity drift, changes in hairstyle or facial hair, unintended skin-tone changes, and blending with the original source groom.
+
+His facial expressions must follow the original performance without changing his underlying identity.
+
+EXACT BRIDAL DRESS RECONSTRUCTION
+
+Reproduce the actual garment shown in the supplied dress photographs.
+
+Preserve its:
+- Exact colour and colour combinations.
+- Fabric texture.
+- Embroidery pattern and placement.
+- Neckline and sleeves.
+- Bodice construction.
+- Waistline.
+- Skirt silhouette and volume.
+- Decorative borders.
+- Beadwork, stones, sequins, and embellishments.
+- Visible stitching and distinctive details.
+
+Do not redesign, simplify, recolour, or substitute the dress.
+
+Maintain the same garment construction and embroidery placement across all shots.
+
+Allow natural fabric movement consistent with the bride's original movements and realistic gravity.
+
+CRITICAL ANTI-MANNEQUIN PROTECTION
+
+The dress reference images are garment references only.
+
+Never transfer a mannequin, white mannequin torso, white abdominal patch, clothing-display body, product-photo background, or flat pasted garment surface into the generated video.
+
+The bride must have realistic human anatomy.
+
+Fit the actual dress naturally to her body.
+
+If the dress covers the abdomen, that area must contain the actual bridal fabric. If the garment exposes skin, show natural human skin matching the bride's complexion.
+
+Never generate a white body-shaped patch or mannequin-like torso.
+
+DUPATTA AND JEWELLERY CONSISTENCY
+
+Use the exact supplied dupatta and jewellery references.
+
+Keep the dupatta's colour, border, embroidery, fabric, and styling consistent.
+
+Its movement must follow the original performance and realistic fabric physics.
+
+Keep the jewellery design and placement stable across frames.
+
+Prevent disappearing accessories, changing jewellery, floating ornaments, flickering patterns, and unnatural intersections with the body.
+
+BLUE SPOTLIGHT AND LIGHTING TRANSFER
+
+Preserve the original blue and white spotlight atmosphere.
+
+Match the source video's:
+- Spotlight direction.
+- Relative light intensity.
+- Blue colour cast.
+- White spotlight beams.
+- Shadows and contrast.
+- Stage illumination.
+- Atmospheric haze, where visible.
+- Lighting changes and transitions.
+
+Do not replace the original lighting design with unrelated golden lighting, different colours, or a different environment.
+
+Keep the bride's and groom's facial identities recognizable under the changing light.
+
+Maintain the bridal dress's actual colour and preserve the visibility of its embroidery.
+
+Avoid excessive glow, blown highlights, artificial skin colour, and exposure flickering.
+
+MOTION AND CHOREOGRAPHY TRANSFER
+
+Preserve the source video's original performance and movement sequence.
+
+Match the original:
+- Body orientation.
+- Relative positions.
+- Dance and interaction movements.
+- Arm and hand gestures.
+- Shoulder movements.
+- Head turns.
+- Posture changes.
+- Movement directions.
+- Timing and duration of actions.
+- Contact between the couple, where present.
+
+Do not replace the original choreography with a newly invented performance.
+
+Maintain anatomically correct movement and realistic body proportions.
+
+Avoid teleporting between poses, sliding feet, disconnected limbs, duplicated hands, fused fingers, unnatural bending, and sudden changes in body position.
+
+SLOW MOTION AND CINEMATIC EFFECTS
+
+Preserve the source video's original slow-motion moments and their approximate timing.
+
+Maintain the original pacing and the relationship between movement speed and emotional emphasis.
+
+Preserve the original cinematic effects and transitions as closely as possible.
+
+Do not apply slow motion uniformly if the source uses different speeds.
+
+Avoid random speed ramps, unnecessary freeze frames, artificial pauses, jerky motion, or newly invented visual effects.
+
+CAMERA MOVEMENT AND SHOT CONTINUITY
+
+Treat the source video's camera language as authoritative.
+
+Preserve the original:
+- Camera angles.
+- Camera movements.
+- Shot sequence.
+- Framing.
+- Subject positioning.
+- Shot duration.
+- Transitions.
+- Changes between wider and closer shots.
+- Cinematic pacing.
+
+Do not introduce unnecessary zooms, whip pans, camera rotations, or camera shake.
+
+Maintain continuity across all shots.
+
+The bride's face, groom's face, dress, dupatta, and jewellery must remain consistent when the camera angle or lighting changes.
+
+PHOTOREALISM AND TEMPORAL CONSISTENCY
+
+Create the appearance of genuine wedding cinematography featuring real people.
+
+Prioritize:
+- Natural skin texture.
+- Stable facial identity.
+- Realistic expressions.
+- Correct hands and fingers.
+- Natural body proportions.
+- Realistic cloth movement.
+- Consistent embroidery.
+- Stable jewellery.
+- Natural lighting.
+- Smooth transitions.
+- Consistent backgrounds.
+
+Prevent facial warping, plastic skin, changing facial features, flickering embroidery, morphing garments, duplicated limbs, floating accessories, unnatural anatomy, and frame-to-frame identity changes.
+
+STRICT NEGATIVE CONSTRAINTS
+
+Do not use the original source bride's identity.
+Do not use the original source groom's identity.
+Do not generate substitute people.
+Do not change the user's bride or groom identities.
+Do not redesign the supplied bridal dress.
+Do not replace the dupatta or jewellery.
+Do not transfer mannequin anatomy or white torso patches.
+Do not invent choreography.
+Do not exaggerate expressions.
+Do not alter the original emotional progression.
+Do not replace the original blue spotlight atmosphere.
+Do not add unrelated scenes or visual effects.
+Do not add text, subtitles, logos, or watermarks.
+
+FINAL GENERATION DIRECTIVE
+
+Recreate "03 - The Moment We Dreamed.mp4" as faithfully as possible, featuring the user's exact bride, exact groom, and exact bridal outfit.
+
+The source video controls the original performance, emotions, choreography, timing, camera movements, blue spotlight effects, slow motion, and transitions.
+
+The bride and groom references control identity.
+
+The dress, dupatta, and jewellery references control the bridal appearance.
+
+Preserve the original romantic interaction and emotional performance without changing the identities of the supplied people.
+
+Prioritize identity fidelity, emotion transfer, garment accuracy, natural anatomy, and temporal consistency over unnecessary creative changes.
+
+Generate a coherent, photorealistic cinematic result that retains the original video's visual character.

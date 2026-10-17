@@ -1,0 +1,21 @@
+{
+  "templateNumber": 1,
+  "templateId": "BUDGET_BALANCE_01",
+  "sceneId": "sculpted-romance",
+  "label": "Sculpted Romance",
+  "subjectMode": "solo",
+  "deliveryTier": "Budget",
+  "generationMode": "Balance",
+  "promptTestStatus": "Passed in Google Flow",
+  "testProvider": "Google Flow",
+  "referenceIsSourceVideo": true,
+  "musicIntegratedIntoPack": true,
+  "sourceVideoFile": "reference.mp4",
+  "musicFile": "music.m4a",
+  "promptFile": "prompt.txt",
+  "renderedReferenceWithMusic": "reference-with-music.mp4",
+  "note": "Reference/template preview with the matching music track muxed in. This is not a generated customer result.",
+  "videoDurationSeconds": 20.361,
+  "musicDurationSeconds": 20.361,
+  "integratedClipDurationSeconds": 20.361
+}

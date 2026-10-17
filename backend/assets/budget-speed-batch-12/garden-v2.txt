@@ -1,0 +1,724 @@
+PROJECT: GARDEN VEIL & TURN — ROYAL BRIDAL EDITION
+
+OUTPUT SPECIFICATIONS
+Duration: Exactly 10 seconds.
+Aspect ratio: Vertical 9:16.
+Visual style: Photorealistic luxury Indian bridal fashion film.
+Quality: Premium commercial fashion cinematography.
+Editing: Elegant, source-inspired editorial cuts.
+Motion: Reference-driven motion transfer.
+Identity: Supplied bride photograph.
+Outfit: Exact supplied maroon-red bridal lehenga.
+Jewellery: Supplied jewellery reference sheet.
+Audio: No dialogue and no music.
+
+PRIMARY OBJECTIVE
+
+Create a completely new 10-second luxury bridal fashion
+advertisement using the uploaded video "Garden Veil & Turn"
+as the primary reference for motion, posing, camera
+composition, movement, shot progression, and atmosphere.
+
+Replace the original woman with the woman shown in our
+supplied bride photograph.
+
+Replace the original ivory bridal outfit with our exact
+supplied maroon-red and gold bridal lehenga, blouse,
+and embroidered dupatta.
+
+Use our supplied jewellery sheet to style the bride
+with the actual jewellery designs represented in it.
+
+The final result must retain the source video's
+recognizable movement and cinematic character while
+showcasing our own bride, outfit, and jewellery.
+
+This is a controlled subject-replacement task,
+not a request to recreate the original video unchanged.
+
+==================================================
+REFERENCE INPUT HIERARCHY
+==================================================
+
+REFERENCE A — GARDEN VEIL & TURN VIDEO
+
+Use the video to guide:
+- Body movement.
+- Walking direction.
+- Head turns.
+- Body orientation.
+- Hand positioning.
+- Facial-expression timing.
+- Camera movement.
+- Shot composition.
+- Architectural framing.
+- Outdoor garden atmosphere.
+- Fabric movement.
+- Shot transitions.
+- Relative timing of important actions.
+
+REFERENCE B — OUR BRIDE'S FACE
+
+Use our supplied woman's photograph as the identity
+reference for the new bride.
+
+Preserve her recognizable facial features and appearance
+throughout every shot.
+
+REFERENCE C — OUR BRIDAL OUTFIT
+
+Use all supplied garment photographs as the authoritative
+references for the maroon-red lehenga, blouse, dupatta,
+embroidery, decorative borders, colours, and construction.
+
+REFERENCE D — OUR JEWELLERY SHEET
+
+Use the supplied jewellery sheet as the authoritative
+reference for the actual bridal ornaments.
+
+Do not substitute unrelated jewellery when the required
+piece is represented in the supplied reference.
+
+PRIORITY RULE:
+
+The source video controls movement and cinematography.
+
+Our bride photograph controls identity.
+
+Our garment photographs control outfit design.
+
+Our jewellery sheet controls jewellery design.
+
+Do not allow one reference to overwrite another's role.
+
+==================================================
+SHOT 1 — 0.0 TO 1.5 SECONDS
+ELEGANT BRIDAL INTRODUCTION
+==================================================
+
+SOURCE REFERENCE:
+The opening garden portrait and side-profile
+compositions in the uploaded reference video.
+
+SCENE:
+
+A luxury landscaped garden with softly blurred greenery,
+beautiful natural highlights, and warm sunlight filtering
+through trees.
+
+The bride wears our exact maroon-red bridal lehenga,
+matching embroidered blouse, and flowing dupatta.
+
+Her bridal jewellery complements the outfit using
+the designs provided in our jewellery reference sheet.
+
+COMPOSITION:
+
+Use a medium-to-full-length bridal composition
+inspired by the source video's opening shot.
+
+The bride is the clear visual focal point.
+
+The background remains softly out of focus.
+
+ACTION:
+
+Reproduce the source woman's visible head position,
+gaze direction, body orientation, and subtle movement.
+
+Preserve the original performance's emotional quality.
+
+If the source woman is standing in a composed pose,
+keep our bride equally composed.
+
+If the source includes a slight head movement,
+preserve its direction and approximate timing.
+
+Do not invent a new gesture.
+
+CAMERA:
+
+Match the source composition and movement as closely
+as possible.
+
+Keep the bride's face recognizable.
+
+The lighting should create realistic highlights
+on her skin, jewellery, and embroidered fabric.
+
+OUTFIT PRIORITY:
+
+The red lehenga must remain visually consistent
+with the supplied photographs.
+
+Do not introduce an ivory or white bridal dress.
+
+TRANSITION:
+
+Use a clean editorial cut to the detailed bridal shot.
+
+==================================================
+SHOT 2 — 1.5 TO 2.8 SECONDS
+FACE, NECKLINE AND JEWELLERY CLOSE-UP
+==================================================
+
+SOURCE REFERENCE:
+The detailed facial, neckline, and jewellery shots
+from approximately 3–11 seconds of the original video.
+
+SCENE:
+
+A close, premium fashion portrait of our bride.
+
+Frame her face, neckline, necklace, earrings,
+and embroidered blouse.
+
+ACTION:
+
+Transfer the source performance's visible facial
+expression, head angle, gaze, and subtle movement.
+
+Keep the expression natural and believable.
+
+Do not force an exaggerated smile.
+
+Do not introduce a different emotional performance.
+
+CAMERA:
+
+Reproduce the source's close-up composition
+and camera-relative perspective.
+
+Keep the face sharply defined.
+
+Allow the background to remain softly blurred.
+
+GARMENT DETAIL:
+
+Show the exact blouse from our reference images.
+
+Preserve its original neckline, sleeve construction,
+maroon fabric, metallic embroidery, and decorative
+details.
+
+JEWELLERY DETAIL:
+
+Use the actual necklace and earrings represented
+in the supplied jewellery sheet.
+
+Maintain realistic metal reflections and gemstone
+detail without changing the jewellery design.
+
+IDENTITY:
+
+Preserve our bride's facial identity.
+
+Do not blend her face with the original model.
+
+Do not create a different woman during the close-up.
+
+Avoid artificial skin smoothing and plastic-looking skin.
+
+TRANSITION:
+
+Cut to the architectural bridal reveal.
+
+==================================================
+SHOT 3 — 2.8 TO 4.3 SECONDS
+ROYAL DOORWAY REVEAL
+==================================================
+
+SOURCE REFERENCE:
+The doorway and full-length architectural shots
+from approximately 11–15 seconds of the original video.
+
+SCENE:
+
+A refined heritage-style architectural entrance,
+with elegant stonework, a deep doorway, and a warm,
+neutral colour palette.
+
+Our bride is positioned within the doorway.
+
+Her complete bridal silhouette should be visible.
+
+ACTION:
+
+Transfer the source woman's visible body orientation,
+pose, gaze direction, and movement at the doorway.
+
+Preserve the original action's natural timing.
+
+Do not introduce a new walk or turn if the source
+moment does not contain one.
+
+CAMERA:
+
+Use the source's architectural framing.
+
+Maintain the relative position of the bride and doorway.
+
+Avoid excessive camera movement.
+
+OUTFIT:
+
+Show the complete maroon-red lehenga.
+
+Preserve the flared silhouette, intricate embroidery,
+decorative hem, blouse, and dupatta.
+
+The garment must remain consistent with the supplied
+front and rear garment references.
+
+LIGHTING:
+
+Use realistic natural light consistent with the
+source's architectural environment.
+
+Keep the red fabric rich and detailed.
+
+Do not overexpose the gold embroidery.
+
+TRANSITION:
+
+Cut to the source-inspired full-length movement shot.
+
+==================================================
+SHOT 4 — 4.3 TO 6.2 SECONDS
+FULL-LENGTH LEHENGA AND FABRIC MOVEMENT
+==================================================
+
+SOURCE REFERENCE:
+The wide outdoor dress shots and movement sequences
+from approximately 15–21 seconds.
+
+SCENE:
+
+Our bride is shown in a landscaped garden or
+elegant outdoor architectural setting.
+
+The full lehenga is visible from the waist to the hem,
+with enough space to show the garment's complete
+silhouette.
+
+ACTION:
+
+Preserve the original video's visible walking,
+turning, and body-orientation changes.
+
+Transfer the source movement rather than generating
+a new dance or unrelated choreography.
+
+If the source woman turns her body, reproduce the
+same direction and approximate timing.
+
+If she changes her stance, preserve that action.
+
+The skirt and dupatta should react naturally to
+the transferred movement.
+
+FABRIC PHYSICS:
+
+The lehenga follows the body movement.
+
+The skirt responds to the turn with realistic inertia.
+
+The dupatta follows the direction of motion.
+
+The fabric settles naturally after the movement.
+
+Do not create an exaggerated circular fabric explosion.
+
+Do not make the dupatta float independently.
+
+Do not invent an additional spin.
+
+OUTFIT CONSISTENCY:
+
+Preserve the exact garment's original colours,
+embroidered motifs, blouse, and borders.
+
+Do not simplify the embroidery during movement.
+
+Do not change the outfit into an ivory gown.
+
+CAMERA:
+
+Preserve the source's wide framing and movement.
+
+Keep the bride's full silhouette visible.
+
+The shot should feel like a premium bridal fashion film.
+
+TRANSITION:
+
+Cut to the bridal-detail shot.
+
+==================================================
+SHOT 5 — 6.2 TO 7.2 SECONDS
+MEHNDI, HANDS AND BRIDAL BANGLES
+==================================================
+
+SOURCE REFERENCE:
+The close-up of decorated hands and bangles
+around 21–23 seconds in the original video.
+
+SCENE:
+
+A detailed close-up of our bride's hands and wrists.
+
+Show elegant bridal henna, natural fingers,
+and the jewellery represented in the supplied sheet.
+
+ACTION:
+
+Reproduce the source's hand placement and positioning
+as closely as the reference allows.
+
+Preserve the relative arrangement of the hands,
+wrist angles, and visible movement.
+
+Do not invent a new hand gesture.
+
+DETAIL PRIORITIES:
+
+- Realistic hand anatomy.
+- Natural finger proportions.
+- Detailed mehndi patterns.
+- Matching bridal bangles.
+- Realistic skin texture.
+- Fine jewellery reflections.
+
+If the source clearly shows henna, reproduce the
+visible henna styling on our bride's hands.
+
+Do not generate extra fingers.
+
+Do not distort the hands.
+
+Do not duplicate or randomly change the bangles.
+
+Keep the shot brief and visually connected
+to the surrounding fashion shots.
+
+TRANSITION:
+
+Return to the full-length bridal movement.
+
+==================================================
+SHOT 6 — 7.2 TO 10.0 SECONDS
+SIGNATURE GARDEN VEIL AND TURN
+==================================================
+
+SOURCE REFERENCE:
+The wide outdoor shots from approximately 23–32 seconds,
+followed by the flowing-dress compositions from
+approximately 32–39 seconds.
+
+SCENE:
+
+A beautifully landscaped garden with elegant greenery,
+a refined walkway, and soft natural sunlight.
+
+Our bride is shown in a full-length composition.
+
+Her maroon-red lehenga and long embroidered dupatta
+are the central visual features.
+
+ACTION:
+
+Use the strongest recognizable movement from the
+source's final outdoor sequence.
+
+Preserve the original movement's direction,
+body orientation, walking rhythm, and turning action.
+
+If the source shows the bride moving through the garden,
+preserve that progression.
+
+If the source shows a turn that causes the fabric
+to flow outward, reproduce the same type of movement
+without exaggerating its speed or range.
+
+Do not replace the original action with unrelated dancing.
+
+Do not invent a dramatic spin if the source does not
+contain one in the selected moment.
+
+FABRIC:
+
+The skirt responds naturally to the body movement.
+
+The dupatta follows the motion with realistic inertia.
+
+Its embroidered borders remain connected to the fabric.
+
+The fabric must retain the garment's exact red,
+maroon, gold, and decorative details.
+
+CAMERA:
+
+Preserve the source's wide outdoor perspective.
+
+Keep the bride's full silhouette visible.
+
+Maintain natural perspective and realistic proportions.
+
+ENDING:
+
+End on the strongest source-inspired full-length
+bridal composition.
+
+The bride remains recognizable.
+
+The lehenga remains clearly visible.
+
+The final image should feel like a premium
+luxury bridal advertisement.
+
+Do not add text, logos, or watermarks.
+
+==================================================
+IDENTITY PRESERVATION
+==================================================
+
+Our supplied bride photograph is the exclusive
+identity reference.
+
+Preserve her recognizable facial structure,
+eye shape, nose, lips, jawline, skin tone,
+and natural facial characteristics.
+
+Maintain the same identity across:
+
+- Garden portraits.
+- Close-up facial shots.
+- Doorway compositions.
+- Full-length shots.
+- Head turns.
+- Side-profile shots.
+- Moving shots.
+
+Do not preserve the original woman's identity.
+
+Do not blend two identities.
+
+Do not generate a different woman in each shot.
+
+Avoid face morphing during transitions.
+
+Preserve natural skin texture and realistic
+facial detail.
+
+==================================================
+EXACT GARMENT PRESERVATION
+==================================================
+
+Our supplied garment images determine the outfit.
+
+Preserve the original maroon-red colour distribution.
+
+Preserve the intricate gold embroidery.
+
+Preserve the multicoloured decorative motifs.
+
+Preserve the lehenga's original silhouette and flare.
+
+Preserve the blouse's neckline and sleeve construction.
+
+Preserve the embroidery across the blouse.
+
+Preserve the dupatta's transparency and border.
+
+Preserve the decorative hemline.
+
+Preserve the garment's proportions and construction.
+
+Do not redesign the outfit.
+
+Do not simplify the embroidery.
+
+Do not replace the garment with a generic bridal dress.
+
+Do not introduce random motifs.
+
+Do not change the garment between shots.
+
+Do not allow embroidery to melt or disappear
+when the bride turns.
+
+The final video must clearly depict our supplied outfit.
+
+==================================================
+JEWELLERY PRESERVATION
+==================================================
+
+Use our jewellery reference sheet as the source
+for the visible bridal ornaments.
+
+Preserve the designs of the actual pieces shown.
+
+Maintain consistent necklace, earring, maang tikka,
+and bangle designs where those pieces are included.
+
+The ornaments must remain physically attached
+to the appropriate body parts.
+
+Maintain realistic proportions and natural placement.
+
+Avoid floating jewellery, duplicated pieces,
+changing stone patterns, and excessive artificial shine.
+
+The jewellery must complement the exact supplied outfit.
+
+==================================================
+MOTION TRANSFER RULES
+==================================================
+
+The source video determines the performance.
+
+Our bride replaces the original woman while
+retaining the source performance wherever possible.
+
+Prioritize:
+
+1. Body orientation.
+2. Walking direction.
+3. Head angle.
+4. Gaze direction.
+5. Hand placement.
+6. Turning direction.
+7. Movement timing.
+8. Skirt movement.
+9. Dupatta movement.
+10. Camera-relative positioning.
+
+When the original video cuts between shots,
+preserve the same visual progression.
+
+Do not force every original action into the new video.
+
+Select the strongest source moments that fit
+the 10-second duration.
+
+Do not speed up the entire original video.
+
+Do not add random gestures to fill the duration.
+
+Do not generate unrelated choreography.
+
+Maintain natural movement and realistic fabric physics.
+
+==================================================
+CINEMATIC STYLE
+==================================================
+
+Photorealistic luxury bridal fashion cinematography.
+
+Natural outdoor lighting.
+
+Soft sunlight through trees.
+
+Beautifully blurred greenery.
+
+Refined architectural framing.
+
+Realistic skin texture.
+
+Detailed embroidery.
+
+Natural metallic reflections.
+
+Shallow depth of field for close-up portraits.
+
+Full-length fashion compositions for garment shots.
+
+Smooth, source-inspired camera movement.
+
+Premium editorial pacing.
+
+No excessive glow.
+
+No artificial HDR.
+
+No unrealistic lens flares.
+
+No plastic-looking skin.
+
+No cartoon-like fabric movement.
+
+No artificial beauty filters.
+
+==================================================
+STRICT NEGATIVE CONSTRAINTS
+==================================================
+
+Never output the original video unchanged.
+
+Never retain the original woman's face.
+
+Never substitute the supplied bride with a generic model.
+
+Never retain the original ivory outfit.
+
+Never ignore the supplied garment images.
+
+Never redesign the lehenga.
+
+Never change the blouse neckline or sleeves.
+
+Never simplify the embroidery.
+
+Never change the outfit's colours.
+
+Never randomly change jewellery designs.
+
+Never create floating jewellery.
+
+Never create distorted hands or extra fingers.
+
+Never create duplicate limbs.
+
+Never generate unnatural body movement.
+
+Never invent additional choreography.
+
+Never create random camera movements.
+
+Never create an unrelated environment.
+
+Never create floating or disconnected fabric.
+
+Never allow the face to change between shots.
+
+Never allow the garment to change between shots.
+
+Never add text, logos, or watermarks.
+
+==================================================
+FINAL INSTRUCTION
+==================================================
+
+Create a new 10-second luxury bridal fashion video.
+
+Reproduce the strongest recognizable movements,
+poses, camera compositions, and visual progression
+from the uploaded Garden Veil & Turn reference.
+
+Replace the original woman with our supplied bride.
+
+Replace the original ivory outfit with our exact
+maroon-red bridal lehenga, embroidered blouse,
+and dupatta.
+
+Use the actual jewellery designs represented in
+our supplied jewellery reference sheet.
+
+Preserve the original performance wherever possible.
+
+Prioritize recognizable motion, identity consistency,
+garment accuracy, jewellery accuracy, realistic fabric
+physics, and premium cinematic presentation.
+
+The result must be a new bridal advertisement,
+not an unchanged copy of the reference video.

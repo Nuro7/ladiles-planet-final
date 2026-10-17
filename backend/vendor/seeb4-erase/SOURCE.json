@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/seeb4coding/seeb4-erase",
+  "commit": "e68a578b4a6bfdd35db2b069f1525859792c86f7",
+  "file": "seeb4-erase.js",
+  "sha256": "429eeeeb997b840d07d2f5844ec41f74d3cd3df7cbf30ddb12e8ef9d825692b3",
+  "license": "MIT",
+  "scope": "Visible corner-logo alpha-mask detection and reverse blending only. No invisible provenance removal. The upstream file is vendored unchanged."
+}

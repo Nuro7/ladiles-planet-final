@@ -1,0 +1,42 @@
+Create a 10-second 9:16 photorealistic solo bridal fashion film. Generate silent visuals; the platform adds the saved original music.
+The current BRIDE_IDENTITY photograph is the sole face authority. Preserve her facial proportions, natural complexion, age appearance, eyes, nose, lips and jaw across shots. DRESS_FRONT and optional angles show one actual garment: preserve colours, neckline, sleeves, silhouette, stitching, embroidery placement and scale, skirt and supplied dupatta.
+SCENE_REFERENCE boards show chronological setting, camera and pose guidance. Use their architecture and light; render the customer bride wearing the selected dress throughout. One bride, one consistent garment, real skin texture, believable hands and fabric weight. Remove source captions from the generated scene; do not generate advertising title cards.
+Environment: sunset pond, grassy bank, tall trees, soft golden flare and green garden bokeh.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (0-2s) — Source moment 0.2s
+EFFECT: approximately 50% slow-motion feel; restrained optical depth and realistic cloth inertia.
+In second 1 she holds a small white lily bouquet beneath backlit trees; in second 2 she gently turns her face toward the warm light. Three-quarter medium portrait, short push-in.
+EXIT: clean continuity cut at 2 seconds; retain face, garment and lighting.
+
+SHOT 2 (2-4s) — Source moment 5.4s
+EFFECT: approximately 50% slow-motion feel; restrained optical depth and realistic cloth inertia.
+In second 3 the whole selected dress appears beside the pond; in second 4 she shifts her weight while holding lilies low. Wide eye-level view, slow lateral track with water behind.
+EXIT: clean continuity cut at 4 seconds; retain face, garment and lighting.
+
+SHOT 3 (4-6s) — Source moment 8s
+EFFECT: approximately 50% slow-motion feel; restrained optical depth and realistic cloth inertia.
+In second 5 she begins a graceful turn; in second 6 the selected skirt follows with real weight and comes to rest. Full-length small camera arc. Signature slow-motion turn.
+EXIT: clean continuity cut at 6 seconds; retain face, garment and lighting.
+
+SHOT 4 (6-8s) — Source moment 13s
+EFFECT: approximately 50% slow-motion feel; restrained optical depth and realistic cloth inertia.
+In second 7 she brings one hand near her hair without hiding her face; in second 8 she smiles gently. Profile portrait with restrained warm rim light.
+EXIT: clean continuity cut at 8 seconds; retain face, garment and lighting.
+
+SHOT 5 (8-10s) — Source moment 21.7s
+EFFECT: approximately 50% slow-motion feel; restrained optical depth and realistic cloth inertia.
+In second 9 she looks down at the lilies; in second 10 she looks back up with a contented expression. Medium portrait, soft pond background, camera settles.
+EXIT: hold the resolved portrait until 10 seconds.
+
+MASTER EFFECTS INVENTORY
+1. Continuous gentle slow motion in all shots for eye movements and fabric response.
+2. Shallow optical focus in portraits and details; architecture remains recognizable in wider views.
+3. Deliberate tracking, push-in and short arcs as specified per shot.
+4. Clean matched cuts between 5 source-inspired compositions; no morph transitions.
+EFFECTS DENSITY MAP
+0-4s LOW: establish the face and setting, restrained camera movement.
+4-8s MEDIUM: garment detail and a purposeful pose change.
+8-10s LOW: completed action and steady final portrait.
+ENERGY ARC
+Introduce the customer bride within the source setting; reveal the actual garment through the specified actions; resolve into an intentional portrait. Identity and garment fidelity are required quality checks.

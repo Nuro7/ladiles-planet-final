@@ -1,0 +1,21 @@
+{
+  "templateNumber": 7,
+  "templateId": "BUDGET_SPEED_FLOWERS_07",
+  "sceneId": "under-flowers-forever",
+  "label": "Under the Flowers, Into Forever",
+  "subjectMode": null,
+  "deliveryTier": "Budget",
+  "generationMode": "Balance",
+  "promptTestStatus": "Not confirmed as passed",
+  "testProvider": "Google Flow",
+  "referenceIsSourceVideo": true,
+  "musicIntegratedIntoPack": true,
+  "sourceVideoFile": "reference.mp4",
+  "musicFile": "music.m4a",
+  "promptFile": "prompt.txt",
+  "renderedReferenceWithMusic": "reference-with-music.mp4",
+  "note": "Reference/template preview with matching music muxed in. This is not a generated customer result.",
+  "videoDurationSeconds": 10.125,
+  "musicDurationSeconds": 26.12,
+  "integratedClipDurationSeconds": 10.125
+}

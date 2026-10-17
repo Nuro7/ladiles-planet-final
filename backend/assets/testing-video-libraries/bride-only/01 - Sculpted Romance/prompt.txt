@@ -1,0 +1,928 @@
+CREATE A 10-SECOND PREMIUM SOUTH ASIAN BRIDAL FASHION FILM.
+
+============================================================
+REFERENCE INPUT ROLES
+============================================================
+
+REFERENCE VIDEO:
+Use the supplied video ONLY as a visual and cinematographic reference.
+
+Analyze its general:
+- visual rhythm
+- fashion-film pacing
+- camera language
+- framing
+- model movement
+- architectural atmosphere
+- lighting direction
+- contrast
+- sculptural environment
+- close-up / medium / wide progression
+- editorial transition style
+
+Create a NEW ORIGINAL fashion film.
+
+Do NOT reproduce the original model.
+Do NOT reproduce the original woman's identity.
+Do NOT reproduce the original garment.
+Do NOT copy logos, branding, text or identifiable commercial elements.
+Do NOT recreate the exact physical location.
+
+The goal is to capture the SAME KIND OF CINEMATIC ATMOSPHERE,
+not to duplicate the original location.
+
+============================================================
+AUDIO
+============================================================
+
+NO AUDIO GENERATION.
+
+Do not create music.
+Do not synthesize music.
+Do not recreate the reference soundtrack.
+Do not generate sound effects.
+
+Create the video visually only.
+
+The reference video's visual rhythm may influence the pacing of the
+new edit.
+
+Audio can be added separately during post-production.
+
+============================================================
+CORE CREATIVE CONCEPT
+============================================================
+
+Create a premium luxury South Asian bridal fashion campaign for
+Ladies Planet.
+
+The film should feel like a high-end couture advertisement photographed
+inside a dramatic contemporary sculptural architectural installation.
+
+The most important environmental characteristic is:
+
+A LARGE SCULPTURAL WOODEN ARCHITECTURAL ENVIRONMENT.
+
+The environment should feel artistic, cinematic and expensive.
+
+It should NOT look like:
+- a normal building
+- a generic fashion showroom
+- a shopping mall
+- an ordinary hotel
+- a normal bedroom
+- a normal wedding hall
+- a conventional studio
+
+Instead, create a purpose-built architectural fashion environment
+dominated by large organic wooden structures.
+
+============================================================
+ENVIRONMENT — SCULPTURAL WOOD ARCHITECTURE
+============================================================
+
+The background must contain prominent sculptural wooden architecture.
+
+Create large flowing architectural forms inspired by the visual language
+of the supplied reference video.
+
+Use:
+
+- large curved wooden structures
+- flowing timber ribs
+- layered wooden arches
+- sculptural curved walls
+- organic wave-like timber surfaces
+- overlapping wooden planes
+- large vertical curved elements
+- carved or laminated wood forms
+- elegant architectural openings
+- deep architectural recesses
+- curved wooden framing around the model
+- strong negative space between architectural forms
+
+The wooden structures should feel monumental.
+
+They should be large enough to become an important part of the composition.
+
+The environment should feel like a contemporary luxury fashion installation
+rather than ordinary architecture.
+
+IMPORTANT:
+
+Do NOT copy the exact geometry of the reference location.
+
+Create a NEW architectural arrangement with the same general visual language:
+
+organic,
+curved,
+sculptural,
+wooden,
+architectural,
+dramatic,
+minimal,
+premium.
+
+============================================================
+WOOD MATERIAL
+============================================================
+
+Use realistic natural wood.
+
+Visible:
+
+- subtle wood grain
+- natural tonal variation
+- realistic surface texture
+- soft matte/satin wood response
+- slight imperfections
+- believable joins between architectural elements
+- realistic depth and thickness
+
+Avoid:
+plastic-looking wood,
+CGI-looking wood,
+perfectly uniform surfaces,
+fake textures,
+excessive gloss.
+
+The wooden architecture should look physically constructed.
+
+============================================================
+ARCHITECTURAL COLOR PALETTE
+============================================================
+
+Primary environment palette:
+
+- warm natural wood
+- deep walnut/brown accents
+- muted beige
+- warm neutral stone
+- soft cream
+- subtle dark shadow areas
+
+The bride's maroon/red garment must create a strong but elegant contrast
+against the warm wooden environment.
+
+Do not make the background colorful.
+
+Do not use bright colored walls.
+
+Do not use a generic white studio.
+
+============================================================
+LIGHTING
+============================================================
+
+Use dramatic cinematic lighting inspired by the reference video's
+architectural atmosphere.
+
+Create strong controlled light entering through architectural openings.
+
+Use:
+
+- warm directional light
+- bright backlight
+- soft diffused fill
+- controlled shadows
+- subtle rim light
+- atmospheric depth
+- natural falloff
+
+The wooden structures should catch light along their curved edges.
+
+The bride should separate clearly from the background.
+
+Create beautiful highlights along:
+
+- hair
+- jewellery
+- garment embroidery
+- dupatta border
+- wooden architectural curves
+
+Avoid excessive glow.
+
+Avoid artificial light rays.
+
+Avoid fantasy lighting.
+
+The lighting must feel physically photographed.
+
+============================================================
+MASTER BRIDAL LOOK
+============================================================
+
+The first shot establishes the MASTER BRIDAL LOOK.
+
+This look must remain unchanged throughout the entire video.
+
+The same:
+
+- face
+- hairstyle
+- makeup
+- jewellery
+- blouse
+- sleeve
+- lehenga
+- dupatta
+- head styling
+- hand jewellery
+
+must continue through every shot.
+
+The camera may change.
+
+The bride does not change.
+
+============================================================
+SLEEVE — ABSOLUTE LOCK
+============================================================
+
+Use the exact sleeve shown in the supplied Ladies Planet references.
+
+The sleeve length is LOCKED.
+
+The sleeve shape is LOCKED.
+
+The sleeve construction is LOCKED.
+
+The sleeve embroidery is LOCKED.
+
+Never change it between shots.
+
+Never make it:
+
+- half sleeve
+- full sleeve
+- three-quarter sleeve
+- sleeveless
+- cap sleeve
+
+The sleeve visible in the opening shot must be the same sleeve
+visible in every later shot.
+
+============================================================
+DUPATTA — ABSOLUTE LOCK
+============================================================
+
+Use the exact supplied dupatta.
+
+The dupatta must remain present throughout the entire video.
+
+The dupatta styling established in the opening shot becomes the
+MASTER DUPATTA CONFIGURATION.
+
+If it is worn over the bride's head in the opening shot:
+
+KEEP IT OVER THE HEAD THROUGHOUT THE VIDEO.
+
+It may move naturally with body movement.
+
+It must NOT:
+
+- disappear
+- jump to the shoulder
+- suddenly become uncovered
+- change fabric
+- change transparency
+- change border
+- change embroidery
+- change color
+
+Natural movement is allowed.
+
+Styling changes are NOT allowed.
+
+============================================================
+BRIDAL JEWELLERY — LOCKED
+============================================================
+
+Keep the same jewellery configuration throughout.
+
+Maintain:
+
+- earrings
+- necklace/choker
+- maang tikka
+- bangles
+- hathphool
+- rings
+- hand chains
+- visible bridal ornaments
+
+No jewellery may randomly disappear or change.
+
+Jewellery must remain physically attached to the correct body locations.
+
+============================================================
+HAIR AND HEAD STYLING — LOCKED
+============================================================
+
+Maintain exactly the same:
+
+- hairstyle
+- hair parting
+- hairline
+- visible hair
+- bridal head ornament
+- flowers/accessories
+
+Do not change the hairstyle between shots.
+
+============================================================
+GARMENT — PRODUCT MASTER
+============================================================
+
+The supplied Ladies Planet garment photographs are the authoritative
+product references.
+
+Treat them as photographs of ONE REAL PHYSICAL GARMENT.
+
+Preserve the actual garment.
+
+Do not redesign it.
+
+Do not reinterpret it.
+
+Do not simplify it.
+
+Do not create a generic bridal lehenga.
+
+============================================================
+BLOUSE
+============================================================
+
+Preserve:
+
+- exact maroon/red fabric
+- exact neckline
+- exact bust construction
+- exact grid/lattice embroidery
+- exact gold embroidery
+- exact silver embroidery
+- exact pink details
+- exact blue/teal details
+- exact sleeve length
+- exact sleeve construction
+- exact sleeve embroidery
+- exact shoulder details
+- exact lower blouse border
+- exact decorative hanging elements
+
+============================================================
+LEHENGA
+============================================================
+
+Preserve:
+
+- exact maroon/red base
+- exact silhouette
+- exact flare
+- exact panel structure
+- exact vertical motifs
+- exact architectural/paisley motifs
+- exact floral motifs
+- exact pink flowers
+- exact blue/teal accents
+- exact gold embroidery
+- exact silver embroidery
+- exact geometric sections
+- exact lower border
+- exact scalloped hem
+- exact motif spacing
+- exact embroidery density
+
+Do not invent motifs.
+
+Do not remove motifs.
+
+Do not duplicate motifs.
+
+Do not change colors.
+
+Do not change borders.
+
+============================================================
+DUPATTA DETAILS
+============================================================
+
+Preserve:
+
+- translucent maroon/red fabric
+- exact transparency
+- exact border
+- exact border width
+- exact border embroidery
+- exact pallu decoration
+- exact scattered motifs
+- exact corner motifs
+- exact edge construction
+
+============================================================
+LATKAN / TASSEL LOCK
+============================================================
+
+Preserve the exact maroon/red tassel arrangement visible in the
+supplied garment references.
+
+Maintain:
+
+- same design
+- same colors
+- same placement
+- same quantity
+- same decorative structure
+
+Do not remove them.
+
+============================================================
+MODEL — CURRENTLY ATTACHED BRIDE IDENTITY
+============================================================
+
+Use ONLY the bride identity photograph attached to this current
+Google Flow generation request.
+
+The separately attached portrait of the girl is the authoritative
+identity reference. Depict THAT woman wearing the supplied garment.
+
+Do NOT generate a new model or invent a random face.
+
+Do NOT use:
+- the woman in the reference video
+- a person appearing in any garment photograph
+- images from earlier generations or previous conversations
+- unrelated images saved elsewhere in the Flow project
+- a generic South Asian bridal face
+
+The reference video supplies cinematography only.
+The garment images supply clothing only.
+The currently attached bride portrait supplies identity only.
+
+Preserve the attached bride's recognizable:
+- face shape and forehead proportions
+- eyebrow shape and spacing
+- eye shape, eyelids and eye spacing
+- nose bridge, width and tip
+- cheekbones and cheek fullness
+- lip shape and proportions
+- chin and jawline
+- skin tone and age appearance
+- natural facial asymmetry
+- visible hairline and distinctive facial details
+
+Do not blend her face with the source model.
+Do not reshape her features through beauty filters.
+Do not lighten her complexion or replace natural skin texture
+with plastic, waxy or CGI-looking skin.
+
+Maintain this same identity in every face-visible shot,
+including frontal, three-quarter, walking and turning views.
+
+Lighting, expression and perspective may change naturally.
+Her underlying facial structure and identity must not change.
+
+The opening shot establishes the garment and bridal styling,
+NOT a newly invented identity. Identity comes from the attached
+bride photograph before the first frame is created.
+
+Keep face, hairline, ears and neck naturally integrated.
+No pasted-on face, facial flicker or identity changes between cuts.
+
+If complex motion compromises likeness, simplify the motion
+rather than replacing or redesigning the bride's face.
+
+============================================================
+10-SECOND VISUAL STRUCTURE
+============================================================
+
+0.00–1.50
+SCULPTURAL ARCHITECTURAL REVEAL
+
+Begin inside the NEW sculptural wooden environment.
+
+Use large curved timber structures in the foreground and background.
+
+The bride is partially framed by the wooden architecture.
+
+Strong controlled light enters through an architectural opening.
+
+Slow cinematic reveal.
+
+Gradually reveal:
+
+- face
+- jewellery
+- blouse
+- exact sleeve
+- lehenga
+- dupatta
+- head styling
+
+This establishes the MASTER BRIDAL LOOK.
+
+The wooden architecture must already be clearly visible.
+
+Do NOT begin inside a generic building.
+
+------------------------------------------------------------
+
+1.50–3.00
+FULL-BODY HERO REVEAL
+
+Reveal the complete bride.
+
+Show the entire lehenga silhouette.
+
+Show the dupatta.
+
+Show the exact sleeve.
+
+Use the curved wooden architecture as a framing element.
+
+Camera performs a controlled cinematic push or lateral movement.
+
+The wooden structures remain clearly visible behind the bride.
+
+------------------------------------------------------------
+
+3.00–4.10
+MODEL MOVEMENT THROUGH ARCHITECTURE
+
+The bride performs a subtle elegant movement.
+
+She moves slightly between the sculptural wooden forms.
+
+The camera tracks gently.
+
+The environment remains prominent.
+
+The wooden curves create foreground/background depth.
+
+The dupatta moves naturally but maintains its master styling.
+
+------------------------------------------------------------
+
+4.10–5.10
+BLOUSE AND SLEEVE CLOSE-UP
+
+Move into a premium close-up.
+
+Show:
+
+- neckline
+- exact sleeve
+- grid embroidery
+- floral embroidery
+- metallic thread
+- pink details
+- blue/teal details
+
+Keep a small amount of the wooden architecture softly visible
+in the background.
+
+The sleeve remains exactly the same.
+
+------------------------------------------------------------
+
+5.10–6.10
+EMBROIDERY MACRO
+
+Extreme close-up of the garment embroidery.
+
+Show realistic textile construction.
+
+Metallic embroidery catches the warm architectural light.
+
+Keep subtle wooden tones or warm architectural bokeh in the background
+where appropriate.
+
+No pattern morphing.
+
+------------------------------------------------------------
+
+6.10–7.10
+HAND + JEWELLERY + GARMENT
+
+Show:
+
+- hand
+- hathphool
+- rings
+- bangles
+- sleeve
+- garment
+
+The bride gently interacts with the fabric.
+
+Use a softly blurred wooden architectural background.
+
+Natural skin.
+
+Natural jewellery.
+
+Natural movement.
+
+------------------------------------------------------------
+
+7.10–8.40
+THREE-QUARTER HERO SHOT
+
+Return to a wider three-quarter view.
+
+The bride turns gracefully.
+
+Large curved wooden architectural elements frame her.
+
+The camera performs a smooth lateral movement.
+
+The environment should feel monumental and cinematic.
+
+The same dupatta remains present.
+
+The same sleeve remains present.
+
+The same jewellery remains present.
+
+------------------------------------------------------------
+
+8.40–9.50
+WALKING SHOT
+
+The bride walks elegantly through the sculptural wooden environment.
+
+The camera tracks with her.
+
+Use strong architectural perspective.
+
+The curved timber forms create depth and leading lines.
+
+The lehenga moves naturally.
+
+The dupatta trails naturally.
+
+The garment remains unchanged.
+
+------------------------------------------------------------
+
+9.50–10.00
+FINAL HERO COMPOSITION
+
+End with a premium three-quarter or full-body hero frame.
+
+The bride stands within the sculptural wooden architecture.
+
+Warm architectural light surrounds the scene.
+
+The maroon/red garment contrasts beautifully with the warm wood.
+
+The final frame must clearly communicate:
+
+LUXURY
+BRIDAL
+COUTURE
+LADIES PLANET
+
+Return visually to the same MASTER BRIDAL LOOK established
+at the beginning.
+
+============================================================
+CAMERA LANGUAGE
+============================================================
+
+Use premium fashion-film cinematography.
+
+Use:
+
+- slow dolly
+- controlled push-in
+- lateral tracking
+- gentle orbit
+- foreground architectural parallax
+- shallow-focus macro movement
+- controlled focus pull
+- smooth camera repositioning
+
+Use the wooden architecture as foreground framing.
+
+Create natural parallax between:
+
+foreground timber,
+model,
+background architecture.
+
+Avoid:
+
+- random zooms
+- excessive camera shake
+- impossible camera paths
+- extreme rotation
+- fisheye distortion
+- flashy digital effects
+- excessive speed ramps
+
+============================================================
+ENVIRONMENT CONTINUITY
+============================================================
+
+The sculptural wooden environment must remain part of the visual identity
+of the film.
+
+Do not randomly replace it with:
+
+- ordinary buildings
+- generic fashion studios
+- hotels
+- shopping malls
+- white studios
+- unrelated architecture.
+
+Different parts of the same newly designed architectural installation
+may appear from different camera angles.
+
+The geometry may vary naturally as the camera moves.
+
+But the overall environment must consistently remain:
+
+SCULPTURAL
+WOODEN
+ORGANIC
+CURVED
+ARCHITECTURAL
+LUXURIOUS
+CINEMATIC
+
+============================================================
+FABRIC PHYSICS
+============================================================
+
+Treat the garment as real heavy bridal couture.
+
+The lehenga has substantial weight.
+
+The dupatta is lightweight and translucent.
+
+The skirt follows body movement with realistic inertia.
+
+The dupatta responds naturally to gravity and motion.
+
+Embroidery remains attached.
+
+Borders remain attached.
+
+Tassels react naturally to gravity.
+
+No:
+
+melting fabric,
+rubber fabric,
+floating embroidery,
+disappearing motifs,
+changing patterns,
+changing borders,
+changing colors.
+
+If movement threatens garment consistency:
+
+REDUCE THE MOVEMENT.
+
+Never modify the garment to make the movement possible.
+
+============================================================
+PHOTOREALISM
+============================================================
+
+The result should look like a professionally photographed luxury
+bridal campaign.
+
+Real human skin.
+
+Real textile response.
+
+Real jewellery.
+
+Real wood.
+
+Realistic shadows.
+
+Natural depth of field.
+
+Natural motion blur.
+
+Natural highlights.
+
+Subtle photographic texture.
+
+No plastic skin.
+
+No CGI environment.
+
+No artificial-looking wood.
+
+No excessive sharpening.
+
+============================================================
+CONTINUITY SAFETY CHECK
+============================================================
+
+Maintain throughout the entire video:
+
+SAME PERSON
+SAME FACE
+SAME HAIR
+SAME MAKEUP
+SAME JEWELLERY
+SAME BLOUSE
+SAME SLEEVE LENGTH
+SAME SLEEVE DESIGN
+SAME LEHENGA
+SAME EMBROIDERY
+SAME DUPATTA
+SAME DUPATTA POSITION
+SAME HEAD COVERING
+SAME TASSELS
+SAME COLORS
+SAME BODY PROPORTIONS
+
+The environment can be viewed from different angles.
+
+The camera can move.
+
+The bride can move.
+
+The garment and styling cannot change.
+
+============================================================
+FAILSAFE
+============================================================
+
+If complex movement causes clothing inconsistency:
+
+SIMPLIFY THE MOVEMENT.
+
+If the sleeve changes:
+
+PRESERVE THE ORIGINAL SLEEVE.
+
+If the dupatta moves incorrectly:
+
+PRESERVE THE MASTER DUPATTA CONFIGURATION.
+
+If jewellery disappears:
+
+PRESERVE THE MASTER JEWELLERY CONFIGURATION.
+
+If embroidery morphs:
+
+REDUCE CAMERA MOVEMENT.
+
+If the environment becomes generic:
+
+RESTORE THE SCULPTURAL WOODEN ARCHITECTURE.
+
+GARMENT CONSISTENCY AND ENVIRONMENTAL IDENTITY HAVE PRIORITY
+OVER COMPLEX MOTION.
+
+============================================================
+FINAL PRIORITY
+============================================================
+
+1. EXACT BRIDAL LOOK CONSISTENCY
+2. EXACT LADIES PLANET GARMENT
+3. EXACT SLEEVE LENGTH AND CONSTRUCTION
+4. DUPATTA PRESENCE AND FIXED STYLING
+5. JEWELLERY CONSISTENCY
+6. SCULPTURAL WOODEN ARCHITECTURAL ENVIRONMENT
+7. CINEMATIC CAMERA MOVEMENT
+8. VISUAL RHYTHM
+9. PHOTOREALISTIC HUMAN AND FABRIC
+10. PREMIUM FASHION-CAMPAIGN FINISH
+
+FINAL OUTPUT:
+
+10-SECOND LANDSCAPE PREMIUM BRIDAL FASHION FILM.
+
+ONE BRIDE: THE WOMAN IN THE IDENTITY PHOTO ATTACHED TO THIS REQUEST.
+NO NEW OR RANDOMLY GENERATED MODEL IDENTITY.
+ONE FACE.
+ONE HAIRSTYLE.
+ONE JEWELLERY CONFIGURATION.
+ONE EXACT BLOUSE.
+ONE EXACT SLEEVE.
+ONE EXACT LEHENGA.
+ONE EXACT DUPATTA.
+
+A NEW ORIGINAL SCULPTURAL WOODEN ARCHITECTURAL ENVIRONMENT
+WITH THE SAME GENERAL CINEMATIC ATMOSPHERE AS THE REFERENCE.
+
+NO AUDIO GENERATION.
+
+THE VIDEO MUST FEEL LIKE A LUXURY SOUTH ASIAN BRIDAL
+COUTURE CAMPAIGN CREATED FOR LADIES PLANET.
+
+CURRENT REQUEST — REFERENCE PRIORITY AND AUDIO DELIVERY:
+The attached reference video is the visual guide for the scene architecture, spatial layout, atmosphere, camera angles, movement, action progression and shot transitions. Keep these recognizable rather than inventing an unrelated venue or an endless walking shot. Condense the reference's visual progression into the requested 10-second film. If earlier wording asks for a new environment, this instruction takes priority: retain the reference setting and change the person and garment using the currently attached photographs. Never use the source model's face or dress. The attached bride portrait alone defines identity; the dress sheet and separate front, stitching close-up and side photographs define the same selected garment. Preserve their visible details across every shot. Generate silent visuals only: no music, dialogue, narration or sound effects. The platform will add the original reference recording afterwards; do not imitate or recreate that music.
+
+BRIDAL ORNAMENTS REFERENCE — JEWELLERY AUTHORITY
+The attached bridal-ornaments-reference.png is the jewellery styling reference for the bride. Select ONE coherent, richly ornamented bridal ensemble from the sheet and dress the customer bride in it: an opulent necklace or choker with coordinated earrings, forehead ornament, bangles and visible hand jewellery. Preserve the selected pieces' gold finish, stones, pearls, scale, placement and arrangement consistently through every shot. The ornaments must look physically worn by the bride, with realistic weight, attachment and movement. Do not display the jewellery sheet, its velvet stands, panels or background in the film. Do not copy a face, body or garment from this sheet. The uploaded bride photo alone defines identity; the uploaded dress photos alone define the outfit; the source video or scene references define motion and setting. If a piece is hidden by framing, do not replace it with a different design when it becomes visible.

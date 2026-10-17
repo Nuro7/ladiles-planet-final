@@ -1,0 +1,452 @@
+/* ═══════════════════════════════════════════════════════════════
+   LADIES PLANET — AI BRIDAL WALL · Cinematic Landing
+   Design language: Art Deco Luxury · Editorial · Dark Cherry Red & Champagne Gold
+   Mood board: Dior · Cartier · Elie Saab · Vogue Weddings · a gala invitation
+   Scoped under .cine-root so it never leaks into Studio / Admin.
+   ═══════════════════════════════════════════════════════════════ */
+
+.cine-root {
+  /* ── Dark cherry-red palette (light → deepest) ───────────── */
+  --cine-wine-1:  #7F0C1C;
+  --cine-wine-2:  #6E0816;
+  --cine-wine-3:  #5C0612;
+  --cine-wine-4:  #4A0008;
+  --cine-wine-5:  #320004;   /* darkest sink for vignettes */
+
+  /* ── Accent reds ─────────────────────────────────────────── */
+  --cine-red-1:   #7F0C1C;
+  --cine-red-2:   #6E0816;
+
+  /* ── Metallic golds ──────────────────────────────────────── */
+  --cine-gold:      #D4AF6A;   /* champagne gold — primary accent */
+  --cine-gold-2:    #BE9352;   /* antique gold */
+  --cine-gold-3:    #8E6A3C;   /* deep antique */
+  --cine-gold-hi:   #ECD9A8;   /* specular highlight for shimmer + text */
+  --cine-rose-gold: #D69B74;   /* rose gold — warm secondary accent */
+  --cine-gold-rgb:    212,175,106;
+  --cine-gold-hi-rgb: 236,217,168;
+  --cine-rose-rgb:    214,155,116;   /* rose gold — warm gilded glow + text */
+
+  /* ── Text ────────────────────────────────────────────────── */
+  --cine-ivory:     #F7EFE7;   /* warm ivory */
+  --cine-ivory-2:   #F3E6D3;   /* cream */
+  --cine-white:     #FFFFFF;
+  --cine-ivory-rgb: 247,239,231;
+
+  /* ── Ambient / shadow tints (rgb triples for the velvet lighting) ── */
+  --cine-glow-rgb:  150,18,40;   /* ruby ember highlight for radial glows */
+  --cine-deep-rgb:  92,6,18;     /* mid cherry for glass + secondary glows */
+  --cine-ink-rgb:   30,0,4;      /* deepest — shadows + vignette */
+  --cine-wash-rgb:  50,0,4;      /* video legibility wash */
+
+  /* ── Surfaces (derive from the tints so they follow the palette) ── */
+  --cine-bg:          #4A0008;
+  --cine-bg-soft:     #5C0612;
+  --cine-glass-bg:    rgba(var(--cine-deep-rgb), 0.42);
+  --cine-glass-border:rgba(var(--cine-gold-rgb), 0.20);
+  --cine-line:        rgba(var(--cine-gold-rgb), 0.30);
+
+  /* Backwards-compat alias — sections still reference --cine-gold as
+     "the accent"; that now resolves to champagne gold automatically. */
+  --cine-gold-muted:  var(--cine-gold-3);
+
+  /* ── Type — aliases the one shared system (variables.css :root) ── */
+  --cine-script:  var(--font-script);    /* Great Vibes — signature word / lockup ONLY */
+  --cine-display: var(--font-display);   /* Cormorant Garamond — editorial serif */
+  --cine-didone:  var(--font-didone);    /* Bodoni Moda — high-contrast statement */
+  --cine-deco:    var(--font-ui);        /* deco caps now = UI sans + wide tracking */
+  --cine-sans:    var(--font-ui);
+
+  /* ── Motion ──────────────────────────────────────────────── */
+  --cine-ease:    cubic-bezier(0.16, 1, 0.3, 1);
+  --cine-ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+
+  position: relative;
+  color: var(--cine-ivory);
+  font-family: var(--cine-sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
+  /* Dark-cherry velvet room: a ruby key-light up top, a champagne + rose-gold
+     gilded pool upper-right, and a deep cherry sink lower-left. Fixed so the
+     whole page reads as one continuous, candlelit space. */
+  background:
+    radial-gradient(120% 82% at 50% -14%, rgba(var(--cine-glow-rgb), 0.44), transparent 56%),
+    radial-gradient(58% 48% at 86% 4%,   rgba(var(--cine-rose-rgb), 0.10), transparent 60%),
+    radial-gradient(66% 52% at 82% 12%,  rgba(var(--cine-gold-rgb), 0.11), transparent 60%),
+    radial-gradient(85% 62% at 6% 95%,   rgba(var(--cine-deep-rgb), 0.50), transparent 62%),
+    linear-gradient(180deg, var(--cine-bg-soft) 0%, var(--cine-bg) 42%, var(--cine-wine-5) 100%);
+  background-attachment: fixed;
+}
+
+.cine-root h1,
+.cine-root h2,
+.cine-root h3 {
+  font-family: var(--cine-display);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--cine-white);
+  margin: 0;
+}
+
+.cine-root ::selection {
+  background: rgba(var(--cine-gold-rgb), 0.30);
+  color: var(--cine-white);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TEXT UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Eyebrow / kicker label — champagne gold, wide tracking, deco flourish */
+.cine-eyebrow {
+  position: relative;
+  display: inline-block;
+  font-family: var(--cine-sans);
+  font-size: clamp(0.66rem, 0.9vw, 0.78rem);
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--cine-gold);
+}
+
+/* Deco caps — geometric wordmarks / labels. Now the UI sans held open on
+   wide tracking (Poiret One retired) so it still reads Art-Deco. */
+.cine-deco-caps {
+  font-family: var(--cine-deco);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Script signature — Great Vibes. Reserved for signature moments only
+   (hero flourish, brand lockups). Never used for UI, labels, or body. */
+.cine-script {
+  font-family: var(--cine-script);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+/* Editorial display headline */
+.cine-display {
+  font-family: var(--cine-display);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--cine-white);
+}
+
+/* Champagne-gold gradient text — metallic sheen with a rose-gold warm turn */
+.cine-gold-text {
+  background: linear-gradient(104deg,
+    var(--cine-gold-hi) 0%, var(--cine-gold) 40%, var(--cine-rose-gold) 72%, var(--cine-gold-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Gold gradient text that plays a single champagne light-sweep on entrance.
+   Resting state (end frame) settles to a champagne→antique gold. */
+.cine-gold-shimmer {
+  background: linear-gradient(100deg,
+    var(--cine-gold-hi) 0%, var(--cine-gold) 30%, var(--cine-gold-hi) 46%,
+    #FFF7E6 50%, var(--cine-gold-hi) 54%, var(--cine-gold) 70%, var(--cine-gold-3) 100%);
+  background-size: 250% 100%;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: cine-text-shimmer 1.6s var(--cine-ease) 1.7s 1 both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cine-gold-shimmer { animation: none; background-position: 0 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SURFACES — glass + dividers + Art Deco frame
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Rounded glass card — gold-tinted, inner hairline, luxury shadow */
+.cine-glass {
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)),
+    var(--cine-glass-bg);
+  border: 1px solid var(--cine-glass-border);
+  backdrop-filter: blur(22px) saturate(135%);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+  box-shadow:
+    0 30px 70px rgba(var(--cine-ink-rgb), 0.55),
+    inset 0 1px 0 rgba(var(--cine-gold-hi-rgb), 0.14);
+}
+
+/* Fine hairline divider */
+.cine-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cine-line), transparent);
+  border: 0;
+}
+
+/* Art Deco divider — twin gold hairlines meeting a center diamond */
+.cine-deco-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  color: var(--cine-gold);
+}
+.cine-deco-divider::before,
+.cine-deco-divider::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  max-width: 160px;
+  background: linear-gradient(90deg, transparent, rgba(var(--cine-gold-rgb), 0.55));
+}
+.cine-deco-divider::after { transform: scaleX(-1); }
+.cine-deco-divider > .cine-deco-diamond {
+  width: 9px; height: 9px;
+  transform: rotate(45deg);
+  border: 1px solid var(--cine-gold);
+  box-shadow: 0 0 0 3px rgba(var(--cine-gold-rgb), 0.10);
+  flex: 0 0 auto;
+}
+
+/* Art Deco sunburst medallion — slow ceremonial rotation */
+.cine-deco-spin { animation: cine-spin-slow 42s linear infinite; transform-origin: 50px 50px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM CURSOR
+   ═══════════════════════════════════════════════════════════════ */
+@media (hover: hover) and (pointer: fine) {
+  .cine-root.cine-cursor-on,
+  .cine-root.cine-cursor-on * {
+    cursor: none !important;
+  }
+}
+.cine-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.cine-cursor-dot {
+  width: 6px; height: 6px;
+  background: var(--cine-gold-hi);
+  box-shadow: 0 0 12px 2px rgba(var(--cine-gold-hi-rgb), 0.9);
+}
+.cine-cursor-ring {
+  width: 42px; height: 42px;
+  border: 1px solid rgba(var(--cine-gold-rgb), 0.7);
+  box-shadow: 0 0 34px rgba(var(--cine-gold-rgb), 0.32);
+  transition: border-color 0.3s var(--cine-ease),
+              box-shadow 0.3s var(--cine-ease), opacity 0.28s ease;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   KEYFRAMES
+   ═══════════════════════════════════════════════════════════════ */
+@keyframes cine-grain {
+  0%,100% { transform: translate(0,0); }
+  10% { transform: translate(-3%,-4%); }
+  30% { transform: translate(4%,-2%); }
+  50% { transform: translate(-2%,3%); }
+  70% { transform: translate(3%,2%); }
+  90% { transform: translate(-4%,1%); }
+}
+@keyframes cine-float {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%     { transform: translateY(-16px) rotate(0.5deg); }
+}
+@keyframes cine-scrollline {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  40%  { transform: scaleY(1); transform-origin: top; }
+  41%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@keyframes cine-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+/* One-time champagne light sweep across a word (headline "Star") */
+@keyframes cine-text-shimmer {
+  from { background-position: 150% 0; }
+  to   { background-position: -50% 0; }
+}
+@keyframes cine-glow {
+  0%,100% { opacity: 0.5; }
+  50%     { opacity: 1; }
+}
+@keyframes cine-spin-slow { to { transform: rotate(360deg); } }
+@keyframes cine-sweep {
+  0%   { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+  40%  { opacity: 0.9; }
+  100% { transform: translateX(220%) skewX(-18deg); opacity: 0; }
+}
+
+/* Film-grain overlay layer */
+.cine-grain {
+  position: absolute;
+  inset: -50%;
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: cine-grain 1.2s steps(4) infinite;
+}
+
+/* Champagne light-sweep sheen (buttons / cards) */
+.cine-sweep-host { position: relative; overflow: hidden; }
+.cine-sweep-host::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 42%;
+  background: linear-gradient(90deg, transparent, rgba(var(--cine-gold-hi-rgb), 0.28), transparent);
+  transform: translateX(-160%) skewX(-18deg);
+  pointer-events: none;
+}
+.cine-sweep-host:hover::after { animation: cine-sweep 0.9s var(--cine-ease); }
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS — elegant, gold-bordered
+   ═══════════════════════════════════════════════════════════════ */
+.cine-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 34px;
+  min-height: 56px;
+  border-radius: 100px;
+  font-family: var(--cine-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.3s var(--cine-ease), box-shadow 0.4s var(--cine-ease),
+              border-color 0.4s var(--cine-ease), background 0.4s var(--cine-ease),
+              color 0.3s var(--cine-ease);
+}
+/* Primary — deep wine fill, champagne gold border, soft gold halo */
+.cine-btn-gold {
+  color: var(--cine-ivory);
+  background: linear-gradient(135deg, var(--cine-wine-1) 0%, var(--cine-wine-3) 100%);
+  border: 1px solid rgba(var(--cine-gold-rgb), 0.7);
+  box-shadow:
+    0 14px 42px rgba(var(--cine-ink-rgb), 0.5),
+    0 0 0 1px rgba(var(--cine-gold-rgb), 0.08),
+    inset 0 1px 0 rgba(var(--cine-gold-hi-rgb), 0.28);
+}
+.cine-btn-gold:hover {
+  border-color: var(--cine-gold-hi);
+  color: var(--cine-white);
+  box-shadow:
+    0 20px 60px rgba(var(--cine-gold-rgb), 0.30),
+    0 0 26px rgba(var(--cine-gold-rgb), 0.35),
+    inset 0 1px 0 rgba(var(--cine-gold-hi-rgb), 0.5);
+}
+/* Secondary — glass with gold hairline, gold text */
+.cine-btn-ghost {
+  color: var(--cine-ivory);
+  background: var(--cine-glass-bg);
+  border: 1px solid rgba(var(--cine-gold-rgb), 0.28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.cine-btn-ghost:hover {
+  border-color: rgba(var(--cine-gold-rgb), 0.7);
+  color: var(--cine-white);
+  box-shadow: 0 0 22px rgba(var(--cine-gold-rgb), 0.18);
+}
+.cine-btn:focus-visible {
+  outline: 2px solid var(--cine-gold-hi);
+  outline-offset: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FADE / REVEAL primitives (Framer-driven; class kept for fallbacks)
+   ═══════════════════════════════════════════════════════════════ */
+.cine-fade-up { opacity: 0; transform: translateY(28px); }
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION scaffolding
+   ═══════════════════════════════════════════════════════════════ */
+.cine-section {
+  position: relative;
+  padding: clamp(90px, 14vh, 180px) 0;
+}
+/* Soft vignette framing every section — darkens the edges like stage light.
+   Kept below content but above the section's own background + ambient layers. */
+.cine-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(135% 105% at 50% 50%, transparent 60%, rgba(var(--cine-ink-rgb), 0.5) 100%);
+}
+/* Lift the actual content above the vignette. Scoped to content wrappers so it
+   never overrides absolutely-positioned ambient layers (canvas, glow spans). */
+.cine-section > .cine-container,
+.cine-section > .cine-film-rail { position: relative; z-index: 2; }
+
+.cine-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(22px, 5vw, 72px);
+}
+
+/* Dark gradient wash used above every video for legibility */
+.cine-video-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR (scoped)
+   ═══════════════════════════════════════════════════════════════ */
+.cine-root ::-webkit-scrollbar { width: 8px; height: 8px; }
+.cine-root ::-webkit-scrollbar-track { background: transparent; }
+.cine-root ::-webkit-scrollbar-thumb {
+  background: rgba(var(--cine-gold-rgb), 0.45);
+  border-radius: 8px;
+}
+.cine-root ::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--cine-gold-rgb), 0.7);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .cine-root *,
+  .cine-root *::before,
+  .cine-root *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .cine-grain { display: none; }
+  .cine-cursor { display: none; }
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none), (pointer: coarse) {
+  .cine-cursor { display: none !important; }
+  .cine-root.cine-cursor-on,
+  .cine-root.cine-cursor-on * { cursor: auto !important; }
+}

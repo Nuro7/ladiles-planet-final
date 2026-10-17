@@ -1,0 +1,24 @@
+{
+  "id": "courtyard-breeze-portrait",
+  "label": "Courtyard Breeze Portrait",
+  "templateId": "BRIDAL_REFERENCE_14",
+  "templateNumber": 14,
+  "category": "pre-wedding",
+  "description": "Modern white courtyard, pale terrace steps, neatly clipped trees, palms and lawn.",
+  "sourceFilename": "DbDYe6GyUfF.mp4",
+  "subjectMode": "solo",
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "sceneFiles": [
+    "scene-board-1.jpg",
+    "scene-board-2.jpg",
+    "scene-board-3.jpg"
+  ],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 2: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 3: chronological source shot board; complete environment, pose and camera direction only"
+  ],
+  "imageAction": "Show the complete bride head-to-toe against clipped greenery; she gently brings a hand near her cheek, lowers it and looks toward camera. Full-length three-quarter composition with visible floor and generous headroom; subtle camera drift, not a push into a crop.",
+  "environment": "modern white courtyard, pale terrace steps, neatly clipped trees, palms and lawn"
+}

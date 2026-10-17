@@ -1,0 +1,24 @@
+{
+  "id": "golden-lily-lakeside",
+  "label": "Golden Lily Lakeside",
+  "templateId": "BRIDAL_REFERENCE_13",
+  "templateNumber": 13,
+  "category": "pre-wedding",
+  "description": "Sunset pond, grassy bank, tall trees, soft golden flare and green garden bokeh.",
+  "sourceFilename": "DaDX64Oxd67.mp4",
+  "subjectMode": "solo",
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "sceneFiles": [
+    "scene-board-1.jpg",
+    "scene-board-2.jpg",
+    "scene-board-3.jpg"
+  ],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 2: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 3: chronological source shot board; complete environment, pose and camera direction only"
+  ],
+  "imageAction": "Show the complete bride head-to-toe holding a small white lily bouquet beneath backlit trees; she gently turns toward the warm light. Full-length composition with visible floor and generous headroom; subtle camera drift, not a push into a crop.",
+  "environment": "sunset pond, grassy bank, tall trees, soft golden flare and green garden bokeh"
+}

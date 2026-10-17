@@ -1,0 +1,24 @@
+{
+  "id": "hand-into-forever",
+  "label": "A Hand Into Forever",
+  "templateId": "BUDGET_SPEED_HAND_05",
+  "templateNumber": 5,
+  "category": "wedding",
+  "description": "He offers his hand; she steps onto the crowded wedding stage beneath a shower of red petals.",
+  "sourceFilename": "Beautiful dream 🥹🫶...#trending #viral #trendingreels #reelitfeelit #love.mp4",
+  "sourceDuration": 16.44,
+  "sourceSize": [720, 1280],
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "audioStartOffset": 0,
+  "sourceShotStarts": [0],
+  "sceneFiles": ["source-shot-01.png", "source-shot-02.png", "source-shot-03.png"],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: opening stage-edge hand offer in monochrome; groom above, bride below, flowers and crowd, layout only",
+    "SCENE_REFERENCE 2: same action after colour reveal with dense falling red petals; lighting and celebration only",
+    "SCENE_REFERENCE 3: later wide stage-arrival view; complete venue, ceiling light lines, floor, flowers and audience only"
+  ],
+  "imageAction": "Full-length portrait of the bride arriving beside the groom on the raised pale stage, hands joined, with petals falling and a crowded audience behind.",
+  "environment": "Grey rectangular hall wall panels, raised pale stage with flower-lined edge, packed audience, ceiling light lines and dense red petals.",
+  "analysis": "Primarily one continuous stage-edge angle: monochrome opening becomes colour near 3.3 seconds, followed by a dense red petal shower and assisted stage ascent. Near 14 seconds the framing rapidly widens, revealing the ceiling, flower border and audience. No substantial initial scene-detection cut. Save opening, colour and wide-arrival states as references. The 10-second adaptation advances the climb and adds one continuity cut to the wide result after feet reach the platform; it retains the source colour transition and complete stage entry. Original audio from time 0, first 10 seconds at finishing."
+}

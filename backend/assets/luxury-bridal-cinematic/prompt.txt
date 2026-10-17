@@ -1,0 +1,465 @@
+PROJECT: LADIES PLANET — LUXURY BRIDAL CINEMATIC
+TASK: COMPLETE 10-SECOND VIDEO MOTION TRANSFER WITH EXACT BRIDE IDENTITY, EXACT BRIDAL OUTFIT, AND REFERENCE-MATCHED JEWELLERY.
+
+CORE OBJECTIVE
+
+Recreate the first 10 seconds of the supplied bridal reference video as a highly realistic luxury bridal fashion film.
+
+Transfer the original performance and cinematography as faithfully as possible: the bride's body movements, head movements, hand gestures, facial expressions, eye direction, posture changes, timing, shot composition, camera movement, close-up transitions, wider framing, lighting, shadows, colour grading, and visual rhythm.
+
+Replace the reference bride's identity with the woman shown in the supplied bride identity images. Completely replace the reference outfit with the exact bridal outfit shown in the supplied dress references. Reproduce the jewellery and dupatta according to their respective reference images.
+
+The finished video must look like the same cinematic bridal performance, filmed with the same artistic direction, but featuring the selected bride in her actual specified outfit and jewellery.
+
+Do not create a new interpretation of the performance. Do not invent additional shots, poses, gestures, expressions, or camera movements. Follow the source video.
+
+REFERENCE AUTHORITY
+
+SOURCE VIDEO:
+The source video controls the original performance, movement timing, pose sequence, camera framing, shot changes, camera perspective, environment, lighting direction, shadows, and overall cinematographic appearance.
+
+BRIDE IDENTITY REFERENCES:
+The supplied bride images control the woman's identity, facial structure, eye shape, eyebrows, nose, lips, cheeks, jawline, skin tone, natural facial asymmetry, and recognisable appearance.
+
+DRESS REFERENCES:
+The supplied dress sheet and additional angle photographs control the exact garment design, silhouette, construction, fabric, colour, neckline, sleeves, embroidery, embellishments, borders, motifs, and skirt details.
+
+JEWELLERY REFERENCE:
+The supplied jewellery sheet controls the jewellery designs and their visual details. Reproduce the referenced ornaments rather than creating unrelated alternatives.
+
+DUPATTA REFERENCE:
+The supplied dupatta images control the veil's fabric, colour, embroidery, decorative border, transparency, draping, and placement.
+
+When references appear to conflict, preserve the source video's motion and composition while using the bride, dress, jewellery, and dupatta references for their respective subjects.
+
+SECTION A — EXACT BRIDE IDENTITY AND FACE INTEGRATION
+
+Use the supplied bride identity photograph as the primary identity reference throughout the complete video.
+
+The bride must remain recognisably the same individual in every frame, including extreme close-ups, three-quarter views, tilted head positions, downward glances, and wider shots.
+
+Preserve her original facial proportions, eye placement, eye shape, eyebrows, nose, lips, cheek structure, jawline, forehead, skin tone, and natural identifying characteristics.
+
+Do not beautify her into a different person. Do not redesign her face to resemble the source video's original bride. Do not blend the two women's identities.
+
+CRITICAL FACE-TO-HEAD-TO-BODY INTEGRATION:
+
+The face must be physically integrated with the bride's head and body, not appear pasted onto the video.
+
+Maintain correct three-dimensional facial perspective as the head tilts, turns, lowers, or changes orientation.
+
+The forehead, temples, cheeks, jawline, chin, ears, and neck must remain naturally connected.
+
+Preserve realistic head proportions and correct anatomical alignment between the face, skull, neck, shoulders, and torso.
+
+The face must follow the same head movement as the body. Facial perspective, lighting, shadows, and apparent depth must change naturally with the head's orientation.
+
+No floating face.
+No flat facial overlay.
+No face-swap seams.
+No detached jaw.
+No doubled facial features.
+No mismatched skin tones between face, ears, and neck.
+No inconsistent face scale between shots.
+No identity changes during movement.
+No facial distortion during head tilts.
+No artificial mask-like appearance.
+No abrupt facial reconstruction during transitions.
+
+Maintain natural skin texture, realistic pores, fine facial details, subtle imperfections, believable highlights, and authentic photographic realism.
+
+Preserve natural eye movement, blinking, facial muscle movement, and expressions consistent with the source performance.
+
+The bride should look like a real person captured by a professional fashion cinematographer, not a synthetic face composited over a different body.
+
+SECTION B — EXACT BRIDAL DRESS RECONSTRUCTION
+
+Completely replace the original outfit in the source video with the exact garment shown in the supplied dress sheet and all additional dress-angle photographs.
+
+The supplied garment references are authoritative. They are not merely inspiration.
+
+Reconstruct the same garment consistently across every camera angle, pose, and shot.
+
+Preserve the actual garment's:
+- Exact base colour and colour undertones.
+- Fabric type and visible surface texture.
+- Silhouette and garment proportions.
+- Neckline and neckline embroidery.
+- Sleeve shape, length, and embellishments.
+- Bodice construction and decorative patterns.
+- Embroidery density and motif placement.
+- Decorative stones, beads, sequins, and metallic details.
+- Borders, hems, panels, and ornamental trims.
+- Skirt structure, pleats, folds, and volume.
+- Distinctive design elements visible in the reference images.
+
+Use the additional dress-angle photographs to understand the same garment from different viewpoints.
+
+Do not treat different angle photographs as different dresses. They represent the same physical garment.
+
+When the bride turns or changes posture, reconstruct the garment's unseen areas plausibly using the supplied views. Do not invent a new design where the actual references provide the answer.
+
+Maintain consistent embroidery placement and garment construction between close-ups and wide shots.
+
+The dress must remain physically believable as fabric worn by a human body. It must react naturally to the bride's arm movements, seated posture, torso rotation, and gravity.
+
+Preserve the source video's original body movements while allowing the new garment to respond naturally to those movements.
+
+CRITICAL HUMAN-BODY AND ANTI-MANNEQUIN REQUIREMENTS:
+
+If any dress reference contains a mannequin, display form, hanger, white torso, artificial body, blank white patch, studio background, or product-display structure, extract only the garment information.
+
+Never transfer the mannequin, mannequin surface, artificial torso, white patch, hanger, or product-photography background into the generated video.
+
+The bride must have a complete, anatomically correct human body beneath the outfit.
+
+Any genuinely exposed areas must show natural human skin with realistic texture, colour, and lighting.
+
+Any covered areas must show the correct bridal fabric. Do not replace covered skin or fabric with blank white surfaces.
+
+Do not create missing fabric, artificial white patches, mannequin-like hands, disconnected sleeves, hollow garment openings, or impossible body geometry.
+
+The garment must fit the bride naturally while preserving the actual design.
+
+Do not redesign, simplify, recolour, or replace the dress with a visually similar alternative.
+
+SECTION C — EXACT JEWELLERY AND ORNAMENTATION
+
+Use the supplied jewellery sheet as the primary reference for the bride's jewellery.
+
+Reproduce the actual referenced ornaments, including their shapes, decorative motifs, stone colours, metal appearance, settings, proportions, and arrangement.
+
+Use the reference sheet to determine which ornaments belong in each position. Preserve the specified combination rather than substituting generic bridal jewellery.
+
+Depending on the supplied sheet, accurately reproduce the referenced:
+- Maang tikka or forehead ornament.
+- Head jewellery and hair ornaments.
+- Earrings.
+- Necklace and layered necklaces.
+- Choker and longer necklace arrangements.
+- Hand jewellery, bangles, rings, or other visible ornaments.
+- Nose jewellery, if included in the supplied reference.
+- Additional bridal ornaments shown in the reference sheet.
+
+Do not add an ornament that is absent from the supplied jewellery design unless it is clearly part of the specified set.
+
+Do not omit important ornaments simply because the camera moves closer or changes angle.
+
+Maintain stable jewellery placement throughout the entire video.
+
+The forehead ornament must remain naturally attached to the forehead or hairline according to its design. Earrings must remain connected to the ears. Necklaces must follow the neck and upper chest naturally. Bangles and hand ornaments must follow the correct wrists and hands.
+
+Jewellery must have believable weight, contact, reflections, and movement.
+
+Precious stones and metallic surfaces should catch the existing scene lighting naturally, producing detailed, controlled highlights.
+
+The jewellery should look luxurious, detailed, and richly ornamented without becoming excessively oversized, glowing, or visually exaggerated.
+
+Avoid jewellery flickering, changing stone colours, duplicated necklaces, floating ornaments, disappearing earrings, fused decorative pieces, and inconsistent ornament designs.
+
+The jewellery must remain faithful to the supplied reference sheet during both close-ups and wider shots.
+
+SECTION D — DUPATTA AND HAIR
+
+Use the supplied dupatta reference to reproduce the exact veil.
+
+Preserve its actual colour, fabric, embroidery, border, transparency, and ornamental details.
+
+Follow the source video's original veil placement and visible movement wherever possible, while adapting the fabric to the new bride and garment.
+
+The dupatta should drape naturally over the head and shoulders and respond plausibly to the bride's movement and gravity.
+
+Preserve continuity of the veil between shots. Its border and embroidery must not randomly change, disappear, or move to different locations.
+
+Keep the bride's hair natural and consistent with the supplied identity references and the visible hairstyle required by the bridal styling.
+
+Do not let the veil obscure the face incorrectly or penetrate the forehead, jewellery, shoulders, arms, or dress.
+
+Avoid stiff fabric, weightless floating cloth, clipping, abrupt changes in veil length, and inconsistent border patterns.
+
+SECTION E — SECOND-BY-SECOND MOTION TRANSFER
+
+The following is a motion map for the first 10 seconds of the supplied reference video. Match the visible source performance, not an independently invented choreography.
+
+0.00–1.00 SECONDS — OPENING BRIDAL PORTRAIT
+
+Begin with the source video's tight vertical bridal portrait composition.
+
+The bride occupies most of the frame. Her face, forehead ornament, earrings, and richly decorated upper garment are immediately visible.
+
+Preserve the original head orientation, gaze, hand placement near the side of the head, and subtle facial expression at the corresponding source frames.
+
+Match the original camera distance, perspective, crop, and warm directional lighting.
+
+The bride's identity must already be correct in the opening frame. Do not begin with one face and gradually transform into another.
+
+Preserve natural skin texture and realistic jewellery reflections.
+
+Do not introduce an additional establishing shot or transition.
+
+1.00–2.00 SECONDS — HAND-AND-FACE BRIDAL POSE
+
+Follow the source's change toward a slightly wider portrait showing more of the bride's upper body and raised hand.
+
+Transfer the original arm position, wrist orientation, finger placement, head inclination, and gaze as closely as the reference permits.
+
+Keep the hand anatomically correct, with natural fingers and believable joints.
+
+Preserve the relationship between the hand, face, hair, forehead ornament, and veil.
+
+The hand must not deform, merge with the jewellery, or pass unnaturally through the face or hair.
+
+The embroidered sleeve must retain the exact supplied dress design.
+
+Match the original camera framing and the movement between the opening close-up and this composition.
+
+2.00–3.00 SECONDS — HELD HAND GESTURE AND FACIAL DETAIL
+
+Continue the reference performance without resetting the pose.
+
+Maintain the raised-hand bridal gesture and the subtle head and gaze adjustments visible in the source.
+
+Preserve continuity in the wrist angle, fingers, elbow, shoulders, head position, and facial expression.
+
+The bride's face must rotate naturally with the head rather than remaining unnaturally fixed toward the camera.
+
+Keep the jewellery attached to the correct anatomical positions.
+
+Maintain the dark background, warm illumination, and rich red colour atmosphere from the reference.
+
+Do not create an extra gesture, exaggerated smile, or artificial head turn.
+
+3.00–4.00 SECONDS — TRANSITION TO THE TILTED BRIDAL POSE
+
+Follow the source's transition into the more dramatically tilted pose.
+
+The bride's head and upper body incline into the new position, with her arms and hands arranged close to the upper body as shown in the reference.
+
+Reproduce the original pose progression, relative timing, framing, and camera perspective.
+
+The movement must be continuous and physically plausible, not an instantaneous change between two static images.
+
+The face must follow the head's tilt with correct perspective and natural facial anatomy.
+
+The neck, shoulders, torso, and arms must remain connected and anatomically consistent.
+
+Allow the dupatta and dress fabric to respond naturally to the changed posture.
+
+Maintain the original dramatic lighting and shadows.
+
+4.00–5.00 SECONDS — TILTED FACE AND VEIL COMPOSITION
+
+Preserve the source's tilted bridal pose and the composition that prominently displays the bride's face, jewellery, and red veil.
+
+Match the direction of her gaze, head angle, shoulder position, and hand placement at each corresponding source moment.
+
+Keep the veil's visible folds and draping coherent with the reference.
+
+Maintain the exact supplied dress and jewellery even where the camera angle makes their shapes and reflections change.
+
+Do not freeze the face independently of the body. Any visible head movement must remain coordinated with the neck and shoulders.
+
+Keep the original visual mood: deep shadows, warm highlights, dark surroundings, and rich bridal colours.
+
+5.00–6.00 SECONDS — CLOSE BRIDAL BEAUTY SHOT
+
+Follow the source into the closer beauty framing.
+
+The face, forehead jewellery, eyes, cheeks, and upper part of the bridal outfit become more visually prominent.
+
+Preserve the source's subtle gaze and head-position changes.
+
+Keep the bride's identity stable in the closer view, including facial proportions, eye shape, nose, lips, and jawline.
+
+Maintain realistic skin texture without plastic smoothing.
+
+The forehead ornament, earrings, necklace, and garment embroidery must retain their specified designs.
+
+Preserve natural depth and the original relationship between the face and camera.
+
+Do not enlarge the eyes, sharpen the jaw artificially, or modify facial proportions to create an idealised beauty look.
+
+6.00–7.00 SECONDS — CLOSE-UP CONTINUATION
+
+Continue the close beauty shot with the original timing and any subtle movement visible in the source.
+
+Preserve the face orientation, gaze, expression, and head position at the corresponding point in the reference.
+
+Maintain the exact jewellery arrangement and realistic reflections.
+
+The bride's facial features must remain stable during the small movements that distinguish consecutive frames.
+
+Avoid facial morphing, identity drift, eye misalignment, unstable earrings, and changes in the forehead ornament.
+
+Keep the original warm light direction and dark background.
+
+Do not add a new camera movement unless it is present in the source.
+
+7.00–8.00 SECONDS — JEWELLERY AND GARMENT DETAIL SHOT
+
+Follow the source's transition into the tighter detail composition featuring the bride's jewellery, neckline, and richly embellished upper garment.
+
+Preserve the original close framing, visual emphasis, camera angle, and timing of this detail shot.
+
+The supplied jewellery sheet and dress references must now be especially accurate.
+
+Reproduce the actual necklace arrangement, stone details, metal finish, embroidery, beadwork, and fabric texture visible in the corresponding region.
+
+Keep the jewellery physically attached to the body and the garment properly fitted.
+
+Preserve realistic highlights and shadows across the ornaments and fabric.
+
+Do not invent a different necklace design or replace the specified embroidery with generic decorative patterns.
+
+Avoid excessive sparkle effects, artificial glow, unstable patterns, or jewellery that changes shape between frames.
+
+8.00–9.00 SECONDS — TRANSITION TO THE WIDER SEATED SHOT
+
+Follow the source's transition to the wider composition showing the bride seated in the environment.
+
+Preserve the source's seated posture, torso orientation, hand position, visible arm movement, and the arrangement of the skirt and veil.
+
+Match the original camera distance, framing, perspective, and placement of the bride within the scene.
+
+The wider view must reveal the same bride, the same exact outfit, the same jewellery, and the same dupatta established in the close-ups.
+
+The skirt should spread and fold naturally around the seated body, consistent with the actual garment construction.
+
+The bride's body must remain anatomically correct. Do not create distorted legs, disconnected arms, unnatural hands, or impossible garment geometry.
+
+Maintain the source's dark architectural surroundings, warm highlights, and rich red atmosphere.
+
+9.00–10.00 SECONDS — FINAL SEATED BRIDAL PERFORMANCE
+
+Continue the seated performance through the end of the 10-second output.
+
+Transfer the source's visible hand movement, arm position, gaze, facial expression, and upper-body posture at the corresponding moments.
+
+Preserve the source's timing and final composition. Do not invent a new ending, pose, fade, camera movement, or transition.
+
+Maintain the exact bride identity and facial integration in the wider framing.
+
+Keep the garment, veil, jewellery, and hairstyle consistent with all previous shots.
+
+Ensure that the final frame remains visually coherent with the preceding frames, with no sudden changes to the face, hands, dress, jewellery, lighting, or background.
+
+END the video at the corresponding source-video moment, preserving the original performance rather than introducing an additional action.
+
+SECTION F — CAMERA AND CINEMATOGRAPHY TRANSFER
+
+Treat the source video as the authority for the shot sequence.
+
+Preserve the original:
+- Vertical 9:16 composition.
+- Camera distance and subject scale.
+- Close-up and wider-shot relationships.
+- Camera perspective and visible angle.
+- Composition and crop.
+- Timing of shot changes.
+- Subject placement within the frame.
+- Depth and background perspective.
+- Cinematic rhythm.
+- Focus and depth-of-field appearance.
+- Any visible camera movement.
+
+Do not replace the reference with a generic bridal montage.
+
+Do not add drone shots, rotating-camera shots, wide establishing shots, slow-motion inserts, artificial zooms, or unrelated transitions.
+
+Do not force the bride to face the camera if the source shows her looking elsewhere.
+
+Do not crop away important facial features or jewellery that are visible in the reference composition.
+
+Every shot should feel as if it belongs to the same continuous luxury bridal production.
+
+SECTION G — ENVIRONMENT, LIGHTING, AND COLOUR
+
+Preserve the source video's dark, warm-toned indoor environment and its visible background geometry.
+
+Match the source's deep shadows, warm directional illumination, subtle ambient light, contrast, and cinematic depth.
+
+Maintain believable light interaction with the bride's skin, face, jewellery, embroidered fabric, and veil.
+
+The face and body must share the same lighting environment. Never illuminate the face as though it were photographed in a different location.
+
+Keep the highlights on jewellery realistic and consistent with the light sources in the scene.
+
+Preserve the rich red atmosphere of the reference while respecting the actual colour of the supplied garment.
+
+Do not recolour the dress simply to match the original outfit if the supplied dress has a different colour.
+
+Avoid artificial neon effects, excessive bloom, fake lens flares, glowing jewellery, oversaturated skin, crushed facial detail, or flat artificial lighting.
+
+SECTION H — TEMPORAL AND ANATOMICAL CONSISTENCY
+
+All ten seconds must behave as one coherent video.
+
+The bride's face, head, neck, shoulders, arms, hands, torso, dress, veil, hair, and jewellery must remain connected and consistent during movement.
+
+Preserve plausible human motion between consecutive frames.
+
+Maintain stable facial identity through changes in camera distance, head angle, gaze, and lighting.
+
+Maintain stable garment construction through changes in posture and framing.
+
+Preserve jewellery placement and design across all shots.
+
+Avoid sudden appearance changes at shot transitions.
+
+Avoid flickering embroidery, moving decorative motifs, melting fabric, duplicated ornaments, changing jewellery, facial warping, unstable fingers, extra fingers, missing fingers, broken wrists, disconnected limbs, and inconsistent body proportions.
+
+The output must not resemble a collection of unrelated AI-generated still images. It must feel like a single cinematic performance with coherent motion and consistent identity.
+
+SECTION I — STRICT NEGATIVE CONSTRAINTS
+
+Do not preserve the original source bride's facial identity.
+
+Do not blend the source bride's face with the supplied bride's face.
+
+Do not generate a new face for any shot.
+
+Do not allow the face to float, detach, slide, or become pasted onto the head.
+
+Do not change facial proportions between close-ups and wide shots.
+
+Do not replace the supplied dress with a similar-looking garment.
+
+Do not invent new embroidery, change the garment colour, alter the neckline, or change the sleeve design.
+
+Do not transfer mannequins, display forms, blank white patches, hangers, or studio backgrounds from garment references.
+
+Do not create artificial white areas on the bride's body.
+
+Do not simplify, omit, duplicate, or randomly redesign the specified jewellery.
+
+Do not allow jewellery to float or detach from the body.
+
+Do not create stiff, weightless, or physically impossible fabric movement.
+
+Do not alter the source's choreography or shot sequence.
+
+Do not add extra gestures, poses, camera angles, or transitions.
+
+Do not replace the original environment with an unrelated palace, studio, garden, or wedding venue.
+
+Do not introduce text, captions, logos, watermarks, or graphic overlays.
+
+Do not apply cartoon, illustration, CGI-character, beauty-filter, plastic-skin, or artificial doll aesthetics.
+
+FINAL DIRECTIVE
+
+Recreate the first 10 seconds of the supplied reference video as faithfully as possible.
+
+Preserve its original motion, timing, performance, framing, camera language, lighting, environment, and sequence of shots.
+
+Replace the source bride with the exact woman represented by the supplied identity references.
+
+Replace the source outfit with the exact garment represented by the supplied dress sheet and additional dress-angle images.
+
+Use the supplied jewellery sheet and dupatta references as the authoritative design references for those elements.
+
+Maintain correct face-to-head-to-body integration throughout every movement and shot.
+
+Deliver a coherent, photorealistic, luxury bridal fashion film with stable identity, accurate garment reconstruction, detailed jewellery, natural human anatomy, and consistent temporal continuity.
+
+IDENTITY, GARMENT, AND JEWELLERY ACCURACY ARE ESSENTIAL. CINEMATIC MOTION MUST REMAIN FAITHFUL TO THE SOURCE.

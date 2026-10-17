@@ -1,0 +1,40 @@
+SHOT-BY-SHOT EFFECTS TIMELINE
+
+Edit SOURCE_VIDEO into a 10-second vertical 9:16 bridal fashion clip. Change only the woman's identity and bridal outfit. Keep the reference video's actual setting, poses, expressions, camera movement, framing, shot order, cuts and transitions. Use the first 10 seconds of the reference; do not create a different story.
+
+REFERENCE ROLES
+BRIDE_IDENTITY: the attached bride photograph defines the person.
+DRESS_REFERENCE: the attached dress photograph or multi-angle sheet defines one selected garment, not multiple outfits.
+SOURCE_VIDEO: the attached video defines motion, scene and editing. Its actress and clothing are not appearance references.
+
+IDENTITY REPLACEMENT
+Use the bride's recognizable face consistently in every visible shot: retain her face shape, eyes, brows, nose, lips, jawline, skin tone, hairline and natural skin texture. Adapt lighting, expression and head pose to the source without changing her identity. Keep front, profile and three-quarter views consistent. Integrate her face naturally with neck and body; no blending with the original actress, beauty-filter reshaping or face drift.
+
+EXACT SELECTED-DRESS REPLACEMENT
+Replace the complete source outfit with the supplied dress, including its documented blouse, skirt and dupatta. Match the selected garment's colours, neckline, sleeves, silhouette, embroidery layout, motifs, borders and material texture. Use supplied side/back/detail views where visible. All sheet panels describe the same outfit; never show the sheet, mannequin or labels in the output. Fabric should follow the source body motion naturally, with stable embroidery, realistic folds and correct hand contact.
+
+SOURCE-LOCKED SHOTS
+These ranges are continuity checks, not new cut points. Preserve actual source cuts and do not invent a shot that is absent.
+0-3 seconds: retain the source opening pose and framing; establish the uploaded bride's face and selected outfit.
+3-5 seconds: retain the actual portrait or upper-body framing and movement; preserve facial identity, neckline and draping.
+5-8 seconds: retain the source's full-length or angled views, poses and camera perspective; show the selected garment's silhouette and fabric motion.
+8-10 seconds: retain the actual closing poses and detail crops; show the selected garment details and end with the reference segment.
+
+MASTER EFFECTS INVENTORY
+1. Identity replacement in every face-visible shot.
+2. Selected-garment replacement in every outfit-visible shot.
+3. Existing source camera moves, cuts and transitions only; no additional effects.
+4. Photorealistic integration: coherent light, shadows, anatomy, cloth and motion blur.
+Bride only; no extra people, groom, captions or added branding.
+
+AUDIO — SOURCE MUSIC
+Keep the reference video's existing music. No speech, narration or added sound effects. Return the video with audio.
+
+EFFECTS DENSITY MAP
+0-3s: SOURCE-LOCKED opening.
+3-8s: SOURCE-LOCKED reveal and poses.
+8-10s: SOURCE-LOCKED details and ending.
+Do not add effects or change cut timing to fit these ranges.
+
+ENERGY ARC
+Keep the reference's editorial rhythm and background. Prioritize recognizable bride identity, faithful selected-dress detail and consistent motion over cinematic embellishment.

@@ -1,0 +1,269 @@
+LADIES PLANET — BRIDAL IMAGE PROMPTS
+Codex Integration Reference
+Version: 1.1
+Status: Prompts 1, 2, and 3 are confirmed as passed by the user.
+
+============================================================
+1. PURPOSE
+============================================================
+
+Integrate the tested Ladies Planet bridal IMAGE-generation prompts into the platform.
+
+The user confirmed that Image Prompts 1, 2, and 3 passed testing. Continue the same approach for later prompts, but do NOT mark prompts 4–10 as passed until the user tests and approves them.
+
+IMPORTANT SOURCE-ACCURACY NOTE:
+This file reconstructs Prompt 1 and Prompt 2 from the available conversation context and the user's descriptions of the reference images. It is not a verbatim recovery of the original historical prompt text. Prompt 3 is marked as passed because the user confirmed its test result, but its exact prompt text and display name are not available in the current record. Do not invent Prompt 3's wording or name; add its exact content when supplied or recovered.
+
+============================================================
+2. CORE WORKFLOW — DO NOT CHANGE
+============================================================
+
+The user supplies:
+- The bride identity image(s).
+- Multiple views/angles of the desired bridal dress.
+- The mandatory dupatta reference.
+- The premium jewellery/bridal ornaments reference sheet.
+
+The platform uses the analyzed description of the selected inspiration image to generate a scene-specific prompt.
+
+DO NOT require the original inspiration/reference image to be attached to the generation request. The source image is analysed first; its scene, pose, camera composition, environment, lighting, and mood are described in text. The generation request should use the bride/dress/dupatta/jewellery references, not the original inspiration image.
+
+This is an IMAGE workflow, not a video workflow. Do not add video, motion-transfer, duration, or storyboard controls to these image prompts.
+
+============================================================
+3. INPUTS: REQUIRED VS NOT REQUIRED
+============================================================
+
+REQUIRED INPUTS FOR EVERY IMAGE PROMPT:
+1. Bride identity image(s) — authoritative face/identity source.
+2. Multiple dress reference images — authoritative garment design source.
+3. Dupatta reference — mandatory; reproduce the supplied dupatta.
+4. Bridal jewellery/ornaments sheet — use as a reference for premium coordinated jewellery.
+5. Selected prompt ID (for example, IMAGE_01 or IMAGE_02).
+
+NOT REQUIRED:
+- The original inspiration/reference image at generation time. Analyse it beforehand and convert it into a text scene description.
+- The original reference video.
+- A groom image, unless a future prompt explicitly includes a groom.
+- A mannequin or product image as the final scene composition. Dress photos are garment-design references only.
+
+OPTIONAL:
+- Extra bride angles, if available, to improve identity consistency.
+- Extra dress angles, close-ups, or detail images to clarify embroidery and construction.
+- User-selected model/settings supported by the platform.
+
+If any mandatory input is missing, show a clear validation message instead of silently generating with missing references.
+
+============================================================
+4. NON-NEGOTIABLE RULES FOR ALL PROMPTS
+============================================================
+
+A. BRIDE IDENTITY LOCK
+- The supplied bride image(s) determine the bride's identity.
+- Preserve face shape, eyes, nose, lips, jawline, skin tone, hairline, and distinctive features.
+- Do not use the woman from the inspiration image as the generated bride.
+- Do not generate a generic bride or blend identities.
+- Keep natural skin texture; avoid plastic-looking skin and facial distortion.
+
+B. EXACT DRESS LOCK
+- The supplied dress images are the authority for the garment.
+- Use multiple dress angles together as views of one garment.
+- Preserve the actual colour, neckline, blouse construction, chest embroidery, motifs, sleeves, skirt, fabric, borders, embellishments, and construction.
+- Do not redesign, recolour, simplify, or substitute the dress.
+- Do not invent garment details not supported by the supplied references.
+
+C. ANTI-MANNEQUIN LOCK — CRITICAL
+Dress images may show a mannequin, white display torso, hanger, clothing stand, or product-photo background.
+- Transfer the garment design only.
+- NEVER transfer the mannequin into the generated image.
+- NEVER add a white abdomen patch or white torso fragment.
+- NEVER paste the complete product photo into the scene.
+- NEVER copy the product-photo background.
+- Fit the garment naturally to the real human bride.
+- If the actual garment exposes the abdomen, show natural human skin; if it covers the abdomen, reproduce its actual coverage.
+
+D. MANDATORY DUPATTA
+- The supplied dupatta is required in every generated bridal image.
+- Preserve its colour, fabric, transparency (if any), embroidery, motifs, borders, and embellishments.
+- Drape it naturally over the bride's head/shoulders/body as appropriate to the composition.
+- Do not omit it or replace it with a generic veil.
+- Keep the face visible and the fabric physically plausible.
+
+E. PREMIUM JEWELLERY
+- Use the supplied jewellery sheet as a visual reference.
+- Choose a coordinated, plausible set from the sheet; do not blindly place every item in a collage on the bride.
+- Suitable items may include a necklace/choker, earrings, maang tikka, bangles, rings, nath, and hathphool when appropriate.
+- Preserve the reference-supported design, metalwork, stones, pearls, and colours.
+- Keep jewellery realistic and consistent; do not let it float, melt, or merge into skin.
+- Do not unnecessarily obscure the dress neckline or important chest embroidery.
+
+F. SCENE COMPOSITION
+- The analysed inspiration image determines the written scene composition, pose, camera framing, environment, lighting, and mood only.
+- Do not attach the original inspiration image to generation by default.
+- Do not let the inspiration image override the supplied bride identity, dress, dupatta, or jewellery.
+
+G. OUTPUT
+- Photorealistic luxury Indian bridal campaign aesthetic.
+- No added text, captions, logos, watermarks, or branding unless explicitly requested.
+- Do not claim that prompting guarantees pixel-perfect identity or garment replication; keep the prompt strong while acknowledging model limits if the UI needs a user-facing note.
+
+============================================================
+5. IMAGE PROMPT 1 — GARDEN BRIDAL SPIN / FLOWING LEHENGA
+============================================================
+
+INTEGRATION ID: IMAGE_01
+DISPLAY NAME: Garden Bridal Spin — Pink Bougainvillea
+STATUS: USER-REPORTED PASS (the user said Prompts 1 and 2 generated good-looking images)
+PROMPT TYPE: Single-image generation from a text scene description
+ORIGINAL INSPIRATION IMAGE REQUIRED AT GENERATION: NO
+BRIDE IMAGE REQUIRED: YES
+MULTI-ANGLE DRESS IMAGES REQUIRED: YES
+DUPATTA REQUIRED: YES
+JEWELLERY SHEET REQUIRED: YES
+GROOM IMAGE REQUIRED: NO
+
+SCENE DESCRIPTION:
+Create a premium, photorealistic full-length Indian bridal fashion portrait in a lush garden. A bride stands on a green lawn beneath dense dark-green foliage and vivid pink bougainvillea flowers. She wears a richly embroidered, voluminous lehenga and a matching dupatta. Her body is turned gracefully as if completing a gentle bridal twirl; the broad skirt spreads outward in a beautiful circular arc, showing the embroidery, layered fabric, ornate hem, and rich textile detail. One hand gently lifts or controls the dupatta/skirt while the other rests naturally. She has a poised, warm expression. The garden remains deep and natural, with soft directional daylight, realistic shadows, and a luxury editorial atmosphere. Compose the bride as the clear central subject with the full skirt visible, portrait orientation, natural perspective, realistic cloth physics, fine embroidery detail, and professional bridal campaign quality.
+
+GENERATION PROMPT:
+Create an ultra-realistic luxury Indian bridal fashion photograph, vertical 4:5 portrait composition. Show one bride in a lush garden with dense deep-green foliage and vivid pink bougainvillea overhead. The bride is posed in a graceful turning movement, with her richly embroidered full lehenga spread outward in a wide, elegant circular shape. Keep the full bride and the complete skirt visible. The pose should feel natural, poised, and editorial, with one hand gently managing the flowing fabric or dupatta and the other hand positioned naturally.
+
+Use the supplied bride image(s) as the ONLY identity source. Preserve her recognisable facial identity and natural skin texture. Use all supplied dress angles together as the ONLY garment-design source; reproduce the exact dress, including its real colour, neckline, bodice and chest embroidery, motifs, sleeves, skirt panels, hem borders, fabric, and embellishments. Do not redesign or approximate the garment.
+
+The supplied dupatta is mandatory. Use the exact attached dupatta, preserving its colour, fabric, embroidery, border, and embellishments. Drape it naturally over the bride's head/shoulders/body in a way that suits the pose, while keeping her face visible. Use the supplied jewellery sheet to style her with a coordinated premium bridal jewellery set. Keep jewellery realistic and consistent, and do not obscure important chest embroidery.
+
+The garden, flowers, framing, and lighting come from this written scene description, not from the dress product photographs. Use realistic natural daylight, deep green foliage, bright pink bougainvillea, a clean green lawn, natural shadows, realistic skin, detailed fabric weave, precise embroidery, and physically plausible skirt/dupatta movement. Premium luxury bridal editorial photography, full-length composition, crisp garment detail, natural anatomy, no artificial plastic appearance.
+
+STRICT NEGATIVES:
+No generic bride, no identity blending, no altered face, no dress redesign, no changed embroidery, no changed neckline, no missing dupatta, no generic replacement dupatta, no missing jewellery, no floating jewellery, no mannequin, no white torso, no white abdomen patch, no pasted product photo, no product-photo background, no distorted hands, no extra limbs, no melted fabric, no text, no logo, no watermark.
+
+============================================================
+6. IMAGE PROMPT 2 — FOREST COURTYARD BRIDAL SPIN
+============================================================
+
+INTEGRATION ID: IMAGE_02
+DISPLAY NAME: Forest Courtyard Spin — Ornate Lehenga
+STATUS: USER-REPORTED PASS (the user said Prompts 1 and 2 generated good-looking images)
+PROMPT TYPE: Single-image generation from a text scene description
+ORIGINAL INSPIRATION IMAGE REQUIRED AT GENERATION: NO
+BRIDE IMAGE REQUIRED: YES
+MULTI-ANGLE DRESS IMAGES REQUIRED: YES
+DUPATTA REQUIRED: YES
+JEWELLERY SHEET REQUIRED: YES
+GROOM IMAGE REQUIRED: NO
+
+SCENE DESCRIPTION:
+Create a premium, photorealistic full-length bridal fashion photograph in a quiet, leafy courtyard. A bride is captured in a graceful turning pose on a paved stone courtyard, with a large embroidered lehenga flaring outward in a wide circle. The background has dense mature green trees and soft, subdued natural light. The bride's dupatta is draped diagonally across the torso and over the shoulder/head area in an elegant traditional style. The skirt has rich patterned embroidery, an ornate wide hem border, and a visible contrast lining. The bride's posture is graceful and composed, with her hands placed naturally near her waist. Use a slightly distant full-body composition so the entire skirt silhouette is visible, realistic ground contact and shadows, a subdued cinematic colour palette, and detailed textile realism.
+
+GENERATION PROMPT:
+Create an ultra-realistic luxury Indian bridal fashion photograph in a vertical 4:5 portrait composition. Show one bride in a quiet stone courtyard surrounded by dense, mature green trees and foliage. Use soft, natural, slightly subdued daylight and a refined cinematic editorial colour palette. The bride is captured in a graceful turning pose; her full, heavily embroidered lehenga spreads outward in a wide circular flare, displaying the complete skirt silhouette, intricate motifs, layered fabric, ornate hem border, and realistic fabric weight. Frame the entire bride and the complete skirt, with natural ground contact and believable shadows.
+
+Use the supplied bride image(s) as the ONLY identity source. Preserve her exact recognisable face, skin tone, facial proportions, and natural texture. Use all supplied dress angles together as the ONLY garment-design source. Reproduce the exact supplied garment without redesigning it: preserve the actual colour, neckline, blouse construction, chest embroidery, motifs, sleeve details, skirt panels, hem border, fabric, and embellishments.
+
+The supplied dupatta is mandatory. Reproduce the exact attached dupatta and drape it naturally across the bride's torso and over the head/shoulder area as appropriate to the pose. Preserve the dupatta's fabric, colour, embroidery, border, and embellishments. Do not omit it or substitute a generic veil. Use the supplied jewellery sheet to add a coordinated premium bridal jewellery set. Maintain realistic placement and reflections, and keep the jewellery from hiding important dress details.
+
+Build the courtyard environment from this text description only. Do not copy the woman, face, or garment in the inspiration image. Do not use the original inspiration image as a generation reference. Keep the composition focused on the full lehenga flare, detailed embroidery, natural body posture, premium bridal styling, and believable cloth physics. Professional luxury bridal campaign, photorealistic skin and fabric, refined contrast, no artificial CGI appearance.
+
+STRICT NEGATIVES:
+No generic bride, no identity blending, no altered face, no dress redesign, no changed embroidery, no changed neckline, no missing dupatta, no generic replacement dupatta, no missing jewellery, no floating jewellery, no mannequin, no white torso, no white abdomen patch, no pasted product photo, no product-photo background, no distorted hands, no extra limbs, no impossible pose, no melted fabric, no text, no logo, no watermark.
+
+============================================================
+7. PROMPTS 3–10 — STATUS
+============================================================
+
+The user plans to test prompts 3 through 10 and compile the approved set later. In the available record, there is no reliable confirmation that prompts 3–10 passed. Do not invent them, mark them as passed, or present them as tested.
+
+When each new prompt is approved:
+- Assign a stable ID: IMAGE_04 through IMAGE_10 for prompts not yet registered. IMAGE_03 is already user-confirmed as passed, although its exact prompt text/name still needs to be added.
+- Give it a descriptive display name.
+- Store the scene description and complete generation prompt.
+- Record status as DRAFT, TESTING, PASSED, or NEEDS_REVISION.
+- Record the user-confirmed test result and date if available.
+- Preserve the required-input flags (bride, dress angles, dupatta, jewellery).
+- Record whether an inspiration image is needed at generation. Default for this workflow: NO; use text scene analysis instead.
+
+============================================================
+8. CODEX INTEGRATION REQUIREMENTS
+============================================================
+
+A. STORE PROMPTS AS DATA
+Use a structured prompt registry or data file rather than scattering prompt strings throughout UI code. Each prompt should include:
+- id
+- displayName
+- category ("bridal_image")
+- status ("passed", "draft", "testing", "needs_revision")
+- sceneDescription
+- generationPrompt
+- negativePrompt
+- aspectRatio (default "4:5" for this image workflow, unless a prompt explicitly specifies otherwise)
+- requiredAssets
+- optionalAssets
+- inspirationImageRequiredAtGeneration (false for IMAGE_01 and IMAGE_02)
+- version
+
+B. DYNAMIC ASSET ROLES — NO HARDCODED FILENAMES
+Users may upload files with any filename. Map selected uploaded assets to semantic roles:
+- bride_identity
+- dress_reference_images[] (multiple images supported)
+- dupatta_reference
+- jewellery_reference_sheet
+- inspiration_image (analysis input only; not sent to generation by default)
+- optional groom_identity for future prompts that require a groom
+
+Do not depend on names like bride.png, dress1.jpg, or jewellery.png. Do not infer a role from the filename alone when the UI can ask the user to assign it.
+
+C. SEPARATE ANALYSIS INPUT FROM GENERATION INPUT
+If the user supplies an inspiration image, analyse it first and turn it into a scene description. For IMAGE_01 and IMAGE_02, do NOT pass that inspiration image into the generation model. Pass the bride/dress/dupatta/jewellery assets as the generation references, plus the selected prompt text. Apply the same workflow to IMAGE_03 if it follows this established image-prompt workflow; confirm its specific asset requirements from its original prompt when available.
+
+D. MULTI-ANGLE DRESS SUPPORT
+Support multiple dress images in one garment-reference role. Do not treat each dress angle as a different outfit. The prompt must say they are different views of the same garment.
+
+E. ENFORCE MANDATORY DUPATTA AND JEWELLERY
+The dupatta and jewellery sheet are mandatory for this user's current workflow. Validate they are present before generation. Do not silently remove these requirements during prompt shortening or optimization.
+
+F. ANTI-MANNEQUIN TEXT MUST ALWAYS BE INCLUDED
+The anti-mannequin rules in Section 4C must be included in the final prompt or in a shared, reliably appended prompt component. Never remove the rules during optimization.
+
+G. KEEP PROMPTS COMPLETE BUT AVOID DUPLICATION
+Shared invariants can be stored once as reusable prompt blocks, but the final assembled prompt sent to the model must contain all applicable rules. Avoid appending the same negative prompt twice if a shared negative bundle is already automatically added.
+
+H. MODEL CHARACTER LIMIT
+Before sending a prompt, count characters using the actual assembled prompt (including shared prompt blocks and negatives). If the model has a character limit, compact repeated language without dropping mandatory constraints. Show a clear warning or shorten safely; do not submit an over-limit prompt.
+
+I. STATUS INTEGRITY
+Only set status to PASSED after the user confirms the output is good. IMAGE_01, IMAGE_02, and IMAGE_03 are user-confirmed as passed. Do not mark IMAGE_04–IMAGE_10 as passed until tested and approved.
+
+J. PROMPT VERSIONING
+Keep a version field and preserve the last approved version. When editing a passed prompt, save the previous version and mark the new one as testing until the user approves it.
+
+K. NO FALSE GUARANTEES
+Use strong identity and garment-lock language, but do not promise perfect pixel-level reproduction. The prompt is an instruction to the image model, not a guarantee.
+
+============================================================
+9. CURRENT APPROVED PROMPT REGISTRY
+============================================================
+
+IMAGE_01
+Name: Garden Bridal Spin — Pink Bougainvillea
+Status: PASSED (user-reported)
+Inspiration image required at generation: NO
+Required: bride identity image(s), multiple dress angles, dupatta, jewellery sheet
+
+IMAGE_02
+Name: Forest Courtyard Spin — Ornate Lehenga
+Status: PASSED (user-reported)
+Inspiration image required at generation: NO
+Required: bride identity image(s), multiple dress angles, dupatta, jewellery sheet
+
+IMAGE_03
+Name: Not recorded in the currently available source; do not invent a name
+Status: PASSED (user-confirmed)
+Exact prompt text: Not present in this file; add the original tested prompt when recovered or supplied
+Inspiration image required at generation: Follow the established workflow (analyse inspiration first; do not attach it at generation), unless the original Prompt 3 specifies otherwise
+Required assets: Bride identity image(s), multiple dress angles, mandatory dupatta, jewellery sheet (confirm against the original Prompt 3 when available)
+
+IMAGE_04–IMAGE_10
+Status: NOT YET CONFIRMED AS PASSED
+Do not include fabricated prompt content for these IDs. Add each after the user provides/tests it.
+
+END OF FILE

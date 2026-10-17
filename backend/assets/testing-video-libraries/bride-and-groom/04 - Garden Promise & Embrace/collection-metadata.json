@@ -1,0 +1,21 @@
+{
+  "templateNumber": 4,
+  "templateId": "BUDGET_SPEED_GARDEN_04",
+  "sceneId": "garden-kiss-embrace",
+  "label": "Garden Promise & Embrace",
+  "subjectMode": null,
+  "deliveryTier": "Budget",
+  "generationMode": "Balance",
+  "promptTestStatus": "Not confirmed as passed",
+  "testProvider": "Google Flow",
+  "referenceIsSourceVideo": true,
+  "musicIntegratedIntoPack": true,
+  "sourceVideoFile": "reference.mp4",
+  "musicFile": "music.m4a",
+  "promptFile": "prompt.txt",
+  "renderedReferenceWithMusic": "reference-with-music.mp4",
+  "note": "Reference/template preview with matching music muxed in. This is not a generated customer result.",
+  "videoDurationSeconds": 10.083,
+  "musicDurationSeconds": 20.386,
+  "integratedClipDurationSeconds": 10.083
+}

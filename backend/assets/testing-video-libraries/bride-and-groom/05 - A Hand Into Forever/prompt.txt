@@ -1,0 +1,109 @@
+CREATE A 10-SECOND PHOTOREALISTIC SOUTH ASIAN WEDDING FILM: A HAND INTO FOREVER.
+OUTPUT: 9:16 portrait; silent visual generation; complete stage-entry action within 10 seconds.
+Main action: groom standing on the raised stage offers his hand, bride below takes it and steps onto the stage beside him.
+The emotional climax is their connected hands and her completed arrival amid a dense shower of red petals.
+Do not leave her at floor level throughout the clip or replace the ascent with a stationary pose.
+Use deliberate slow motion, approximately 40-55% of normal action speed, shortening the lead-in so the actual ascent fits.
+Original reference audio is added afterward; do not synthesize speech, crowd sound or music.
+
+ACTUAL REFERENCE MAPPING
+Use the attached ingredient mapping at the end of this request for the exact uploaded asset names.
+BRIDE_IDENTITY: the current uploaded bride, or identity-sheet panel labelled reference 1.
+GROOM_IDENTITY: the current groom, or identity-sheet panel labelled reference 2.
+DRESS_REFERENCE: the actual chosen full-front photo or garment evidence sheet, plus individual garment photos when provided.
+SCENE_REFERENCE 1: initial monochrome low-angle stage-edge hand offer.
+SCENE_REFERENCE 2: the same stage-edge action in colour with red petals falling.
+SCENE_REFERENCE 3: wider view of the bride successfully arriving on the stage, including ceiling, flowers and audience.
+Scene stills define layout, hand positions, stage height, audience density, camera and lighting.
+Their source faces and clothing must never replace the customer's bride, groom or dress.
+Ignore all captions, photographer lettering and text within the source stills.
+Render a real scene, not a collage, labelled panel or photograph being panned across.
+
+IDENTITY REQUIREMENTS
+The uploaded bride is mandatory: retain her face shape, forehead, brows, eyes and eye spacing, nose, lips, cheeks and jaw.
+Preserve her age appearance, skin tone, natural facial asymmetry and realistic texture.
+Show her face clearly when she looks upward, during the ascent and when she reaches his side.
+Do not allow petals to conceal her identity continuously.
+The groom must retain his separate identity and documented facial hair from his own image.
+Do not adopt the source groom's haircut or source bride's face by default.
+Keep natural happy expressions, without reshaping the face to create a generic wedding model.
+Connected hands have five plausible fingers, coherent grip and real contact without merging wrists.
+
+EXACT GARMENT EVIDENCE
+Use only the selected dress photographs to determine colours, neckline, blouse/sleeve construction, seams, skirt and dupatta.
+Preserve embroidery motifs, their placement and scale, stitching, beadwork, borders and fabric texture.
+The red petals are environmental colour; the selected dress can be any actual uploaded colour.
+Do not recolour the customer's garment red because the scene reference bride is wearing red.
+The same garment remains unchanged during monochrome and colour sections.
+When colour returns, reveal the garment's true supplied colours, without redesigning it.
+Lift fabric naturally while stepping only as needed; do not turn the skirt into a different silhouette.
+One full-front photograph is mandatory; close-up and side/rear evidence refine documented detail when supplied.
+
+VENUE, STAGE AND ATMOSPHERE
+Match the raised pale stage floor, low flower-lined front edge and step/level difference shown in the reference.
+Include a packed audience behind and below the stage, with newly created background identities.
+Retain the tall rectangular grey wall panels, dark horizontal wall band and high interior ceiling.
+Include the wider reference's parallel overhead light lines, hanging greenery and stage flower clusters.
+Use bright frontal event light for faces and a naturally darker audience background.
+Red rose-like petals pour down from above, fluttering and settling on the pale stage.
+Petals should pass in front and behind the couple with varied focus and depth, not form a flat repeating texture.
+Keep the bouquet/flower edging around the stage intact, with petals collecting on the floor.
+No isolated empty hall: the crowd and celebration are central to this scene.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (0.00-2.00s) — A hand reaches down, monochrome opening.
+EFFECT: slow motion plus monochrome tonal treatment.
+0.00-0.65s: low stage-edge view; groom on frame-right above her, bride frame-left below, looking upward with anticipation.
+0.65-1.30s: he bends a little at the waist and extends his near hand toward her.
+1.30-2.00s: she raises her hand and their fingers make a secure gentle grip.
+Camera: low angle near the stage surface, both faces and the actual height difference visible.
+Keep the crowd in the background, stage-edge flowers in the lower foreground and real architecture above.
+EXIT/TRANSITION: the same shot moves smoothly from monochrome to colour over approximately 0.25 seconds.
+Do not treat that colour transition as a scene replacement or wardrobe change.
+SHOT 2 (2.00-7.40s) — Petal shower and complete assisted ascent. SIGNATURE ACTION.
+EFFECT: continuous slow motion, falling petals and a controlled widening camera move.
+2.00-2.70s: colour is fully established, petals begin cascading, both faces show warm recognition.
+2.70-3.50s: groom steadies his stance and gently guides her joined hand upward.
+3.50-4.40s: bride places her leading foot onto the stage step/edge and begins to lift her body.
+4.40-5.30s: her weight transfers onto the leading foot; the skirt and dupatta follow with convincing gravity.
+5.30-6.20s: trailing foot reaches the stage surface; her head and shoulders rise to his level.
+6.20-7.00s: she stands upright beside him; he eases his guiding arm without releasing her hand abruptly.
+7.00-7.40s: they look at each other with relieved happy smiles.
+Camera: retain the source side angle, gradually widen enough to include the climb, flowers and falling petals.
+Avoid feet sliding through the platform, hovering bodies or repetitive incomplete stepping.
+EXIT: a clean continuity cut after both feet reach the stage, matching their joined hands.
+SHOT 3 (7.40-10.00s) — Together on the flower-lined stage.
+EFFECT: slow motion plus a gentle wide pullback; the petal shower continues.
+7.40-8.20s: wider portrait view reveals them standing together, the full selected outfit and the pale stage floor.
+8.20-9.10s: bride takes one small settling step toward him; both smile while keeping their hands connected.
+9.10-10.00s: hold the achieved arrival as petals drift around them and the audience celebrates softly in the background.
+Camera: widen and lift slightly to include ceiling light lines, floral perimeter and crowd while keeping her face legible.
+EXIT: a settled joyful ending, no endless walk or abrupt return to the floor.
+
+SECOND-BY-SECOND STORY CHECK
+Second 1: groom offers his hand; bride sees it.
+Second 2: their hands connect; anticipation turns into trust.
+Second 3: colour and petals establish the celebration.
+Second 4: she starts the actual step upward.
+Second 5: her weight rises onto the stage.
+Second 6: trailing foot follows with accurate cloth movement.
+Second 7: she completes the ascent and stands beside him.
+Seconds 8-10: the wider stage reveal confirms their arrival and shared joy.
+
+MASTER EFFECTS INVENTORY
+1. Slow motion across three story phases: emphasize grip, physical ascent and emotional resolution.
+2. Monochrome-to-colour transition, once between opening and ascent: retain the exact same people and environment.
+3. Layered red petal shower, shots 2-3: falling, drifting and floor accumulation with physical depth.
+4. Controlled widening move, shots 2-3: begin intimate and reveal the complete celebration.
+5. One continuity cut at 7.40s: establish completed arrival without skipping the climb.
+
+EFFECTS DENSITY MAP
+0.00-2.00s = LOW: monochrome slow-motion hand offer.
+2.00-7.40s = MEDIUM: colour reveal, petals, slow ascent and slight camera widening.
+7.40-10.00s = MEDIUM: wide pullback and continuing petals, action settles.
+
+ENERGY ARC
+Act 1: hopeful anticipation and a offered hand.
+Act 2: connection becomes a completed assisted step onto the stage amid the petal shower.
+Act 3: they stand together in the crowded celebration; the emotional promise is fulfilled.
+Maintain one continuous venue, the customer's two faces and the same actual selected garment throughout.

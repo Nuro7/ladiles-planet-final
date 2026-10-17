@@ -1,0 +1,35 @@
+Create a 10-second 16:9 photorealistic wedding film, silent visuals with the saved original music added afterward.
+BRIDE_IDENTITY and GROOM_IDENTITY are the current customer photographs. Preserve their distinct recognizable faces and natural skin texture. DRESS_FRONT and optional dress views describe one actual garment: preserve its colours, stitching, neckline, sleeves, silhouette, embroidery placement and dupatta.
+SCENE_01-04 define the full garden and celebration setting, camera and blocking. Source people and garments are setting references only. Render each person using the customer identity and each dress using the selected garment.
+Retain natural expressions, grounded feet, believable hands and fabric weight. Clean cinematic skin detail, restrained soft light, no captions or source branding.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (0-2s) — Garden first look.
+EFFECT: continuous slow motion, approximately 50% speed feel, shallow foliage bokeh.
+Second 1: bride faces her partner in the leafy garden, eyes lowered, softly anticipating his reaction. Second 2: she raises her gaze and gives a small genuine smile; he turns toward her.
+Camera: chest-height over his shoulder, smooth short push-in; bright diffused tree light. Cut on her lifted gaze.
+SHOT 2 (2-4s) — Bride reaction and garment detail.
+EFFECT: shallow focus with soft foreground leaf; keep her face sharp.
+Second 3: her expression changes from reserved to delighted. Second 4: her hand lightly rests on his forearm; include the actual blouse embroidery and connected hands.
+Camera: close portrait transitioning gently toward hands, realistic optical focus. Match cut on joined hands.
+SHOT 3 (4-6s) — Together in the garden.
+EFFECT: slow lateral tracking, natural fabric inertia.
+Second 5: they take one coordinated step side by side, exchanging an affectionate glance. Second 6: the camera opens to show the whole selected dress against trees, lawn and low brick edging.
+Camera: full-length eye-level two-shot with a small sideways drift. Straight cut to the celebration, preserving their hand connection.
+SHOT 4 (6-10s) — Petal welcome. SIGNATURE ACTION.
+EFFECT: slow falling petals and a controlled widening camera move.
+Second 7: inside the pale event hall, the groom offers his hand from the stage edge and she accepts with a delighted smile. Second 8: she makes one supported step toward him, their eyes meet. Second 9: petals fall around them while guests celebrate behind. Second 10: she reaches his side and they settle together, with clear faces and the complete garment visible.
+Camera: medium bride-led angle followed by a gentle widening to reveal guests and event space. No extra action after arrival; finish on the achieved welcome.
+
+MASTER EFFECTS INVENTORY
+1. Slow motion across all four shots: legible eyes, hands and fabric.
+2. Foliage depth and focus separation in shots 1-2: romantic garden texture.
+3. Lateral tracking in shot 3: full outfit reveal.
+4. Falling petals and widening in shot 4: celebratory arrival.
+5. Three continuity cuts: gaze, hands and setting change.
+EFFECTS DENSITY MAP
+0-4s LOW: gentle push-in and shallow focus.
+4-6s LOW: one tracking movement and fabric response.
+6-10s MEDIUM: supported arrival, falling petals, widening view.
+ENERGY ARC
+Anticipation becomes a genuine shared smile, then a hand-led wedding welcome. The arrival is the climax; preserve it when compressing the source film.

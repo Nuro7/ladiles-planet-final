@@ -1,0 +1,941 @@
+PROJECT: LADIES PLANET — PREMIUM BRIDAL VIDEO TRANSFORMATION
+
+MASTER PROMPT: GARDEN VEIL & TURN — EXACT BRIDE IDENTITY + EXACT DRESS REPLICATION + CHEST EMBROIDERY PRESERVATION + LUXURY BRIDAL STYLING + ORIGINAL VIDEO PRESERVATION
+
+==================================================
+OBJECTIVE
+==================================================
+
+Transform the supplied Garden Veil & Turn reference video into a photorealistic luxury bridal fashion film.
+
+The final video must feature:
+
+1. THE EXACT WOMAN shown in the separately attached BRIDE REFERENCE IMAGE.
+2. THE EXACT DRESS shown in the separately attached DRESS REFERENCE IMAGE.
+3. The original video's movements, poses, shot sequence, camera angles, timing, transitions, and environment.
+4. Exceptionally luxurious, ornament-rich traditional bridal jewellery.
+5. Consistent facial identity, garment design, neckline, chest embroidery, veil, and jewellery across every shot.
+
+THIS IS A REFERENCE-ACCURATE VIDEO TRANSFORMATION, NOT A CREATIVE REDESIGN.
+
+The original video controls the performance and cinematography.
+
+The attached bride image controls the replacement woman's facial identity.
+
+The attached dress image controls the garment's design.
+
+The bridal styling instructions control the additional jewellery without changing the bride's identity or redesigning the dress.
+
+MANDATORY PRIORITIES:
+
+PRIORITY 1 — EXACT BRIDE FACE IDENTITY.
+PRIORITY 2 — EXACT DRESS DESIGN, ESPECIALLY THE NECKLINE AND CHEST EMBROIDERY.
+PRIORITY 3 — ORIGINAL VIDEO MOVEMENTS AND SHOT SEQUENCE.
+PRIORITY 4 — LUXURIOUS, ORNAMENT-RICH BRIDAL STYLING.
+PRIORITY 5 — CONSISTENCY ACROSS EVERY SHOT.
+
+Do not sacrifice the bride's identity or dress accuracy to achieve a more cinematic, fashionable, or luxurious appearance.
+
+==================================================
+SECTION 1 — REFERENCE INPUTS AND THEIR ROLES
+==================================================
+
+REFERENCE VIDEO — GARDEN VEIL & TURN
+
+Use the reference video as the authoritative source for:
+- Original scene sequence.
+- Camera angles and movements.
+- Shot framing and composition.
+- Shot duration and timing.
+- Body movements and poses.
+- Head turns and gaze direction.
+- Hand gestures.
+- Veil movement.
+- Jewellery close-up framing.
+- Garden and architectural environment.
+- Lighting and depth of field.
+- Transitions and editing rhythm.
+
+BRIDE REFERENCE IMAGE
+
+Use the separately attached bride image as the authoritative source for:
+- Facial identity.
+- Facial proportions.
+- Eyes and eyebrows.
+- Nose and lips.
+- Cheeks, jawline, and chin.
+- Forehead and hairline.
+- Natural skin tone and facial characteristics.
+- Apparent age.
+- Recognisable individual features.
+
+DRESS REFERENCE IMAGE
+
+Use the separately attached dress image as the authoritative source for:
+- Exact neckline shape and depth.
+- Exact chest and bodice design.
+- Embroidery and decorative motifs.
+- Motif placement, shape, orientation, and density.
+- Fabric texture and material.
+- Primary and secondary colours.
+- Sleeve design.
+- Waist and skirt construction.
+- Decorative borders.
+- Beadwork, sequins, stones, and embellishments.
+- Dupatta or veil details where visible.
+
+REFERENCE RESPONSIBILITIES:
+
+The video controls HOW the bride moves.
+
+The bride image controls WHO the bride is.
+
+The dress image controls WHAT the bride wears.
+
+Never use the original video woman's face as the replacement bride's identity.
+
+Never use the original video's dress design to override the attached dress reference.
+
+==================================================
+SECTION 2 — PRESERVE THE ORIGINAL VIDEO
+==================================================
+
+Reproduce the supplied Garden Veil & Turn video as faithfully as possible.
+
+Preserve its original:
+- Scene sequence.
+- Shot order.
+- Camera angles.
+- Camera movements.
+- Timing.
+- Transitions.
+- Body movements.
+- Poses.
+- Hand gestures.
+- Garden background.
+- Stone architecture.
+- Courtyard.
+- Lighting.
+- Veil movement.
+- Ending.
+
+Do not invent additional shots, movements, locations, or transitions.
+
+Do not add a new entrance, walking sequence, extra turn, additional jewellery close-up, or alternative ending.
+
+Do not redesign the video as a different bridal advertisement.
+
+Only transform the bride's identity, dress, and bridal styling while preserving the existing video.
+
+==================================================
+SECTION 3 — PRESERVE THE ORIGINAL PERFORMANCE
+==================================================
+
+Preserve the original woman's:
+- Body position.
+- Head movements.
+- Gaze direction.
+- Over-the-shoulder look.
+- Posture.
+- Hand positioning.
+- Finger arrangement.
+- Turning sequence.
+- Veil movement.
+- Movement speed.
+- Timing.
+
+The replacement bride must perform the original movements naturally.
+
+Do not introduce new gestures or change the choreography.
+
+Replace the woman's identity and dress without inventing a different performance.
+
+==================================================
+SECTION 4 — ORIGINAL CINEMATOGRAPHY AND SHOT SEQUENCE
+==================================================
+
+Preserve the original video's framing, composition, camera movements, depth of field, shot durations, and transitions.
+
+4.1 — OPENING GARDEN SHOT
+
+Preserve the original garden background, subject position, over-the-shoulder look, body orientation, veil position, camera composition, and timing.
+
+Replace the original woman's facial identity with the attached bride's identity.
+
+Replace the original outfit with the attached dress.
+
+4.2 — FIRST JEWELLERY CLOSE-UP
+
+Preserve the original close-up framing, visible facial area, head position, earrings, necklace area, background, and timing.
+
+The face must belong to the attached reference bride.
+
+The visible dress neckline and chest details must match the dress reference.
+
+4.3 — CONTINUATION OF THE JEWELLERY CLOSE-UP
+
+Preserve the original composition and continuity.
+
+Maintain the same bride, facial features, neckline, chest embroidery, necklace, earrings, and garment details.
+
+Do not regenerate the face or dress as a new variation.
+
+4.4 — WIDE STONE-ARCHWAY SHOT
+
+Preserve the original archway, walls, doorway, composition, camera distance, bride's position, posture, lighting, and timing.
+
+Maintain the same bride, dress, veil, and jewellery.
+
+4.5 — HENNA-COVERED HANDS AND BANGLES CLOSE-UP
+
+Preserve the original hand positions, finger arrangement, henna, bangles, wrist orientation, framing, and timing.
+
+Maintain anatomically natural hands and consistent jewellery.
+
+4.6 — FINAL GARDEN COURTYARD AND VEIL SHOT
+
+Preserve the original courtyard, garden, camera distance, body turn, veil movement, framing, and ending.
+
+Maintain the same facial identity and the same dress design throughout the movement.
+
+Do not introduce a new turn or additional pose.
+
+==================================================
+SECTION 5 — ABSOLUTE BRIDE FACE IDENTITY LOCK
+==================================================
+
+THE SEPARATELY ATTACHED BRIDE REFERENCE IMAGE IS THE AUTHORITATIVE SOURCE OF THE FINAL BRIDE'S FACIAL IDENTITY.
+
+The image is not merely inspiration, a beauty reference, or a general appearance guide.
+
+The woman shown in that image is the exact target identity for the entire video.
+
+Do not generate a new woman.
+
+Do not generate a similar-looking woman.
+
+Do not blend the original video's woman with the reference bride.
+
+Do not average their facial features.
+
+Do not use the original woman's face as the primary facial reference.
+
+THE ORIGINAL VIDEO WOMAN CONTROLS THE PERFORMANCE.
+THE ATTACHED BRIDE IMAGE CONTROLS THE FACIAL IDENTITY.
+
+5.1 — PRESERVE THE REFERENCE BRIDE'S ACTUAL FEATURES
+
+Preserve the attached bride's:
+- Overall facial shape.
+- Facial proportions.
+- Forehead and hairline.
+- Eye shape, size, and spacing.
+- Eyebrow shape.
+- Nose shape and proportions.
+- Lip shape and fullness.
+- Cheek structure.
+- Jawline and chin.
+- Natural skin tone.
+- Distinctive facial features.
+- Natural asymmetry.
+- Apparent age.
+
+Do not replace these features with those of the original video woman.
+
+Do not change the face to create a more generic or conventionally beautiful bridal model.
+
+5.2 — REPLACE THE ORIGINAL WOMAN'S FACE
+
+The original video woman's face must not remain the final identity.
+
+Preserve her movements and body performance, but use the attached bride's identity for the replacement.
+
+The attached bride must remain recognisable in the opening shot, jewellery close-ups, architectural shot, and final turning sequence.
+
+5.3 — NO LOOKALIKE OR HYBRID FACE
+
+Do not generate a woman who merely resembles the reference bride.
+
+Do not create a hybrid face combining two women.
+
+Do not retain the original woman's eyes, nose, lips, jawline, or facial proportions when they differ from the attached bride.
+
+5.4 — FACE CONSISTENCY ACROSS ALL SHOTS
+
+Use one consistent facial identity throughout:
+- Opening garden shot.
+- Over-the-shoulder look.
+- Jewellery close-ups.
+- Wide architectural shot.
+- Final courtyard shot.
+- Final turning movement.
+
+Do not independently regenerate the face for each shot.
+
+Do not change the identity when the camera cuts, moves closer, moves farther away, or changes angle.
+
+5.5 — FACE CONSISTENCY DURING HEAD TURNS
+
+Preserve the attached bride's identity before, during, and after every head movement.
+
+Natural perspective changes are acceptable.
+
+Changes to the person's identity are not.
+
+Do not allow the face to morph into the original video woman's face during the final turn.
+
+5.6 — FACE CONSISTENCY IN CLOSE-UPS
+
+The jewellery close-ups must show the same attached bride.
+
+Preserve her visible facial features, skin tone, and facial proportions.
+
+Do not generate a different face for close-ups.
+
+Do not treat a close-up as a separate beauty-model generation.
+
+5.7 — NATURAL SKIN REALISM
+
+Maintain realistic skin texture, natural pores, subtle imperfections, realistic shadows, and natural highlights.
+
+Avoid plastic skin, excessive smoothing, artificial symmetry, facial warping, and synthetic mannequin-like appearance.
+
+Improve lighting integration without changing the bride's identity.
+
+5.8 — STRICT FACE NEGATIVES
+
+Avoid:
+- Original woman's face returning.
+- Different woman in another shot.
+- Hybrid facial identity.
+- Facial identity drift.
+- Changing eye shape.
+- Changing nose shape.
+- Changing lip shape.
+- Changing jawline.
+- Changing facial proportions.
+- Unnatural skin tone changes.
+- Generic AI-generated beauty face.
+- Face changes during transitions or turns.
+
+5.9 — FINAL FACE OVERRIDE
+
+The attached BRIDE REFERENCE IMAGE is the definitive source of the replacement bride's identity.
+
+Preserve the original performance and camera work, but replace the original woman's facial identity with the attached bride's identity.
+
+ONE ATTACHED BRIDE IMAGE.
+ONE TARGET IDENTITY.
+ONE CONSISTENT FACE THROUGHOUT THE ENTIRE VIDEO.
+
+==================================================
+SECTION 6 — EXACT DRESS REPLICATION AND CHEST DESIGN LOCK
+==================================================
+
+ABSOLUTE PRIORITY: REPRODUCE THE DRESS SHOWN IN THE SEPARATELY ATTACHED DRESS REFERENCE IMAGE.
+
+The dress reference image is the authoritative source for the entire garment.
+
+Do not generate an alternative dress.
+
+Do not redesign the garment.
+
+Do not simplify the embroidery.
+
+Do not invent a similar-looking chest design.
+
+THE NECKLINE, CHEST EMBROIDERY, AND BODICE MUST MATCH THE ATTACHED DRESS REFERENCE AS CLOSELY AS THE GENERATION MODEL ALLOWS.
+
+6.1 — DRESS REFERENCE IS THE SOURCE OF TRUTH
+
+The attached dress image determines:
+- Exact neckline shape.
+- Neckline depth.
+- Neckline width.
+- Neckline edging.
+- Bodice shape and construction.
+- Chest embroidery.
+- Embroidery motifs.
+- Motif placement.
+- Motif orientation.
+- Motif size.
+- Embroidery density.
+- Embroidery colours.
+- Beadwork and sequins.
+- Decorative stones.
+- Borders and trims.
+- Fabric colour.
+- Fabric texture.
+- Sleeves.
+- Waist.
+- Skirt.
+- Dupatta or veil details where shown.
+
+Do not substitute any of these details with a generic bridal design.
+
+6.2 — CRITICAL CHEST AND NECKLINE LOCK
+
+THE CHEST AREA IS A HIGH-PRIORITY GARMENT DETAIL.
+
+Treat the chest embroidery and neckline as a specific existing design that must be preserved, not recreated from a general description.
+
+Copy the design characteristics from the supplied dress reference as faithfully as possible.
+
+Preserve:
+- The exact visible neckline silhouette.
+- The exact position of the neckline relative to the chest.
+- The shape of the neckline border.
+- The chest embroidery's overall layout.
+- Individual decorative motif shapes.
+- Motif spacing.
+- Motif orientation.
+- Embroidery density.
+- The distribution of stones, beads, sequins, and threadwork.
+- The original contrast between the embroidery and the underlying fabric.
+- The relationship between the neckline and the embroidered bodice.
+
+DO NOT:
+- Replace the chest embroidery with a different pattern.
+- Invent new chest motifs.
+- Simplify intricate embroidery into generic decoration.
+- Change the neckline shape or depth.
+- Move the embroidery to a different position.
+- Change the bodice construction.
+- Add a new decorative panel.
+- Remove existing decorative elements.
+- Change the dress design to match the original video woman's outfit.
+- Use jewellery as a reason to redesign the neckline.
+- Reinterpret the dress as a different bridal outfit.
+
+The chest area must remain faithful to the attached dress reference even in close-up shots.
+
+6.3 — CHEST DESIGN MUST NOT CHANGE BETWEEN FRAMES
+
+Maintain the same chest embroidery and neckline throughout the entire video.
+
+The embroidery must not morph, flicker, change pattern, change position, or disappear during movement.
+
+If the camera moves closer, reveal the same chest design in greater detail.
+
+If the camera moves farther away, preserve the same design in the wider composition.
+
+If the bride turns, the embroidery may change its visible perspective naturally, but its underlying design must remain unchanged.
+
+If a camera cut occurs, the chest embroidery must remain consistent with the same physical garment.
+
+Do not regenerate a different bodice for each shot.
+
+6.4 — EXACT EMBROIDERY AND MOTIF PRESERVATION
+
+Treat every visible embroidered motif as part of the specific supplied garment.
+
+Preserve:
+- Motif shapes.
+- Motif sizes.
+- Motif positions.
+- Motif orientation.
+- Motif spacing.
+- Embroidery density.
+- Border arrangement.
+- Decorative pattern placement.
+- Contrast between embroidery and fabric.
+- Bead and sequin placement where visible.
+
+Do not replace the reference design with generic floral embroidery, random geometric patterns, or newly invented ornamentation.
+
+Do not alter the dress's chest pattern to make it look more luxurious.
+
+The existing design must remain the design.
+
+6.5 — EXACT COLOUR AND FABRIC
+
+Preserve the dress's:
+- Primary colour.
+- Secondary colours.
+- Embroidery colours.
+- Colour distribution.
+- Fabric texture.
+- Material appearance.
+- Surface finish.
+- Natural sheen.
+- Transparency where applicable.
+
+Do not change the underlying dress colour between shots.
+
+Lighting may naturally affect brightness and shadows, but it must not change the garment's underlying design.
+
+6.6 — ENTIRE GARMENT LOCK
+
+Preserve the original garment's:
+- Neckline.
+- Chest.
+- Bodice.
+- Sleeves.
+- Shoulder area.
+- Waist.
+- Skirt.
+- Panels.
+- Decorative borders.
+- Embroidered sections.
+- Dupatta or veil.
+- Visible side and back details where supported by the reference.
+
+Do not redesign the silhouette, sleeves, waist, or skirt.
+
+Do not invent details that are not supported by the reference.
+
+6.7 — NATURAL FIT WITHOUT REDESIGN
+
+Fit the supplied dress naturally to the replacement bride while preserving the actual garment design.
+
+Allow only realistic changes caused by body proportions, natural fabric folds, gravity, movement, and camera perspective.
+
+Do not change the neckline, chest embroidery, fabric, or garment construction to make the dress fit.
+
+The final result must look like the same supplied dress being worn by the replacement bride.
+
+6.8 — JEWELLERY MUST NOT ALTER THE CHEST DESIGN
+
+The jewellery must complement the dress, not redesign it.
+
+Do not allow the necklace to:
+- Change the neckline.
+- Cover defining embroidery unnecessarily.
+- Replace the chest pattern.
+- Add an artificial decorative panel.
+- Change the bodice construction.
+
+Keep the neckline and chest embroidery visible wherever the original framing allows.
+
+If jewellery naturally overlaps part of the garment, preserve the underlying dress design.
+
+Do not redesign the dress around the jewellery.
+
+6.9 — STRICT DRESS NEGATIVES
+
+Absolutely avoid:
+- Different neckline.
+- Different chest embroidery.
+- Different bodice.
+- Different embroidery motifs.
+- Shifting embroidery.
+- Missing embroidery.
+- Invented embroidery.
+- Simplified embroidery.
+- Changing fabric colour.
+- Changing sleeve design.
+- Changing skirt construction.
+- Changing decorative borders.
+- Changing dress design between shots.
+- Chest embroidery morphing during movement.
+- Different dress design in close-ups.
+- Different dress design in wide shots.
+- Jewellery-induced neckline redesign.
+
+6.10 — FINAL DRESS OVERRIDE
+
+The separately attached DRESS REFERENCE IMAGE is the definitive source of the garment's design.
+
+Reproduce the supplied dress as faithfully as possible.
+
+THE NECKLINE MUST MATCH.
+THE CHEST EMBROIDERY MUST MATCH.
+THE BODICE MUST MATCH.
+THE FABRIC AND COLOURS MUST MATCH.
+THE SAME DRESS MUST REMAIN CONSISTENT THROUGHOUT THE VIDEO.
+
+Do not create a similar dress.
+
+Do not redesign the original dress.
+
+Preserve the actual design shown in the attached reference.
+
+==================================================
+SECTION 7 — GLOBAL FACE, DRESS, VEIL, AND JEWELLERY CONSISTENCY
+==================================================
+
+ONE BRIDE.
+ONE FACE IDENTITY.
+ONE DRESS.
+ONE CHEST DESIGN.
+ONE CONSISTENT VEIL.
+ONE JEWELLERY ENSEMBLE.
+
+Treat the video as one continuous production featuring the same bride wearing the same garment.
+
+7.1 — FACE CONSISTENCY
+
+The attached bride image controls the replacement woman's identity.
+
+Maintain the same facial identity across every shot, transition, and movement.
+
+Do not return to the original woman's face.
+
+Do not generate a different interpretation of the bride for each scene.
+
+7.2 — DRESS CONSISTENCY
+
+The attached dress image controls the garment.
+
+Maintain the same neckline, chest embroidery, bodice, fabric, colours, sleeves, skirt, and decorative details across all shots.
+
+Do not simplify the dress in wide shots.
+
+Do not redesign it in close-ups.
+
+7.3 — CHEST EMBROIDERY CONSISTENCY
+
+The chest embroidery must remain the same design from the first visible frame to the last visible frame.
+
+Maintain its motif arrangement, spacing, colour, density, and position.
+
+Natural perspective changes are acceptable.
+
+Changes to the underlying embroidery design are not.
+
+7.4 — VEIL CONSISTENCY
+
+Preserve the veil's supported reference design, colour, fabric, transparency, embroidery, and borders.
+
+Allow natural movement following the original video.
+
+Do not create a different veil or allow the existing design to morph.
+
+7.5 — JEWELLERY CONSISTENCY
+
+Maintain the same necklace, earrings, forehead ornament where appropriate, bangles, bracelets, and coordinated accessories across the video.
+
+Do not generate different jewellery designs for different shots.
+
+7.6 — CONTINUITY BETWEEN SHOTS
+
+A close-up must look like a closer view of the same bride wearing the same dress.
+
+A wide shot must show the same bride and the same dress from farther away.
+
+A turning shot must preserve the same facial identity, chest design, and garment construction.
+
+Do not reset or reinterpret the face or dress when the camera cuts.
+
+7.7 — REFERENCE PRIORITY
+
+1. BRIDE REFERENCE IMAGE: Facial identity.
+2. DRESS REFERENCE IMAGE: Garment design, neckline, chest embroidery, fabric, and supported veil details.
+3. REFERENCE VIDEO: Original movement, shot sequence, camera work, timing, and environment.
+4. BRIDAL STYLING INSTRUCTIONS: Additional jewellery that does not override the references.
+
+==================================================
+SECTION 8 — WORLD-CLASS, ORNAMENT-RICH LUXURY BRIDAL STYLING
+==================================================
+
+Create an exceptionally luxurious, ornament-rich South Asian bridal appearance worthy of a world-class couture campaign.
+
+The bride should look royal, elegant, richly adorned, and photorealistic.
+
+JEWELLERY IS A MAJOR VISUAL PRIORITY.
+
+8.1 — RICH, LAYERED BRIDAL JEWELLERY
+
+Where appropriate, include:
+- A luxurious traditional bridal necklace.
+- A coordinated choker and longer necklace layers.
+- Rich gold jewellery.
+- Ornate statement earrings.
+- A traditional maang tikka or suitable forehead ornament.
+- Beautifully detailed bangles.
+- Coordinated bracelets.
+- Elegant rings where visible.
+- Tasteful hair ornaments.
+- Additional traditional bridal accessories where suitable.
+
+Coordinate all pieces into one intentional luxury jewellery ensemble.
+
+Do not add random, mismatched ornaments.
+
+8.2 — PREMIUM MATERIALS
+
+Use realistic gold tones, detailed craftsmanship, refined metallic finishes, realistic gemstones, pearls where appropriate, natural reflections, and convincing physical weight.
+
+Avoid plastic-looking jewellery, flat textures, artificial glitter, and excessive glow.
+
+8.3 — JEWELLERY CLOSE-UPS
+
+Preserve the original jewellery close-up shots and timing.
+
+Make the same jewellery look detailed, premium, and realistic.
+
+Do not introduce extra close-ups or change the camera framing.
+
+Do not regenerate different jewellery between consecutive close-ups.
+
+8.4 — BANGLES AND HAND STYLING
+
+Preserve the original hand positions and henna.
+
+Maintain realistic, intricately crafted bangles and wrist ornaments.
+
+Do not distort fingers, add extra fingers, or allow the bangles to float or change design.
+
+8.5 — BRIDAL BEAUTY
+
+Use refined bridal makeup, naturally luminous skin, elegant hairstyling, and realistic finishing.
+
+Do not alter the bride's facial identity.
+
+Avoid plastic-looking skin and excessive smoothing.
+
+8.6 — JEWELLERY MUST NOT OVERRIDE THE DRESS
+
+The supplied dress design has priority over added jewellery.
+
+Do not change the neckline or chest embroidery to accommodate the necklace.
+
+Do not unnecessarily obscure the dress's defining details.
+
+8.7 — FINAL BRIDAL APPEARANCE
+
+The final bride must look:
+- Royal.
+- Ornament-rich.
+- Luxurious.
+- Elegant.
+- Photorealistic.
+- World-class.
+
+Maintain the same face, dress, chest design, veil, and jewellery throughout the video.
+
+==================================================
+SECTION 9 — PRESERVE THE ORIGINAL ENVIRONMENT
+==================================================
+
+Preserve the original garden greenery, trees, stone archway, walls, doorway, tiled courtyard, background composition, and depth of field.
+
+Do not replace the garden or architecture.
+
+Do not invent new locations.
+
+Do not add or remove important environmental objects.
+
+Do not change the original camera perspective.
+
+The environment must remain faithful to the reference video.
+
+==================================================
+SECTION 10 — LIGHTING, VISUAL EFFECTS, AND PHOTOREALISM
+==================================================
+
+Preserve the original lighting direction, natural highlights, shadows, depth of field, colour grading, and cinematic atmosphere.
+
+Maintain realistic skin illumination, fabric texture, embroidery detail, and jewellery reflections.
+
+The bride, dress, and jewellery must look naturally photographed within the original environment.
+
+Avoid:
+- Plastic-looking skin.
+- Artificial facial smoothing.
+- Unnatural jewellery reflections.
+- Flickering embroidery.
+- Unstable fabric textures.
+- Morphing garment patterns.
+- Background distortion.
+- Facial warping.
+- Unnatural body proportions.
+- Veil morphing.
+- Floating jewellery.
+- Unnatural fabric deformation.
+
+The chest embroidery must remain stable and recognisable despite changes in lighting and perspective.
+
+Lighting may change how the garment appears, but must not redesign the garment.
+
+==================================================
+SECTION 11 — AUDIO: DO NOT EDIT OR GENERATE SPEECH
+==================================================
+
+VISUAL GENERATION IS THE ONLY PRIORITY.
+
+Do not edit, modify, regenerate, reconstruct, or attempt to interpret speech or dialogue in the reference video.
+
+Do not generate new speech, dialogue, voice-over narration, or spoken words.
+
+Do not perform speech replacement, voice cloning, lip-sync generation, or speech-related audio editing.
+
+Do not attempt to transcribe or modify any existing speech.
+
+Preserve the original video's visual sequence independently of its audio.
+
+If the generation system supports preserving the original audio without modifying speech, retain it unchanged.
+
+If the original audio cannot be preserved safely, generate the video without attempting to recreate the audio or speech.
+
+Do not let audio processing interfere with video generation.
+
+Do not invent dialogue or spoken content.
+
+The primary objective is to transform the bride's identity, dress, and bridal styling while preserving the original video's movements, cinematography, shot sequence, environment, and timing.
+
+AUDIO MUST NOT REQUIRE SPEECH EDITING.
+
+PRIORITISE VISUAL GENERATION AND REFERENCE ACCURACY.
+
+==================================================
+SECTION 12 — STRICT NEGATIVE CONSTRAINTS
+==================================================
+
+FACE AND IDENTITY:
+- No different bride.
+- No original woman's face returning.
+- No hybrid identity.
+- No generic AI face.
+- No facial identity drift.
+- No changing facial proportions.
+- No changing eyes, nose, lips, or jawline.
+- No different face in close-ups.
+- No different face in wide shots.
+- No identity changes during turns.
+- No identity changes during transitions.
+
+DRESS AND CHEST:
+- No different dress.
+- No different neckline.
+- No different chest embroidery.
+- No different bodice.
+- No invented motifs.
+- No missing motifs.
+- No shifting embroidery.
+- No simplified chest design.
+- No changing motif spacing.
+- No changing embroidery colours.
+- No changing embroidery density.
+- No changing garment construction.
+- No changing sleeve design.
+- No changing skirt construction.
+- No changing fabric colour.
+- No changing dress design between shots.
+- No chest embroidery morphing.
+- No neckline redesign to accommodate jewellery.
+- No generic replacement embroidery.
+
+JEWELLERY:
+- No minimal bridal styling.
+- No mismatched ornaments.
+- No changing necklace.
+- No changing earrings.
+- No changing bangles.
+- No floating jewellery.
+- No jewellery merging into skin or fabric.
+- No plastic-looking jewellery.
+- No unnecessary obstruction of defining chest embroidery.
+
+MOVEMENT AND CINEMATOGRAPHY:
+- No additional shots.
+- No invented camera movements.
+- No altered shot order.
+- No unnecessary zooms.
+- No new transitions.
+- No altered pacing.
+- No invented poses.
+- No additional turns.
+- No different final movement.
+
+ENVIRONMENT:
+- No replacement background.
+- No invented architecture.
+- No new locations.
+- No environmental distortion.
+
+VISUAL ARTIFACTS:
+- No flickering embroidery.
+- No unstable motifs.
+- No morphing fabric patterns.
+- No malformed hands.
+- No extra fingers.
+- No facial warping.
+- No veil morphing.
+- No jewellery flickering.
+- No inconsistent garment details.
+
+Do not prioritise creative variation over exact reference reproduction.
+
+==================================================
+SECTION 13 — FINAL GENERATION DIRECTIVE
+==================================================
+
+Generate a photorealistic bridal fashion video using the supplied Garden Veil & Turn reference video, the separately attached bride image, and the separately attached dress image.
+
+Preserve the original video's shot sequence, camera movement, framing, timing, transitions, performance, garden environment, stone architecture, jewellery close-ups, henna-covered hands, and final veil movement.
+
+MANDATORY REQUIREMENT 1 — EXACT FACE:
+
+Replace the original woman's facial identity with the woman shown in the separately attached BRIDE REFERENCE IMAGE.
+
+Do not generate a lookalike or hybrid face.
+
+Maintain the same facial identity throughout every shot and movement.
+
+MANDATORY REQUIREMENT 2 — EXACT DRESS:
+
+Replace the original outfit with the garment shown in the separately attached DRESS REFERENCE IMAGE.
+
+Preserve the exact neckline, chest embroidery, bodice construction, motif placement, fabric, colours, sleeves, skirt, and supported veil details.
+
+Do not redesign or simplify the chest area.
+
+The chest embroidery must remain consistent throughout every visible frame.
+
+MANDATORY REQUIREMENT 3 — LUXURY BRIDAL JEWELLERY:
+
+Create an exceptionally rich, coordinated, traditional bridal jewellery ensemble without changing the dress or obscuring its defining chest design.
+
+MANDATORY REQUIREMENT 4 — ORIGINAL VIDEO:
+
+Preserve the original movements, shot sequence, cinematography, timing, environment, and ending.
+
+MANDATORY REQUIREMENT 5 — GLOBAL CONSISTENCY:
+
+The same bride must wear the same dress and jewellery throughout the video.
+
+Do not regenerate different facial identities or different garment designs for individual shots.
+
+FINAL FACE OVERRIDE:
+
+The separately attached BRIDE REFERENCE IMAGE determines the replacement woman's facial identity.
+
+The original video woman determines only the performance and cinematography.
+
+FINAL DRESS OVERRIDE:
+
+The separately attached DRESS REFERENCE IMAGE determines the complete garment design.
+
+The original video outfit must not override the supplied dress reference.
+
+The neckline, chest embroidery, and bodice must remain faithful to the supplied dress.
+
+FINAL CHEST DESIGN OVERRIDE:
+
+The supplied chest design must not be replaced with generic embroidery or an alternative design.
+
+Preserve the neckline silhouette, motif arrangement, embroidery density, decorative borders, and visible embellishments as faithfully as possible.
+
+Natural perspective and fabric movement are acceptable. Redesign is not.
+
+FINAL CONSISTENCY RULE:
+
+ONE REFERENCE VIDEO.
+ONE EXACT BRIDE IDENTITY.
+ONE EXACT DRESS DESIGN.
+ONE CONSISTENT CHEST EMBROIDERY DESIGN.
+ONE CONSISTENT VEIL.
+ONE LUXURIOUS JEWELLERY ENSEMBLE.
+
+The original woman must not return as the replacement bride.
+
+The attached bride must remain the same recognisable person.
+
+The supplied dress must remain the same garment.
+
+The chest embroidery must not change into a different pattern.
+
+The original video must remain visually faithful to its reference.
+
+Generate the most consistent, photorealistic result possible while prioritising exact bride identity, exact dress design, chest embroidery preservation, natural movement, and luxury bridal styling.

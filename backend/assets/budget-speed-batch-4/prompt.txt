@@ -1,0 +1,100 @@
+CREATE A 10-SECOND PHOTOREALISTIC SOUTH ASIAN WEDDING FILM: GARDEN PROMISE & EMBRACE.
+OUTPUT: 9:16 portrait, one continuous finished film, silent visual generation.
+The story is a private, joyful garden encounter: eye contact, a tender non-contact exchange, then a mutual embrace. Keep the wedding affection gentle and non-sexual.
+Maintain soft, deliberate slow motion, approximately 40-50% of ordinary gesture speed, with physically believable movement.
+Audio is added separately from the saved original reference recording; do not generate speech or music.
+
+REFERENCE AUTHORITY AND DYNAMIC INPUTS
+Use the actual attached ingredient mapping at the end of this request to identify all files.
+BRIDE_IDENTITY is the current customer bride photograph; in an identity sheet it is the panel labelled reference 1.
+GROOM_IDENTITY is her current partner photograph; in an identity sheet it is the panel labelled reference 2.
+DRESS_REFERENCE is the selected garment front photograph or evidence sheet; all supplied views show one garment.
+Individual full-front, close-up and side photographs supplement the garment sheet when supplied.
+SCENE_REFERENCE 1 is the two-panel garden establishing board: source shots 1 and 2, read left to right.
+SCENE_REFERENCE 2 is the bride reaction close-up from source shot 3.
+SCENE_REFERENCE 3 is the garden embrace setup from source shot 5.
+The source people in these scene references supply pose and blocking only.
+Their facial appearance, red veil, jewellery design and groom styling are not the customer's identity or dress instructions.
+Never render a contact sheet, panel boundary, embedded source caption, social handle or logo.
+
+BRIDE AND GROOM IDENTITY REQUIREMENTS
+Preserve the bride's recognizable face shape, forehead, eyebrow contour, eye shape and spacing, nose, lips, cheeks, chin and jaw.
+Preserve her natural skin tone, age appearance, facial asymmetry and skin texture.
+Keep her face recognizable in the reaction shot, near-contact moment and final embrace; a pretty generic bride is a failed result.
+Preserve the groom's separate face and skin tone from his own photograph, including documented facial hair.
+Do not merge identities or adopt a face from any environment frame.
+Keep both faces clearly lit, with real skin rather than waxy beauty-filter smoothing.
+Hands must touch the cheek gently, without intersecting teeth, eyes or skin.
+
+GARMENT REQUIREMENTS
+Reproduce the actual selected dress: base and secondary colours, neckline, sleeve length/construction, bodice seams and waist.
+Preserve skirt silhouette, hem, embroidery motif shapes, placement, scale, stitching and border widths.
+Preserve material texture, transparency, beadwork and the supplied dupatta colour and border.
+Apply all optional angle evidence consistently to one garment; do not combine different panels into a redesigned dress.
+One full-front photo is enough; do not invent missing elaborate back details.
+Keep the same clothing through all cuts, without turning the source red costume into the target garment.
+During the hug, fabric folds naturally but the neckline, sleeves and embroidery remain unchanged.
+
+ENVIRONMENT AND LIGHTING
+Recreate the complete lush outdoor garden visible in the scene references: layered deep-green hedges, broad leaves and slender pale tree trunks.
+Retain greenery above, behind and around both people, rather than replacing it with a studio wall or wedding stage.
+Use diffuse daylight with gentle warm skin highlights and green background bokeh.
+Keep a dark softly defocused foreground leaf edge where shown, without masking the bride's face.
+The couple are standing close together; bride frame-left and groom frame-right during their affectionate exchange.
+No added crowd, stage spotlights, confetti, smoke or palace architecture: this source is an intimate garden story.
+Keep the portrait composition and garden depth throughout.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (0.00-1.10s) — Quiet garden encounter.
+EFFECT: slow motion plus shallow depth of field.
+0.00-0.55s: establish both people from approximately waist up, bride slightly turned toward him, groom facing her.
+0.55-1.10s: she lifts her gaze, he softens into a smile; their hands are relaxed and naturally connected low in frame.
+Camera: eye-level stable medium two-shot, tiny forward drift, green hedge and tree trunks visible.
+EXIT: clean matched cut on her raised gaze; no geometry morph or flash.
+SHOT 2 (1.10-2.30s) — Mutual smile, profile two-shot.
+EFFECT: restrained slow motion with slight foreground leaf parallax.
+1.10-1.70s: bride turns enough for her real face to be seen; groom lowers his gaze toward her.
+1.70-2.30s: their smiles broaden, shoulders relax, and her nearer hand begins to rise.
+Camera: slightly closer side angle, both faces retained in frame, softly defocused foliage behind.
+EXIT: cut to her reaction, keeping the same eye line and direction of movement.
+SHOT 3 (2.30-3.50s) — Bride's delighted reaction.
+EFFECT: portrait focus isolation; the uploaded bride identity is the visual priority.
+2.30-2.85s: show her eyes looking affectionately upward and a small natural smile.
+2.85-3.50s: smile becomes delighted; head inclines toward him, without exaggerated laughter or mouth distortion.
+Camera: shoulder-level over the groom's shoulder; his shoulder is soft foreground, her face sharp.
+EXIT: cut as her hand reaches toward his cheek, matching the gesture.
+SHOT 4 (3.50-7.40s) — Tender near-contact and affectionate pause. SIGNATURE ACTION.
+EFFECT: sustained slow motion plus a subtle forward camera drift.
+3.50-4.20s: she rests one hand gently on his shoulder; both faces remain unobstructed.
+4.20-5.10s: they lean slightly closer, maintaining comfortable space and warm eye contact.
+5.10-6.40s: hold a tender pause at comfortable personal space, with soft smiles.
+6.40-7.00s: they ease back a little while keeping their hands connected and smiling.
+7.00-7.40s: groom turns gently toward her to begin the mutual embrace.
+Camera: medium two-shot including both faces and the garment bodice, portrait frame, hedge bokeh.
+EXIT: matched cut on the turn into the hug, avoiding an abrupt unrelated pose change.
+SHOT 5 (7.40-10.00s) — Mutual garden embrace.
+EFFECT: gentle lateral camera arc, soft background parallax and slow settling motion.
+7.40-8.30s: both wrap arms naturally around each other, his arm around her upper back and hers around his torso.
+8.30-9.20s: settle into a warm hug; her real face remains visible beside his shoulder.
+9.20-10.00s: small contented smile and relaxed stillness; resolve on the same people and garment.
+Camera: rear three-quarter view of the groom, slight side arc revealing her face and the garden canopy.
+EXIT: finish cleanly on the embrace, without looping or a new action.
+
+MASTER EFFECTS INVENTORY
+1. Slow motion, used across all five shots: tender weight and legible expressions through the affectionate pause.
+2. Shallow optical depth of field, shots 1-5: real garden bokeh with sharp faces and garment details.
+3. Clean matched cuts, four boundaries: maintain gaze, gesture and shoulder orientation.
+4. Small forward drift, shots 1 and 4: bring the viewer closer to the emotional action.
+5. Gentle lateral arc, shot 5: reveal her face during the embrace without a full orbit.
+
+EFFECTS DENSITY MAP
+0.00-3.50s = LOW: deliberate expressions, gentle camera drift and matched changes of angle.
+3.50-7.40s = LOW: preserve the gentle near-contact exchange without additional action or cuts.
+7.40-10.00s = LOW: one settling embrace and a small lateral arc.
+
+ENERGY ARC
+Act 1: shy recognition becomes open happiness.
+Act 2: their tender near-contact exchange delivers the affectionate promise; do not replace it with walking or distant posing.
+Act 3: the mutual hug resolves the story in calm joy.
+CONTINUITY: one bride, one groom, one selected dress, one garden, stable proportions and realistic contact at every cut.
+Keep complete heads and natural anatomy intact in every shot; the image-generation still remains full-body head-to-toe.

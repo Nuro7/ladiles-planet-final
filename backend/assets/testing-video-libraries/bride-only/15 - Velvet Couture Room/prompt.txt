@@ -1,0 +1,37 @@
+Create a 10-second 9:16 photorealistic solo bridal fashion film. Generate silent visuals; the platform adds the saved original music.
+The current BRIDE_IDENTITY photograph is the sole face authority. Preserve her facial proportions, natural complexion, age appearance, eyes, nose, lips and jaw across shots. DRESS_FRONT and optional angles show one actual garment: preserve colours, neckline, sleeves, silhouette, stitching, embroidery placement and scale, skirt and supplied dupatta.
+SCENE_REFERENCE boards show chronological setting, camera and pose guidance. Use their architecture and light; render the customer bride wearing the selected dress throughout. One bride, one consistent garment, real skin texture, believable hands and fabric weight. Remove source captions from the generated scene; do not generate advertising title cards.
+Environment: dark warm salon, velvet curtains, low upholstered sofa, shaded lamps and painted antique wall.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (0-2s) — Source moment 0.1s
+EFFECT: approximately 50% slow-motion feel; restrained optical depth and realistic cloth inertia.
+In second 1 frame hands resting at the waist; in second 2 fingers relax naturally against the actual skirt embroidery. Tight detail, subtle lateral slide, warm lamp light.
+EXIT: clean continuity cut at 2 seconds; retain face, garment and lighting.
+
+SHOT 2 (2-4s) — Source moment 1.1s
+EFFECT: approximately 50% slow-motion feel; restrained optical depth and realistic cloth inertia.
+In second 3 she holds a composed direct gaze; in second 4 she turns her eyes slightly to one side. Shoulder-height close portrait, controlled small push-in.
+EXIT: clean continuity cut at 4 seconds; retain face, garment and lighting.
+
+SHOT 3 (4-6s) — Source moment 2.7s
+EFFECT: approximately 50% slow-motion feel; restrained optical depth and realistic cloth inertia.
+In second 5 focus follows a hand at the waist; in second 6 reveal the selected bodice seams and motif scale. Garment detail view; jewellery stays restrained and coherent.
+EXIT: clean continuity cut at 6 seconds; retain face, garment and lighting.
+
+SHOT 4 (6-10s) — Source moment 3.8s
+EFFECT: approximately 50% slow-motion feel; restrained optical depth and realistic cloth inertia.
+In second 7 widen to the complete outfit, in second 8 she places hands calmly at her waist, in second 9 shifts weight subtly, in second 10 holds the final confident look. Full-length slow pullback showing sofa, velvet and wall. Hold the fashion portrait instead of a source title card.
+EXIT: hold the resolved portrait until 10 seconds.
+
+MASTER EFFECTS INVENTORY
+1. Continuous gentle slow motion in all shots for eye movements and fabric response.
+2. Shallow optical focus in portraits and details; architecture remains recognizable in wider views.
+3. Deliberate tracking, push-in and short arcs as specified per shot.
+4. Clean matched cuts between 4 source-inspired compositions; no morph transitions.
+EFFECTS DENSITY MAP
+0-4s LOW: establish the face and setting, restrained camera movement.
+4-8s MEDIUM: garment detail and a purposeful pose change.
+8-10s LOW: completed action and steady final portrait.
+ENERGY ARC
+Introduce the customer bride within the source setting; reveal the actual garment through the specified actions; resolve into an intentional portrait. Identity and garment fidelity are required quality checks.

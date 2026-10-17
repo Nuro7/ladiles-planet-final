@@ -1,0 +1,35 @@
+{
+  "createdAt": "2026-10-17T15:20:01.324Z",
+  "source": "C:\\Users\\MOHD MINHAJ\\Downloads\\Ladies planet (222)\\Ladies planet (2)\\Ladies planet\\Ladies planet",
+  "filesCopied": 590,
+  "mediaFiles": 1275,
+  "mediaBytes": 758012170,
+  "excludedPotentialCredentials": [
+    {
+      "file": "backend\\db\\index.js",
+      "reason": "Potential credential; excluded for private review"
+    },
+    {
+      "file": "backend\\drizzle.config.js",
+      "reason": "Potential credential; excluded for private review"
+    },
+    {
+      "file": "backend\\services\\scenePrompts.js",
+      "reason": "Potential credential; excluded for private review"
+    },
+    {
+      "file": "backend\\test-db-connection.js",
+      "reason": "Potential credential; excluded for private review"
+    }
+  ],
+  "notTransferred": [
+    "Git history",
+    ".env files",
+    "OAuth tokens",
+    "backend/data: customer records, saved creations and authentication",
+    "node_modules",
+    "build output",
+    "local logs",
+    "integrations: legacy optional integrations; see original source if required"
+  ]
+}

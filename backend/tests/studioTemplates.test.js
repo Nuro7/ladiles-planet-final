@@ -1,0 +1,37 @@
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const { mkdtemp } = require('node:fs/promises');
+const { tmpdir } = require('node:os');
+const path = require('node:path');
+const storageId = require.resolve('../services/storageService');
+require.cache[storageId] = { id: storageId, filename: storageId, loaded: true, exports: {} };
+test('Saving a couple recipe leaves solo intact and strips private fields from public config', async () => {
+  const dir = await mkdtemp(path.join(tmpdir(), 'lp-template-test-'));
+  process.env.STUDIO_TEMPLATE_STORE = path.join(dir, 'templates.json');
+  const templates = require('../services/studioTemplateService');
+  const before = await templates.recipe('heart-promise', 'solo');
+  await templates.update('heart-promise', 'couple', { prompt: 'The real bride and groom enter together.', imagePrompt: 'The real couple stand beside tall windows.' });
+  assert.equal((await templates.recipe('heart-promise', 'solo')).prompt, before.prompt);
+  const resolved = await templates.resolve({ tier: 'premium', scene: 'heart-promise', generationMode:'speed', subjectMode: 'couple' });
+  assert.equal(resolved.prompt, 'The real bride and groom enter together.');
+  assert.equal(resolved.templateVersion, 2);
+  await templates.update('outdoor', 'couple', { imagePrompt: 'Separate image recipe in a sunny garden.' });
+  const combined = await templates.resolve({ tier: 'premium', scene: 'heart-promise', generationMode:'speed', imageScene: 'outdoor', videoScene: 'heart-promise', subjectMode: 'couple', outputType: 'both' });
+  assert.equal(combined.imagePrompt, 'Separate image recipe in a sunny garden.');
+  assert.equal(combined.prompt, 'The real bride and groom enter together.');
+  const photo = await templates.resolve({ tier: 'premium', scene: 'heart-promise', generationMode:'speed', imageScene: 'outdoor', subjectMode: 'couple', outputType: 'image' });
+  assert.equal(photo.scene, 'outdoor');
+  await assert.rejects(templates.resolve({ tier: 'premium', imageScene: 'missing', outputType: 'both' }), /valid scene/);
+  const publicValue = await templates.publicConfig();
+  const couple = publicValue.scenes[0].subjects.couple;
+  assert.equal(couple.prompt, undefined);
+  assert.equal(couple.musicPath, undefined);
+  await assert.rejects(templates.update('indoor', 'couple', { useSourceAudio: true }), /reference video/);
+  await assert.rejects(templates.updateDefaults({ tier: 'unknown' }), /tier/);
+});
+test('Failed Budget Speed 01 wedding entrance is no longer published', async () => {
+  const templates = require('../services/studioTemplateService');
+  const publicValue = await templates.publicConfig();
+  assert.equal(publicValue.budgetSpeedScenes.some(scene => scene.subjects.solo.templateId === 'BUDGET_SPEED_01'), false);
+  assert.equal(publicValue.budgetSpeedScenes.some(scene => scene.label === 'Wedding entrance'), false);
+});

@@ -1,0 +1,51 @@
+CREATE A 10-SECOND SOUTH ASIAN WEDDING FILM, 16:9 LANDSCAPE.
+Generate silent visuals. The platform adds the original reference music afterwards. Create the intimate kneeling-and-affectionate-pause sequence described below with the CURRENT customer's bride, groom and selected dress. Keep the romance gentle, non-sexual and non-contact.
+
+REFERENCE AUTHORITY AND IDENTITY
+Use the attached ingredient mapping and exact attached asset names. BRIDE_IDENTITY, or the bride panel in the identity sheet, is the sole source of the bride's face. The groom photograph, or groom panel in that sheet, is the sole source of his face. Keep their identities distinct and stable in every shot. Preserve the bride's actual face proportions, forehead, eyebrows, eye shape and spacing, nose, lips, cheekbones, chin, jawline, skin tone and age appearance. Keep natural texture, asymmetry and expressions; do not substitute a generic bridal model, reshape her face, lighten her complexion or blend her with the woman in the stage photographs. Her face must remain recognizable when she looks down and bends forward. Preserve the groom's own features independently.
+
+DRESS AUTHORITY
+The selected garment photographs are the only wardrobe authority for the bride. All dress photographs and the dress sheet show one garment. Match its full-front silhouette, original colours, neckline shape, bodice seams, sleeve length and structure, waist finish, skirt volume, hem, fabric weight, stitching, embroidery motifs and placement, beadwork scale, border widths and dupatta construction. Use individual close-ups for fine stitching, embellishments and fabric texture; use side/rear photographs when supplied for those surfaces. Apply the garment naturally to the customer's body without redesign. Do not copy the red lehenga in the stage reference unless the customer's selected garment is actually red. Do not hide or replace the blouse and sleeve details with an invented shawl or generic bridal outfit. Use the selected dupatta when supplied, keeping her face visible. Never render mannequins, a contact-sheet layout or printed image labels.
+
+STAGE AND LIGHTING REFERENCES
+WEDDING_SCENE_REFERENCE 1 and 2 show the chronological opening and renewed colour view of the SAME stage. Reconstruct their visible architecture and ambience closely: raised pale stage with a broad shallow front step, flower arrangements and green foliage along the front corners, scattered rose petals across the floor, a horizontal floral backdrop, pale vertical curtains, and flowing white fabric swags overhead. Include the ceiling drapes in the wide composition rather than an empty generic hall. Blue overhead spotlights form diagonal volumetric shafts through a thin haze; a warm-white key light illuminates faces and fabric, with blue accent light around the stage floor. Keep the couple's skin and the selected dress readable under these lights, retaining the dress's real colours. Gentle low haze surrounds the stage but never obscures faces. Use the references only for stage, illumination, pose and composition, never their people's identities or wardrobe. Do not reproduce source captions, social-media UI or photographer signatures.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (00:00-00:02.4) — The moment before the promise
+EFFECT: sustained graceful slow motion, a brief monochrome opening resolving into colour, and a short dip in brightness at the transition.
+00:00-00:01: The groom is on the left, turning his torso toward the standing bride on the right. Begin a controlled descent onto one knee, keeping natural balance and his eyes raised to her. The bride watches him with a soft, affectionate expression. Her complete selected outfit is visible from head to hem. Start with a very brief monochrome impression, then reveal the stage's blue and warm light and the garment's actual colour.
+00:01-00:02: His knee reaches the stage and he settles into the pose. One hand opens slightly at waist level, palm upward; do not invent a ring, bouquet or proposal box. She makes a small natural weight shift and lowers her gaze toward him, keeping her recognizable facial structure.
+00:02-00:02.4: Hold their connected gaze. Briefly dim the picture for a soft dip-to-dark transition, then return to the same stage from a slightly closer view. Keep this transition brief; do not spend a full second in black.
+CAMERA: a steady eye-level/slightly low full-length wedding composition, a restrained forward drift only. Keep overhead fabric, beams, flowers, petals and the groom's grounded knee visible. Preserve the source's calm camera; do not add a rapid orbit, whip pan or drone move. Use the extra landscape width to reveal the same stage laterally without stretching people or cropping the dress.
+
+SHOT 2 (00:02.4-00:10.0) — Their tender affectionate pause
+EFFECT: continuous expressive slow motion with a stable, gentle push-in and natural blue light shafts.
+00:02.4-00:03: Return to colour with the groom still kneeling and the bride standing near him. He tilts his face up; she smiles gently and lowers one hand toward his shoulder.
+00:03-00:04: Her hand rests softly at his shoulder. She leans forward slightly but keeps comfortable personal space, with realistic balance and gravity in the skirt and dupatta.
+00:04-00:05: They exchange a warm look and a small reassuring smile. Show tenderness through gaze and expression, without exaggerated acting or face changes.
+00:05-00:06: Hold the non-contact affectionate moment. This is the signature emotional beat.
+00:06-00:07: Continue the quiet pause in slow motion with subtle breathing and slight natural fabric movement. Keep both bodies alive rather than frozen; keep the outfit embroidery stable.
+00:07-00:08: The bride straightens gently and looks toward him; he looks up at her, both faces fully readable.
+00:08-00:09: They share a soft, relieved smile, still in the same standing-and-kneeling positions. Avoid an abrupt standing motion or invented embrace.
+00:09-00:10: Settle into a calm affectionate hold. Finish with a clean natural image, without a title card. The bride's identity and full outfit must remain readable.
+CAMERA: the same three-quarter side composition, groom left and bride right, with an extremely gentle push-in. Frame both faces, hands and substantial dress detail; retain stage flowers and blue overhead shafts in the background. Avoid a close-up so tight that the garment and environment disappear. Motion should feel approximately 40-50% of ordinary speed throughout, with fluid, coherent movement rather than frame freezing.
+
+CONTINUITY AND QUALITY
+Only the supplied bride and groom are the main subjects. Preserve the same selected garment, identities, lighting direction and stage across the brightness transition. No face swapping, source-face borrowing, generic replacement clothing, jewellery flicker, duplicate limbs, merged hands, skating feet or morphing embroidery. Do not turn this intimate action into an endless bridal walk. Do not introduce a crowd that blocks the couple, extra actions or invented scenery. Photo references must influence the actual generated image, not merely be mentioned in text.
+
+MASTER EFFECTS INVENTORY
+1. Continuous slow motion: both shots; emotionally restrained gestures and fabric motion.
+2. Brief monochrome-to-colour reveal: opening only; introduces the stage lighting without changing the dress.
+3. Short dip-to-dark transition: once at 2.4s; preserves chronological action and the same venue.
+4. Very gentle forward camera drift: both shots; keeps full-stage context before emphasizing affection.
+5. Volumetric blue overhead beams and low haze: throughout; match the supplied stage photographs without obscuring identity.
+
+EFFECTS DENSITY MAP
+00:00-00:02.4 = MEDIUM: slow motion, restrained forward drift, brief colour reveal and dip transition.
+00:02.4-00:06 = MEDIUM: slow motion, gentle shoulder gesture and shared smile, subtle camera drift beneath blue beams.
+00:06-00:10 = LOW: tender continuation and recognition hold; no new transition or added visual effect.
+
+ENERGY ARC
+Opening: anticipation as he kneels beneath the stage lights.
+Middle: mutual trust expressed through a gentle shoulder gesture and warm eye contact.
+Ending: the quiet, emotionally resolved look they share, with recognizable faces and the customer's real garment.

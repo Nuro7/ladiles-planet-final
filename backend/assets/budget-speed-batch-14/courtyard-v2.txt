@@ -1,0 +1,29 @@
+COURTYARD BREEZE PORTRAIT — 10-SECOND BRIDAL VIDEO EDIT
+
+INPUT ROLES — KEEP THEM SEPARATE
+Source video: authority for shot order, duration, body and hand motion, expressions, camera angles and movement, cuts, transitions, courtyard setting, and lighting. It is NOT the authority for the bride’s identity, dress, or jewellery.
+Bride photos: sole authority for the replacement bride’s recognizable face, facial proportions, skin tone, and hair.
+Dress photos: sole authority for ONE replacement garment—its exact colour, fabric, neckline, sleeves, bodice, embroidery placement, skirt silhouette, borders, and dupatta.
+Jewellery sheet: authority for ONE coordinated, richly ornamented bridal set. Give the bride a substantial necklace or choker, matching earrings, forehead ornament, bangles, and appropriate hand jewellery. Keep the selected designs consistent throughout. Do not show the sheet itself.
+
+PRIMARY EDIT
+Replace the woman in every source-video shot with the woman in the bride photos. Replace her outfit in every shot with the exact dress in the dress photos. Dress her in the selected jewellery set. Transfer the source woman’s performance to the replacement bride: posture, steps, turns, gaze, expression, head movement, hand gestures, and fabric movement. Keep the original camera path, framing, shot lengths, cuts, transitions, environment, and lighting as closely as the available source video permits.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+For each shot actually visible in the uploaded source, retain its original start and end time. Match its camera angle, motion, speed, composition, and transition. If it is a close-up, keep a close-up with the replacement bride’s recognizable face; if it is full-length, show the complete supplied dress. The bride’s movement and expression follow the source performance. Do not invent extra shots or rearrange them. The source turn and natural movement of the supplied skirt and dupatta are the signature visual moment.
+
+MASTER EFFECTS INVENTORY
+1. Identity replacement — every shot; never blend with or return to the source woman’s face.
+2. Exact garment replacement — every shot; one consistent supplied dress, with realistic weight and embroidery.
+3. Jewellery replacement — every shot; one coherent premium set from the attached sheet.
+4. Motion and camera transfer — every shot; preserve source timing, cuts, movement, and framing.
+5. Natural integration — match the source’s daylight, shadows, perspective, skin texture, fabric motion, and jewellery reflections.
+
+EFFECTS DENSITY MAP
+Follow the source video’s actual pacing. Keep quiet moments quiet and moving moments moving. Do not add slow motion, zooms, flashes, or transitions that are absent from the source.
+
+ENERGY ARC
+Open, develop, and finish on the same visual beats as the source. End with the replacement bride clearly recognizable and wearing the complete supplied dress and consistent jewellery.
+
+FINAL RULES
+10 seconds, 9:16 portrait. One bride, one face, one dress, one jewellery set throughout. No source bride’s face or clothing; no generic substitute face or invented dress details. No warped hands, floating jewellery, plastic skin, altered location, captions, titles, logos, or visible text. Do not invent dialogue. If source audio cannot be retained, do not generate replacement speech.

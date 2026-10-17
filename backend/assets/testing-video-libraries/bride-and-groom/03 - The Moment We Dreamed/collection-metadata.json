@@ -1,0 +1,21 @@
+{
+  "templateNumber": 3,
+  "templateId": "BUDGET_SPEED_DREAM_03",
+  "sceneId": "dreamed-moment",
+  "label": "The Moment We Dreamed",
+  "subjectMode": "couple",
+  "deliveryTier": "Budget",
+  "generationMode": "Speed",
+  "promptTestStatus": "not confirmed as passed",
+  "testProvider": "Google Flow",
+  "referenceIsSourceVideo": true,
+  "musicIntegratedIntoPack": true,
+  "sourceVideoFile": "reference.mp4",
+  "musicFile": "music.m4a",
+  "promptFile": "prompt.txt",
+  "renderedReferenceWithMusic": "reference-with-music.mp4",
+  "note": "Reference/template preview with the matching music track muxed in. This is not a generated customer result.",
+  "videoDurationSeconds": 10.0,
+  "musicDurationSeconds": 9.915,
+  "integratedClipDurationSeconds": 9.915
+}

@@ -1,0 +1,110 @@
+CREATE A 10-SECOND PHOTOREALISTIC SOUTH ASIAN WEDDING FILM: HELD IN THE SPOTLIGHT.
+OUTPUT: 9:16 portrait, silent visuals, three source-inspired angles of one bridal lift and turn.
+Main action: the groom securely cradles the bride in both arms and turns with her beneath chandeliers and moving stage beams.
+The lifted bride and turning fabric must be clearly visible; a standing pose without the lift fails the story.
+Preserve the joyful intimacy and theatrical wedding light in the reference.
+Slow-motion feel: approximately 35-50% ordinary turning speed, fluid weight and cloth inertia.
+Generate no audio; the platform adds the original reference song afterward.
+
+REFERENCE ROLES AND DYNAMIC FILES
+Use the appended actual ingredient mapping for the attached file names and order.
+BRIDE_IDENTITY is the customer bride photograph or identity-sheet panel labelled reference 1.
+GROOM_IDENTITY is her current partner photograph or identity-sheet panel labelled reference 2.
+DRESS_REFERENCE defines one real selected garment from its full-front image and any optional detail/side/rear evidence.
+SCENE_REFERENCE 1 is the opening angled stage view with red overhead fabric, chandeliers and yellow/blue beams.
+SCENE_REFERENCE 2 is the frontal, vertically composed stage lift beneath the central chandelier.
+SCENE_REFERENCE 3 is the wider turning angle showing the white carved balcony band, dark curtains and red floral backdrop.
+These references determine stage architecture, lighting, blocking and the lift, not faces or target clothing.
+Do not render the original source names, photographer logos, captions or screenshot layout.
+Keep all attached photographs as visual evidence, not visible objects or panels within the output.
+
+BRIDE AND GROOM IDENTITY LOCK
+The uploaded bride defines the actual face: preserve forehead, brows, eye shapes and spacing, nose bridge/tip, lips, cheeks and jaw.
+Keep her skin tone, age appearance, natural asymmetry and realistic skin texture.
+Show her face during the opening cradle, turn toward camera and final held pose.
+Keep the groom's distinct face, skin tone and documented facial hair from his own photograph.
+Do not imitate source people's faces or blend the two customer's identities together.
+Use softer neutral facial fill inside the theatrical beams; yellow light must not erase facial features.
+Retain recognizable faces even when profile and three-quarter angles change.
+Do not use overexposure, deep silhouette or bloom to hide identity errors.
+
+ACTUAL GARMENT CONSTRUCTION
+The selected front image defines colour, silhouette, neckline, sleeve structure, bodice, waist and skirt.
+Optional close-up and angle photographs define matching stitching, embroidery motifs, border widths, beadwork and dupatta.
+All panels belong to one garment; preserve embroidery placement and scale across the lifted folds.
+The source bride's green/yellow clothing is not the selected dress unless the uploaded garment actually matches it.
+Keep the customer's supplied colour under the lights, allowing realistic warm/blue illumination without permanent recolouring.
+Show skirt and dupatta moving with gravity and inertia during the turn, with a stable waistband and attached sleeves.
+Do not stretch the dress into ribbons, swap its material or invent extra embroidered panels.
+If only a front photograph is supplied, use restrained consistent unseen details.
+
+LIFT ANATOMY AND CONTACT
+Groom supports her upper back with one arm and beneath her knees with the other.
+Bride places her arms naturally around his shoulder/upper back, with hands and wrists attached correctly.
+Her torso leans gently toward him; her bent knees and lower legs remain coherent beneath the garment.
+Groom remains grounded, weight shifts through small turning steps, no floating or rapid carousel spin.
+The lift is already established in the opening, as in the reference; do not spend the clip attempting an awkward pickup.
+No limbs merge into cloth, no additional arms, no impossible backwards knee bend.
+
+COMPLETE STAGE AND WEDDING LIGHT
+Recreate red fabric swags overhead, large tiered crystal chandeliers and dark stage curtains from the full scene references.
+Include the dense red flowering tree/floral arrangement to the side/back of the couple.
+The wider angle shows the cream-white carved lattice band above the stage and the pale architectural frame.
+Use blue-white overhead spotlight, low yellow-green fan beams through soft stage haze and warm chandelier highlights.
+Visible beams illuminate real airborne haze; they are not flat graphic triangles.
+Keep the stage floor grounding and small front floral accents visible where the framing permits.
+This reference is a focused couple performance onstage, not a crowded entrance procession.
+Keep lighting dramatic but faces and dress readable, without aggressively clipped highlights.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (0.00-1.60s) — Cradled beneath the angled light.
+EFFECT: slow motion, diagonal overhead red beam and yellow foreground haze, slight side drift.
+0.00-0.75s: reveal the couple already in a secure cradle lift; bride smiles toward him and he looks at her briefly.
+0.75-1.60s: he shifts his stance and begins a gentle clockwise turn, her veil trailing with delayed movement.
+Camera: slightly angled portrait full-body view with overhead drapes and chandelier visible, restrained side movement.
+Keep her face identifiable; atmospheric beams frame rather than hide the couple.
+EXIT: clean matched angle cut at the beginning of his turning step.
+SHOT 2 (1.60-3.30s) — Frontal lifted portrait.
+EFFECT: slow motion, blue-white overhead shaft, warm chandelier glow and a small forward push.
+1.60-2.40s: front view confirms her torso and bent legs supported by both his arms.
+2.40-3.30s: bride turns her eyes briefly toward camera with a joyful real smile, then returns her gaze to him.
+Camera: eye-level portrait full-body frame under the chandelier, with visible floor and red floral backdrop.
+The physical pose and garment continue from shot 1, without a reset into different clothing.
+EXIT: matched cut to the wider side angle as he rotates further.
+SHOT 3 (3.30-10.00s) — Slow bridal turn and joyful settling. SIGNATURE ACTION.
+EFFECT: continuous slow motion, fabric inertia and moving stage beams; stable camera with minor lateral drift.
+3.30-4.20s: wider view includes the carved balcony band, red ceiling swags, hanging chandeliers and flowers.
+4.20-5.20s: groom takes a small grounded turning step; bride stays held securely, skirt extending outward naturally.
+5.20-6.20s: pass through a rear three-quarter angle, showing the supplied garment's documented construction.
+6.20-7.20s: return into a side/front three-quarter view; her real face reappears clearly.
+7.20-8.20s: dress and dupatta settle after the turn, with embroidery stable and cloth responding naturally.
+8.20-9.20s: they share a delighted gaze; bride keeps her arm comfortably around his shoulder.
+9.20-10.00s: motion slows into a composed cradle portrait; maintain the lift through the final frame.
+Camera: match the source broad stage angle, retaining the complete chandeliers rather than cropping only ceiling or bodies.
+Limit the turn to one readable partial-to-near-full rotation across this segment, not several rapid revolutions.
+EXIT: settle on an affectionate held pose, with soft moving beams and haze continuing behind them.
+
+SECOND-BY-SECOND ACTION PRIORITIES
+Seconds 1-2: established cradle lift and an affectionate exchanged look.
+Second 3: recognize the uploaded bride in the frontal angle.
+Seconds 4-7: a believable turning lift with physical footwork and cloth inertia.
+Second 8: complete the turn and reveal her face again.
+Seconds 9-10: shared happiness and a stable held ending.
+
+MASTER EFFECTS INVENTORY
+1. Slow motion in three shots: reveal emotion, lift support and fabric movement.
+2. Two matched angle cuts: preserve pose, turning direction, garment and identity.
+3. Moving coloured light shafts throughout: recreate stage spectacle through haze.
+4. Gentle side drift and one tiny push-in: modest camera movement without an artificial orbit.
+5. Cloth inertia during the main turn: skirt and veil follow motion while construction remains stable.
+
+EFFECTS DENSITY MAP
+0.00-3.30s = MEDIUM: angle changes, stage beams and deliberate slow motion.
+3.30-7.20s = MEDIUM: the lifted turn, cloth inertia and theatrical light, no extra edit effects.
+7.20-10.00s = LOW: settle the turn, clear faces and an affectionate held composition.
+
+ENERGY ARC
+Act 1: intimate joy inside a dramatic stage reveal.
+Act 2: the secure bridal lift turns into a flowing slow-motion display of the actual dress.
+Act 3: the rotation settles and their shared gaze resolves the moment.
+Quality criterion: recognizable customer faces, consistent actual dress, physically convincing lift and matching stage ambience.

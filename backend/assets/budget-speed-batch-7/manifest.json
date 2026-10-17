@@ -1,0 +1,24 @@
+{
+  "id": "under-flowers-forever",
+  "label": "Under the Flowers, Into Forever",
+  "templateId": "BUDGET_SPEED_FLOWERS_07",
+  "templateNumber": 7,
+  "category": "wedding",
+  "description": "A crowded flower-canopy entrance, stage welcome, tender embrace and garland exchange.",
+  "sourceFilename": "Two hearts, one beautiful beginning, and a lifetime to go. 🤍✨Here’s to love, laughter, and fore.mp4",
+  "sourceDuration": 26.12,
+  "sourceSize": [1276, 720],
+  "duration": 10,
+  "aspectRatio": "16:9",
+  "audioStartOffset": 0,
+  "sourceShotStarts": [0, 0.966667, 2.46667, 4, 5.03333, 8, 9.9, 11, 12.4333, 15.2333, 17.8, 19.5667, 21.6, 22.7, 24.1333, 25.1333],
+  "sceneFiles": ["scene-board-1.png", "scene-board-3.png"],
+  "thumbnailFile": "source-shot-07.png",
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: chronological board, source shots 1-6, read left-to-right then top-to-bottom; packed entrance, flower canopy, groom stage and hazy approach",
+    "SCENE_REFERENCE 2: chronological board, source shots 13-16; garland detail, placement and final petal celebration; blank panels are not scenes. Earlier intimate-contact shots are intentionally omitted."
+  ],
+  "imageAction": "Full-length landscape wedding portrait of the current bride and groom together before the cream and gold stage arch, hands joined and an affectionate exchanged gaze, flower-canopy procession and guests visible behind.",
+  "environment": "Packed nighttime wedding crowd, rectangular flower canopy, raised pale stage, cream scalloped gold-edged arches, fluted side panels, lattice inset, white flowers/greenery, low haze, petals and warm event lights with blue/violet stage beams.",
+  "analysis": "Sixteen meaningful source shots plus terminal black transition at 25.87 seconds. Preserve the crowded flower-canopy entrance, groom welcome, hand connection, embrace, full outfit, garland exchange and final petals. Intimate-contact source frames are intentionally excluded from generation references; use a warm non-contact affectionate pause instead. Last black frame stays internal analysis only. Source 1276x720 is approximately 16:9; output stays landscape. Audio from time 0, first 10 seconds."
+}

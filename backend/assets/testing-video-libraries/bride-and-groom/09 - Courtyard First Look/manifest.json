@@ -1,0 +1,21 @@
+{
+  "id": "courtyard-first-look",
+  "label": "Courtyard First Look",
+  "templateId": "BUDGET_SPEED_COURTYARD_09",
+  "templateNumber": 9,
+  "category": "wedding",
+  "description": "A portrait first-look story through a bright white courtyard and garden.",
+  "sourceFilename": "wedding reel❤️#instagram #reels #trending #kerala #explore.mp4",
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "sceneFiles": ["source-shot-01.png", "source-shot-02.png", "source-shot-03.png", "source-shot-04.png"],
+  "sceneRoles": [
+    "SCENE_01: bride foreground and groom walking through a white garden courtyard; framing and architecture only.",
+    "SCENE_02: a couple join hands beneath soft foreground foliage; action and portrait depth only.",
+    "SCENE_03: bride close-up with groom softly behind; focus separation and emotional pacing only.",
+    "SCENE_04: groom's bright courtyard approach; pace, white architecture and approach direction only."
+  ],
+  "imageAction": "Show the bride and groom head-to-toe as they meet in a sunlit white courtyard and join hands, then hold a relaxed full-length pose with clear faces and complete outfit detail; include floor and generous headroom.",
+  "environment": "sunlit white courtyard, carved doorway, pale steps, green foliage and soft shallow-focus foreground",
+  "policyProfile": "adult-romance-safe"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "velvet-couture-room",
+  "label": "Velvet Couture Room",
+  "templateId": "BRIDAL_REFERENCE_15",
+  "templateNumber": 15,
+  "category": "pre-wedding",
+  "description": "Dark warm salon, velvet curtains, low upholstered sofa, shaded lamps and painted antique wall.",
+  "sourceFilename": "DeBHeHxIAAD.mp4",
+  "subjectMode": "solo",
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "sceneFiles": [
+    "scene-board-1.jpg",
+    "scene-board-2.jpg",
+    "scene-board-3.jpg"
+  ],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 2: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 3: chronological source shot board; complete environment, pose and camera direction only"
+  ],
+  "imageAction": "Show the complete bride head-to-toe in the couture room, hands resting naturally at her waist so the embroidery is visible within the full outfit. Full-length composition with visible floor and generous headroom; subtle lateral camera drift, warm lamp light.",
+  "environment": "dark warm salon, velvet curtains, low upholstered sofa, shaded lamps and painted antique wall"
+}

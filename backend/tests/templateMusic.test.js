@@ -1,0 +1,21 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const path=require('node:path');
+const fs=require('node:fs/promises');
+const os=require('node:os');
+const media=require('../services/studioMediaService');
+test('Original reference audio is extracted once and replaces the generated clip audio',async()=>{
+  const dir=await fs.mkdtemp(path.join(os.tmpdir(),'lp-music-'));
+  const source=path.join(__dirname,'../assets/budget-balance-01/reference.mp4');
+  const music=await media.extractTemplateMusic(source,path.join(dir,'original.m4a'));
+  assert.ok((await fs.stat(music)).size>0);
+  const silent=path.join(dir,'silent.mp4');
+  await media.run(['-f','lavfi','-i','color=c=black:s=320x240:r=24','-t','1','-an','-c:v','libx264','-pix_fmt','yuv420p','-y',silent]);
+  const result=await media.finishVideo(silent,{musicPath:music},'music-test-'+path.basename(dir));
+  await media.validateTrack(result.file);
+  const diagnostic=await media.run(['-i',result.file,'-f','null','-']);
+  assert.match(diagnostic,/Audio: aac/);
+  assert.match(diagnostic,/Video:[^\r\n]*320x240/);
+  const seconds=diagnostic.match(/Duration: 00:00:(\d+\.\d+)/)?.[1];
+  assert.ok(Number(seconds)>=0.9&&Number(seconds)<2,'Music is trimmed to the clip, not stretched to the source recording length.');
+});

@@ -1,0 +1,21 @@
+{
+  "templateNumber": 9,
+  "templateId": "BUDGET_SPEED_COURTYARD_09",
+  "sceneId": "courtyard-first-look",
+  "label": "Courtyard First Look",
+  "subjectMode": null,
+  "deliveryTier": "Budget",
+  "generationMode": "Balance",
+  "promptTestStatus": "Not confirmed as passed",
+  "testProvider": "Google Flow",
+  "referenceIsSourceVideo": true,
+  "musicIntegratedIntoPack": true,
+  "sourceVideoFile": "reference.mp4",
+  "musicFile": "music.m4a",
+  "promptFile": "prompt.txt",
+  "renderedReferenceWithMusic": "reference-with-music.mp4",
+  "note": "Reference/template preview with matching music muxed in. This is not a generated customer result.",
+  "videoDurationSeconds": 10.0,
+  "musicDurationSeconds": 53.426,
+  "integratedClipDurationSeconds": 10.0
+}

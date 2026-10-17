@@ -1,0 +1,48 @@
+PROJECT: LADIES PLANET — BRIDAL MOTION TRANSFER
+MODEL: WAN 3.0 PRIME | DURATION: 10 SECONDS | ASPECT: 16:9 LANDSCAPE
+
+OBJECTIVE
+Transfer the source video's performance and cinematography to the target bride. Replace the original woman's identity and entire outfit. This is subject-and-wardrobe replacement, NOT an unchanged copy or a new bridal concept.
+
+REFERENCE ROLES
+VIDEO 1 = motion, expressions, gestures, poses, camera, shot sequence, timing, environment and lighting.
+IMAGE 1 = target bride's facial identity ONLY.
+IMAGE 2 = exact bridal dress AND its matching dupatta.
+IMAGE 3 = exact jewellery, if supplied.
+Ensure these labels match the actual uploaded assets.
+
+1. STRICT FACE IDENTITY — HIGHEST PRIORITY
+The final bride must be the woman in IMAGE 1, not a similar or invented woman. Faithfully preserve her: overall face shape and proportions, eyes and spacing, eyelids, eyebrows, nose bridge and tip, lips and mouth width, cheeks, jawline, chin, forehead, skin tone and distinctive features. Preserve natural asymmetry and realistic skin texture.
+
+Replace the source video's woman's facial identity. Do not retain, blend, average or alternate between the two faces. Keep IMAGE 1's identity stable in every frame, in close-ups, profiles, turns and changing light. Integrate the face naturally with the head, ears, jaw and neck. Avoid beauty-filter changes, plastic skin, facial warping and identity drift.
+
+IMAGE 1 IS FACE IDENTITY ONLY. Completely ignore its clothing, including any T-shirt, yellow top, neckline, sleeves, colours and fabric. Never reproduce those clothes, even for one frame.
+
+2. COMPLETE MOTION TRANSFER
+Follow VIDEO 1 as closely as possible for the full 10 seconds. Preserve its visible head movements, expressions, gaze, hand and finger positions, arm movements, posture, dupatta interactions, movement speed, camera angles, framing, shot sizes, cuts, transitions and timing. Keep original shot order, environment and lighting. Do not invent scenes, poses, gestures, camera moves or transitions.
+
+3. EXACT DRESS AND MATCHING DUPATTA
+IMAGE 2 is the exclusive authority for the bridal outfit. Reproduce its colour, silhouette, neckline, sleeves, fabric, embroidery, motifs, borders and construction. Do not copy the source video's original dress or white dupatta.
+
+The matching dupatta shown with IMAGE 2 is mandatory. IMAGE 2 determines its colour, fabric, transparency, embroidery, borders and design. VIDEO 1 determines only how the dupatta moves and is held. Never omit, redesign or combine it with the source video's dupatta.
+
+4. NO MANNEQUINS — GARMENT ONLY
+Use IMAGE 2 only to extract the dress and dupatta. If it shows a mannequin, artificial torso, display bust, hanger, stand or studio display, ignore those objects completely.
+
+NEVER generate a mannequin in any frame. Never transfer mannequin anatomy, white torso patches, plastic body parts, artificial neck, shoulders, arms, hands or legs into the bride. Never attach or place a mannequin inside the bride's body.
+
+The bride must have natural human proportions and realistic skin. Fit the dress naturally onto her body. If the mannequin hides garment details, infer only the necessary garment construction; never recreate mannequin parts or display objects. TRANSFER THE GARMENT, NEVER THE DISPLAY OBJECT. Zero mannequins and zero mannequin remnants.
+
+5. JEWELLERY
+If IMAGE 3 is supplied, reproduce its actual jewellery designs, stones, colours, shapes and placement. Do not substitute generic jewellery or copy conflicting ornaments from VIDEO 1. Keep jewellery fitted and consistent.
+
+6. ENVIRONMENT AND CINEMATOGRAPHY
+Preserve VIDEO 1's background, architecture, lighting, shadows, colour grading, perspective, focus, framing and camera behaviour. Keep 16:9 landscape. No new location, people, props or artificial effects.
+
+7. CONTINUITY AND NEGATIVES
+Keep the same target identity, dress, dupatta and jewellery throughout. Preserve realistic hands, fingers, fabric folds and cloth physics. Avoid original bride's face, identity blending, casual-clothing leakage, source white-dupatta leakage, wardrobe flicker, changing embroidery, facial warping, plastic skin, mannequin anatomy, distorted hands, floating jewellery, invented scenes, extra camera movements, text, logos and watermarks.
+
+FINAL DIRECTIVE
+Recreate VIDEO 1's performance and cinematography with the woman in IMAGE 1 wearing the exact dress and matching dupatta from IMAGE 2 and the jewellery from IMAGE 3, if supplied. Replace the bride and wardrobe; do not return an unchanged copy of the source video.
+
+PRIORITIES: 1) Original motion and shot sequence. 2) Target face identity. 3) Exact dress and matching dupatta. 4) No mannequin or remnants. 5) Exact jewellery. 6) Natural anatomy and continuity.

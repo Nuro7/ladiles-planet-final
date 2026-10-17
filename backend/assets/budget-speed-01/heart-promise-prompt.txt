@@ -1,0 +1,51 @@
+CREATE A 10-SECOND, 16:9 LANDSCAPE, PHOTOREALISTIC SOUTH ASIAN WEDDING FILM. Treat the bride photograph as the sole authority for the bride's identity and the groom photograph as the sole authority for the groom's identity. Preserve both faces, skin tones, facial proportions, age appearance and natural features across every shot; do not borrow either face from a scene still. The selected dress photographs define the bride's actual outfit. Preserve its real colour, silhouette, blouse, embroidery placement, stitching, border, fabric texture and dupatta consistently. Do not replace it with a white gown or copy clothing from the scene stills.
+
+REFERENCE IMAGE ROLES
+The bride and groom identity reference comes first. The selected dress reference or dress evidence sheet comes next; any additional garment close-ups remain garment evidence. The final two attached stills are the non-contact wedding-scene references, in chronological order: Scene 1, purple floral wedding stage; Scene 2, purple-lit proposal with bouquet. Use these stills for stage architecture, decor, lighting, subject placement and composition only. They do not define identity, dress, exact copied faces or text. Build the landscape frame by extending the stage and decor naturally on both sides; keep both people fully framed and clear. Do not crop away the couple to force the original portrait composition. Ignore and do not reproduce any overlaid writing, subtitles, logos or watermark visible in a scene still.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+
+SHOT 1 (00:00-00:03.2) — STAGE TENDERNESS, slow-motion
+• Open on the purple floral stage in a composed medium-wide landscape frame; the bride stands beside the seated groom. They exchange a gentle, affectionate look while maintaining comfortable personal space.
+• 00:00-00:01: establish both people fully and clearly. The bride's eyes soften as she turns toward him; the groom looks up at her. A very slow, stable camera drift begins.
+• 00:01-00:02: she rests one hand gently at his shoulder; he responds with a warm smile. Keep the chandelier, hanging florals and purple stage lights visible around them.
+• 00:02-00:03.2: they hold comfortable personal space and share a quiet smile. Show affection through their eyes and relaxed posture, not physical intimacy.
+• Motion is graceful slow motion throughout, approximately 65-70% real-time. Preserve fine veil and fabric movement. Exit with a soft luminous dissolve that carries the stage light into the proposal composition.
+
+SHOT 2 (00:03.2-00:06.8) — PURPLE-LIT PROMISE, slow-motion
+• Cut/dissolve into the richly lit floral wedding stage from Scene 2: hanging blossoms, chandelier details, warm practical lights, and one bright violet-blue overhead beam. Preserve the romantic night-wedding ambience and realistic light on both faces.
+• 00:03.2-00:04: reveal the bride and groom standing face-to-face in a balanced landscape medium-wide shot. The groom gently inclines his head toward her; she meets his gaze with a quiet smile.
+• 00:04-00:05: the bride rests one hand softly at his upper chest/shoulder; he acknowledges the gesture and holds her other hand naturally. Keep both identities distinct and stable.
+• 00:05-00:06: make a slow, small camera arc from a three-quarter view toward a more frontal two-shot. Violet and pink bokeh shimmer in the background; the beam remains atmospheric and never washes out their faces.
+• 00:06-00:06.8: hold their eye contact and intimate smile. Use a gentle match cut on their joined hands / bouquet-height gesture into the proposal composition. No whip-pan, no abrupt zoom, no strobing.
+
+SHOT 3 (00:06.8-00:10.0) — THE PROPOSAL, slow-motion resolution
+• Match the purple floral palette and chandelier from Scene 3. The groom is on one knee before the bride; she holds a small pale bouquet and looks down at him, visibly moved and happy. Frame both people from head to below the waist with soft foreground florals at the lower edge, never obscuring their faces or hands.
+• 00:06.8-00:08: reveal the kneeling pose in a stable medium-wide shot. The bride's expression changes from tender surprise to a warm smile; the groom looks up at her. Keep hands, bouquet and knee placement physically coherent.
+• 00:08-00:09: the bride reaches down and accepts the bouquet/gesture with an affectionate touch. Her eyes glisten naturally; no crying distortion or facial morphing.
+• 00:09-00:10: make a very slow dolly-in to a composed two-person ending. They share a joyful, intimate look beneath the purple lights. Let the final image settle and softly fade at the last instant; do not add a title card or text.
+• Maintain restrained 65-70% slow-motion movement through the entire film. Camera motion stays smooth and deliberate; fabric and veil react naturally to small movements.
+
+CONTINUITY AND QUALITY LOCKS
+• One bride and one groom only. Keep the bride's face tied to the bride reference and the groom's face tied to the groom reference in every frame. Never blend, exchange, beautify into a different person, or substitute a generic face.
+• The boutique-selected dress remains the same garment in all three scenes, even where the monochrome reference makes its colour unclear. Use the dress photos for its exact colour and construction; use scene stills only for composition and ambience.
+• Retain three distinct shots and two visible scene transitions. Do not collapse the film into one continuous walk, duplicate the couple, freeze them into a still, or invent extra actions.
+• Realistic wedding-film cinematography, natural skin texture, anatomically correct hands, stable jewelry and stitching, coherent lighting, no text, no logos, no added audio generation.
+
+MASTER EFFECTS INVENTORY
+1. Continuous graceful slow motion (~65-70% feel): all three shots; emotionally deliberate movement.
+2. Slow, stable dolly-in: Shot 1 and the final seconds of Shot 3; draws attention to expressions.
+3. Small smooth three-quarter camera arc: Shot 2 only; reveals the couple without losing either face.
+4. Soft luminous dissolve: Shot 1 to Shot 2; moves from monochrome intimacy to vivid celebration.
+5. Match cut on joined hands / gesture: Shot 2 to Shot 3; connects the promise to the proposal.
+6. Soft end fade: final instant only; gives the emotional moment a resolved ending.
+
+EFFECTS DENSITY MAP
+00:00-00:03.2 = MEDIUM (slow drift, gentle gesture, affectionate eye contact, dissolve).
+00:03.2-00:06.8 = MEDIUM (slow camera arc, hand gesture, expressive eye contact, match cut).
+00:06.8-00:10.0 = MEDIUM (proposal reveal, bouquet gesture, slow dolly-in, soft fade).
+
+ENERGY ARC
+Act 1, 00:00-00:03.2: quiet stage tenderness and a shared affectionate look.
+Act 2, 00:03.2-00:06.8: the wedding stage blooms into vivid violet light as the couple reconnects.
+Act 3, 00:06.8-00:10.0: the kneeling proposal resolves into a warm shared smile and a calm final hold.

@@ -1,0 +1,24 @@
+{
+  "id": "white-heritage-couture",
+  "label": "White Heritage Couture",
+  "templateId": "BRIDAL_REFERENCE_17",
+  "templateNumber": 17,
+  "category": "pre-wedding",
+  "description": "Bright all-white heritage interior, tall columns, sheer curtains, curved sculptural seats and soft daylight.",
+  "sourceFilename": "DSbtINCAeTe.mp4",
+  "subjectMode": "solo",
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "sceneFiles": [
+    "scene-board-1.jpg",
+    "scene-board-2.jpg",
+    "scene-board-3.jpg"
+  ],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 2: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 3: chronological source shot board; complete environment, pose and camera direction only"
+  ],
+  "imageAction": "In second 1 she stands with the supplied drape held lightly; in second 2 she turns her eyes toward camera. Full-length slow push-in in the white columned room.",
+  "environment": "bright all-white heritage interior, tall columns, sheer curtains, curved sculptural seats and soft daylight"
+}

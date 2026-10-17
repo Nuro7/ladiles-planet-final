@@ -1,0 +1,39 @@
+Create a 10-second upright 9:16 photorealistic wedding film. Silent visuals; the platform adds the saved original music.
+Use the current BRIDE_IDENTITY and GROOM_IDENTITY photographs for the two distinct faces. Preserve facial proportions, natural complexion and expressions throughout camera changes. The selected DRESS_FRONT and optional angles determine one garment: exact documented colours, neckline, sleeves, seam construction, stitching, embroidery scale, skirt and dupatta.
+SCENE_01-04 define the bright white courtyard, carved doorway, pale steps, lawn and foliage. Maintain these surroundings and camera directions; dress and customer identities take precedence over the source people.
+The source file contains sideways footage. Render people upright in the portrait frame. Use naturally framed portrait compositions with visible face and garment detail, believable anatomy and gentle fabric motion. No source captions or branding.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (0-2s) — First-look approach.
+EFFECT: shallow depth of field and approximately 50% slow-motion feel.
+Second 1: bride stands in foreground beneath soft leaves, anticipating someone behind her. Second 2: groom walks two calm steps toward her across the lawn from the white building.
+Camera: medium bride portrait with groom readable behind, subtle tracking drift. Cut on his last approach step.
+SHOT 2 (2-4s) — Joined hands. SIGNATURE ACTION.
+EFFECT: slow motion and gentle focus shift.
+Second 3: she turns toward him, her expression brightens, and he offers his hand. Second 4: she places her hand in his and they exchange a natural happy look.
+Camera: chest-height two-shot through green foreground foliage, hands visible near frame centre. Match cut on her smile.
+SHOT 3 (4-6s) — Emotional portrait.
+EFFECT: optical focus isolation and gentle push-in.
+Second 5: bride looks down at their joined hands, then raises her eyes with a shy smile. Second 6: groom softly smiles in the background; her recognizable face remains sharp and the actual neckline and stitching stay readable.
+Camera: three-quarter bride portrait against soft white architecture. Cut on her shoulder turn.
+SHOT 4 (6-8s) — Full outfit and courtyard.
+EFFECT: short lateral tracking with soft fabric inertia.
+Second 7: they walk one measured step beside the doorway, keeping hands connected. Second 8: she makes a small graceful quarter-turn so the selected skirt and dupatta move naturally, without replacing garment details.
+Camera: upright full-length portrait; include the steps, white doorway and green garden. Continuity cut into the final shared portrait.
+SHOT 5 (8-10s) — Shared resolution.
+EFFECT: camera settles after a small arc.
+Second 9: he turns slightly toward her and she looks back at him. Second 10: they stop with relaxed shoulders and warm smiles, holding hands, with clear faces and the real dress.
+Camera: medium two-shot with soft garden foreground; hold the final expression. Do not loop or begin another walk.
+
+MASTER EFFECTS INVENTORY
+1. Continuous slow motion in five shots: gentle emotional timing.
+2. Shallow focus in shots 1-3: separate faces from foliage.
+3. Tracking in shots 1 and 4: arrival and full garment reveal.
+4. Small arc and settle in shot 5: resolve the interaction.
+5. Four continuity cuts: approach, smile, turn and shared portrait.
+EFFECTS DENSITY MAP
+0-4s LOW: approach, depth separation and one hand connection.
+4-8s MEDIUM: face focus, measured walk and fabric turn.
+8-10s LOW: shared look and gentle camera settle.
+ENERGY ARC
+A quiet approach resolves into hand connection, a shy delighted reaction and a composed couple portrait in the same courtyard.

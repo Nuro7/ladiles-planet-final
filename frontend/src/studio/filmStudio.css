@@ -1,0 +1,62 @@
+.film-header { display: block !important; }
+.film-header h1 { margin: 7px 0; }
+.film-tabs { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; margin-top: 24px; }
+.film-tab { padding: 14px 12px; text-align: left; border: 1px solid var(--border); border-radius: 12px; background: var(--card); color: var(--text); cursor: pointer; }
+.film-tab span { display: block; font-size: 13px; font-weight: 600; }
+.film-tab small { display: block; font-size: 10px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+.film-tab.is-selected { border-color: var(--gold); background: var(--gold-dim); }
+.film-tab:disabled { cursor: default; opacity: .65; }
+.film-scenes { padding: 25px var(--gutter); }
+.film-section-title { margin-bottom: 24px; }
+.film-section-title h2, .film-intro h2 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(22px, 3vw, 32px); margin: 8px 0; }
+.film-section-title p { font-size: 11px; color: var(--muted); }
+.film-scene-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 14px; }
+.film-scene { text-align: left; border: 1px solid var(--border); border-radius: 15px; overflow: hidden; color: var(--text); background: var(--card); cursor: pointer; transition: transform .2s, border-color .2s; }
+.film-scene:hover { transform: translateY(-3px); border-color: var(--gold); }
+.film-scene__art { height: 110px; padding: 16px; display: flex; align-items: center; justify-content: space-between; position: relative; background: linear-gradient(140deg, #612635, #26151f); color: #dbaa8a; }
+.film-scene--1 .film-scene__art { background: linear-gradient(140deg, #384c3e, #16241e); }
+.film-scene--2 .film-scene__art { background: linear-gradient(140deg, #75553a, #312519); }
+.film-scene--3 .film-scene__art { background: linear-gradient(140deg, #484357, #221c30); }
+.film-scene__art > span { font-size: 37px; font-family: Georgia, serif; opacity: .55; }
+.film-scene__art small { position: absolute; bottom: 12px; right: 16px; font-size: 9px; letter-spacing: 1px; }
+.film-scene__copy { padding: 17px; }
+.film-scene__copy strong { font-size: 13px; }
+.film-scene__copy p { font-size: 11px; line-height: 1.7; color: var(--muted); margin: 8px 0 14px; }
+.film-scene__copy > span { font-size: 10px; color: var(--gold); display: flex; gap: 7px; align-items: center; }
+.film-intro { padding: 45px 25px; display: flex; gap: 16px; align-items: center; flex-direction: column; text-align: center; margin: auto; }
+.film-intro > svg { color: var(--gold); margin-bottom: 12px; }
+.film-intro > p { max-width: 420px; font-size: 13px; line-height: 1.8; color: var(--muted); }
+.film-references { display: flex; gap: 15px; margin: 24px 0; }
+.film-references > div { width: 120px; height: 160px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--card); position: relative; display: grid; place-items: center; color: var(--muted); }
+.film-references img { width: 100%; height: 100%; object-fit: cover; }
+.film-references span { position: absolute; bottom: 0; left: 0; width: 100%; background: #18080bd9; color: #eee; font-size: 10px; padding: 10px; }
+.film-model-summary { padding: 15px; background: var(--gold-dim); border: 1px solid var(--gold-line); border-radius: 12px; }
+.film-model-summary strong, .film-model-summary span { display: block; }
+.film-model-summary span { font-size: 11px; color: var(--muted); margin-top: 6px; }
+.film-note { font-size: 12px; line-height: 1.7; color: var(--muted); margin: 8px 0; }
+.film-fixed { font-size: 13px; padding: 16px; border-radius: 12px; border: 1px solid var(--border); }
+.film-fixed small { font-size: 11px; line-height: 2; color: var(--muted); }
+.film-video-upload { display: block; padding: 12px; border: 1px dashed var(--border); border-radius: 10px; font-size: 12px; line-height: 1.8; }
+.film-video-upload input { display: block; width: 100%; margin-top: 8px; font-size: 10px; }
+.film-error { color: var(--danger); font-size: 12px; line-height: 1.6; margin-top: 12px; }
+.film-mode-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.film-mode-switch button { padding: 12px 8px; color: var(--text); background: var(--card); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; }
+.film-mode-switch button.is-selected { border-color: var(--gold); background: var(--gold-dim); }
+.film-mode-switch button:disabled { cursor: default; opacity: .7; }
+.film-experience { width: 100%; padding: 28px var(--gutter); }
+.film-result-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+.film-result { min-width: 0; padding: 16px; border: 1px solid var(--border); border-radius: 15px; background: var(--card); }
+.film-result__head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+.film-result__head span { font-size: 13px; font-weight: 600; }
+.film-result__head small { color: var(--gold); font-size: 10px; }
+.film-result__media, .film-result__placeholder { display: block; width: 100%; height: 260px; object-fit: contain; border-radius: 10px; background: #1c1619; }
+.film-result__video, .history-video { object-fit: contain !important; object-position: center; background: #0b0809; }
+.film-result__placeholder { display: grid; place-items: center; color: var(--muted); }
+.film-result__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+.film-progress { height: 5px; overflow: hidden; border-radius: 5px; background: var(--border); }
+.film-progress span { display: block; height: 100%; background: var(--gold); transition: width .4s; }
+.film-custom-result { max-width: 520px; width: 100%; display: grid; gap: 12px; justify-items: center; }
+.film-custom-result video { max-width: 100%; max-height: 400px; }
+@media (max-width: 1100px) { .film-tabs { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 700px) { .film-result-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .film-scene-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; } .film-scene__copy { padding: 12px; } .film-experience { padding: 18px; } }

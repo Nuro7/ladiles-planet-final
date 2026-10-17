@@ -1,0 +1,120 @@
+CREATE A 10-SECOND PHOTOREALISTIC SOUTH ASIAN WEDDING FILM: UNDER THE FLOWERS, INTO FOREVER.
+OUTPUT: 16:9 landscape, silent visuals, a condensed celebratory wedding story.
+Preserve the defining progression: crowded bridal entrance, groom's welcome, hand connection, embrace, affectionate pause and a garland moment. Keep the wedding affection gentle and non-contact beyond the hand connection.
+The source is approximately 26 seconds; abbreviate repeated views and lingering holds to fit 10 seconds without deleting the emotional climax.
+Use deliberate slow-motion feel, approximately 45-60% of ordinary gesture speed; start actions already underway where needed.
+Generate no music or speech. The original reference audio is added separately by the platform.
+
+ATTACHED REFERENCE MAP
+The appended ingredient mapping supplies the actual attached file names, order and identities.
+BRIDE_IDENTITY: uploaded customer bride photograph, identity-sheet panel labelled reference 1 when combined.
+GROOM_IDENTITY: uploaded current partner photograph, identity-sheet panel labelled reference 2 when combined.
+DRESS_REFERENCE: actual chosen dress front/evidence sheet plus individual full-front/detail evidence when provided.
+SCENE_REFERENCE 1: chronological board of source shots 1-6: crowd entrance, flower canopy, waiting groom and stage approach.
+SCENE_REFERENCE 2: chronological board of source shots 13-16: garland preparation/exchange and celebratory petal ending.
+Read each board left-to-right, top-to-bottom; panel captions identify source shots and source times only. Intimate-contact stills are intentionally not attached.
+Use the boards to understand real shot composition, atmosphere and architecture; never render panel layouts or text.
+Do not borrow faces or the source red outfit. The customer identities and selected garment override source people and clothes.
+The source's final black frame is not a scene to generate.
+
+IDENTITY AND EXPRESSION REQUIREMENTS
+The customer bride must remain recognizable across wide entry, hug, affectionate pause and garland action.
+Retain face contour, forehead, eyebrows, eye shapes/spacing, nose, lip shape, cheeks, chin and jaw from her photo.
+Keep her skin tone, age appearance, natural asymmetry and believable skin texture.
+Keep the groom's independently supplied face and facial hair, without importing source sunglasses or source identity by default.
+Use hopeful composure at the entrance, relief at their hand connection and tender happiness during the affectionate pause.
+The couple exchange warm eye contact while maintaining comfortable personal space, then smile.
+Background relatives and guests have newly created distinct faces, not duplicates of the main couple or source people.
+No facial blending, generic bride substitution, excessive beautification or deformed contact anatomy.
+
+SELECTED DRESS, STITCHING AND STYLING
+The actual selected dress photographs determine base/secondary colours, neckline, sleeve construction, bodice, seams, waist and skirt.
+Preserve embroidery pattern placement, motif scale, stitch texture, border widths, beadwork and material opacity.
+Retain the supplied dupatta colour, border and natural drape; do not invent the source red veil unless the garment evidence shows it.
+One full-length front photo is mandatory; extra angles and detail photographs refine the same garment when present.
+The bride remains in this one dress from entry through hug and garlands.
+During contact, cloth folds and veil move naturally, with stable seams and embroidery rather than texture sliding.
+Do not put stage-flower colours onto her clothing or render the garment sheet as a collage.
+Use accessories compatible with visible garment evidence; no copying the source model's entire styling by default.
+
+FULL VENUE AND AMBIENCE
+Use the dense nighttime wedding crowd and packed approach aisle shown in board 1.
+Bridal escorts carry a rectangular overhead canopy of pale flowers and greenery above the bride.
+Keep the main bride unobstructed beneath the canopy, with relatives close at both sides and guests behind.
+At the raised pale stage, retain cream scalloped arch panels with gold edges, fluted pale side panels, lattice inset and vertical greenery/white flowers.
+Match the source's wide stage-to-audience layout, with guests directly in front and distant strings of warm lights.
+Low white haze spreads near stage floor level; it must not hide faces or create a blank cloudy scene.
+Fine red/white petals drift and sparkle in the event lights, varying in size, distance and focus.
+Use warm neutral light on skin, brighter stage frontal fill, blue/violet overhead beams and rear event-light highlights.
+Keep the complete floor-to-stage arrangement, floral trim and crowd where each reference angle shows them.
+Maintain continuity between aisle, stage, groom and bride; do not relocate them to unrelated halls at each cut.
+No captions, source logos, social handles or decorative text in the generated film.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (0.00-0.85s) — Crowded bridal entrance, wide.
+EFFECT: slow motion, small backward tracking move, overhead flower-canopy parallax.
+0.00-0.45s: bride is already advancing beneath the flower canopy, surrounded by close escorts and dense guests.
+0.45-0.85s: she lifts her eyes toward the stage with a calm anticipatory smile; the actual garment is clearly visible.
+Camera: landscape wide at audience eye level, canopy above and crowd across the frame; keep the floor approach readable.
+EXIT: matched cut closer beneath the same flowers, not a sudden new location.
+SHOT 2 (0.85-1.45s) — Bride beneath the flowers, medium close-up.
+EFFECT: shallow focus and restrained slow motion.
+Show her current uploaded face with warm skin light; hanging pale flowers are soft foreground overhead.
+She lowers her gaze briefly, then looks toward the waiting groom with quiet emotion.
+Camera: shoulder-height slight three-quarter angle, escorts remain peripheral rather than replacing her.
+EXIT: eyeline cut to the groom on the stage.
+SHOT 3 (1.45-2.15s) — Waiting groom and decorated stage.
+EFFECT: stable medium-wide frame and small forward drift.
+Groom stands before the cream/gold scalloped stage arch and floral greenery, looking toward her entrance.
+His anticipation becomes a smile; he turns his upper body and starts extending a welcoming hand.
+Camera: frontal stage angle, architectural symmetry and floor boundary preserved.
+EXIT: cut on the reaching hand to the stage-to-crowd approach angle.
+SHOT 4 (2.15-4.00s) — Welcome and hand connection.
+EFFECT: slow motion, low haze, layered falling petals and a subtle tracking move.
+2.15-2.80s: from behind the groom, see the bride finish her short approach with the crowd surrounding the aisle.
+2.80-3.35s: he reaches toward her; she raises her hand, smiling as she arrives at the stage edge.
+3.35-4.00s: their hands meet visibly and securely; she completes the small step to stand beside him.
+Camera: rear three-quarter groom view then a slight lateral drift revealing her face; keep the stage floor, flowers and audience.
+EXIT: continuity cut on joined hands into the embrace angle.
+SHOT 5 (4.00-5.75s) — Embrace beneath stage lights.
+EFFECT: deliberate slow motion with blue/violet shafts, falling petals and a minor camera arc.
+4.00-4.60s: they draw close; he places an arm around her back and she rests a hand near his upper chest/shoulder.
+4.60-5.20s: embrace settles, her face visible in three-quarter view; soft smile conveys relief and affection.
+5.20-5.75s: she gently lowers her forehead toward him, preparing the next intimate action.
+Camera: medium stage-side angle, cream/gold architecture behind, bright readable skin against theatrical background light.
+EXIT: matched cut toward the crowd-backed portrait, with pose unchanged.
+SHOT 6 (5.75-8.15s) — Affectionate pause beneath the stage lights.
+EFFECT: slow motion and a gentle focus shift from nearby petals to their faces.
+5.75-6.30s: medium two-shot with guests and warm hanging lights behind; the couple face one another after their embrace.
+6.30-7.30s: they exchange warm eye contact and a soft smile, keeping comfortable personal space.
+7.30-7.85s: the bride glances toward the garland while the groom smiles reassuringly.
+7.85-8.15s: hold the calm affectionate moment with both faces clearly visible.
+Camera: steady medium two-shot that maintains recognizable faces, the stage and some of the garment.
+EXIT: cut to hands lifting the garland, giving a short time advance within the same wedding.
+SHOT 7 (8.15-10.00s) — Garland exchange and shared beginning.
+EFFECT: slow-motion hand detail resolving into a medium two-shot with petals.
+8.15-8.65s: bride holds a red-and-pale flower garland with both hands; groom inclines his head toward her.
+8.65-9.30s: she lowers the loop over his head onto his shoulders with physically correct hands and spacing.
+9.30-10.00s: reveal their shared happy expression beside the gold-edged stage arch as petals drift past.
+Camera: begin on garland/hands, gently reframe to their faces and upper garment; no unrelated extra cut is necessary.
+EXIT: end on a complete affectionate moment; avoid source end-black or a new action starting at the last frame.
+
+MASTER EFFECTS INVENTORY
+1. Slow motion throughout seven compressed shots: purposeful gestural emotion rather than frozen posing.
+2. Six continuity/eyeline cuts: preserve the story sequence while removing repeated source angles.
+3. Gentle tracking and small lateral arc, shots 1/4/5: carry the bride toward the groom and reveal their expressions.
+4. Shallow focus, shots 2/6: emphasize identity during anticipation and the affectionate pause.
+5. Petals and low stage haze, shots 4-7: match the reference wedding atmosphere without hiding faces.
+6. Garland detail reframe, shot 7: complete the ceremonial action and resolve on the couple.
+
+EFFECTS DENSITY MAP
+0.00-2.15s = MEDIUM: brief entry coverage, close-up and waiting groom linked by clean cuts.
+2.15-5.75s = MEDIUM: approach, hand connection and embrace with haze, petals and modest camera movement.
+5.75-8.15s = LOW: keep the non-contact affectionate exchange readable and free of occlusion.
+8.15-10.00s = LOW: one completed garland placement and joyful resolution.
+
+ENERGY ARC
+Act 1: the crowded entrance builds expectation and shows the actual bride beneath the flower canopy.
+Act 2: she reaches her groom, they connect and embrace, then share a warm non-contact pause.
+Act 3: the garland completes their beginning together, retaining the crowd and stage celebration.
+Acceptance criteria: the entrance, completed embrace and garland are visible; both customer identities and the selected dress remain consistent.

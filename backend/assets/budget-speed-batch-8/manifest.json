@@ -1,0 +1,21 @@
+{
+  "id": "garden-promise-petal-welcome",
+  "label": "Garden Promise & Petal Welcome",
+  "templateId": "BUDGET_SPEED_GARDEN_PROMISE_08",
+  "templateNumber": 8,
+  "category": "wedding",
+  "description": "A landscape garden arrival that resolves with a hand-led petal welcome.",
+  "sourceFilename": "“𝗧𝗼 𝗳𝗼𝗿𝗲𝘃𝗲𝗿” ❤️...@moonlight_wedding_stories ❤️.Ring us for enquiries - 📲 8075029290.mp4",
+  "duration": 10,
+  "aspectRatio": "16:9",
+  "sceneFiles": ["source-shot-01.png", "source-shot-02.png", "source-shot-03.png", "source-shot-04.png"],
+  "sceneRoles": [
+    "SCENE_01: leafy outdoor garden two-shot; composition and soft daylight only.",
+    "SCENE_02: bride close-up through a foreground leaf; shallow focus and expression timing only.",
+    "SCENE_03: garden-wide side-by-side couple composition; movement, greenery and full-outfit framing only.",
+    "SCENE_04: hand-led wedding-stage welcome with soft falling petals and guests; action and celebration atmosphere only."
+  ],
+  "imageAction": "Show the bride and groom completely head-to-toe sharing a quiet hand-led garden welcome, with soft greenery and the full selected bridal outfit visible; leave generous space above their heads and below their feet.",
+  "environment": "leafy daylight garden, pale event interior, warm guest background and restrained falling petals",
+  "policyProfile": "adult-romance-safe"
+}

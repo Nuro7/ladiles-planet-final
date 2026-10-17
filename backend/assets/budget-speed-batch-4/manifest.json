@@ -1,0 +1,25 @@
+{
+  "id": "garden-kiss-embrace",
+  "label": "Garden Promise & Embrace",
+  "templateId": "BUDGET_SPEED_GARDEN_04",
+  "templateNumber": 4,
+  "category": "wedding",
+  "description": "A garden first look, affectionate near-contact and warm embrace among lush greenery.",
+  "sourceFilename": "Happy Married Life Jimmy🥹❤️@jimshadvk_ & @_syeda_ifra_ #wedding #cinimatic #groom #bride (1).mp4",
+  "sourceDuration": 20.39,
+  "sourceSize": [720, 1280],
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "audioStartOffset": 0,
+  "sourceShotStarts": [0, 1.96667, 4.83333, 7.53333, 15.2],
+  "sceneFiles": ["scene-board-1.png", "source-shot-03.png", "source-shot-05.png"],
+  "thumbnailFile": "source-shot-05.png",
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: two full garden setup frames, source shots 1 and 2, left to right; foliage, daylight, couple arrangement only",
+    "SCENE_REFERENCE 2: source shot 3 bride reaction close-up; gaze, shallow focus and background foliage only",
+    "SCENE_REFERENCE 3: source shot 5 mutual garden embrace; blocking, three-quarter camera and foliage only"
+  ],
+  "imageAction": "A full-length couple portrait in the lush garden, bride frame-left gently touching the groom's cheek, both smiling naturally.",
+  "environment": "Dense green hedges, broad leaves, pale tree trunks, diffuse daylight, deep garden bokeh and soft foreground foliage.",
+  "analysis": "Five shot groups across the full source. Cuts at 1.97/4.83/7.53/15.20 seconds. Keep the garden first look, bride reaction and mutual embrace; omit the source kiss frame and replace the contact action with a gentle near-contact exchange followed by a hug. Clean matched cuts suit the source. Original audio preserved from time 0; output uses its first 10 seconds. Full-frame screenshots retain surroundings; source people/clothing are action evidence only."
+}

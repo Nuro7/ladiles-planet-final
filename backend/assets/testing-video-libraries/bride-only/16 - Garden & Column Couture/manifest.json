@@ -1,0 +1,24 @@
+{
+  "id": "garden-column-couture",
+  "label": "Garden & Column Couture",
+  "templateId": "BRIDAL_REFERENCE_16",
+  "templateNumber": 16,
+  "category": "pre-wedding",
+  "description": "Tropical palms, curving garden path, carved pale pink columns and polished portico floor.",
+  "sourceFilename": "Dd5Y1efox5_.mp4",
+  "subjectMode": "solo",
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "sceneFiles": [
+    "scene-board-1.jpg",
+    "scene-board-2.jpg",
+    "scene-board-3.jpg"
+  ],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 2: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 3: chronological source shot board; complete environment, pose and camera direction only"
+  ],
+  "imageAction": "In second 1 reveal the selected garment from a rear three-quarter angle beneath palms; in second 2 she turns her shoulders toward camera. Full-length garden shot, slow arc.",
+  "environment": "tropical palms, curving garden path, carved pale pink columns and polished portico floor"
+}

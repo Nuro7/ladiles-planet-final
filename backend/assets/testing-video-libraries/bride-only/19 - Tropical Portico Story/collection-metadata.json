@@ -1,0 +1,21 @@
+{
+  "templateNumber": 19,
+  "templateId": "BRIDAL_REFERENCE_19",
+  "sceneId": "tropical-portico-story",
+  "label": "Tropical Portico Story",
+  "subjectMode": "solo",
+  "deliveryTier": "Budget",
+  "generationMode": "Balance",
+  "promptTestStatus": "Not confirmed as passed",
+  "testProvider": "Google Flow",
+  "referenceIsSourceVideo": true,
+  "musicIntegratedIntoPack": true,
+  "sourceVideoFile": "reference.mp4",
+  "musicFile": "music.m4a",
+  "promptFile": "prompt.txt",
+  "renderedReferenceWithMusic": "reference-with-music.mp4",
+  "note": "Reference/template preview with matching music muxed in. This is not a generated customer result.",
+  "videoDurationSeconds": 10.0,
+  "musicDurationSeconds": 33.296,
+  "integratedClipDurationSeconds": 10.0
+}

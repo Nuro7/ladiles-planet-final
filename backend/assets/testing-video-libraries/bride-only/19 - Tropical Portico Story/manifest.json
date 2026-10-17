@@ -1,0 +1,24 @@
+{
+  "id": "tropical-portico-story",
+  "label": "Tropical Portico Story",
+  "templateId": "BRIDAL_REFERENCE_19",
+  "templateNumber": 19,
+  "category": "pre-wedding",
+  "description": "Lush tropical garden, pale carved columns, wrought-iron railing, curving path and green shaded foliage.",
+  "sourceFilename": "DeLZ8J8o09X.mp4",
+  "subjectMode": "solo",
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "sceneFiles": [
+    "scene-board-1.jpg",
+    "scene-board-2.jpg",
+    "scene-board-3.jpg"
+  ],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 2: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 3: chronological source shot board; complete environment, pose and camera direction only"
+  ],
+  "imageAction": "In second 1 she takes a calm step along the garden path; in second 2 the actual selected skirt follows and settles. Full-length tracking, palms behind.",
+  "environment": "lush tropical garden, pale carved columns, wrought-iron railing, curving path and green shaded foliage"
+}

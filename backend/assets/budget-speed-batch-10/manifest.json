@@ -1,0 +1,24 @@
+{
+  "id": "palace-crimson-reveal",
+  "label": "Palace Couture Reveal",
+  "templateId": "BRIDAL_REFERENCE_10",
+  "templateNumber": 10,
+  "category": "pre-wedding",
+  "description": "Warm ochre palace pavilion, scalloped stone arches, painted ceilings and sandstone floor.",
+  "sourceFilename": "Db8JnGgymiN.mp4",
+  "subjectMode": "solo",
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "sceneFiles": [
+    "scene-board-1.jpg",
+    "scene-board-2.jpg",
+    "scene-board-3.jpg"
+  ],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 2: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 3: chronological source shot board; complete environment, pose and camera direction only"
+  ],
+  "imageAction": "A full-length view shows the bride completely head-to-toe within the arch, with visible floor and generous headroom. Her gaze is lowered, then she looks up with quiet composure. Warm diffused daylight; keep the camera pulled back.",
+  "environment": "warm ochre palace pavilion, scalloped stone arches, painted ceilings and sandstone floor"
+}

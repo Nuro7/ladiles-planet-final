@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/froggeric/gemini-watermark-and-synthid-remover",
+  "commit": "37f338847c7fcdbaa1ab3f883c6a742173dd9595",
+  "license": "MIT",
+  "usedInRuntime": false,
+  "scope": "Isolated visible-logo alpha masks evaluated locally; no invisible watermark or metadata-removal code included.",
+  "files": [
+    {
+      "source": "assets/watermark-masks/gemini-3.6-diamond-48px.png",
+      "local": "froggeric-gemini-48.png",
+      "sha256": "538c52cb54be66ff17c3f772097d6dfd0130d6a5a5daae19d26e06a46765c4a8"
+    },
+    {
+      "source": "assets/watermark-masks/gemini-diamond-96px.png",
+      "local": "froggeric-gemini-96.png",
+      "sha256": "17ded34229c20e21b601a63b0da4e8e466e66af16064d98d209d6182042b8e8c"
+    }
+  ]
+}

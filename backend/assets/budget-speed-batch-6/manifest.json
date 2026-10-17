@@ -1,0 +1,24 @@
+{
+  "id": "held-in-spotlight",
+  "label": "Held in the Spotlight",
+  "templateId": "BUDGET_SPEED_LIFT_06",
+  "templateNumber": 6,
+  "category": "wedding",
+  "description": "A joyful bridal lift and slow turn beneath chandeliers, red drapes and sweeping stage lights.",
+  "sourceFilename": "Forever together 🤍Happy couples with @emagical_events ..........#wedding #reelsvideo #viral #s.mp4",
+  "sourceDuration": 14.88,
+  "sourceSize": [720, 1280],
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "audioStartOffset": 0,
+  "sourceShotStarts": [0, 1.6, 4.3],
+  "sceneFiles": ["source-shot-01.png", "source-shot-02.png", "source-shot-03.png"],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: first clear angled lift setup after opening motion blur; red overhead swags, chandeliers and beams only",
+    "SCENE_REFERENCE 2: frontal stage cradle lift; floor position, central chandelier and beam composition only",
+    "SCENE_REFERENCE 3: first readable wide rotating-lift frame after angle change; white carved band, full drapes, floral backdrop and lift action only"
+  ],
+  "imageAction": "Full-length portrait of the uploaded groom securely cradling the uploaded bride in both arms, her face visible, the complete selected outfit draping naturally.",
+  "environment": "Red overhead fabric swags, tiered crystal chandeliers, dark curtain backdrop, red floral arrangement, carved white balcony band and blue/yellow stage beams through haze.",
+  "analysis": "Three source angles separated near 1.6 and 4.3 seconds. Opening and first cut already show a secure cradle lift. Long final shot follows grounded rotation with swinging skirt/dupatta, coloured light beams, haze and visible chandelier/drape architecture. Source fades dark near its ending. Choose first readable frames at 0.6/1.85/4.95 seconds rather than unreadable cut blur. Compress the turn to one readable rotation and resolve held; do not add a difficult pickup before the source's actual action. Audio from time 0, first 10 seconds."
+}

@@ -1,0 +1,815 @@
+PROJECT: LADIES PLANET — PREMIUM BRIDAL VIDEO TRANSFORMATION
+
+VIDEO REFERENCE: 2.5 — COURTYARD BREEZE PORTRAIT
+
+PRIMARY OBJECTIVE:
+EXACT BRIDE IDENTITY REPLACEMENT + EXACT DRESS REPLICATION + MANDATORY PREMIUM BRIDAL JEWELLERY REPLICATION + PRECISE MOTION TRANSFER + ORIGINAL CAMERA MOVEMENT PRESERVATION + ZERO TEXT.
+
+Create a photorealistic, ultra-premium bridal fashion video using the supplied source video exclusively for its motion, cinematography, shot sequence, timing, transitions, and environment.
+
+Replace the original video's bride with the woman shown in the separately attached bride reference photos.
+
+Replace the original video's dress with the exact dress shown in the separately attached dress reference photos.
+
+Style the replacement bride with a luxurious bridal jewellery set based on the separately attached premium jewellery reference sheet.
+
+The jewellery reference sheet is a mandatory visual reference. Do not treat it as optional inspiration.
+
+CRITICAL SOURCE-SEPARATION RULE:
+
+The original video controls HOW the scene moves and how it is filmed.
+
+The bride reference photos control WHO the bride is.
+
+The dress reference photos control WHAT the bride wears.
+
+The jewellery reference sheet controls WHICH JEWELLERY DESIGNS the bride wears.
+
+NEVER use the original video's bride, dress, or jewellery as appearance references when they conflict with the supplied replacement references.
+
+==================================================
+SECTION 1 — REFERENCE INPUTS AND THEIR EXACT ROLES
+==================================================
+
+REFERENCE A — ORIGINAL COURTYARD BREEZE PORTRAIT VIDEO
+
+Use the supplied original video ONLY to determine:
+- Original shot sequence.
+- Original camera angles and movements.
+- Original framing and composition.
+- Original shot durations.
+- Original cuts and transitions.
+- Original body movements.
+- Original head movements.
+- Original facial expressions and emotional performance.
+- Original gaze direction.
+- Original hand and arm gestures.
+- Original posture and body positioning.
+- Original walking, turning, and posing movements.
+- Original veil and fabric movement.
+- Original environmental interaction.
+- Original background and lighting.
+- Original timing and pacing.
+
+DO NOT use the original video to determine the replacement bride's facial identity, dress design, garment colour, embroidery, neckline, jewellery design, or ornament selection.
+
+REFERENCE B — ATTACHED BRIDE REFERENCE PHOTOS
+
+These photos determine the identity of the replacement bride.
+
+Preserve:
+- Face shape and proportions.
+- Eyes and eyebrows.
+- Nose and lips.
+- Jawline and chin.
+- Skin tone.
+- Distinctive facial characteristics.
+- Natural facial texture.
+- Consistent identity from every camera angle.
+
+Use all supplied angles to understand the same woman.
+
+Do not combine her identity with the original video's bride.
+
+REFERENCE C — ATTACHED DRESS REFERENCE PHOTOS
+
+These photos determine the exact replacement dress.
+
+Use all available views to reproduce:
+- Main colour.
+- Fabric and texture.
+- Neckline.
+- Chest and bodice construction.
+- Embroidery patterns and placement.
+- Sleeves and cuffs.
+- Waistline.
+- Skirt structure and silhouette.
+- Decorative borders.
+- Beading and embellishments.
+- Dupatta or veil design, where shown.
+
+Combine the details from all supplied photos to reconstruct one consistent garment.
+
+REFERENCE D — ATTACHED PREMIUM BRIDAL JEWELLERY SHEET
+
+The jewellery sheet is the mandatory design reference for the bride's jewellery.
+
+It contains examples of premium Indian bridal ornaments, including coordinated necklace sets, chokers, layered necklaces, earrings, maang tikkas, naths, bangles, rings, hathphool and other traditional ornaments.
+
+Use this sheet to establish the jewellery design language and reproduce the selected designs as faithfully as possible.
+
+The jewellery must have the rich, ornate, expensive bridal appearance represented in the supplied sheet.
+
+Do not substitute generic jewellery.
+
+Do not use the original video's jewellery when it conflicts with the supplied jewellery reference sheet.
+
+==================================================
+SECTION 2 — ABSOLUTE BRIDE IDENTITY REPLACEMENT
+==================================================
+
+Replace the original video's woman with the exact woman shown in the attached bride reference photos.
+
+This replacement must apply throughout the entire video, from the first frame to the final frame.
+
+The original video's bride must not remain in any shot.
+
+Do not preserve the original woman's face in close-ups, side profiles, head turns, wide shots, or later frames.
+
+Do not blend the two faces.
+
+Do not create a generic bridal model or a similar-looking substitute.
+
+Do not treat the bride reference photos as loose inspiration.
+
+The supplied bride photos are the authoritative identity reference.
+
+The final result must feature the supplied bride performing the original video's movements.
+
+IDENTITY PRIORITY:
+ATTACHED BRIDE PHOTOS > ORIGINAL VIDEO'S ORIGINAL BRIDE.
+
+==================================================
+SECTION 3 — STRICT FACE IDENTITY LOCK
+==================================================
+
+Maintain the supplied bride's identity consistently throughout every frame.
+
+Preserve:
+- Overall facial structure.
+- Face width and length.
+- Forehead and hairline.
+- Eye shape, size, and spacing.
+- Eyebrow shape.
+- Nose shape.
+- Lip shape.
+- Cheek structure.
+- Jawline.
+- Chin.
+- Skin tone.
+- Distinctive facial features.
+- Overall likeness.
+
+Use the supplied photos to understand her appearance from multiple viewpoints.
+
+Do not copy the original video's woman's face when generating a side profile, three-quarter view, or close-up.
+
+Do not reshape the supplied bride's face to match the original model.
+
+Do not change her apparent age, skin tone, or identity.
+
+Maintain identity during:
+- Head turns.
+- Gaze changes.
+- Close-ups.
+- Medium shots.
+- Wide shots.
+- Changes in lighting.
+- Camera movements.
+- Hand movements near the face.
+
+Preserve natural skin texture and realistic facial detail.
+
+Avoid plastic skin, excessive smoothing, artificial facial reshaping, and identity drift.
+
+==================================================
+SECTION 4 — EXACT DRESS REPLACEMENT
+==================================================
+
+Completely replace the original video's dress with the exact dress shown in the attached dress reference photos.
+
+The original video's dress is NOT an appearance reference.
+
+Do not retain its design or use it as a template.
+
+Do not generate a similar-looking alternative.
+
+Do not creatively redesign the supplied garment.
+
+4.1 — NECKLINE AND CHEST DESIGN
+
+The neckline and chest/bodice area are critical.
+
+Reproduce the supplied dress's:
+- Exact neckline shape.
+- Neckline depth and width.
+- Neckline border.
+- Bodice construction.
+- Chest embroidery.
+- Embroidery density.
+- Motif shapes and sizes.
+- Motif placement and orientation.
+- Decorative patterns.
+- Beading and embellishments.
+- Colour distribution.
+- Fabric texture.
+- Visible stitching and garment details.
+
+Do not replace the chest design with generic embroidery.
+
+Do not invent new motifs.
+
+Do not simplify the embroidery.
+
+Do not change the neckline into a different cut.
+
+Do not reproduce the original video's dress design when it differs from the supplied references.
+
+4.2 — COMPLETE GARMENT DESIGN
+
+Preserve the supplied garment's:
+- Colour.
+- Fabric and texture.
+- Embroidery.
+- Sleeve construction.
+- Cuffs and borders.
+- Bodice shape.
+- Waistline.
+- Skirt construction.
+- Skirt volume.
+- Hemline.
+- Decorative panels.
+- Embellishments.
+- Dupatta or veil design, where specified.
+
+4.3 — MULTIPLE REFERENCE ANGLES
+
+Use all supplied dress photos together.
+
+Use the appropriate reference views to reconstruct the front, sides, sleeves, neckline, chest, and skirt.
+
+Do not invent missing details when the supplied references establish them.
+
+4.4 — CHEST EMBROIDERY CONSISTENCY
+
+The chest embroidery must remain stable when the bride moves or turns.
+
+Do not allow motifs to melt, flicker, rearrange, or transform.
+
+4.5 — NATURAL FIT
+
+Fit the supplied garment naturally to the replacement bride.
+
+Allow realistic fabric folds and movement without redesigning the garment.
+
+DRESS PRIORITY:
+ATTACHED DRESS PHOTOS > ORIGINAL VIDEO'S ORIGINAL DRESS.
+
+==================================================
+SECTION 5 — MANDATORY PREMIUM BRIDAL ORNAMENTS AND JEWELLERY
+==================================================
+
+THIS SECTION IS A MANDATORY REQUIREMENT.
+
+The replacement bride must wear a luxurious, premium bridal jewellery set based on the separately attached jewellery reference sheet.
+
+Do not generate a minimally accessorised bride.
+
+Do not use generic bridal jewellery.
+
+Do not ignore the jewellery sheet.
+
+Do not copy the original video's jewellery when it conflicts with the supplied reference.
+
+The jewellery sheet must visibly influence the actual jewellery worn by the bride.
+
+5.1 — REQUIRED LUXURY BRIDAL APPEARANCE
+
+Create a coordinated, richly ornamented Indian bridal jewellery look using the supplied sheet as the design reference.
+
+Where appropriate to the dress neckline and bridal styling, include a coordinated selection of:
+
+- An elaborate gold-toned bridal necklace.
+- A richly detailed choker.
+- A longer necklace or layered necklace arrangement.
+- Ornate traditional jhumka earrings.
+- A decorative maang tikka.
+- A traditional nath or nose ring where suitable.
+- Coordinated gold-toned bangles.
+- Decorative bridal rings.
+- Hathphool or hand jewellery where suitable.
+- Hair ornaments where appropriate.
+- Other compatible ornaments visibly represented in the supplied jewellery sheet.
+
+Select a coherent jewellery combination from the sheet.
+
+Do not combine every item indiscriminately if doing so would produce an unrealistic or visually overcrowded result.
+
+The goal is a coordinated, expensive, couture-level bridal appearance.
+
+5.2 — JEWELLERY DESIGN FIDELITY
+
+Reproduce the visual characteristics of the supplied jewellery sheet, including:
+- Intricate gold-toned metalwork.
+- Kundan-style decorative settings.
+- Ruby-toned accents.
+- Emerald-toned accents.
+- Clear decorative stones.
+- Pearl drops.
+- Layered necklace construction.
+- Ornate jhumka structures.
+- Traditional floral and geometric motifs.
+- Detailed bangles and rings.
+- Fine decorative borders.
+- Rich, dense ornamentation.
+
+Use these details when represented in the jewellery sheet.
+
+Do not randomly replace the reference's red, green, white, gold, or pearl elements with unrelated colours or designs.
+
+Do not turn the jewellery into minimalist modern accessories.
+
+Do not replace elaborate pieces with simple chains or plain earrings.
+
+IMPORTANT:
+The reference sheet contains multiple jewellery options and examples. Select a coordinated set of matching designs rather than treating every pictured item as a separate piece that must be worn simultaneously.
+
+5.3 — NECKLACE AND CHOKER
+
+The necklace arrangement should create a premium bridal appearance.
+
+Use a richly detailed choker and, where compatible with the reference styling and dress neckline, an additional longer necklace.
+
+Preserve realistic necklace proportions and layering.
+
+Ensure the necklaces sit naturally around the bride's neck and upper chest.
+
+Do not allow necklaces to float, intersect unnaturally, or change designs between shots.
+
+5.4 — EARRINGS AND MAANG TIKKA
+
+Use ornate earrings and a coordinated forehead ornament based on the jewellery sheet.
+
+Preserve their scale, design language, colour, and decorative richness.
+
+Keep earrings attached naturally to the ears.
+
+Keep the maang tikka centred and naturally positioned when the hairstyle and reference styling support it.
+
+Do not replace these ornaments with generic accessories.
+
+5.5 — BANGLES, RINGS, AND HAND ORNAMENTS
+
+Where appropriate to the original hand positions and the selected jewellery combination, add coordinated bangles, rings, and hathphool-style hand jewellery based on the reference sheet.
+
+Keep these ornaments physically attached and anatomically plausible.
+
+Preserve the original hand gestures and movement.
+
+Do not introduce extra finger movements or change the original pose simply to display jewellery.
+
+5.6 — COORDINATION WITH THE SUPPLIED DRESS
+
+The supplied dress remains the authority for garment design.
+
+The jewellery sheet remains the authority for the jewellery design language.
+
+Coordinate the selected jewellery with the dress while preserving the dress's actual neckline and chest embroidery.
+
+Do not redesign the neckline to accommodate the jewellery.
+
+Do not cover the entire chest area with an oversized necklace if that would hide the dress's distinctive design.
+
+Maintain a premium, balanced relationship between the garment and ornaments.
+
+5.7 — MATERIAL REALISM AND LUXURY
+
+Render the jewellery with convincing:
+- Gold-toned metal.
+- Polished surfaces.
+- Detailed settings.
+- Realistic stone reflections.
+- Pearl textures.
+- Natural highlights.
+- Physically plausible weight.
+- Accurate scale.
+- Realistic contact with skin and clothing.
+
+Do not create cartoon-like gemstones or exaggerated artificial shine.
+
+Do not invent precious materials that conflict with the supplied jewellery reference.
+
+The luxurious appearance must come from detailed, realistic rendering of the referenced designs.
+
+5.8 — JEWELLERY CONSISTENCY ACROSS ALL SHOTS
+
+The selected jewellery set must remain consistent throughout the video.
+
+Maintain the same:
+- Necklace design.
+- Necklace layering.
+- Choker.
+- Earrings.
+- Maang tikka.
+- Nose ring, if used.
+- Bangles.
+- Rings.
+- Hand jewellery.
+- Other selected ornaments.
+
+Prevent:
+- Jewellery flickering.
+- Missing earrings.
+- Changing necklace patterns.
+- Random stone-colour changes.
+- Jewellery disappearing during head turns.
+- Different jewellery appearing in close-ups.
+- Floating ornaments.
+- Sudden changes in accessory size.
+- Inconsistent attachment to the bride.
+
+Use the same coordinated set in every shot.
+
+5.9 — JEWELLERY PRIORITY
+
+The attached jewellery reference sheet is a mandatory visual guide for the actual jewellery worn by the bride.
+
+The bride reference photos control the bride's identity.
+
+The dress reference photos control the dress design.
+
+The jewellery sheet controls the selected jewellery designs and premium ornament styling.
+
+The original video controls movement and cinematography only.
+
+FINAL JEWELLERY REQUIREMENT:
+THE REPLACEMENT BRIDE MUST WEAR A RICH, PREMIUM BRIDAL JEWELLERY SET BASED ON THE ATTACHED JEWELLERY SHEET.
+
+Do not ignore the jewellery sheet or substitute an unrelated set.
+
+==================================================
+SECTION 6 — EXACT MOTION TRANSFER
+==================================================
+
+Use the original video as the master performance reference.
+
+Reproduce the original visible performance as closely as possible.
+
+Do not invent a new performance.
+
+Do not replace the original movements with generic bridal poses.
+
+Preserve the original timing and movement trajectory.
+
+6.1 — BODY MOVEMENT
+
+Preserve:
+- Original posture.
+- Shoulder positions.
+- Torso orientation.
+- Body turns.
+- Arm positions.
+- Weight shifts.
+- Walking movements, if present.
+- Overall body trajectory.
+- Timing of every visible action.
+
+Transfer these movements to the supplied bride naturally.
+
+6.2 — HEAD MOVEMENT
+
+Preserve:
+- Original head angle.
+- Head turns.
+- Chin movement.
+- Gaze direction.
+- Timing of head movements.
+- Relationship between head and body movement.
+
+Maintain the supplied bride's identity throughout these movements.
+
+6.3 — FACIAL EXPRESSION AND EMOTION
+
+Preserve the original video's visible emotional performance as closely as possible.
+
+Match the timing and character of:
+- Smiles.
+- Neutral expressions.
+- Soft expressions.
+- Gaze changes.
+- Looking toward or away from the camera.
+- Subtle facial movements.
+
+Transfer the performance without copying the original woman's identity.
+
+Do not invent exaggerated expressions.
+
+6.4 — HAND AND ARM MOVEMENT
+
+Preserve the original:
+- Hand positions.
+- Finger gestures.
+- Wrist angles.
+- Arm movements.
+- Hand-to-face gestures.
+- Timing and direction of movement.
+
+Keep hands anatomically correct.
+
+Do not invent additional gestures.
+
+6.5 — VEIL, FABRIC, AND JEWELLERY MOVEMENT
+
+Preserve the original video's visible veil movement, fabric flow, skirt movement, and turning dynamics.
+
+Apply the movement naturally to the supplied dress.
+
+Allow the jewellery to move naturally with the bride's body and gravity.
+
+Do not let the veil, dress, or jewellery change design during movement.
+
+6.6 — CONTINUITY
+
+Avoid:
+- Sudden pose changes.
+- Frozen movements.
+- Distorted hands.
+- Extra fingers.
+- Unnatural body movement.
+- Sliding feet.
+- Floating fabric.
+- Flickering details.
+- Abrupt identity changes.
+- Abrupt dress changes.
+- Jewellery changing between frames.
+
+==================================================
+SECTION 7 — EXACT CAMERA MOVEMENT AND CINEMATOGRAPHY
+==================================================
+
+The original video is the authoritative camera reference.
+
+Preserve the original:
+- Camera angles.
+- Camera height.
+- Camera distance.
+- Camera trajectory.
+- Camera speed.
+- Panning.
+- Tilting.
+- Tracking.
+- Push-ins.
+- Pull-backs.
+- Framing.
+- Subject placement.
+- Depth of field.
+- Focus transitions.
+- Shot composition.
+- Timing.
+- Cuts.
+- Transitions.
+
+Do not invent new camera movements.
+
+Do not change the original shot order.
+
+Do not replace the original cinematography with a generic bridal montage.
+
+Do not add slow motion unless it exists in the original.
+
+Do not change the pacing.
+
+Do not zoom or crop differently merely to hide identity, garment, or jewellery inconsistencies.
+
+Preserve the original relationship between the bride and the environment.
+
+==================================================
+SECTION 8 — SHOT-BY-SHOT SOURCE PRESERVATION
+==================================================
+
+Follow the actual source video's shot sequence.
+
+For every shot:
+
+1. Preserve the original shot's framing and duration.
+2. Preserve the original camera movement.
+3. Preserve the original body and head movements.
+4. Replace the original face with the supplied bride's face.
+5. Replace the original dress with the supplied dress.
+6. Apply the premium jewellery set based on the jewellery reference sheet.
+7. Maintain face, dress, and jewellery consistency.
+8. Ensure no original-bride identity, original-dress design, or conflicting original jewellery returns.
+
+If the source cuts to a close-up, retain that close-up.
+
+If the source cuts to a wider composition, retain that composition.
+
+If the source includes a turn or pose, reproduce that movement.
+
+If the source transitions between angles, preserve the original transition and timing.
+
+Do not add shots based on these instructions.
+
+The actual source video determines the final sequence.
+
+==================================================
+SECTION 9 — ENVIRONMENT AND BACKGROUND PRESERVATION
+==================================================
+
+Preserve the source video's existing environment.
+
+Keep the original:
+- Courtyard or garden setting.
+- Architecture.
+- Trees and foliage.
+- Ground and pathways.
+- Background elements.
+- Lighting direction.
+- Natural shadows.
+- Perspective.
+- Environmental composition.
+
+Do not replace the original location.
+
+Do not add unrelated decorative elements.
+
+Do not change the background to accommodate a different bride.
+
+Integrate the supplied bride, dress, and jewellery naturally into the existing environment.
+
+Maintain correct scale, perspective, contact shadows, and depth.
+
+==================================================
+SECTION 10 — LUXURY BRIDAL REALISM
+==================================================
+
+Create a premium, photorealistic bridal fashion result.
+
+The supplied bride must appear naturally photographed within the original scene.
+
+The supplied dress must appear physically real.
+
+The jewellery must look richly detailed, premium, and physically plausible.
+
+Preserve realistic:
+- Skin texture.
+- Facial detail.
+- Hair strands.
+- Fabric texture.
+- Embroidery detail.
+- Jewellery craftsmanship.
+- Metal reflections.
+- Stone reflections.
+- Pearl textures.
+- Natural shadows.
+- Depth of field.
+- Lighting interaction.
+- Fabric folds.
+- Garment weight and movement.
+- Jewellery weight and movement.
+
+Avoid:
+- Plastic-looking faces.
+- Artificial skin smoothing.
+- Cartoon-like details.
+- Excessive glow.
+- Fake embroidery.
+- Warped garments.
+- Floating accessories.
+- Incorrect shadows.
+- Unnatural body proportions.
+- Artificial-looking jewellery.
+- Distorted gemstones.
+- Excessive metallic reflections.
+- Obvious compositing artifacts.
+
+Do not sacrifice face identity, dress fidelity, or jewellery consistency for additional glamour effects.
+
+==================================================
+SECTION 11 — ABSOLUTE ZERO-TEXT REQUIREMENT
+==================================================
+
+The final video must contain absolutely no visible text.
+
+Remove all text appearing in the source video, including:
+- Brand names.
+- Creator names.
+- Watermarks.
+- Logos containing text.
+- Captions.
+- Subtitles.
+- Promotional text.
+- Decorative typography.
+- Opening titles.
+- End cards.
+- Social media handles.
+
+Do not replace removed text with another name.
+
+Do not add Ladies Planet branding.
+
+Do not add Nuro7 branding.
+
+Do not add any new logo, title, watermark, or caption.
+
+Reconstruct the underlying scene naturally wherever text is removed.
+
+Do not crop or reposition the video just to conceal text if the affected background can be reconstructed.
+
+FINAL REQUIREMENT:
+ZERO TEXT.
+ZERO WATERMARKS.
+ZERO ADDED BRANDING.
+
+==================================================
+SECTION 12 — AUDIO
+==================================================
+
+Do not generate new dialogue or speech.
+
+Do not modify or recreate spoken dialogue.
+
+Preserve the original audio unchanged if supported by the workflow.
+
+If original audio preservation is unavailable, do not invent replacement speech.
+
+Prioritise the visual transformation.
+
+==================================================
+SECTION 13 — STRICT NEGATIVE CONSTRAINTS
+==================================================
+
+NEVER:
+- Use the original video's bride as the replacement identity.
+- Retain the original bride's facial identity.
+- Blend the original bride's face with the supplied bride.
+- Generate a generic lookalike.
+- Use the original video's dress as the garment reference.
+- Retain the original dress design.
+- Invent a new dress.
+- Change the supplied dress's neckline.
+- Invent new chest embroidery.
+- Change the supplied dress's colour or motifs.
+- Switch dress designs between shots.
+- Replace the supplied bride's jewellery with the original video's jewellery.
+- Ignore the jewellery reference sheet.
+- Generate a minimal or generic jewellery set.
+- Replace ornate reference jewellery with simple accessories.
+- Invent unrelated jewellery designs.
+- Change jewellery designs between shots.
+- Allow jewellery to flicker or disappear.
+- Change the original shot order.
+- Invent new movements.
+- Invent new camera angles.
+- Change the original camera trajectory.
+- Change the original timing or transitions.
+- Invent new scenes.
+- Replace the environment.
+- Add text, logos, or watermarks.
+- Add a new title or end card.
+- Apply excessive beauty filters.
+- Sacrifice identity, dress, or jewellery consistency for visual effects.
+
+==================================================
+SECTION 14 — FINAL GENERATION DIRECTIVE
+==================================================
+
+Generate the final video by combining the supplied references according to their strictly separated roles.
+
+SOURCE VIDEO:
+Use exclusively for original motion, visible emotional performance, camera movements, shot order, framing, cuts, transitions, timing, and environment.
+
+ATTACHED BRIDE REFERENCE PHOTOS:
+Use as the authoritative source for the replacement bride's identity.
+
+ATTACHED DRESS REFERENCE PHOTOS:
+Use as the authoritative source for the replacement dress design.
+
+ATTACHED PREMIUM BRIDAL JEWELLERY SHEET:
+Use as a mandatory visual reference for the jewellery worn by the replacement bride.
+
+The final video must feature the supplied bride wearing the supplied dress and a coordinated, luxurious bridal jewellery set based on the supplied jewellery sheet.
+
+The original video's bride must never be retained as the replacement identity.
+
+The original video's dress must never be retained as the replacement garment.
+
+The original video's jewellery must not override the supplied jewellery reference.
+
+Preserve the original video's performance and cinematography as closely as possible.
+
+Remove all text and branding.
+
+Do not invent new shots, movements, or unrelated jewellery designs.
+
+FINAL PRIORITIES:
+
+1. SUPPLIED BRIDE IDENTITY.
+2. SUPPLIED DRESS DESIGN.
+3. MANDATORY PREMIUM JEWELLERY BASED ON THE ATTACHED JEWELLERY SHEET.
+4. ORIGINAL VIDEO MOTION AND EMOTIONAL PERFORMANCE.
+5. ORIGINAL CAMERA MOVEMENTS, SHOTS, CUTS, AND TRANSITIONS.
+6. ORIGINAL ENVIRONMENT AND LIGHTING.
+7. ZERO TEXT.
+
+The source video determines HOW the scene moves.
+
+The supplied bride photos determine WHO the bride is.
+
+The supplied dress photos determine WHAT the bride wears.
+
+The jewellery sheet determines the premium jewellery designs used.
+
+Never reverse these roles.
+
+Produce the most faithful, consistent, luxurious, and photorealistic result possible.

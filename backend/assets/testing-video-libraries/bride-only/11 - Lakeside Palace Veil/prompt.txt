@@ -1,0 +1,425 @@
+PROJECT: LADIES PLANET — PREMIUM BRIDAL VIDEO TRANSFORMATION
+
+TASK:
+Preserve the original reference video's performance, motion,
+camera movements, transitions, timing, and environment while
+replacing the bride's identity and dress and ensuring a luxurious,
+ornament-rich bridal appearance.
+
+This is a reference-video transformation task.
+
+Do not create a new wedding scene.
+Do not invent an opening sequence.
+Do not invent actions that do not exist in the reference video.
+
+==================================================
+1. REFERENCE INPUTS
+==================================================
+
+REFERENCE VIDEO:
+The master source for the original scene, actions, motion,
+camera movement, timing, composition, transitions, lighting,
+background, and visual effects.
+
+BRIDE REFERENCE IMAGE:
+The source for the replacement bride's facial identity,
+recognizable features, skin tone, and natural appearance.
+
+DRESS REFERENCE IMAGE:
+The source for the replacement bridal dress, including its
+design, silhouette, color, embroidery, fabric, and embellishments.
+
+Use the supplied references dynamically.
+
+Do not hardcode a particular bride's name, facial description,
+dress color, or dress design.
+
+==================================================
+2. ABSOLUTE RULE: DO NOT INVENT NEW SCENES
+==================================================
+
+The reference video is the master for the entire sequence,
+including its very first frame.
+
+Start with the same type of scene, subject position, environment,
+and action shown at the beginning of the reference video.
+
+Do not invent a new opening.
+
+Do not make the bride emerge from water.
+Do not make the bride rise out of a pool, lake, river, ocean,
+or any other body of water unless that action explicitly occurs
+in the original reference video.
+
+Do not introduce water, underwater environments, fountains,
+waterfalls, beaches, swimming pools, or water-based transitions
+that are absent from the reference.
+
+Do not make the bride appear suddenly from a new location.
+
+Do not make the bride materialize, float into the scene,
+descend from the sky, emerge from smoke, or appear through
+an artificial magical effect.
+
+Do not introduce a runway entrance, staircase entrance,
+walking sequence, or dramatic reveal unless it is present
+in the original reference video.
+
+Do not invent any other opening action.
+
+The original video determines what happens at the beginning.
+
+If the original video begins with the bride already standing,
+sitting, walking, turning, dancing, or interacting with another
+person, preserve that original starting situation.
+
+Do not replace the original opening with a new cinematic idea.
+
+==================================================
+3. PRESERVE THE ORIGINAL PERFORMANCE
+==================================================
+
+Use the reference video as the master motion source.
+
+Preserve the original bride's visible performance as closely
+as the model allows.
+
+Maintain the original:
+
+- Body position.
+- Body orientation.
+- Head movement.
+- Head turns.
+- Facial expression timing.
+- Gaze direction.
+- Hand and arm movements.
+- Walking and turning movements.
+- Poses and posture changes.
+- Interaction with the groom and other people.
+- Movement speed.
+- Slow-motion timing.
+- Overall action progression.
+
+Do not invent new gestures.
+
+Do not add actions merely to make the result more dramatic.
+
+Do not remove important actions from the original performance.
+
+The replacement bride must follow the same movement trajectory
+and temporal progression as the original bride.
+
+Preserve the original performance rather than generating
+a new performance from scratch.
+
+==================================================
+4. PRESERVE THE ORIGINAL CAMERA AND EDITING
+==================================================
+
+Treat the reference video as the authoritative source for
+cinematography and editing.
+
+Preserve its:
+
+- Camera angles.
+- Camera height.
+- Framing.
+- Subject distance.
+- Camera movement direction.
+- Camera movement speed.
+- Tracking and panning.
+- Push-ins and pull-outs.
+- Zooms, if present.
+- Original shot sequence.
+- Shot duration.
+- Transition timing.
+- Slow-motion sections.
+- Motion blur.
+- Lighting direction.
+- Color grading.
+- Existing visual effects.
+
+Do not introduce camera movements absent from the reference.
+
+Do not add arbitrary close-ups, drone shots, orbiting shots,
+or unrelated cinematic transitions.
+
+Do not change the original video into a fashion runway montage.
+
+Maintain the original temporal structure and visual continuity
+as closely as the model permits.
+
+==================================================
+5. BRIDE IDENTITY REPLACEMENT
+==================================================
+
+Replace the original bride's facial identity with the identity
+shown in BRIDE_REFERENCE.
+
+Preserve the supplied bride's recognizable facial features,
+face shape, eye shape, nose, lips, skin tone, and proportions.
+
+Maintain the same identity throughout the video.
+
+Adapt the new face naturally to the original head movement,
+viewing angles, expressions, lighting, and motion blur.
+
+Do not freeze the face into a static expression.
+
+Do not allow the face to flicker, warp, or change identity
+between frames.
+
+Do not generate a different bride.
+
+Do not modify the groom's identity or appearance.
+
+==================================================
+6. DRESS REPLACEMENT
+==================================================
+
+Replace the original bridal dress with the garment shown
+in DRESS_REFERENCE.
+
+The supplied dress image is the authoritative garment source.
+
+Preserve its actual:
+
+- Color.
+- Silhouette.
+- Neckline.
+- Sleeves.
+- Bodice construction.
+- Waistline.
+- Skirt design.
+- Length.
+- Embroidery.
+- Decorative patterns.
+- Beadwork.
+- Fabric texture.
+- Distinctive embellishments.
+
+Do not copy the original bride's dress.
+
+Do not combine the original dress with the replacement dress.
+
+Do not invent a different garment.
+
+Adapt the replacement dress to the original bride's body pose
+and movement without changing the original performance.
+
+Maintain realistic fabric physics, natural folds, appropriate
+weight, and believable movement.
+
+The dress must remain visually consistent throughout the video.
+
+==================================================
+7. LUXURIOUS, ORNAMENT-RICH BRIDAL APPEARANCE
+==================================================
+
+The replacement bride must have a premium, luxurious,
+ornament-rich bridal appearance suitable for a high-end
+Indian bridal boutique.
+
+Jewellery is an important part of the final bridal styling.
+
+Create an elegant, richly ornamented bridal look with suitable
+traditional Indian bridal jewellery.
+
+Depending on the original video framing and the bride's styling,
+include appropriate pieces such as:
+
+- An elaborate bridal necklace or layered necklaces.
+- Matching earrings, including traditional jhumkas where suitable.
+- A maang tikka or other appropriate forehead ornament.
+- A coordinated headpiece if suitable for the bride's hairstyle.
+- Elegant bangles or bridal bracelets.
+- A matching ring or other appropriate bridal accessory.
+- A traditional waist belt or kamarband only if appropriate
+  for the supplied dress and overall styling.
+
+Use coordinated jewellery that complements the supplied dress
+and the bride's appearance.
+
+The overall styling should feel luxurious, carefully selected,
+photorealistic, and suitable for a premium bridal campaign.
+
+JEWELLERY QUALITY:
+
+The ornaments should appear physically real, with believable
+metal surfaces, intricate detailing, gemstones, pearls, and
+natural reflections where appropriate.
+
+Jewellery should have convincing weight and natural movement.
+
+Necklaces must follow the neckline and contours of the body.
+
+Earrings must remain attached naturally to the ears.
+
+Forehead ornaments must remain aligned with the forehead
+and hairline.
+
+Bangles must follow the wrist and hand movements.
+
+Avoid floating jewellery, fused ornaments, distorted chains,
+impossible connections, excessive sparkle effects, and
+flickering details.
+
+JEWELLERY CONSISTENCY:
+
+Maintain the same jewellery design, placement, and overall
+appearance throughout the video.
+
+Do not randomly change the necklace, earrings, headpiece,
+or bangles between frames.
+
+Do not generate a different jewellery set every time the
+camera angle changes.
+
+Do not allow jewellery to disappear and reappear.
+
+Do not allow ornaments to penetrate the bride's skin or dress.
+
+JEWELLERY AND DRESS COMPATIBILITY:
+
+Coordinate the jewellery with the supplied dress.
+
+Choose complementary tones, materials, and ornament styles.
+
+Do not change the actual dress design to accommodate jewellery.
+
+Do not allow jewellery to cover important dress details
+unnecessarily.
+
+The objective is a rich bridal appearance, not excessive,
+uncoordinated ornamentation.
+
+IMPORTANT:
+
+The original video's movement and camera framing must remain
+unchanged merely to show the jewellery.
+
+Do not introduce new jewellery close-ups or additional shots
+that are absent from the reference.
+
+==================================================
+8. ENVIRONMENT AND BACKGROUND PRESERVATION
+==================================================
+
+Preserve the original environment.
+
+Do not replace the background.
+
+Do not add water, beaches, pools, gardens, new buildings,
+or unrelated locations.
+
+Preserve the groom, guests, background objects, and other
+people wherever possible.
+
+Maintain the original environmental lighting, shadows,
+perspective, and depth.
+
+The replacement bride and dress must integrate naturally
+into the original footage.
+
+==================================================
+9. LIGHTING, EFFECTS, AND REALISM
+==================================================
+
+Preserve the original lighting and cinematic appearance.
+
+Match the new face, dress, and jewellery to the existing
+light direction, brightness, shadows, reflections, and
+color treatment.
+
+Preserve existing confetti, particles, lens effects, haze,
+motion blur, and other effects where present.
+
+Do not introduce new effects that are absent from the reference.
+
+Maintain realistic facial anatomy, natural skin texture,
+believable garment physics, and physically plausible jewellery.
+
+Avoid plastic-looking faces, artificial skin smoothing,
+distorted hands, flickering embroidery, changing garment colors,
+floating ornaments, and inconsistent accessories.
+
+==================================================
+10. AUDIO
+==================================================
+
+Do not attempt to recreate the exact original audio.
+
+Use a suitable, original fashion-industry soundtrack if audio
+generation is supported.
+
+The preferred mood is elegant, luxurious, romantic, and
+celebratory, appropriate for a premium bridal fashion film.
+
+Do not invent dialogue or speech.
+
+If audio generation causes an error, prioritize completing
+the visual transformation and add a suitable soundtrack
+during post-production.
+
+==================================================
+11. STRICT NEGATIVE CONSTRAINTS
+==================================================
+
+NEVER:
+
+- Invent a new opening scene.
+- Make the bride emerge from water.
+- Introduce a pool, lake, river, ocean, or underwater scene.
+- Make the bride materialize or appear through a magical effect.
+- Add actions absent from the reference video.
+- Invent a new walking, dancing, or runway sequence.
+- Change the original camera movement unnecessarily.
+- Change the original shot order or timing unnecessarily.
+- Replace the background.
+- Change the groom or other people.
+- Preserve the original bride's facial identity.
+- Preserve the original bridal dress.
+- Redesign the supplied dress.
+- Generate inconsistent jewellery.
+- Make jewellery float, flicker, or distort.
+- Add unrelated visual effects.
+- Add text, logos, or watermarks.
+- Turn the video into a completely different concept.
+
+==================================================
+12. FINAL GENERATION DIRECTIVE
+==================================================
+
+Transform the supplied reference video into a new version
+featuring the supplied bride identity and dress.
+
+Preserve the original video's opening, scene, performance,
+body movement, camera motion, shot sequence, transitions,
+lighting, background, and visual effects.
+
+Change the bride's identity and bridal garment.
+
+Give the bride a luxurious, ornament-rich bridal appearance
+with coordinated traditional Indian bridal jewellery.
+
+Do not invent scenes or actions that are absent from the
+reference video.
+
+In particular, do not make the bride emerge from water or
+introduce any water-based opening or transition.
+
+The final result must look like the original performance
+featuring the replacement bride in the replacement dress,
+with elegant, realistic bridal jewellery.
+
+PRIORITY ORDER:
+
+1. Preserve the original scene and opening.
+2. Preserve the original movement and timing.
+3. Preserve the original camera and transitions.
+4. Replace the bride's identity.
+5. Replace the dress accurately.
+6. Add coordinated, luxurious bridal jewellery.
+7. Maintain realism and consistency throughout the video.
+
+EXECUTE THE TRANSFORMATION.

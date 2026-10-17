@@ -1,0 +1,31 @@
+Create a 10-second portrait bridal entrance film. This is a photos-only generation: no source video is attached. The supplied environment reference contains TWO screenshots of the SAME venue, stacked vertically. Both are mandatory architectural guidance, not face or wardrobe references. Render one continuous scene, never the stacked-sheet layout.
+
+REFERENCE AUTHORITIES
+BRIDE_IDENTITY defines the only person in this film. Preserve her recognizable facial proportions, forehead, eyebrows, eyes and their spacing, nose, lips, jawline, skin tone, age appearance and natural texture. Do not beautify into a different person or copy any source wedding attendee. Keep the same identity across angles, motion and lighting.
+DRESS_REFERENCE contains the actual selected garment. One image or multiple panels may be supplied; every panel is evidence of ONE dress, not several outfits. Preserve its observed colours, cut, blouse, sleeves, neckline, embroidery placement and scale, hem borders, fabric texture and supplied dupatta. Never default to the red outfit from the source wedding. Use only evidenced details; do not invent decorative features. Render the outfit on the selected bride, never the mannequin or contact-sheet layout.
+ENVIRONMENT_REFERENCE contains two face-free screenshots of the upper venue entrance: the upper panel at 0.5 seconds shows the windows, railing, floral structure and fascia; the lower panel at 10 seconds shows the broader ceiling, warm pink-red light and side sparkler placement. Match these visible structures together as ONE venue. Do not reinterpret this as a palace or black-drape studio. Continue the observed setting below it with a warm brown circular patterned entry carpet. The lower setting is described from the source footage; it is not visible in the cropped screenshots. Do not invent venue lettering, captions or event branding. No groom, children, bridesmaids, spectators, human reflections or background faces.
+
+SHOT-BY-SHOT EFFECTS TIMELINE
+SHOT 1 (0-3s) — Solo entrance. Full-length frontal composition, bride centered beneath the entrance fascia. She takes slow natural steps while a level camera gently tracks backward. Keep the complete dress hem grounded and visible, her face clearly lit and the architecture stable. Match-cut on her continuing movement.
+SHOT 2 (3-5s) — Entrance atmosphere. A slightly wider frontal view reveals the circular carpet and a thin layer of low white floor fog. Small symmetrical side sparkler fountains frame the entrance, well away from her body and clothing. This is the signature visual moment. Keep the fog below her knees and the sparks below face level; do not obscure identity or garment detail. Cut with consistent walking direction.
+SHOT 3 (5-8s) — Garment and expression. Medium three-quarter view with a gentle lateral camera drift. Show the supplied blouse, dupatta and upper skirt details without changing their design. Subtle fabric movement follows her steps; her face remains sharp and naturally proportioned. Soft matched cut, no face-morph transition.
+SHOT 4 (8-10s) — Final bridal portrait. Settle into a clean medium frontal view in the same entrance. A small natural smile, restrained movement and readable face. Finish on an intentional hold, with unchanged identity, outfit and lighting.
+
+MASTER EFFECTS INVENTORY
+1. Steady tracking, used twice in shots 1 and 3: reveal the bride without camera shake.
+2. Low floor fog, used once in shot 2: ground-level atmosphere without hiding the dress.
+3. Side sparkler fountains, used once in shot 2: the entrance's signature visual accent.
+4. Matched cuts, used three times between shots: preserve direction, identity and environment.
+5. Camera settle, used once in shot 4: resolve into a readable portrait.
+
+EFFECTS DENSITY MAP
+0-3s LOW: one smooth backward tracking movement.
+3-5s MEDIUM: low fog and side sparks, two atmospheric effects.
+5-8s LOW: one gentle lateral tracking movement.
+8-10s LOW: one camera settle and natural portrait hold.
+
+ENERGY ARC
+Introduce the bride and actual dress clearly; build the entrance atmosphere briefly; resolve into a calm identifiable portrait. Natural wedding-film pacing, consistent anatomy and temporal continuity. Do not add flashy unobserved effects.
+
+AUDIO
+Generate a continuous gentle wedding instrumental with a soft rhythmic pulse and warm melodic accompaniment, mixed beneath the visual scene. No speech, vocals, lyrics or sudden sound changes. This photos-only prompt does not supply the original soundtrack and must not claim an exact music copy. Keep audio enabled; do not request silence.

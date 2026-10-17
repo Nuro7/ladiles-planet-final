@@ -1,0 +1,24 @@
+{
+  "id": "antique-salon-couture",
+  "label": "Antique Salon Couture",
+  "templateId": "BRIDAL_REFERENCE_18",
+  "templateNumber": 18,
+  "category": "pre-wedding",
+  "description": "Moody antique salon, ochre painted wall, warm curtains, low sofa and subdued directional light.",
+  "sourceFilename": "Dds2f4ookEO.mp4",
+  "subjectMode": "solo",
+  "duration": 10,
+  "aspectRatio": "9:16",
+  "sceneFiles": [
+    "scene-board-1.jpg",
+    "scene-board-2.jpg",
+    "scene-board-3.jpg"
+  ],
+  "sceneRoles": [
+    "SCENE_REFERENCE 1: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 2: chronological source shot board; complete environment, pose and camera direction only",
+    "SCENE_REFERENCE 3: chronological source shot board; complete environment, pose and camera direction only"
+  ],
+  "imageAction": "Show the complete bride head-to-toe in the antique salon, one relaxed hand beside the selected garment so its details remain visible in context. Full-length composition with visible floor and generous headroom; subtle lateral camera drift, warm but bright side light.",
+  "environment": "moody antique salon, ochre painted wall, warm curtains, low sofa and subdued directional light"
+}

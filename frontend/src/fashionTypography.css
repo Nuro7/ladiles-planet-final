@@ -1,0 +1,30 @@
+/* Editorial display paired with readable interface typography. */
+:root, .studio, .studio-app, .cinematic-landing {
+  --font-display: 'Bodoni Moda', 'Didot', Georgia, serif;
+  --font-didone: 'Bodoni Moda', 'Didot', Georgia, serif;
+  --font-body: 'Manrope', 'Inter', Arial, sans-serif;
+  --font-mono: 'Manrope', 'Inter', Arial, sans-serif;
+  --cine-display: 'Bodoni Moda', Georgia, serif;
+  --cine-sans: 'Manrope', 'Inter', Arial, sans-serif;
+}
+body, button, input, select, textarea, p, label, small, nav, .s-eyebrow, .s-num, .s-mono { font-family: 'Manrope', 'Inter', Arial, sans-serif; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+h1, h2, .s-modhead__title, .guided-library h2, .film-section-title h2, .film-intro h2 {
+  font-family: 'Bodoni Moda', 'Didot', Georgia, serif !important;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+}
+.creation-studio, .s-app, .s-shell { font-family: 'Manrope', 'Inter', Arial, sans-serif; }
+button, select, label { letter-spacing: .005em; }
+.s-eyebrow { font-family: 'Manrope', 'Inter', Arial, sans-serif; letter-spacing: .16em; }
+.creation-stage-list { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; padding:16px; margin:0; list-style:none; }
+.creation-stage-list li { display:flex; align-items:center; gap:7px; color:var(--text-2,#c4b6ae); font-size:11px; line-height:1.4; }
+.creation-stage-list i { flex-shrink:0; width:8px; height:8px; border-radius:50%; background:#66504a; }
+.creation-stage-list .is-done i { background:#a9c8ae; }
+.creation-stage-list .is-active { color:var(--gold,#d4af6a); }
+.creation-stage-list .is-active i { background:currentColor; animation:atelier-stage-pulse 1.5s ease-in-out infinite; }
+@keyframes atelier-stage-pulse { 50% { box-shadow:0 0 0 5px #d4af6a20; opacity:.5; } }
+@media(max-width:600px) { .creation-stage-list { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(prefers-reduced-motion:reduce) { .creation-stage-list .is-active i { animation:none; } }
