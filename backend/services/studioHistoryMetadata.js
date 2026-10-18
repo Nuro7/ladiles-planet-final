@@ -1,4 +1,4 @@
-const names = {wan3_0_prime:'Wan 3.0 Prime',seedance_2_5:'Seedance 2.5',hf_mult_motion_control:'Genjutsu',gpt_image_2:'GPT Image 2',seedance_2_0:'Seedance 2.0',gemini_omni_flash_1_1:'Gemini Omni Flash 1.1'};
+const names = {grok_video_v15:'Grok Imagine 1.5',wan3_0_prime:'Wan 3.0 Prime',seedance_2_5:'Seedance 2.5',hf_mult_motion_control:'Genjutsu',gpt_image_2:'GPT Image 2',seedance_2_0:'Seedance 2.0',gemini_omni_flash_1_1:'Gemini Omni Flash 1.1'};
 const count = text => typeof text === 'string' && text.length ? Array.from(text).length : null;
 function metadata({model,mode,prompt,template,resolution,duration,aspectRatio,source}) {
   const title = typeof prompt === 'string' ? prompt.split(/\r?\n/).find(line=>line.trim())?.replace(/^PROJECT(?: TITLE)?\s*:\s*/i,'').trim() : null;

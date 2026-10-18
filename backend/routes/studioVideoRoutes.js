@@ -44,7 +44,7 @@ router.get('/connections', studioAccess, handle(async (req, res) => {
   const connected = Number.isFinite(Number(balance.credits));
   res.json({ success: true, data: {
     budget: { connected, provider: 'higgsfield-mcp' }, premium: { connected, provider: 'higgsfield-mcp' }, flagship: { connected, provider: 'higgsfield-mcp' },
-    custom: { connected, provider: 'higgsfield-mcp' }, images: { connected, provider: 'higgsfield-mcp' },
+    ultrafast: { connected, provider: 'higgsfield-mcp' }, custom: { connected, provider: 'higgsfield-mcp' }, images: { connected, provider: 'higgsfield-mcp' },
     message: 'One Higgsfield MCP connection serves all creation tiers.',
   } });
 }));

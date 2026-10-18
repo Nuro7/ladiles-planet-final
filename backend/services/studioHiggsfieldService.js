@@ -25,6 +25,7 @@ async function submit(tool, params, sessionId, onAttempt, onResponse) {
 }
 
 function selectedModel(options) {
+  if (options.tier === 'ultrafast') return {id:'grok_video_v15'};
   if (options.tier === 'flagship') return { id: 'hf_mult_motion_control' };
   const id = options.tier === 'budget' ? 'wan3_0_prime' : options.model || 'wan3_0_prime';
   require('./studioModels').videoModel(id);
@@ -36,7 +37,7 @@ function videoParams(options, medias = []) {
   const params = { model: model.id, prompt: options.prompt, aspect_ratio: options.aspectRatio,
     duration: options.duration, resolution: options.resolution, medias, count: 1 };
   if (model.mode) params.mode = model.mode;
-  if (model.id !== 'hf_mult_motion_control') params.generate_audio = Boolean(options.sound);
+  if (!['hf_mult_motion_control','grok_video_v15'].includes(model.id)) params.generate_audio = Boolean(options.sound);
   if (model.id === 'wan3_0_prime') params.enable_thinking = Boolean(options.enableThinking);
   if (model.mode === 'video_edit' || model.id === 'hf_mult_motion_control') {
     if (!medias.some(item => item.role === 'video_references')) throw new Error('This model needs a reference video. Upload one before generating.');
@@ -119,7 +120,7 @@ async function makeVideo({ options, references, sessionId, provider, onSubmitted
   }
   require('./studioPromptValidation').validateVideoPrompt(options);
   const medias = await imageMedias(references);
-  if (options.generationMode === 'balance') {
+  if (options.tier !== 'ultrafast' && options.generationMode === 'balance') {
     const url = await sourceVideo(options, sessionId);
     if (!url) throw new Error('This Balance template has no usable motion reference. No generation was submitted.');
     medias.push({ role: 'video_references', value: await importReference(url, 'video') });

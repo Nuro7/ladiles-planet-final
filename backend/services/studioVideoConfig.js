@@ -2,6 +2,7 @@ const path = require('node:path');
 const { readFileSync, existsSync } = require('node:fs');
 const { withBridalOrnaments } = require('./bridalOrnamentsPrompt');
 const tiers = [
+  { id:'ultrafast',label:'Ultra Fast',model:'Grok Imagine 1.5',provider:'Higgsfield MCP',resolution:'480p',resolutions:['480p','720p','1080p'],durations:[10],ratios:['16:9','9:16'],duration:10 },
   // Quick is intentionally locked to the low-cost preview tier. Clients do
   // not get a quality switch here; Premium/Flagship are the upgrade paths.
   { id: 'budget', label: 'Quick', model: 'Wan 3.0 Prime', provider: 'Higgsfield MCP', resolution: '480p', resolutions: ['480p'], durations: [4, 6, 8, 10], ratios: ['16:9', '9:16'], duration: 8 },
@@ -259,20 +260,20 @@ for (const catalog of [budgetScenes, premiumBalanceScenes]) {
     if (!updated) { item.subjects.solo = { ...item.subjects.solo, available: false, comingSoon: true }; }
   }
 }
-tiers[0].resolution = '480p';
-tiers[0].resolutions = ['480p'];
-tiers[0].model = 'Wan 3.0 Prime';
+tiers.find(t=>t.id==='budget').resolution = '480p';
+tiers.find(t=>t.id==='budget').resolutions = ['480p'];
+tiers.find(t=>t.id==='budget').model = 'Wan 3.0 Prime';
 function resolve(body, recipe) {
   const tier = tiers.find(t => t.id === body.tier);
   if (!tier) throw new Error('Choose a valid model tier.');
   const source = tier.id === 'custom' && body.sourceUploadId ? require('./studioCustomReference').get(body.sourceUploadId) : null;
-  const generationMode = tier.id === 'custom' ? source ? 'balance' : 'speed' : body.generationMode || 'speed';
+  const generationMode = tier.id === 'ultrafast' ? 'speed' : tier.id === 'custom' ? source ? 'balance' : 'speed' : body.generationMode || 'speed';
   require('./studioGenerationRoute').resolve(tier.id, generationMode);
   const workflow = tier.id === 'custom' ? 'prompt' : body.workflow || 'preset';
   if (tier.id === 'budget' && budgetBrideOnlyDemo && [body.subjectMode, body.imageSubjectMode, body.videoSubjectMode].includes('couple')) throw new Error('Budget is temporarily Bride only for the demo. Choose a Bride-only template or use Premium.');
   if (tier.id === 'budget' && workflow === 'preset' && budgetExcludedScenes.has(body.scene)) throw new Error('This template is available in Premium only. Choose another Budget template.');
   if (!['preset', 'prompt'].includes(workflow)) throw new Error('Choose scenes or prompt-to-video.');
-  const scenePool = tier.id === 'flagship' ? flagshipScenes : tier.id === 'budget' ? (generationMode === 'speed' ? budgetSpeedScenes : budgetScenes)
+  const scenePool = tier.id === 'ultrafast' ? require('./studioUltraFastTemplates') : tier.id === 'flagship' ? flagshipScenes : tier.id === 'budget' ? (generationMode === 'speed' ? budgetSpeedScenes : budgetScenes)
     : (generationMode === 'speed' ? premiumSpeedScenes : premiumBalanceScenes);
   const scene = scenePool.find(s => s.id === body.scene) || legacyScenes.find(s => s.id === body.scene);
   if (workflow === 'preset' && !scene) throw new Error('Choose a scene preset.');
@@ -284,8 +285,8 @@ function resolve(body, recipe) {
   const prompt = workflow === 'preset' ? selectedRecipe.prompt : String(body.prompt || '').trim();
   const promptLimit = workflow === 'preset' ? (selectedRecipe?.verbatimPrompt ? 40000 : 30000) : 10000;
   if (prompt.length < 5 || prompt.length > promptLimit) throw new Error('Write a prompt between 5 and ' + promptLimit + ' characters.');
-  const selectedModel = tier.id === 'flagship' ? 'hf_mult_motion_control' : tier.id === 'budget' ? 'wan3_0_prime' : (body.model || 'wan3_0_prime');
-  const model = tier.id === 'flagship' ? null : require('./studioModels').videoModel(selectedModel);
+  const selectedModel = tier.id === 'ultrafast' ? 'grok_video_v15' : tier.id === 'flagship' ? 'hf_mult_motion_control' : tier.id === 'budget' ? 'wan3_0_prime' : (body.model || 'wan3_0_prime');
+  const model = tier.id === 'ultrafast' ? {resolutions:['480p','720p','1080p']} : tier.id === 'flagship' ? null : require('./studioModels').videoModel(selectedModel);
   const followsSource = model?.followsSource && source;
   const duration = followsSource ? source.duration : workflow === 'preset' ? (selectedRecipe.duration || tier.duration) : Number(body.duration);
   const resolution = tier.id === 'budget' ? '480p' : body.resolution || tier.resolution;

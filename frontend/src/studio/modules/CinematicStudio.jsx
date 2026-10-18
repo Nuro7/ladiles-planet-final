@@ -144,16 +144,16 @@ export default function CinematicStudio() {
   useEffect(() => {
     if (config && !videoResolutions.includes(resolution)) setResolution(videoResolutions.includes('720p') ? '720p' : videoResolutions[0]);
   }, [config, tierId, premiumModel, resolution, videoResolutions.join(',')]);
-  const visibleScenes = tierId === 'flagship' ? config?.flagshipScenes : tierId === 'budget'
+  const visibleScenes = tierId === 'ultrafast' ? config?.ultraFastScenes : tierId === 'flagship' ? config?.flagshipScenes : tierId === 'budget'
     ? (generationMode === 'speed' ? config?.budgetSpeedScenes : config?.budgetScenes) || config?.scenes
     : (generationMode === 'speed' ? config?.premiumSpeedScenes : config?.premiumBalanceScenes) || config?.scenes;
   const imageScenes = config?.imageScenes || [];
   const recipeIsReady = (assets, kind) => assets?.available !== false && !(tierId === 'budget' && generationMode === 'speed' && !assets?.templateId) && (kind === 'image'
     ? assets?.hasImagePrompt
-    : assets?.hasVideoPrompt && (assets?.hasReferenceVideo || assets?.hasReferenceImage));
+    : assets?.hasVideoPrompt && (assets?.hasReferenceVideo || assets?.hasReferenceImage || assets?.hasWrittenShotPlan));
   const modeNumber = tierId === 'budget' ? generationMode === 'speed' ? 1 : 2 : generationMode === 'speed' ? 3 : 4;
   const templateTestId = (item, templateSubject) => promptCatalogNumber(modeNumber, item.id, templateSubject);
-  const testStatus = (kind, templateSubject, assets) => promptTestStatus(kind === 'image' ? 'budget' : tierId, generationMode, kind, templateSubject, assets);
+  const testStatus = (kind, templateSubject, assets) => promptTestStatus(kind === 'image' ? 'budget' : tierId, kind==='image' && tierId==='ultrafast'?'balance':generationMode, kind, templateSubject, assets);
   const templateRecipe = (item, kind) => {
     const requestedSubject = kind === 'video' && tierId === 'flagship' ? 'couple' : output === 'both' ? kind === 'image' ? imageSubject : videoSubject : subject;
     const preferred = item?.subjects?.[requestedSubject];
@@ -225,9 +225,9 @@ export default function CinematicStudio() {
         setConfig(value); setJob(restored);
         const choice = restored || prefs;
         const activeTier = restored ? choice.tier : value.tiers.find(item => item.id === choice.tier && item.available)?.id || 'budget';
-        setTier(activeTier); setMode(choice.mode); setGenerationMode('balance'); setSubject(activeTier === 'flagship' && choice.outputType !== 'image' ? 'couple' : 'solo');
+        setTier(activeTier); setMode(choice.mode); setGenerationMode(activeTier==='ultrafast'?'speed':'balance'); setSubject(activeTier === 'flagship' && choice.outputType !== 'image' ? 'couple' : 'solo');
         setImageSubject('solo'); setVideoSubject(activeTier === 'flagship' ? 'couple' : 'solo'); setScene(choice.scene || 'indoor');
-        setScene(choice.videoScene || choice.scene || value.budgetScenes?.[0]?.id || 'indoor');
+        setScene(activeTier==='ultrafast' ? value.ultraFastScenes?.find(s=>s.id===(choice.videoScene || choice.scene))?.id || value.ultraFastScenes?.[0]?.id : choice.videoScene || choice.scene || value.budgetScenes?.[0]?.id || 'indoor');
         setImageScene(value.imageScenes?.some(item => item.id === choice.imageScene) ? choice.imageScene : value.imageScenes?.[0]?.id);
         setCustom(activeTier === 'custom'); setPremiumModel('wan3_0_prime');
         const selectedTier = value.tiers.find(item => item.id === activeTier) || value.tiers[0];
@@ -275,6 +275,8 @@ export default function CinematicStudio() {
     const choice = config.tiers.find(item => item.id === id);
     setDuration(choice.duration); setResolution(choice.resolution);
     if (id === 'budget') { setOutput('both'); setGenerationMode('balance'); }
+    if (['premium','flagship'].includes(id))setGenerationMode('balance');
+    if (id === 'ultrafast') {setOutput('video');setGenerationMode('speed');setScene(config.ultraFastScenes?.[0]?.id);}
     if (id === 'custom') { setOutput('video'); setGenerationMode(customSource ? 'balance' : 'speed'); }
     setError('');
   }
@@ -296,7 +298,7 @@ export default function CinematicStudio() {
       setRatio('16:9');
       setResolution('1080p');
     }
-    const nextMode = 'balance';
+    const nextMode = tierId === 'ultrafast' ? 'speed' : 'balance';
     setGenerationMode(nextMode);
     remember({ generationMode: nextMode });
     chooseTemplate('video', item.id, templateSubject);
@@ -424,17 +426,17 @@ export default function CinematicStudio() {
     </label>}
     {guided ? <div className="guided-choices">
       <section><span className="s-eyebrow">01 · What to create</span><div className="guided-options">{OUTPUTS.map(item => <button type="button" key={item.id} className={output === item.id ? 'is-selected' : ''} onClick={() => chooseOutput(item.id)} disabled={working}><strong>{item.id === 'both' ? 'All · image + video' : item.label}</strong><small>{item.id === 'both' ? 'Both start together. See your image first while the film continues.' : item.description}</small></button>)}</div></section>
-      <section><span className="s-eyebrow">02 · Choose mode</span><div className="guided-options">{['budget', 'premium', 'flagship', 'custom'].map(id => <button type="button" key={id} className={tierId === id ? 'is-selected' : ''} onClick={() => chooseTier(id)} disabled={working || !config}><strong>{{budget:'Quick',premium:'Premium',flagship:'Flagship',custom:'Custom'}[id]}</strong><small>{{budget:'Everyday bridal creation',premium:'Higher-end bridal film',flagship:'Signature couple motion · Higher cost',custom:'Your prompt · Full control'}[id]}</small></button>)}</div></section>
+      <section><span className="s-eyebrow">02 · Choose mode</span><div className="guided-options">{['ultrafast','budget', 'premium', 'flagship', 'custom'].map(id => <button type="button" key={id} className={tierId === id ? 'is-selected' : ''} onClick={() => chooseTier(id)} disabled={working || !config}><strong>{{ultrafast:'Ultra Fast',budget:'Quick',premium:'Premium',flagship:'Flagship',custom:'Custom'}[id]}</strong><small>{{ultrafast:'Grok 1.5 · Images only',budget:'Everyday bridal creation',premium:'Higher-end bridal film',flagship:'Signature couple motion · Higher cost',custom:'Your prompt · Full control'}[id]}</small></button>)}</div></section>
       {!custom && <section><span className="s-eyebrow">03 · Frame and quality</span><div className="guided-options guided-options--compact">{[['9:16', 'Portrait'], ['16:9', 'Landscape']].map(([id, label]) => <button type="button" key={id} className={ratio === id ? 'is-selected' : ''} onClick={() => setRatio(id)} disabled={working}><strong>{label}</strong><small>{id}</small></button>)}</div>{output !== 'image' && <label className="creation-model-select">Video quality<NativeSelect value={resolution} options={videoResolutions.map(id => ({id,label:id}))} onChange={event => setResolution(event.target.value)} disabled={working || tierId === 'budget'} /></label>}{tierId === 'budget' && output !== 'image' && <p className="creation-muted">Quick uses Wan 3.0 Prime at fixed 480p. Higher quality is available in Premium or Custom.</p>}</section>}
     </div> : <>
     <div className="film-tabs" aria-label="Creation choices">
-      {['budget', 'premium', 'flagship'].map(id => {
+      {['ultrafast','budget', 'premium', 'flagship'].map(id => {
         const item = config?.tiers.find(value => value.id === id);
         return <button key={id} disabled={!config || working} aria-pressed={!custom && tierId === id} onClick={() => chooseTier(id)} className={'film-tab ' + (!custom && tierId === id ? 'is-selected' : '')}><span>{item?.label || id}</span><small>{item ? item.available ? 'Ready' : id === 'premium' ? 'Verification needed' : 'Reconnect needed' : 'Loading…'}</small></button>;
       })}
       <button disabled={!config || working} aria-pressed={custom} onClick={() => chooseTier('custom')} className={'film-tab ' + (custom ? 'is-selected' : '')}><span>Custom</span><small>Your idea · Your settings</small></button>
     </div>
-    {!custom && output !== 'image' && <div className="creation-choice" role="group" aria-label="Video reference mode">
+    {!custom && tierId !== 'ultrafast' && output !== 'image' && <div className="creation-choice" role="group" aria-label="Video reference mode">
       {[['speed', 'Speed · Photos only'], ['balance', 'Balance · Reference video']].map(([id, label]) => <button key={id} disabled={working} aria-pressed={generationMode === id} className={generationMode === id ? 'is-selected' : ''} onClick={() => { setGenerationMode(id); setTemplateOpen(false); setChosenTemplates({}); remember({ generationMode: id }); }}>{label}</button>)}
     </div>}
     {!custom && <div className="creation-output-choices" role="group" aria-label="What would you like to create?">
@@ -485,6 +487,7 @@ export default function CinematicStudio() {
         <NativeSelect value={ratio} options={[{ id: '9:16', label: 'Portrait · 9:16' }, { id: '16:9', label: 'Landscape · 16:9' }]} onChange={event => setRatio(event.target.value)} disabled={working} />
       </label>}
       {!custom && output !== 'image' && <p className="creation-muted">Selected output: {ratio} · {resolution}. Length follows the template.</p>}
+      {tierId==='ultrafast' && <div className="creation-notice"><strong>Grok Imagine 1.5 · Image references only</strong><p>Attach your bride, dress views and the included jewellery sheet. The prompt describes all four shots. No reference video is uploaded. Actual generation speed and output quality still need testing.</p><ol><li>0–2s: Face portrait and gentle push-in</li><li>2–5s: Full outfit and natural movement</li><li>5–8s: Dupatta and couture reveal</li><li>8–10s: Closing facial portrait</li></ol></div>}
       {custom && <div className="creation-custom"><span className="s-eyebrow">Custom creation</span><h2>Your vision, your direction.</h2><label htmlFor="custom-prompt" className="s-label">Prompt</label><TextArea id="custom-prompt" rows={9} maxLength={10000} value={prompt} onChange={event => setPrompt(event.target.value)} placeholder="Describe your scene, people, dress, motion, camera and lighting. Your prompt is sent exactly as written…" disabled={working} /><small className="creation-muted">{prompt.length.toLocaleString()} / 10,000 characters</small>
         <div className="creation-custom__settings">
           {output !== 'image' && <label>Video model<NativeSelect value={premiumModel} options={premiumModels} onChange={event=>{setPremiumModel(event.target.value);setDuration(10);}} disabled={working} /></label>}
@@ -571,7 +574,7 @@ export default function CinematicStudio() {
   const guidedTemplates = <div className="guided-library">
     <span className="s-eyebrow">04 · Choose your visual templates</span>
     <h2>{output === 'both' ? 'Choose a bridal look and a film.' : output === 'image' ? 'Choose an image template.' : 'Choose a video template.'}</h2>
-    <p className="creation-muted">{tierId === 'flagship' ? 'Choose your wedding scene, then add the bride, groom and dress photos.' : 'Pick a scene, then add the bride and dress photos.'}</p>
+    <p className="creation-muted">{tierId === 'ultrafast' && !visibleScenes?.length ? 'Ultra Fast templates are hidden for now. Your approved prompts will appear here when added.' : tierId === 'flagship' ? 'Choose your wedding scene, then add the bride, groom and dress photos.' : 'Pick a scene, then add the bride and dress photos.'}</p>
     {output !== 'video' && <section className="guided-template-section"><h3><ImageIcon size={18} /> Bridal image {chosenTemplates.image && <Check size={16} />}</h3>
       <div className="guided-template-grid">{completedScenes('image').map(({ item, recipe }) => <button type="button" key={item.id + recipe.subject} className={chosenTemplates.image && imageSceneId === item.id ? 'is-selected' : ''} onClick={() => chooseTemplate('image', item.id, recipe.subject)}>
         <div className="guided-template-art">{recipe.assets.previewUrl ? <img src={recipe.assets.previewUrl} alt="" loading="lazy" /> : <ImageIcon size={28} />}</div><strong>{recipe.assets.label || item.label}</strong><small>{recipe.subject === 'couple' ? 'Bride & groom' : 'Bride only'} · {testStatus('image', recipe.subject, recipe.assets) === 'passed' ? 'Passed' : 'Not tested'}</small>
