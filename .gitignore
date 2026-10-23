@@ -24,3 +24,12 @@ backend/data/
 *oauth*client*.json
 *oauth*pending*.json
 .DS_Store
+**/__pycache__/
+**/.venv/
+**/venv/
+tmp/
+output/
+outputs/
+**/*.exe
+**/log.txt
+backend/test-db-connection.js

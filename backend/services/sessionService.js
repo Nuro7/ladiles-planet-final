@@ -26,7 +26,7 @@ class SessionService {
         this.sessions = new Map();
 
         // Auto-clean sessions older than 2 hours to prevent memory leak
-        setInterval(() => this._cleanup(), 30 * 60 * 1000); // every 30 min
+        setInterval(() => this._cleanup(), 30 * 60 * 1000).unref(); // Do not prevent graceful shutdown/tests.
     }
 
     /**

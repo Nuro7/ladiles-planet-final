@@ -1,0 +1,4 @@
+.background-creation-notice { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 24px; background: #3b241c; color: #f6e6ce; border-bottom: 1px solid #a78045; font-size: 13px; }
+.background-creation-notice a { color: #f5d48d; font-weight: 600; white-space: nowrap; }
+.background-creation-notice button { background: transparent; border: 0; color: inherit; font: inherit; padding: 6px; cursor: pointer; }
+@media (max-width: 640px) { .background-creation-notice { padding: 10px 12px; flex-wrap: wrap; } }

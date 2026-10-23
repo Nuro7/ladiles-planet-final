@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-23",
+  "files": 719,
+  "excludedPotentialCredentials": [],
+  "privateMediaFiles": 1913,
+  "excludes": [
+    "live environment files",
+    "OAuth state and tokens",
+    "customer uploads and generation history",
+    "installed dependencies",
+    "build output",
+    "logs",
+    "source media and analysis frames"
+  ]
+}

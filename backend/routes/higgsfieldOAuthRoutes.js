@@ -19,10 +19,10 @@ const oauth   = require('../services/higgsfieldOAuthService');
 const studioAccess = require('../middleware/studioAccess');
 
 // Where the React frontend lives. In dev: Vite on :3001. In prod: same origin.
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3001';
+const FRONTEND_URL = new URL((process.env.FRONTEND_URL || 'http://localhost:3001').split(',')[0].trim()).origin;
 
 function ownerOnly(req, res, next) {
-    if (process.env.NODE_ENV !== 'production' && ['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(req.socket.remoteAddress)) return next();
+    if (req.user?.id === 'local-development' && process.env.NODE_ENV === 'development') return next();
     if (!process.env.HIGGSFIELD_OWNER_USER_ID || req.user?.id !== process.env.HIGGSFIELD_OWNER_USER_ID)
         return res.status(403).json({ success: false, error: 'Only the account owner can change the AI Engine connection.' });
     next();
@@ -31,21 +31,21 @@ function ownerOnly(req, res, next) {
 // ── GET /start — kick off the OAuth flow ─────────────────────
 router.get('/start', studioAccess, ownerOnly, async (req, res) => {
     try {
-        const authorizeUrl = await oauth.buildAuthorizeUrl();
+        const authorizeUrl = await oauth.buildAuthorizeUrl(req.user.id);
         console.log('🔐 [OAuth] Redirecting user to Higgsfield authorize page');
         // 302 redirect — browser follows to Higgsfield's login UI
         res.redirect(authorizeUrl);
     } catch (err) {
         console.error('❌ [OAuth] /start error:', err.message);
-        res.status(500).json({ success: false, error: err.message });
+        res.status(500).json({ success: false, error: process.env.NODE_ENV === 'production' ? 'Higgsfield connection failed. Ask the owner to check the server.' : err.message });
     }
 });
 
 // Authenticated applications use this endpoint because a browser navigation
 // cannot attach the staff Bearer token to /start.
 router.post('/authorize-url', studioAccess, ownerOnly, async (req, res) => {
-    try { res.json({ success: true, url: await oauth.buildAuthorizeUrl() }); }
-    catch (err) { res.status(500).json({ success: false, error: err.message }); }
+    try { res.json({ success: true, url: await oauth.buildAuthorizeUrl(req.user.id) }); }
+    catch (err) { res.status(500).json({ success: false, error: process.env.NODE_ENV === 'production' ? 'Higgsfield connection failed. Ask the owner to check the server.' : err.message }); }
 });
 
 // ── GET /callback — Higgsfield redirects here after user clicks Allow ──
@@ -57,7 +57,7 @@ router.get('/callback', async (req, res) => {
             return res.status(400).send(`
                 <html><body style="font-family:system-ui;padding:40px;background:#1a1a2e;color:#fff;">
                 <h2>❌ Higgsfield authorization failed</h2>
-                <p>${oauthError}: ${error_description || ''}</p>
+                <p>Authorization was declined or failed. Return to the studio and reconnect.</p>
                 <a href="/api/higgsfield-oauth/start" style="color:#f1c40f">Try again</a>
                 </body></html>
             `);
@@ -71,7 +71,6 @@ router.get('/callback', async (req, res) => {
             <p style="color:#aaa;">Token stored. Expires in ${result.expires_in} seconds (auto-refresh enabled).</p>
             <p>You can close this tab and return to the Ladies Planet app.</p>
             <a href="${FRONTEND_URL}/studio" style="color:#f1c40f;text-decoration:none;padding:12px 24px;background:#6e1f8b;border-radius:8px;display:inline-block;margin-top:20px;">→ Open Studio</a>
-            <script>setTimeout(() => { window.location.href = '${FRONTEND_URL}/studio'; }, 2000);</script>
             </body></html>
         `);
     } catch (err) {
@@ -79,7 +78,7 @@ router.get('/callback', async (req, res) => {
         res.status(500).send(`
             <html><body style="font-family:system-ui;padding:40px;background:#1a1a2e;color:#fff;">
             <h2>❌ Failed to exchange code for tokens</h2>
-            <pre style="background:#0f0f1e;padding:16px;border-radius:8px;color:#ff8a80;">${err.message}</pre>
+            <p>Could not complete authorization. Start a new connection from the studio.</p>
             <a href="/api/higgsfield-oauth/start" style="color:#f1c40f">Try again</a>
             </body></html>
         `);

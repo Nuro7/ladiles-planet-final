@@ -3,6 +3,8 @@ const router = express.Router();
 const multer = require('multer');
 const videoController = require('../controllers/videoController');
 router.use('/studio', require('./studioVideoRoutes'));
+const ownerAccess = require('../middleware/ownerAccess');
+router.use(['/sync-higgsfield','/refresh-urls','/dedup','/rebuild','/check-urls'], ownerAccess);
 
 // Multer config for image uploads (video generation)
 const imageUpload = multer({
@@ -119,11 +121,8 @@ router.post('/sync-higgsfield', videoController.syncFromHiggsfield.bind(videoCon
 router.get('/check-urls', videoController.checkUrls.bind(videoController));
 router.post('/refresh-urls', videoController.refreshUrls.bind(videoController));
 // GET aliases so they can be triggered from the browser address bar (no console needed)
-router.get('/refresh-urls', videoController.refreshUrls.bind(videoController));
 router.post('/dedup', videoController.dedupHistory.bind(videoController));
-router.get('/dedup', videoController.dedupHistory.bind(videoController));
 router.post('/rebuild', videoController.rebuildHistory.bind(videoController));
-router.get('/rebuild', videoController.rebuildHistory.bind(videoController));
 router.get('/:id', videoController.getVideoById.bind(videoController));
 router.post('/save', videoController.saveVideo.bind(videoController));
 router.delete('/:id', videoController.deleteVideo.bind(videoController));

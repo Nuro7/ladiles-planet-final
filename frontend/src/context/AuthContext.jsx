@@ -75,6 +75,8 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = async () => {
+        const token = session?.access_token;
+        if (token) await fetch(`${API_URL}/auth/logout`, { method:'POST', credentials:'include', headers:{Authorization:'Bearer '+token} }).catch(() => {});
         const { error } = await supabase.auth.signOut();
         if (error) throw error;
     };

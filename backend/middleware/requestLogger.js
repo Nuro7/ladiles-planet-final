@@ -12,7 +12,7 @@ const QUIET_PATHS = [
 ];
 
 const requestLogger = (req, res, next) => {
-    const url = req.url;
+    const url = req.path; // Never log OAuth codes, state, signed URLs or query tokens.
     const isQuiet = QUIET_PATHS.some(p => url.startsWith(p) || url.includes(p));
     if (!isQuiet) {
         const timestamp = new Date().toISOString();

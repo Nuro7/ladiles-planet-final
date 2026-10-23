@@ -12,8 +12,10 @@ import Sidebar from './shell/Sidebar';
 import CommandPalette from './shell/CommandPalette';
 import Toaster from './shell/Toaster';
 import StudioLoader from './shell/StudioLoader';
+import BackgroundCreationNotice from './experience/BackgroundCreationNotice';
 import { useUIStore, useCreditsStore } from './store';
 import { getBalance } from '../api/bridalVideo';
+import { getStudioConfig } from '../api/studioVideo';
 
 export default function StudioApp() {
   const toggleCommand = useUIStore((s) => s.toggleCommand);
@@ -21,7 +23,11 @@ export default function StudioApp() {
 
   // Shared credit balance (also refreshed by modules after a generation)
   useEffect(() => {
+    // Renew the short-lived HTTP-only media session; bearer tokens never enter URLs.
+    getStudioConfig().catch(() => {});
+    const mediaRenewal = setInterval(() => getStudioConfig().catch(() => {}), 5 * 60 * 1000);
     getBalance().then(setBalance).catch(() => {});
+    return () => clearInterval(mediaRenewal);
   }, [setBalance]);
 
   // ⌘K / Ctrl+K command palette
@@ -41,6 +47,7 @@ export default function StudioApp() {
       <StudioLoader />
       <div className="s-app">
         <TopBar />
+        <BackgroundCreationNotice />
         <div className="s-body">
           <Sidebar />
           <Outlet />

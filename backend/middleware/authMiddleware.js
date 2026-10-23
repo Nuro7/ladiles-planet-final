@@ -5,9 +5,7 @@ const { supabase, supabaseAdmin } = require('../config/supabase');
  * Protects routes by validating the Supabase access token (JWT)
  */
 const protect = async (req, res, next) => {
-    // BYPASS AUTHENTICATION
-    req.user = { id: 'mock-user-id', name: 'Mock Admin', role: 'admin' };
-    return next();
+    if (req.user?.id) return next();
     
     try {
         let token;

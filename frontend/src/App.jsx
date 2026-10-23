@@ -45,6 +45,7 @@ function App() {
                         <Route path="/m/upload/:sessionId" element={<MobileUpload />} />
 
                         {/* ── AI Studio — premium creative shell with nested modules ── */}
+                        <Route element={<ProtectedRoute />}>
                         <Route path="/studio" element={<StudioApp />}>
                             <Route index                element={<Navigate to="/studio/cinematic" replace />} />
                             <Route path="poster"        element={<Navigate to="/studio/cinematic?output=image" replace />} />
@@ -54,12 +55,13 @@ function App() {
                             <Route path="collections"   element={<Collections />} />
                             <Route path="settings"      element={<StudioSettings />} />
                         </Route>
+                        </Route>
                         {/* Legacy image-studio path → new Poster Studio */}
                         <Route path="/image-studio" element={<Navigate to="/studio/cinematic?output=image" replace />} />
 
                         {/* ── Auth ── */}
                         <Route path="/login"  element={<LoginPage />} />
-                        <Route path="/signup" element={<SignupPage />} />
+                        <Route path="/signup" element={<Navigate to="/login" replace />} />
 
                         {/* ── Protected admin routes (moved to /admin/*) ── */}
                         <Route element={<ProtectedRoute />}>

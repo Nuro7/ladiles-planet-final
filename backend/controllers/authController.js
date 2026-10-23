@@ -23,7 +23,7 @@ class AuthController {
         } catch (error) {
             res.status(401).json({
                 success: false,
-                error: error.message
+                error: 'Sign-in failed. Check your details or ask the owner to confirm account access.'
             });
         }
     }

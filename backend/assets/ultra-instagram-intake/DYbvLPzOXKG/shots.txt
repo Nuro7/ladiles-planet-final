@@ -1,0 +1,19 @@
+LADIES PLANET — LATTICE SUITE PORTRAIT
+SETTING: refined hotel interior, dark rectangular wooden lattice, cream curtains, warm square lamps, polished floor and a reflective abstract metal sculpture. Correct sideways source to upright landscape. Source outfit is not the dress authority.
+SHOT-BY-SHOT EFFECTS TIMELINE
+0–0.70s: Medium portrait beside geometric wooden lattice; bride gently touches a rail, looks sideways with a poised smile, warm lamp behind.
+0.70–0.97s: Cut to frontal standing portrait against curtains; hands together at waist, soft expression.
+0.97–1.17s: Wider curtain portrait partly obscured by a moving soft foreground edge.
+1.17–1.60s: Lamp-dominated composition, warm rectangular shade close to lens and bride further right; shift focus toward her, brief darkening.
+1.60–1.90s: Wide lobby view, bride near silver loop-like sculpture, full garment and floor visible; small still pose.
+1.90–3.47s: Intimate face seen through dark lattice openings, fingers near chin/necklace, tiny head tilt and steady gaze. Bars remain foreground, not on her skin.
+3.47–4.77s: Cut to medium portrait beside curtains, gently lifts chin toward light; slight camera drift, warm haze/streak across foreground.
+4.77–6.03s: Macro of forehead jewellery, lowered lashes and necklace, shallow focus, fingers softly near chest; preserve exact referenced designs.
+6.03–6.42s: Return to lattice-side medium portrait, hand resting on wood, calm smile.
+6.42–6.93s: Tight hands and bodice glimpsed through the lattice, ornamental details sharp.
+6.93–7.40s: Frontal full/three-quarter curtain portrait, hands gathered at waist, square lamp beside her.
+7.40–9.97s: White picture-frame border appears around close side portrait; matching sheer dupatta sweeps across upper foreground, hands rise near chest, faint rainbow flare grows at upper edge. Keep eyes and face recognizable.
+9.97–10s: Quick final wide lobby garment reveal, skirt spread near the metal sculpture; end at cut.
+MASTER EFFECTS INVENTORY: clean cuts, foreground lattice occlusion, soft focus, short white frame and prism flare.
+EFFECTS DENSITY MAP: 0–1.9 high; 1.9–6.03 low; 6.03–10 medium/high.
+ENERGY ARC: brisk introduction, intimate details, luminous framed veil portrait, wide close.

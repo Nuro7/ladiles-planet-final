@@ -3,7 +3,7 @@ const API = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
 export async function studioRequest(path, options = {}) {
   const { data: { session } } = await supabase.auth.getSession();
   const headers = { ...(options.headers || {}), ...(session?.access_token ? { Authorization: 'Bearer ' + session.access_token } : {}) };
-  const response = await fetch(API + path, { ...options, headers });
+  const response = await fetch(API + path, { credentials: 'include', ...options, headers });
   const text = await response.text();
   let body;
   try { body = JSON.parse(text); } catch { throw new Error('The server could not be reached. Try again.'); }

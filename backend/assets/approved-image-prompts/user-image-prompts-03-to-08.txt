@@ -1,0 +1,210 @@
+LADIES PLANET — IMAGE PROMPT LIBRARY
+Prompts #prompt3 through #prompt8
+
+GLOBAL WORKFLOW
+- All outputs: 16:9 landscape, minimum 2K resolution.
+- Inspiration images are analysed and described in text; do not upload them as generation references.
+- During image generation, use the platform's designated bride image for identity, multi-angle dress images for the exact garment, and jewellery images for jewellery.
+- Remove mannequins completely; never transfer mannequin anatomy or white/plastic stomach surfaces to the bride.
+
+NOTE ABOUT REFERENCE FILENAMES
+The inspiration images were uploaded directly in chat and original filenames were not available. Each reference is identified below by its visual description, not an original filename.
+
+============================================================
+#prompt3 — Luxury Staircase Bridal Portrait
+Reference image: Uploaded staircase bridal portrait (original filename unavailable)
+============================================================
+
+Create a photorealistic premium South Asian bridal fashion photograph in 16:9 LANDSCAPE orientation, minimum 2K resolution.
+
+COMPOSITION AND POSE:
+Create a full-length bridal portrait on a staircase. Position the bride slightly right of centre, standing gracefully on the steps with hands gently clasped in front of her waist. Her shoulders are relaxed, and her gaze is directed slightly upward and left. Show the complete outfit, full skirt, hemline and dupatta, with generous horizontal space.
+
+ENVIRONMENT:
+An indoor staircase with dark wooden steps, a black wrought-iron railing with ornamental geometric patterns, muted grey plaster walls and framed artwork. The staircase rises diagonally from the lower-left foreground towards the bride. Extend the architecture naturally across the landscape frame.
+
+LIGHTING:
+Dramatic low-key cinematic lighting with a directional spotlight on the bride's face, jewellery and embroidery. Deep shadows surround the staircase; soft highlights reveal architectural textures. Intimate, regal, sophisticated editorial mood.
+
+EXACT BRIDE IDENTITY:
+Use the bride image already attached during image creation as the sole facial identity reference. Preserve her exact facial identity and proportions. Do not copy the inspiration model's face.
+
+EXACT DRESS:
+Use all multi-angle dress images already attached during image creation as views of the same garment. Preserve exact colours, silhouette, cut, neckline, sleeves, fabric, embroidery, motif placement, borders, embellishments and construction. Do not copy the inspiration bride's clothing or invent details. Preserve the matching dupatta.
+
+EXACT JEWELLERY:
+Use uploaded jewellery references as the authority for designs and placement. Preserve the referenced pieces and realistic gold/gemstone details.
+
+MANNEQUIN REMOVAL:
+The mannequin in any dress reference is only a display form. Extract the garment only and discard the mannequin, including its white/plastic stomach, torso, colour, surface and texture. Where the dress covers the stomach, show actual dress fabric; where skin is exposed or visible through an opening, show natural skin matching the bride. No mannequin anatomy or white plastic patches.
+
+OUTPUT:
+16:9 landscape, minimum 2K. Keep the full bride and garment visible without stretching or blurred sidebars. No text, logos or watermarks.
+
+
+============================================================
+#prompt4 — Royal Bridal Portrait on Grand Steps
+Reference image: Uploaded seated bridal portrait on grand stone steps (original filename unavailable)
+============================================================
+
+Create a photorealistic luxury South Asian bridal editorial photograph in 16:9 LANDSCAPE orientation, minimum 2K resolution.
+
+COMPOSITION:
+A bride sits gracefully on broad stone steps near the centre. Her posture is upright and poised, hands gently held together near her upper chest. Her head turns slightly to one side with a warm natural expression. Her voluminous skirt spreads across the foreground, displaying its complete silhouette and borders. The dupatta drapes naturally over her head and shoulders.
+
+ENVIRONMENT:
+A luxurious traditional interior featuring tall wooden-framed glass doors, symmetrical window panels, rich polished timber and broad beige stone steps. Warm interior lights glow softly behind the glass. Extend the architecture horizontally across the landscape frame.
+
+LIGHTING AND CAMERA:
+Warm amber and golden indoor illumination, soft flattering light on the bride, realistic highlights on embroidery and jewellery, gentle shadows beneath the skirt and softly blurred background lights. Wide environmental bridal portrait, eye-level to slightly low perspective. Keep the full outfit visible.
+
+EXACT BRIDE IDENTITY:
+Use the bride image already attached during image creation as the sole identity reference. Preserve the same facial identity and proportions. Do not copy the inspiration model's face.
+
+EXACT DRESS:
+Use all uploaded multi-angle dress images as views of the same garment. Preserve exact colour, silhouette, neckline, sleeves, bodice, waist, skirt, fabric, embroidery motifs and placement, beadwork, stones, borders, trims and construction. Preserve the exact matching dupatta. Do not copy or combine clothing from the inspiration image.
+
+EXACT JEWELLERY:
+Use uploaded jewellery references for exact designs and placement. Preserve the actual pieces and realistic gold/gemstone details.
+
+MANNEQUIN REMOVAL:
+Extract only the garment from any mannequin reference. Never reproduce the mannequin, its white/plastic stomach, torso, colour, surface or texture. Use actual dress fabric wherever the stomach is covered and natural matching skin wherever exposed. No white patches or artificial anatomy.
+
+OUTPUT:
+16:9 landscape, minimum 2K resolution. No stretching, blurred sidebars, text, logos or watermarks.
+
+
+============================================================
+#prompt5 — Royal Bridal Portrait in a Floral Luxury Lounge
+Reference image: Uploaded seated bride beneath pink/burgundy floral canopy (original filename unavailable)
+============================================================
+
+Create a photorealistic luxury South Asian bridal editorial photograph in 16:9 LANDSCAPE orientation, minimum 2K resolution.
+
+COMPOSITION AND POSE:
+Seat the bride gracefully on a dark teal velvet sofa with a rounded, tufted armrest. Position her slightly right of centre, leaning naturally against the armrest. One arm rests along the sofa back and the other near her lap. Her voluminous skirt spreads dramatically across the foreground, displaying its full silhouette and borders. The dupatta drapes naturally over her head and shoulders. She gazes slightly to one side with a poised expression.
+
+ENVIRONMENT:
+An extravagant wedding lounge with a dense canopy of pink, burgundy and muted rose blossoms overhead. Use a deep emerald-green or teal backdrop with subtle vertical textures, delicate suspended golden ornaments and tiny warm decorative lights among the flowers. Keep the environment sophisticated and uncluttered.
+
+LIGHTING AND CAMERA:
+Cinematic low-key lighting with warm amber highlights on the bride's face, jewellery and embroidery. Soft directional light reveals flowers, velvet upholstery and bridal fabric. Wide landscape composition, full-length seated portrait, eye-level to slightly low perspective. Place the bride on the right half and keep the complete skirt visible.
+
+EXACT BRIDE IDENTITY:
+Use the bride image already attached during image creation as the sole identity reference. Preserve her exact facial identity, structure and complexion. Do not copy the inspiration model's face.
+
+EXACT DRESS:
+Use all multi-angle dress images already attached during image creation as views of the same garment. Preserve exact colour, silhouette, neckline, sleeves, bodice, waist, skirt, fabric, embroidery motifs and placement, borders and construction. Do not copy the inspiration bride's outfit or invent, omit or recolour details. Preserve the exact matching dupatta.
+
+EXACT JEWELLERY:
+Use jewellery images attached during image creation as the authority for designs and placement. Preserve actual pieces, with realistic gold and gemstone detail. Maintain a regal, richly ornamented appearance without substituting referenced designs.
+
+MANNEQUIN REMOVAL:
+The mannequin in any dress reference is only a display form. Extract the garment and discard the mannequin completely, including its white/plastic stomach, torso, surface and texture. Use actual dress fabric where the stomach is covered and natural matching skin where exposed. No mannequin anatomy or white patches.
+
+OUTPUT:
+16:9 landscape, minimum 2K resolution. No stretching, blurred sidebars, text, logos or watermarks.
+
+
+============================================================
+#prompt6 — Sunlit Luxury Bridal Portrait
+Reference image: Uploaded bride seated beside bright window in ivory suite (original filename unavailable)
+============================================================
+
+Create a photorealistic luxury South Asian bridal editorial photograph in 16:9 LANDSCAPE orientation, minimum 2K resolution.
+
+COMPOSITION AND POSE:
+Seat the bride in an elegant upholstered armchair, positioned slightly left of centre. One arm rests naturally on the armrest while the other hand is raised near her neck. Her head turns gently towards the window, with a serene expression. Her voluminous skirt cascades diagonally across the foreground, displaying its complete silhouette, embroidery and hem. The dupatta drapes naturally over her head and shoulders. Keep the entire outfit and chair visible.
+
+ENVIRONMENT:
+A bright luxury interior with ivory walls, an ornate cream-and-grey upholstered armchair, tall floor-to-ceiling windows, soft sheer curtains and polished light-stone flooring with subtle reflections. Natural daylight enters from the right. Create a spacious bridal suite with realistic architectural proportions.
+
+LIGHTING AND CAMERA:
+Soft natural window light, gentle shadows, delicate highlights and realistic fabric reflections. Full-length environmental portrait, eye-level to slightly low perspective, natural depth of field and wide horizontal composition. Extend the room and windows across the landscape frame without stretching the bride or cropping the skirt.
+
+EXACT BRIDE IDENTITY:
+Use the bride image already attached during image creation as the sole identity reference. Preserve her exact facial identity, proportions and complexion. Do not copy the inspiration model's face.
+
+EXACT DRESS:
+Use all multi-angle dress images already attached during image creation. Reconstruct the same garment, preserving original colours, silhouette, neckline, sleeves, bodice, waist, skirt, fabric, embroidery motifs and placement, borders, embellishments and construction. Do not copy the inspiration outfit or invent, omit, recolour or redesign details. Preserve the exact matching dupatta.
+
+EXACT JEWELLERY:
+Use jewellery references already attached during image creation. Preserve actual designs, stones, colours, proportions and placement. Maintain a luxurious bridal appearance with realistic gold and gemstone details.
+
+MANNEQUIN REMOVAL:
+Any mannequin in the dress references is only a display form. Extract the garment and discard the mannequin, including its white/plastic stomach, torso, colour, surface and texture. Where the dress covers the stomach, show actual dress fabric; where skin is exposed, show natural skin matching the bride. Never reproduce mannequin anatomy or white plastic patches.
+
+OUTPUT:
+16:9 landscape, minimum 2K. No watermark, text, logos, mannequin parts, white stomach patches or artificial skin.
+
+
+============================================================
+#prompt7 — Royal Courtyard Bridal Portrait
+Reference image: Uploaded standing bride in warm courtyard beneath curved tree (original filename unavailable)
+============================================================
+
+Create a photorealistic luxury South Asian bridal editorial photograph in 16:9 LANDSCAPE orientation, minimum 2K resolution.
+
+COMPOSITION AND POSE:
+Position the bride near the centre of a private luxury courtyard, standing upright with hands gently clasped near her waist. Her shoulders are relaxed, and she gazes slightly to one side with a composed expression. Show her complete outfit from head to hem, with the skirt's full silhouette visible. The dupatta drapes naturally.
+
+ENVIRONMENT:
+A sophisticated courtyard with warm beige textured plaster walls, a mature tree with a large curved dark-brown trunk arching diagonally overhead, a dark tiled raised planter along the right side, and leafy plants in the foreground on the left. Use subtle greenery and realistic stone flooring. Preserve generous architectural space around the bride.
+
+LIGHTING AND CAMERA:
+Warm directional golden-hour-style illumination, soft highlights on the bride, jewellery and embroidery, deep natural shadows and refined cinematic contrast. Full-length environmental portrait with a slightly low camera perspective and natural depth of field. Foreground leaves create depth without obscuring the bride. Extend the courtyard across the landscape frame.
+
+EXACT BRIDE IDENTITY:
+Use the bride image already attached during image creation as the sole facial identity reference. Preserve her exact facial identity, proportions and complexion. Do not copy the inspiration model's face.
+
+EXACT DRESS:
+Use all multi-angle dress images already attached during image creation as views of the same garment. Preserve original colours, silhouette, neckline, sleeves, bodice, waist, skirt, fabric, embroidery motifs and placement, borders, embellishments and construction. Do not copy the inspiration bride's outfit or invent, omit, recolour or redesign details. Preserve the exact matching dupatta.
+
+EXACT JEWELLERY:
+Use jewellery references as the authority for ornament designs and placement. Preserve exact pieces, stones, colours and proportions, with realistic gold and gemstone detail.
+
+MANNEQUIN REMOVAL:
+Any mannequin in the clothing references is only a display form. Extract the garment and discard the mannequin, including its white/plastic stomach, torso, surface, colour and texture. Where the dress covers the stomach, show actual dress fabric; where skin is exposed or visible through an opening, show natural matching skin. No mannequin anatomy or white patches.
+
+OUTPUT:
+16:9 landscape, minimum 2K. No stretching, cropped skirt, blurred sidebars, text, logos or watermarks.
+
+
+============================================================
+#prompt8 — Elegant Outdoor Bridal Portrait
+Reference image: Uploaded bride lifting lehenga in pale stone courtyard (original filename unavailable)
+============================================================
+
+Create a photorealistic luxury South Asian bridal editorial photograph in 16:9 LANDSCAPE orientation, minimum 2K resolution.
+
+POSE AND COMPOSITION:
+Position the bride centrally in an elegant outdoor courtyard. She stands upright, looking slightly downward with a gentle, natural smile. Both hands delicately lift the front sides of her skirt to display its volume and existing embroidery. Keep her posture relaxed and graceful. Show her complete outfit from head to hem, including the full skirt silhouette and footwear where visible. The dupatta drapes naturally.
+
+ENVIRONMENT:
+A spacious courtyard with pale beige stone paving, subtle paving patterns, symmetrical rows of potted green plants, distant mature trees and softly blurred natural greenery. Maintain an open, uncluttered background with generous space around the bride.
+
+LIGHTING:
+Bright, diffused natural daylight illuminates the bride evenly. Use soft shadows, realistic skin tones, delicate highlights on jewellery and embroidery, and a refined muted editorial colour grade. Avoid excessive darkness, harsh sunlight or blown highlights.
+
+CAMERA:
+Full-length environmental fashion portrait at approximately eye level. Use a wide landscape composition with the bride near the centre and the courtyard extending naturally on both sides. Keep the entire lehenga inside the frame without stretching or cropping.
+
+EXACT BRIDE IDENTITY:
+Use the bride image already attached during image creation as the sole identity reference. Preserve her exact identity, facial structure, features and complexion. Do not copy the inspiration model's face.
+
+EXACT DRESS:
+Use all multi-angle dress images already attached during image creation. Reconstruct the same garment, preserving original colours, silhouette, neckline, sleeves, bodice, waist, skirt, fabric, embroidery motifs and placement, borders, embellishments and construction. Do not copy the inspiration bride's outfit or invent, omit, recolour or redesign details. Preserve the exact matching dupatta.
+
+EXACT JEWELLERY:
+Use jewellery references already attached during image creation. Preserve actual designs, stones, colours, proportions and placement. Maintain a luxurious, richly ornamented bridal appearance without substituting or simplifying referenced pieces.
+
+MANNEQUIN REMOVAL:
+Any mannequin in the clothing references is only a display form. Extract the garment and discard the mannequin completely, including its white/plastic stomach, torso, surface, colour and texture. If the dress covers the stomach, show actual dress fabric; if skin is exposed or visible through an opening, show natural skin matching the bride. Never reproduce mannequin anatomy or white patches.
+
+OUTPUT:
+16:9 landscape, minimum 2K. No blurred sidebars, text, logos, watermarks, mannequin parts, white stomach patches or artificial skin.
+
+
+============================================================
+END OF IMAGE PROMPT LIBRARY
+============================================================

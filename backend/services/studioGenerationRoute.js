@@ -4,7 +4,7 @@ const ROUTES = Object.freeze({
   budget: Object.freeze({ provider: 'higgsfield-mcp', model: 'wan3_0_prime', balanceVerified: true }),
   premium: Object.freeze({ provider: 'higgsfield-mcp', model: 'wan3_0_prime', balanceVerified: true }),
   custom: Object.freeze({ provider: 'higgsfield-mcp', model: 'wan3_0_prime', balanceVerified: true }),
-  flagship: Object.freeze({ provider: 'higgsfield-mcp', model: 'hf_mult_motion_control', balanceVerified: true }),
+  flagship: Object.freeze({ provider: 'higgsfield-mcp', model: require('./studioFlagshipModel').current(), balanceVerified: true }),
 });
 
 function resolve(tier, generationMode = 'speed') {

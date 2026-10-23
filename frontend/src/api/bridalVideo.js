@@ -22,7 +22,7 @@ const log = (...args) => {
 };
 
 async function safeFetch(url, init) {
-  const res = await fetch(url, init);
+  const res = await (await import('../utils/api')).fetchWithAuth(url, init);
   const text = await res.text();
   let body;
   try { body = JSON.parse(text); } catch { body = { raw: text }; }

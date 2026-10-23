@@ -1,5 +1,7 @@
 # Hosting and acceptance guide
 
+> Historical guide from the 17 October export. For the current 23 October release, use README.md, backend/.env.example and deploy/LAUNCH-CHECKLIST.md. Several details below (CORS, authentication and persisted state) have changed.
+
 ## Ownership and access
 
 Client should own GitHub, hosting, domain, Supabase and Higgsfield billing. Give the developer a collaborator role, not sole ownership. Obtain production secrets privately. Never put Supabase service-role keys or OAuth tokens in frontend variables.

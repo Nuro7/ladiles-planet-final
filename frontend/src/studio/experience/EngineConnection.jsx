@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../utils/supabase';
+import { clientText } from '../clientLabels';
 
 const API = import.meta.env.VITE_API_URL || '/api';
 async function ownerHeaders() {
@@ -31,7 +32,7 @@ export default function EngineConnection() {
   const connected = Boolean(status?.connected && !expired);
 
   async function disconnect() {
-    if (!window.confirm('Disconnect this Higgsfield account from Ladies Planet? Your saved creations will remain.')) return;
+    if (!window.confirm('Disconnect this creation account from Ladies Planet? Your saved creations will remain.')) return;
     setBusy(true);
     try {
       const response = await fetch(`${API}/higgsfield-oauth/disconnect`, { method: 'POST', headers: await ownerHeaders() });
@@ -54,7 +55,7 @@ export default function EngineConnection() {
   return <section className="creation-engine" aria-label="AI engine connection">
     <div>
       <strong>AI Engine connection</strong>
-      <span>{error || (status === null ? 'Checking connection…' : connected ? 'Higgsfield account authorized' : expired ? 'Previous account expired — connect your new account' : 'No account connected')}</span>
+      <span>{clientText(error) || (status === null ? 'Checking connection…' : connected ? 'Creation account authorized' : expired ? 'Previous account expired — connect your new account' : 'No account connected')}</span>
     </div>
     <div className="creation-engine__actions">
       {status?.connected && <button type="button" onClick={disconnect} disabled={busy}>Disconnect old account</button>}

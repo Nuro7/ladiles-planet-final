@@ -26,12 +26,14 @@ function handle(handler) {
     catch (error) { console.error('[Studio API]', error.message); res.status(400).json({ success: false, error: studioErrorMessage(error) }); }
   };
 }
-router.get('/config', handle(async (req, res) => {
+router.get('/config', require('../middleware/security').configLimit, handle(async (req, res) => {
+  require('../middleware/mediaAccess').issue(req, res);
+  res.set('Cache-Control', 'private, no-store');
   const templateConfig = await templates.publicConfig();
   let ready = false;
   let message = 'Connect the AI Engine to create. No credits are spent until a request is approved.';
-  try { const balance = await mcp.getBalance(); ready = Number.isFinite(Number(balance.credits)); if (ready) message = 'Higgsfield is connected. Paid creation awaits owner approval.'; }
-  catch (error) { message = error.message; }
+  try { const balance = await require('../services/studioBalanceCache').get(); ready = Number.isFinite(Number(balance.credits)); if (ready) message = 'Higgsfield is connected. Paid creation awaits owner approval.'; }
+  catch (error) { message = 'Creation service is unavailable. Ask the owner to check the connection.'; }
   const spendEnabled = process.env.HIGGSFIELD_SPEND_ENABLED === 'true';
   res.json({ success: true, data: {
     tiers: tiers.map(({ model, provider, ...tier }) => ({ ...tier, available: ready, connectionMessage: message })),
@@ -40,7 +42,7 @@ router.get('/config', handle(async (req, res) => {
   } });
 }));
 router.get('/connections', studioAccess, handle(async (req, res) => {
-  const balance = await mcp.getBalance();
+  const balance = await require('../services/studioBalanceCache').get();
   const connected = Number.isFinite(Number(balance.credits));
   res.json({ success: true, data: {
     budget: { connected, provider: 'higgsfield-mcp' }, premium: { connected, provider: 'higgsfield-mcp' }, flagship: { connected, provider: 'higgsfield-mcp' },
@@ -57,15 +59,15 @@ router.get('/template-environment/BUDGET_SPEED_01', (req, res) => {
 // as a filesystem path; full source clips and analysis frames stay local.
 router.get('/template-thumbnail/:templateId', (req, res) => {
   const config = require('../services/studioVideoConfig');
-  const entry = [...config.flagshipScenes, ...config.budgetSpeedScenes, ...config.budgetScenes, ...config.scenes]
-    .flatMap(scene => Object.values(scene.subjects || {}))
-    .find(recipe => recipe.templateId === req.params.templateId && recipe.thumbnailPath);
+  const entry = [...require('../services/studioImageTemplates'), ...require('../services/studioUltraFastTemplates'), ...config.flagshipScenes, ...config.budgetSpeedScenes, ...config.budgetScenes, ...config.scenes, ...config.premiumSpeedScenes, ...config.premiumBalanceScenes]
+    .flatMap(scene => Object.entries(scene.subjects || {}).map(([subject, recipe]) => ({...recipe, subjectMode:subject})))
+    .find(recipe => recipe.templateId === req.params.templateId);
   if (!entry) return res.status(404).json({ success: false, error: 'Template thumbnail not found.' });
-  res.set('Cache-Control', 'public, max-age=3600');
-  res.sendFile(entry.thumbnailPath);
+  res.set('Cache-Control', 'private, max-age=300');
+  res.type('image/svg+xml').send(require('../services/templateArtwork').render(entry));
 });
-router.put('/defaults', studioAccess, handle(async (req, res) => res.json({ success: true, data: await templates.updateDefaults(req.body) })));
-router.put('/templates/:scene/:subject', studioAccess,
+router.put('/defaults', studioAccess, require('../middleware/ownerAccess'), handle(async (req, res) => res.json({ success: true, data: await templates.updateDefaults(req.body) })));
+router.put('/templates/:scene/:subject', studioAccess, require('../middleware/ownerAccess'),
   upload.fields([{ name: 'sourceVideo', maxCount: 1 }, { name: 'referenceImage', maxCount: 1 }, { name: 'music', maxCount: 1 }]),
   handle(async (req, res) => {
     validateImages(req.files);
@@ -101,6 +103,12 @@ router.post('/generate', studioAccess, upload.fields([...imageFields, { name: 's
 router.get('/media/:id', handle(async (req, res) => {
   const file = req.query.version==='preview' ? await experiences.localVideoFile(req.params.id,'preview') : video.localResults.get(req.params.id) || await experiences.localVideoFile(req.params.id);
   if (!file) return res.status(404).json({ success: false, error: 'Film is unavailable.' });
+  res.set('Cache-Control','private, no-store');
+  res.sendFile(file);
+}));
+router.get('/media/:id/image', handle(async (req, res) => {
+  const file = await experiences.localImageFile(req.params.id);
+  if (!file) return res.status(404).json({success:false,error:'Image is unavailable.'});
   res.set('Cache-Control','private, no-store');
   res.sendFile(file);
 }));

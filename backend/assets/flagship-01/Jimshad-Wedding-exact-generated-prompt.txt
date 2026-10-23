@@ -1,0 +1,382 @@
+PROJECT: LADIES PLANET — PREMIUM BRIDAL COUPLE TRANSFORMATION
+MODE: HIGGSFIELD GENJUTSU — VIDEO MOTION TRANSFER
+OBJECTIVE:
+Transform the supplied wedding video into a premium bridal
+couple film featuring our exact bride and groom.
+Preserve the source video's original performance, emotions,
+smiles, happiness, body movements, camera movements, shot
+sequence, cuts, transitions, and cinematic effects as closely
+as the motion-transfer system permits.
+Replace the original bride with our supplied bride.
+Replace her original outfit with our exact supplied bridal dress.
+Replace the original groom with our supplied groom.
+The result must look like our bride and groom performed the
+original wedding scene themselves.
+Do not invent a different story or replace the original
+performance with generic wedding poses.
+==================================================
+SECTION 1 — STRICT REFERENCE INPUT ROLES
+==================================================
+SOURCE VIDEO:
+The authority for the original performance, emotional
+expressions, smiles, happiness, gestures, body movements,
+head movements, eye direction, hand interactions, camera
+angles, camera movement, shot order, timing, cuts,
+transitions, and visual effects.
+BRIDE REFERENCE IMAGES:
+The sole authority for our bride's recognizable identity,
+facial proportions, skin tone, hairline, and facial features.
+BRIDAL DRESS REFERENCE IMAGES:
+The sole authority for the exact bridal garment. Treat all
+supplied dress angles as different views of ONE garment.
+GROOM REFERENCE IMAGES:
+The sole authority for our groom's recognizable identity
+and facial features.
+GROOM OUTFIT REFERENCE:
+If supplied, the authority for the groom's exact outfit.
+DUPATTA REFERENCE:
+The authority for the mandatory bridal dupatta.
+JEWELLERY REFERENCE SHEET:
+The authority for one coordinated, richly ornamented
+bridal jewellery set.
+Keep these reference roles completely separate.
+The source video controls performance and cinematography.
+Our bride images control the bride's identity.
+Our groom images control the groom's identity.
+Our dress images control the bridal garment.
+Our accessory references control the dupatta and jewellery.
+Never allow the source video's original people or outfits
+to override our supplied references.
+==================================================
+SECTION 2 — EXACT BRIDE IDENTITY LOCK
+==================================================
+Replace the source bride's identity with the exact woman
+shown in our supplied bride reference images.
+Preserve her recognizable:
+- Face shape and proportions.
+- Forehead and hairline.
+- Eyes and eyebrows.
+- Nose and lips.
+- Cheeks, jawline, and chin.
+- Skin tone.
+- Distinctive facial characteristics.
+- Natural skin texture.
+Use multiple supplied photographs together to understand
+the same woman's face from different angles.
+Do not retain the source bride's face.
+Do not blend the source woman's identity with our bride.
+Do not generate a generic bridal lookalike.
+Do not change our bride's facial structure to match
+the source performer.
+Transfer the source performance onto our bride while
+preserving her identity.
+Her expressions must look natural and believable, with
+consistent facial identity during smiles, laughter,
+head turns, and changes in gaze.
+Maintain identity consistency across every shot.
+Avoid face morphing, plastic skin, artificial smoothing,
+facial distortion, and identity drift.
+==================================================
+SECTION 3 — EXACT GROOM IDENTITY LOCK
+==================================================
+Replace the source groom's identity with the exact man
+shown in our supplied groom reference images.
+Preserve his recognizable:
+- Face shape.
+- Eyes and eyebrows.
+- Nose and lips.
+- Jawline.
+- Skin tone.
+- Hair and facial hair, where present.
+- Distinctive facial features.
+Do not retain the source groom's face.
+Do not blend his identity with another person.
+Do not generate a generic substitute groom.
+Transfer the source groom's performance onto our groom.
+Preserve his original expressions, smiles, happiness,
+head movements, gestures, and interaction with the bride.
+Adapt our groom's identity naturally to the source
+camera angles and lighting.
+Maintain the same recognizable groom throughout the video.
+==================================================
+SECTION 4 — EXACT BRIDAL DRESS REPLICATION
+==================================================
+Replace the source bride's complete outfit with the exact
+bridal garment shown in our supplied dress photographs.
+The supplied garment references are the sole authority
+for the dress design.
+Preserve the exact:
+- Main colour and colour distribution.
+- Fabric and texture.
+- Neckline shape and depth.
+- Blouse and bodice construction.
+- Chest embroidery and motif placement.
+- Sleeve design.
+- Waistline.
+- Skirt silhouette and construction.
+- Embroidery density.
+- Decorative panels and borders.
+- Hemline and embellishments.
+- Beading, stones, and distinctive details.
+Use all dress-reference angles together to reconstruct
+one consistent garment.
+Do not redesign, simplify, recolour, or replace the dress.
+Do not invent embroidery or change the neckline.
+Do not change the garment between shots.
+Allow realistic fabric folds and movement while keeping
+the supplied garment's design intact.
+==================================================
+SECTION 5 — CRITICAL ANTI-MANNEQUIN PROTECTION
+==================================================
+The dress-reference photographs are GARMENT REFERENCES ONLY.
+They may contain a mannequin, white display torso,
+plastic body, hanger, clothing stand, or product-photo
+background.
+Extract and reproduce ONLY THE GARMENT DESIGN.
+NEVER TRANSFER THE MANNEQUIN INTO THE VIDEO.
+NEVER PUT A WHITE OR PLASTIC-LOOKING PATCH ON THE BRIDE'S
+STOMACH OR ABDOMEN.
+NEVER TRANSFER THE MANNEQUIN'S TORSO OR BODY SHAPE.
+NEVER PASTE THE COMPLETE PRODUCT PHOTOGRAPH ONTO THE BRIDE.
+NEVER TRANSFER THE PRODUCT-PHOTO BACKGROUND.
+Our bride must have a complete, natural, anatomically
+correct human body.
+Fit the exact dress naturally to her real body.
+If the actual dress exposes the abdomen, show natural
+human skin. If the garment covers it, reproduce the
+actual garment fabric and coverage.
+Never replace human skin or garment fabric with the
+mannequin's white surface.
+Maintain realistic garment-to-body contact during every
+movement, pose, turn, and camera change.
+FINAL RULE:
+TRANSFER THE GARMENT DESIGN ONLY.
+NEVER TRANSFER THE MANNEQUIN.
+==================================================
+SECTION 6 — MANDATORY DUPATTA
+==================================================
+Our supplied dupatta is mandatory.
+Reproduce the exact dupatta from the attached reference.
+Preserve its:
+- Colour and fabric.
+- Texture and transparency, if present.
+- Embroidery and motifs.
+- Borders and embellishments.
+Drape it naturally over the bride's head, shoulders,
+and body in a premium traditional bridal arrangement.
+Keep her face visible and recognizable.
+The dupatta must respond naturally to the source movements,
+turns, and changes in posture.
+Do not omit it, replace it with a generic veil, or
+change its design.
+Do not allow it to disappear, detach, or pass through
+the bride's body.
+Maintain the same dupatta throughout the video.
+==================================================
+SECTION 7 — PREMIUM BRIDAL JEWELLERY
+==================================================
+Use the supplied jewellery reference sheet as the
+mandatory visual guide for the bride's ornaments.
+Create ONE coordinated, richly ornamented bridal set.
+Include appropriate reference-based pieces such as:
+- A substantial bridal necklace or choker.
+- Matching earrings.
+- A forehead ornament or maang tikka.
+- Coordinated bangles.
+- Appropriate hand jewellery.
+- A nath or additional ornaments where suitable.
+Select a coherent combination rather than placing every
+item from a jewellery collage on the bride.
+Preserve the selected designs, metalwork, stones, pearls,
+settings, and colours.
+Maintain the same jewellery throughout every shot.
+Ensure the jewellery remains physically attached and
+moves naturally with the bride.
+Do not allow it to float, melt, flicker, or merge with skin.
+Do not unnecessarily cover the dress's neckline or
+important chest embroidery.
+Do not display the jewellery reference sheet in the video.
+==================================================
+SECTION 8 — GROOM OUTFIT
+==================================================
+If a groom outfit reference is supplied, replace the
+source groom's outfit with that exact clothing.
+Preserve its colour, fabric, cut, collar, buttons,
+embroidery, accessories, and distinctive details.
+Fit the outfit naturally to our groom's body.
+Do not transfer a mannequin or product-photo background.
+If no groom outfit reference is supplied, preserve the
+source outfit's general style while maintaining our
+groom's identity.
+==================================================
+SECTION 9 — FULL PERFORMANCE AND EMOTION TRANSFER
+==================================================
+The source performance is the primary motion reference.
+Preserve the original sequence and emotional progression
+as closely as the motion-transfer system permits.
+Transfer:
+- Genuine smiles.
+- Happiness and joyful expressions.
+- Romantic warmth.
+- Eye contact and gaze direction.
+- Head tilts and head turns.
+- Facial expression changes.
+- Body posture.
+- Walking and stepping.
+- Turns and rotations.
+- Arm and hand gestures.
+- Hand contact between the couple.
+- Changes in distance and body orientation.
+- Natural reactions to one another.
+The replacement bride must perform the source bride's
+actions, but with our bride's exact identity.
+The replacement groom must perform the source groom's
+actions, but with our groom's exact identity.
+Preserve the timing of smiles, expressions, gestures,
+and reactions rather than generating unrelated emotions.
+Do not replace genuine happiness with a blank expression.
+Do not freeze facial expressions.
+Do not make the couple look robotic or artificial.
+Keep the original emotional beats and interaction intact.
+==================================================
+SECTION 10 — SLOW MOTION AND CINEMATIC EFFECTS
+==================================================
+Preserve the source video's existing cinematic effects,
+slow-motion moments, speed changes, transitions, and
+visual rhythm wherever possible.
+Where the source contains slow motion, retain the
+corresponding slow-motion effect.
+Where the source uses real-time movement, preserve
+its natural speed.
+Preserve the timing and visual character of the original
+transitions and effects.
+Do not remove signature slow-motion moments.
+Do not flatten the video into uniform playback speed.
+Do not add random effects that conflict with the source.
+Use realistic fabric movement, natural hair and dupatta
+motion, accurate shadows, and physically believable
+jewellery reflections.
+The final result should feel like a professionally filmed,
+premium wedding cinematic—not a synthetic slideshow.
+==================================================
+SECTION 11 — CAMERA AND SHOT CONTINUITY
+==================================================
+Preserve the source video's:
+- Shot order.
+- Camera angles.
+- Camera distance.
+- Camera movement.
+- Framing.
+- Subject positioning.
+- Cuts.
+- Transitions.
+- Timing and pacing.
+- Visual effects.
+- Environmental perspective.
+Maintain close-ups as close-ups and wide shots as wide shots.
+Keep the bride and groom correctly positioned in the scene.
+Do not invent extra shots or change the sequence.
+Do not replace the original camera movement with random
+zooming, spinning, or unnecessary camera shake.
+Keep the source environment and lighting wherever possible.
+The replacement people must appear naturally integrated
+into the original footage.
+==================================================
+SECTION 12 — NATURAL HUMAN ANATOMY
+==================================================
+Maintain realistic human anatomy and proportions.
+Hands must have natural fingers and correct contact.
+Arms and shoulders must move naturally.
+Faces must remain stable during turns and expressions.
+The bride's dress must follow her body and gravity.
+The dupatta must behave like real fabric.
+Jewellery must remain attached to the correct body areas.
+Avoid extra limbs, distorted hands, broken joints,
+impossible poses, floating fabric, and clipping.
+Do not allow the bride's or groom's identity to change
+during camera cuts or transitions.
+==================================================
+SECTION 13 — PHOTOREALISTIC INTEGRATION
+==================================================
+Match the source video's lighting direction, exposure,
+shadows, perspective, and environmental colour.
+Maintain realistic skin texture and natural facial detail.
+Preserve believable fabric texture, embroidery, and
+garment weight.
+Use realistic reflections on jewellery.
+Avoid plastic skin, artificial glow, oversmoothing,
+excessive sharpening, and obvious compositing artefacts.
+The bride and groom must look like real people filmed
+in the source environment.
+==================================================
+SECTION 14 — STRICT NEGATIVE CONSTRAINTS
+==================================================
+NEVER:
+- Retain the source bride's identity.
+- Retain the source groom's identity.
+- Blend the supplied identities with the source people.
+- Replace either person with a generic lookalike.
+- Redesign the supplied bridal dress.
+- Change its neckline or chest embroidery.
+- Change its colours, motifs, or construction.
+- Transfer a mannequin or white torso.
+- Create a white abdomen patch.
+- Paste a product photograph onto the bride.
+- Transfer a product-photo background.
+- Omit or redesign the supplied dupatta.
+- Randomly change the jewellery.
+- Make jewellery float or merge into skin.
+- Create distorted hands or extra limbs.
+- Break the source performance or shot order.
+- Remove existing signature slow-motion moments.
+- Add unrelated movements or expressions.
+- Add random camera movements.
+- Introduce unrelated environments.
+- Add text, captions, logos, or watermarks.
+- Invent dialogue or speech.
+==================================================
+SECTION 15 — FINAL GENERATION DIRECTIVE
+==================================================
+Transform the supplied wedding video into a premium,
+photorealistic bridal couple film.
+Use the source video as the motion, emotion, camera,
+timing, transition, and visual-effects reference.
+Replace the original bride with our exact supplied bride.
+Replace her original outfit with our exact supplied dress.
+Replace the original groom with our exact supplied groom.
+Use the mandatory supplied dupatta and coordinated
+bridal jewellery set.
+Use the groom outfit reference if provided.
+Preserve the original happiness, smiles, expressions,
+gestures, turns, camera movement, cuts, transitions,
+and slow-motion effects as closely as the system permits.
+Never transfer a mannequin, white display torso,
+white abdomen patch, or product-photo background.
+Maintain natural human anatomy, realistic clothing,
+consistent identities, and premium cinematic integration.
+Do not invent a new performance or change the emotional
+character of the source video.
+FINAL PRIORITIES:
+1. EXACT SUPPLIED BRIDE IDENTITY.
+2. EXACT SUPPLIED GROOM IDENTITY.
+3. EXACT SUPPLIED BRIDAL DRESS.
+4. ZERO MANNEQUIN OR WHITE-PATCH ARTEFACTS.
+5. MANDATORY EXACT DUPATTA.
+6. PREMIUM REFERENCE-BASED JEWELLERY.
+7. EXACT GROOM OUTFIT IF PROVIDED.
+8. ORIGINAL EMOTIONS, SMILES, AND HAPPINESS.
+9. ORIGINAL BODY AND HAND MOVEMENTS.
+10. ORIGINAL CAMERA MOVEMENT AND SHOT SEQUENCE.
+11. PRESERVED SLOW-MOTION MOMENTS AND TRANSITIONS.
+12. NATURAL HUMAN ANATOMY.
+13. PHOTOREALISTIC INTEGRATION.
+The source video determines the performance and cinematic
+structure. The supplied bride and groom images determine
+their identities. The supplied dress images determine
+the garment. The accessory references determine the
+dupatta and jewellery.
+Replace the people and clothing while preserving the
+original wedding performance as faithfully as possible.
+
+BRIDAL ORNAMENTS REFERENCE — JEWELLERY AUTHORITY
+The attached bridal-ornaments-reference.png is the jewellery styling reference for the bride. Select ONE coherent, richly ornamented bridal ensemble from the sheet and dress the customer bride in it: an opulent necklace or choker with coordinated earrings, forehead ornament, bangles and visible hand jewellery. Preserve the selected pieces' gold finish, stones, pearls, scale, placement and arrangement consistently through every shot. The ornaments must look physically worn by the bride, with realistic weight, attachment and movement. Do not display the jewellery sheet, its velvet stands, panels or background in the film. Do not copy a face, body or garment from this sheet. The uploaded bride photo alone defines identity; the uploaded dress photos alone define the outfit; the source video or scene references define motion and setting. If a piece is hidden by framing, do not replace it with a different design when it becomes visible.

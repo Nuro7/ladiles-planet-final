@@ -6,7 +6,7 @@ const tiers = [
   // Quick is intentionally locked to the low-cost preview tier. Clients do
   // not get a quality switch here; Premium/Flagship are the upgrade paths.
   { id: 'budget', label: 'Quick', model: 'Wan 3.0 Prime', provider: 'Higgsfield MCP', resolution: '480p', resolutions: ['480p'], durations: [4, 6, 8, 10], ratios: ['16:9', '9:16'], duration: 8 },
-  { id: 'flagship', label: 'Flagship', model: 'Genjutsu', provider: 'Higgsfield MCP', resolution: '720p', resolutions: ['480p', '720p', '1080p'], durations: [10, 13.349, 14.9, 20.386], ratios: ['9:16'], duration: 14.9 },
+  { id: 'flagship', label: 'Flagship', model: 'Genjutsu', provider: 'Higgsfield MCP', resolution: '720p', resolutions: ['480p', '720p', '1080p'], durations: [10, 13.349, 14.9, 15.02, 20.386], ratios: ['9:16', '16:9'], duration: 14.9 },
   { id: 'premium', label: 'Premium', model: 'Wan 3.0 Prime', provider: 'Higgsfield MCP', resolution: '720p', resolutions: ['480p', '720p', '1080p'], durations: [4, 5, 8, 10, 15], ratios: ['16:9', '9:16'], duration: 8 },
   { id: 'custom', label: 'Custom', model: 'Wan 3.0 Prime', provider: 'Higgsfield MCP', resolution: '720p', resolutions: ['480p', '720p', '1080p'], durations: Array.from({length:29}, (_,i)=>i+2), ratios: ['16:9', '9:16'], duration: 10 },
 ];
@@ -251,9 +251,8 @@ const eleganceLandscape = {
     referenceImagePath: path.join(eleganceRoot, 'template-thumbnail.jpg'), referenceImagePaths: [],
   }, couple: { available: false } },
 };
-premiumBalanceScenes.unshift(eleganceLandscape);
-budgetScenes.unshift(eleganceLandscape);
-scenes.push(eleganceLandscape);
+// Retired at the owner's request. Keep the exact prompt and original media
+// on disk, but do not publish or accept this template for new creations.
 for (const catalog of [budgetScenes, premiumBalanceScenes]) {
   for (const item of catalog) {
     const updated = /-v2$/.test(item.subjects.solo?.version || '') || ['courtyard-breeze-portrait', 'garden-veil-spin'].includes(item.id);
@@ -285,7 +284,8 @@ function resolve(body, recipe) {
   const prompt = workflow === 'preset' ? selectedRecipe.prompt : String(body.prompt || '').trim();
   const promptLimit = workflow === 'preset' ? (selectedRecipe?.verbatimPrompt ? 40000 : 30000) : 10000;
   if (prompt.length < 5 || prompt.length > promptLimit) throw new Error('Write a prompt between 5 and ' + promptLimit + ' characters.');
-  const selectedModel = tier.id === 'ultrafast' ? 'grok_video_v15' : tier.id === 'flagship' ? 'hf_mult_motion_control' : tier.id === 'budget' ? 'wan3_0_prime' : (body.model || 'wan3_0_prime');
+  const selectedModel = tier.id === 'ultrafast' ? 'grok_video_v15' : tier.id === 'flagship' ? require('./studioFlagshipModel').current() : tier.id === 'budget' ? 'wan3_0_prime' : (body.model || 'wan3_0_prime');
+  if (selectedModel === require('./studioFlagshipModel').LITE && (selectedRecipe?.duration || source?.duration || Number(body.duration)) > 15) throw new Error('Flagship Lite testing supports reference clips up to 15 seconds. Restore Genjutsu for longer clips.');
   const model = tier.id === 'ultrafast' ? {resolutions:['480p','720p','1080p']} : tier.id === 'flagship' ? null : require('./studioModels').videoModel(selectedModel);
   const followsSource = model?.followsSource && source;
   const duration = followsSource ? source.duration : workflow === 'preset' ? (selectedRecipe.duration || tier.duration) : Number(body.duration);
@@ -296,9 +296,8 @@ function resolve(body, recipe) {
   const supportedResolutions = model?.resolutions || tier.resolutions;
   if (!supportedResolutions.includes(resolution)) throw new Error('Unsupported quality for this model.');
   if (!tier.ratios.includes(aspectRatio)) throw new Error('Unsupported frame size for this model.');
-  const imageResolution = body.imageResolution || '2k';
-  if (!['1k', '2k'].includes(imageResolution)) throw new Error('Choose 1K or 2K image quality.');
-  return { tier: tier.id, model: selectedModel, imageResolution, generationMode, workflow, subjectMode, scene: scene?.id, prompt: tier.id === 'custom' || selectedRecipe?.verbatimPrompt ? prompt : withBridalOrnaments(prompt), duration, resolution, aspectRatio,
+  const { IMAGE_RESOLUTION: imageResolution, IMAGE_ASPECT_RATIO: imageAspectRatio } = require('./studioImageOutputPolicy');
+  return { tier: tier.id, model: selectedModel, imageResolution, imageAspectRatio, generationMode, workflow, subjectMode, scene: scene?.id, prompt: tier.id === 'custom' || selectedRecipe?.verbatimPrompt ? prompt : withBridalOrnaments(prompt), duration, resolution, aspectRatio,
     sourceUploadId: source ? body.sourceUploadId : null,
     enableThinking: body.enableThinking === true || body.enableThinking === 'true',
     imagePrompt: tier.id === 'custom' ? prompt : selectedRecipe?.imagePrompt, templateVersion: selectedRecipe?.version,

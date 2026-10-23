@@ -3,20 +3,21 @@ const { existsSync } = require('node:fs');
 const { spawn } = require('node:child_process');
 const path = require('node:path');
 const { randomUUID } = require('node:crypto');
-const axios = require('axios');
+const axios = require('../utils/safeRemoteMedia');
 const sharp = require('sharp');
+const mediaQueue = require('./runtimeService').media;
 
-const root = path.join(__dirname, '..', 'data', 'studio-media');
+const root = process.env.STUDIO_MEDIA_ROOT || path.join(__dirname, '..', 'data', 'studio-media');
 const referenceRatios = new Map();
 async function referenceAspectRatio(file) {
   const stamp = require('node:fs').statSync(file);
   const key = file + ':' + stamp.mtimeMs + ':' + stamp.size;
-  if (!referenceRatios.has(key)) referenceRatios.set(key, new Promise((resolve, reject) => {
+  if (!referenceRatios.has(key)) referenceRatios.set(key, mediaQueue.run(() => new Promise((resolve, reject) => {
     const child = spawn(binary(), ['-hide_banner', '-nostdin', '-i', file, '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', 'pipe:1'], { windowsHide: true, stdio: ['ignore', 'pipe', 'ignore'] });
     const chunks = [];
     const timer = setTimeout(() => child.kill(), 15000);
     child.stdout.on('data', chunk => chunks.push(chunk));
-    child.on('error', reject);
+    child.on('error', error => { clearTimeout(timer); reject(error); });
     child.on('close', async code => {
       clearTimeout(timer);
       try {
@@ -28,7 +29,7 @@ async function referenceAspectRatio(file) {
         else throw new Error('The reference ratio is unsupported by this video route; it will not be converted automatically.');
       } catch (error) { referenceRatios.delete(key); reject(error); }
     });
-  }));
+  })).catch(error => { referenceRatios.delete(key); throw error; }));
   return referenceRatios.get(key);
 }
 function binary() {
@@ -36,14 +37,19 @@ function binary() {
   try { return require('@ffmpeg-installer/ffmpeg').path; } catch { return 'ffmpeg'; }
 }
 function run(args) {
-  return new Promise((resolve, reject) => {
-    const child = spawn(binary(), ['-hide_banner', '-nostdin', ...args], { windowsHide: true, stdio: ['ignore', 'ignore', 'pipe'] });
+  return mediaQueue.run(() => new Promise((resolve, reject) => {
+    const threads = process.env.FFMPEG_THREADS || '1';
+    // Set decoder and final output encoder limits; an input-only flag does not
+    // constrain libx264's encoder threads.
+    const outputArgs = [...args.slice(0, -1), '-threads', threads, args.at(-1)];
+    const child = spawn(binary(), ['-hide_banner', '-nostdin', '-threads', threads, '-filter_threads', '1', '-filter_complex_threads', '1', ...outputArgs], { windowsHide: true, stdio: ['ignore', 'ignore', 'pipe'] });
     let diagnostic = '';
-    const timer = setTimeout(() => child.kill(), 180000);
+    let timedOut = false;
+    const timer = setTimeout(() => { timedOut = true; child.kill('SIGKILL'); }, 180000);
     child.stderr.on('data', chunk => { diagnostic = (diagnostic + chunk.toString()).slice(-10000); });
     child.on('error', () => { clearTimeout(timer); reject(new Error('Video processing is unavailable. Configure FFmpeg on the server.')); });
-    child.on('close', code => { clearTimeout(timer); code === 0 ? resolve(diagnostic) : reject(new Error('The media file could not be processed. Use a valid MP4, MOV, MP3 or WAV file.')); });
-  });
+    child.on('close', code => { clearTimeout(timer); code === 0 && !timedOut ? resolve(diagnostic) : reject(new Error('The media file could not be processed. Use a valid MP4, MOV, MP3 or WAV file.')); });
+  }));
 }
 async function saveUpload(file, prefix) {
   if (!file?.buffer?.length) throw new Error('Choose a media file.');
@@ -69,7 +75,7 @@ async function requireFullHd(file) {
   const diagnostic = await run(['-i', file, '-frames:v', '1', '-f', 'null', '-']);
   const size = diagnostic.match(/Video:[^\r\n]*?\b(\d{2,5})x(\d{2,5})\b/);
   if (!size || Math.max(Number(size[1]), Number(size[2])) < 1920 || Math.min(Number(size[1]), Number(size[2])) < 1080) {
-    throw new Error('Budget finished without a 1080p download. The film remains unavailable; recover the saved Flow result after checking upscale access.');
+    throw new Error('Budget finished without a 1080p download. The film remains unavailable; recover the saved provider result after checking upscale access.');
   }
 }
 async function requirePreview720(file) {
@@ -136,20 +142,36 @@ async function remoteImage(url, name) {
   const buffer = await sharp(Buffer.from(response.data)).rotate().jpeg({ quality: 96 }).toBuffer();
   return { originalname: name + '.jpg', mimetype: 'image/jpeg', buffer };
 }
+async function saveGeneratedImage(url, id) {
+  if (!/^[a-zA-Z0-9_-]+$/.test(id)) throw new Error('Invalid creation ID.');
+  const response = await axios.get(url, { responseType:'arraybuffer', timeout:120000, maxContentLength:30 * 1024 * 1024 });
+  const bytes = Buffer.from(response.data);
+  const info = await sharp(bytes, { limitInputPixels: 100000000 }).metadata();
+  const extension = {jpeg:'jpg',png:'png',webp:'webp'}[info.format];
+  if (!extension) throw new Error('The provider image format cannot be archived. Recover the saved image.');
+  await mkdir(root, {recursive:true});
+  const file = path.join(root, 'image-' + id + '-' + randomUUID() + '.' + extension);
+  await writeFile(file, bytes, {mode:0o600,flag:'wx'});
+  return file;
+}
 async function finishVideo(url, { musicPath, sourceVideoPath, useSourceAudio }, id) {
+  if (!/^[a-zA-Z0-9_-]+$/.test(id)) throw new Error('Invalid creation ID.');
+  if (!url.startsWith('https://') && !path.isAbsolute(url)) throw new Error('The provider returned an invalid media URL.');
   const music = musicPath || (useSourceAudio ? sourceVideoPath : null);
-  if (!music) return { url };
-  if (!existsSync(music)) throw new Error('The saved music file is missing. Update this scene before retrying.');
-  await validateTrack(music);
+  if (music && !existsSync(music)) throw new Error('The saved music file is missing. Update this scene before retrying.');
+  if (music) await validateTrack(music);
   await mkdir(root, { recursive: true });
   let video = url;
   if (url.startsWith('https://')) {
     const response = await axios.get(url, { responseType: 'arraybuffer', timeout: 120000, maxContentLength: 300 * 1024 * 1024 });
     video = path.join(root, 'generated-' + id + '.mp4');
-    await writeFile(video, Buffer.from(response.data));
+    await writeFile(video, Buffer.from(response.data), {mode:0o600});
   }
+  // Keep an owned copy even when no soundtrack was requested. Provider links
+  // are delivery URLs, not the permanent history store.
+  if (!music) return { file:video, url:'/api/videos/studio/media/' + id };
   const output = path.join(root, 'film-' + id + '.mp4');
   await run(['-i', video, '-stream_loop', '-1', '-i', music, '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', '-y', output]);
   return { file: output, url: '/api/videos/studio/media/' + id };
 }
-module.exports = { run, binary, referenceAspectRatio, saveUpload, validateTrack, extractTemplateMusic, requireFullHd, requirePreview720, fullHdOutput, prepareVideo, contactSheet, remoteImage, finishVideo, readFile };
+module.exports = { run, binary, referenceAspectRatio, saveUpload, validateTrack, extractTemplateMusic, requireFullHd, requirePreview720, fullHdOutput, prepareVideo, contactSheet, remoteImage, saveGeneratedImage, finishVideo, readFile };

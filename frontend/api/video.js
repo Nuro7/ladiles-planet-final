@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export default async function handler(req, res) {
   const { id } = req.query;
+  const allowed = new Set(['1eF-lRp7i1bfLAUXSus89I_AkwUEUifD1','1pgD5n8c-WMb1ujBrTsanncQaTPzY8Ifk','1L582RHeSPVYg13LrGS149e-rpU5LvAEk','1dOInq0yUq9TOnny82NWNztNwVuy6KOrW','14pV_NRMlsjBB_QSG32QUGSeTd9iv4Td-','17engzF5_ScEQuvNWi5lApGletLONR19t']);
+  if (!['GET','HEAD'].includes(req.method) || typeof id !== 'string' || !allowed.has(id)) return res.status(404).end();
   if (!id) {
     return res.status(400).send('Missing file id');
   }
@@ -10,7 +12,7 @@ export default async function handler(req, res) {
   const driveUrl = `https://drive.usercontent.google.com/download?id=${id}&export=download`;
 
   // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
   res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Range, Content-Type');
 
@@ -29,6 +31,8 @@ export default async function handler(req, res) {
       url: driveUrl,
       headers: headers,
       responseType: 'stream',
+      timeout: 15000,
+      maxRedirects: 0,
       validateStatus: () => true, // Don't fail on range response statuses (206)
     });
 
@@ -50,6 +54,7 @@ export default async function handler(req, res) {
     });
 
     response.data.pipe(res);
+    req.on('close', () => response.data.destroy());
   } catch (error) {
     console.error('Error proxying Google Drive video:', error);
     res.status(500).send('Error fetching video');

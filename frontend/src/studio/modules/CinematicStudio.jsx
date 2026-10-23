@@ -10,13 +10,19 @@ import StudioLayout from '../StudioLayout';
 import { Button, NativeSelect, TextArea } from '../primitives';
 import DressPicker from '../experience/DressPicker';
 import BridePicker from '../experience/BridePicker';
+import { qualityLabel, modelLabel, clientText, testingDetailsEnabled } from '../clientLabels';
 import GenerationTiming from '../experience/GenerationTiming.jsx';
 import EngineConnection from '../experience/EngineConnection.jsx';
 import FilmPlayer from '../experience/FilmPlayer.jsx';
+import ImageViewer from '../experience/ImageViewer.jsx';
+import GenerationWaitingScene from '../experience/GenerationWaitingScene.jsx';
 import { promptCatalogNumber, promptTestStatus } from '../templateTestStatus';
+import { templateNumber, numberedTemplateLabel } from '../templateNumbering';
 import { getStudioConfig, startStudioExperience, getStudioExperience, approveStudioImage, regenerateStudioImage, retryStudioVideo, upscaleStudioVideo, getDressGallery, getRecentDresses } from '../../api/studioVideo';
 import { downloadFile } from '../../api/bridalImage';
 import { getStudioCreditQuote, uploadCustomReference } from '../../api/studioVideo';
+import { BROWSING_CREATION, CREATION_EVENT, OPEN_CREATION_EVENT, canStartCreation, isCreationRunning, showCreationResults } from '../experience/backgroundCreation';
+import { templateLibraryMode } from '../templateNavigation';
 
 const LAST_JOB = 'lp_studio_experience';
 const PREFS = 'lp_creation_preferences';
@@ -51,28 +57,13 @@ function ResultCard({ title, state, serverNow, kind, onApprove, onRegenerate, on
   const ready = status === 'ready' && state.url;
   const stageIndex = {validating:0,uploading:1,preparing:2,submitted:3}[state?.stage] ?? (status === 'queued' ? 0 : 2);
   return <Motion.article className="film-result" initial={reduced ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-    <div className="film-result__head"><span>{title}</span><div style={{display:'flex',alignItems:'center',gap:12}}><small>{ready ? state.isPreview ? '720p preview' : state.quality === '1080p' ? '1080p final' : 'Ready to review' : status === 'awaiting_approval' ? 'Image approval needed' : status === 'blocked' ? 'Waiting for image' : status === 'generating' ? 'Creating' : ['error', 'interrupted'].includes(status) ? 'Needs attention' : 'Queued'}</small>{ready && state.isPreview && <Button variant="gold" disabled={!onUpscale || state.upscaleStatus==='generating'} onClick={onUpscale}><Sparkles size={14} />{state.upscaleStatus==='generating'?'Upscaling…':state.upscaleStatus==='error'?'Retry 1080p upscale':'Upscale to 1080p'}</Button>}</div></div>
-    {ready ? kind === 'image' ? <img className="film-result__media" src={state.url} alt="Generated bridal look" /> : <FilmPlayer src={state.url} title={title} />
-      : <div className="film-result__placeholder">{running(state) ? <span className="creation-orbit"><Sparkles size={28} /></span> : kind === 'image' ? <User size={34} /> : <Film size={34} />}</div>}
-    {running(state) && <div className="creation-wait" aria-hidden="true">
-      <div className="creation-wait__glow" />
-      {referencePreviews.length ? <span className="creation-wait__refs">{referencePreviews.slice(0, 2).map((reference, index) => <img key={reference.src} src={reference.src} alt={reference.label} title={reference.label} className={index ? 'is-secondary' : ''} />)}</span> : <span className="creation-wait__spark"><Sparkles size={17} /></span>}
-      <div className="creation-wait__copy">
-        <strong key={kind + status} className="creation-wait__headline">
-          {status === 'queued' ? 'Your references are in.' : kind === 'image' ? 'Your bridal look is taking shape.' : 'Your wedding film is being assembled.'}
-        </strong>
-        <span>{status === 'queued' ? 'We’re waiting for the generation to begin.' : kind === 'image' ? 'Bride and dress details are guiding the look.' : 'The scene, movement and finishing are coming together.'}</span>
-      </div>
-      <div className="creation-wait__steps">
-        <i className="is-done" /><i className={status === 'generating' ? 'is-active' : ''} /><i />
-      </div>
-    </div>}
-    {running(state) && <div className="creation-progress" role="progressbar" aria-label={title + ' progress'} aria-valuemin={0} aria-valuemax={100} aria-valuenow={state?.progress || undefined}><span style={state?.progress ? { width: state.progress + '%' } : undefined} />{state?.progress > 0 && <small>{state.progress}%</small>}</div>}
+    <div className="film-result__head"><span>{title}</span><div style={{display:'flex',alignItems:'center',gap:12}}><small>{ready ? state.isPreview ? 'High quality preview' : state.quality === '1080p' ? 'Highest quality final' : 'Ready to review' : status === 'awaiting_approval' ? 'Image approval needed' : status === 'blocked' ? 'Waiting for image' : status === 'generating' ? 'Creating' : ['error', 'interrupted'].includes(status) ? 'Needs attention' : 'Queued'}</small>{ready && state.isPreview && <Button variant="gold" disabled={!onUpscale || state.upscaleStatus==='generating'} onClick={onUpscale}><Sparkles size={14} />{state.upscaleStatus==='generating'?'Upscaling…':state.upscaleStatus==='error'?'Retry quality upgrade':'Upgrade to highest quality'}</Button>}</div></div>
+    {ready ? kind === 'image' ? <ImageViewer src={state.url} title={title} /> : <FilmPlayer src={state.url} title={title} />
+      : running(state) ? <GenerationWaitingScene kind={kind} state={state} referencePreviews={referencePreviews}/> : <div className="film-result__placeholder">{kind === 'image' ? <User size={34} /> : <Film size={34} />}</div>}
+    {running(state) && <div className="creation-progress" role="progressbar" aria-label={title + ' is processing'}><span /></div>}
     {running(state) && <ol className="creation-stage-list" aria-label="Creation stages">{['Checking references', 'Uploading photos', 'References ready', 'Generation submitted'].map((label,index)=><li key={label} className={index<stageIndex?'is-done':index===stageIndex?'is-active':''} aria-current={index===stageIndex?'step':undefined}><i aria-hidden="true" />{index<stageIndex?'✓ ':''}{label}</li>)}</ol>}
-    <p className="film-note" role={running(state) ? 'status' : ['error', 'interrupted'].includes(status) ? 'alert' : undefined}>{state?.message || 'Waiting to start…'}</p>
-    <GenerationTiming state={state} serverNow={serverNow} label={kind==='video' && (state.isPreview || state.upscaleStartedAt) ? 'Preview generation time' : undefined} />
-    {state?.upscaleStartedAt && <GenerationTiming serverNow={serverNow} label="1080p upscale time" state={{status:state.upscaleStatus==='generating'?'generating':state.upscaleStatus==='done'?'ready':'error',startedAt:state.upscaleStartedAt,finishedAt:state.upscaleFinishedAt,elapsedMs:state.upscaleFinishedAt?Math.max(0,Date.parse(state.upscaleFinishedAt)-Date.parse(state.upscaleStartedAt)):undefined}} />}
-    {state?.preparationTimings?.length > 0 && <details className="creation-muted"><summary>Preparation stages</summary>{state.preparationTimings.map((stage,index)=><p key={index}>{stage.name} · {stage.finishedAt ? ((Date.parse(stage.finishedAt)-Date.parse(stage.startedAt))/1000).toFixed(1)+'s' : 'In progress'}</p>)}</details>}
+    <p className="film-note" role={running(state) ? 'status' : ['error', 'interrupted'].includes(status) ? 'alert' : undefined}>{clientText(state?.message) || 'Waiting to start…'}</p>
+    {testingDetailsEnabled() && <GenerationTiming state={state} serverNow={serverNow} label={kind === 'video' ? 'Video elapsed time' : 'Image elapsed time'} />}
     {ready && !state.isPreview && <div className="film-result__actions">
       {state.url.startsWith('/') ? <a className="s-btn s-btn--ghost" href={state.url} download={'ladies-planet.' + (kind === 'image' ? 'jpg' : 'mp4')}><Download size={14} /> Download</a> : <Button variant="ghost" onClick={() => downloadFile(state.url, 'ladies-planet-' + kind)}><Download size={14} /> Download</Button>}
       {onApprove && <Button variant="gold" onClick={onApprove}><Check size={14} /> Approve & create film</Button>}
@@ -115,8 +106,9 @@ export default function CinematicStudio() {
   const [enableThinking, setEnableThinking] = useState(false);
   const sourceInput = useRef(null);
   const [sound, setSound] = useState(true);
-  const [imageResolution, setImageResolution] = useState('2k');
-  useEffect(() => { if (tierId === 'budget') { setOutput('both'); setGenerationMode('balance'); } }, [tierId]);
+  const imageResolution = '2k';
+  useEffect(() => { if (['budget','ultrafast'].includes(tierId)) { setOutput('both'); setGenerationMode(tierId === 'ultrafast' ? 'speed' : 'balance'); } }, [tierId]);
+  useEffect(() => { if (tierId === 'flagship' && output === 'both') setOutput('video'); }, [tierId, output]);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const [creditQuote, setCreditQuote] = useState(null);
@@ -124,15 +116,18 @@ export default function CinematicStudio() {
   const [quoteRefresh, setQuoteRefresh] = useState(0);
   const [bundleSubmittingAt, setBundleSubmittingAt] = useState(null);
   const [job, setJob] = useState(null);
+  const [exploring, setExploring] = useState(false);
   const [templateOpen, setTemplateOpen] = useState(false);
   const [guided, setGuided] = useState(true);
   const [dressPicker, setDressPicker] = useState(false);
   const [bridePicker, setBridePicker] = useState(false);
   const studioBody = useRef(null);
   const urls = useRef(new Set());
-  const working = busy || running(job?.image) || running(job?.video) || job?.video.upscaleStatus === 'generating';
+  const jobPreviews = useRef(new Map());
+  const generationRunning = isCreationRunning(job);
+  const working = busy || (!exploring && generationRunning);
   const tier = config?.tiers.find(item => item.id === tierId);
-  const premiumModels = config?.premiumModels || [];
+  const premiumModels = (config?.premiumModels || []).map(item => ({...item,label:modelLabel(item.id)}));
   const videoResolutions = tierId === 'budget'
     ? ['480p']
     : ['premium', 'custom'].includes(tierId)
@@ -148,6 +143,8 @@ export default function CinematicStudio() {
     ? (generationMode === 'speed' ? config?.budgetSpeedScenes : config?.budgetScenes) || config?.scenes
     : (generationMode === 'speed' ? config?.premiumSpeedScenes : config?.premiumBalanceScenes) || config?.scenes;
   const imageScenes = config?.imageScenes || [];
+  const shortNumber = (item, kind = 'video') => templateNumber(kind === 'image' ? imageScenes : visibleScenes, item?.id, kind);
+  const shortLabel = (item, assets, kind = 'video') => numberedTemplateLabel(shortNumber(item, kind), assets?.label || item?.label);
   const recipeIsReady = (assets, kind) => assets?.available !== false && !(tierId === 'budget' && generationMode === 'speed' && !assets?.templateId) && (kind === 'image'
     ? assets?.hasImagePrompt
     : assets?.hasVideoPrompt && (assets?.hasReferenceVideo || assets?.hasReferenceImage || assets?.hasWrittenShotPlan));
@@ -166,7 +163,7 @@ export default function CinematicStudio() {
     return null;
   };
   const completedScenes = kind => {
-    const entries = (kind === 'image' ? imageScenes : visibleScenes)?.map(item => ({ item, recipe: templateRecipe(item, kind) })).filter(entry => entry.recipe && (kind !== 'image' || testStatus('image', entry.recipe.subject, entry.recipe.assets) === 'passed')) || [];
+    const entries = (kind === 'image' ? imageScenes : visibleScenes)?.map(item => ({ item, recipe: templateRecipe(item, kind) })).filter(entry => entry.recipe) || [];
     if (kind !== 'video' || tierId !== 'budget' || generationMode !== 'balance') return entries;
     return entries.sort((a, b) => {
       const passed = entry => testStatus(kind, entry.recipe.subject, entry.recipe.assets) === 'passed';
@@ -176,14 +173,14 @@ export default function CinematicStudio() {
   };
   const bundleTemplates = kind => (kind === 'image' ? imageScenes : visibleScenes || []).flatMap(item => ['solo', 'couple'].flatMap(templateSubject => {
     const assets = item?.subjects?.[templateSubject];
-    return recipeIsReady(assets, kind) && (kind !== 'image' || testStatus('image', templateSubject, assets) === 'passed') ? [{ item, assets, subject: templateSubject, number: kind === 'image' ? `I.${assets.templateNumber}` : templateTestId(item, templateSubject) }] : [];
+    return recipeIsReady(assets, kind) ? [{ item, assets, subject: templateSubject, number: kind === 'image' ? `I.${assets.templateNumber}` : templateTestId(item, templateSubject) }] : [];
   }));
   const bundlePairs = output === 'both' ? bundleTemplates('image').flatMap(imageTemplate =>
     bundleTemplates('video').map(videoTemplate => ({
       imageTemplate, videoTemplate,
       key: `${imageTemplate.item.id}:${imageTemplate.subject}-${videoTemplate.item.id}:${videoTemplate.subject}`,
-      imageNumber: imageTemplate.number,
-      videoNumber: videoTemplate.number,
+      imageNumber: shortNumber(imageTemplate.item, 'image'),
+      videoNumber: shortNumber(videoTemplate.item, 'video'),
     }))) : [];
   const shuffleScore = key => {
     let hash = 2166136261;
@@ -223,8 +220,10 @@ export default function CinematicStudio() {
         const restored = previous ? await getStudioExperience(previous).catch(() => { localStorage.removeItem(LAST_JOB); return null; }) : null;
         if (!alive) return;
         setConfig(value); setJob(restored);
-        const choice = restored || prefs;
-        const activeTier = restored ? choice.tier : value.tiers.find(item => item.id === choice.tier && item.available)?.id || 'budget';
+        const browseSaved = !params.get('creation') && restored && sessionStorage.getItem(BROWSING_CREATION) === restored.id;
+        setExploring(Boolean(browseSaved));
+        const choice = restored && !browseSaved ? restored : prefs;
+        const activeTier = restored && !browseSaved ? choice.tier : value.tiers.find(item => item.id === choice.tier && item.available)?.id || 'budget';
         setTier(activeTier); setMode(choice.mode); setGenerationMode(activeTier==='ultrafast'?'speed':'balance'); setSubject(activeTier === 'flagship' && choice.outputType !== 'image' ? 'couple' : 'solo');
         setImageSubject('solo'); setVideoSubject(activeTier === 'flagship' ? 'couple' : 'solo'); setScene(choice.scene || 'indoor');
         setScene(activeTier==='ultrafast' ? value.ultraFastScenes?.find(s=>s.id===(choice.videoScene || choice.scene))?.id || value.ultraFastScenes?.[0]?.id : choice.videoScene || choice.scene || value.budgetScenes?.[0]?.id || 'indoor');
@@ -233,7 +232,7 @@ export default function CinematicStudio() {
         const selectedTier = value.tiers.find(item => item.id === activeTier) || value.tiers[0];
         setDuration(selectedTier.duration); setResolution(selectedTier.resolution);
         const selectedOutput = params.get('output') || choice.outputType || 'both';
-        if (activeTier === 'budget') setOutput('both');
+        if (['budget','ultrafast'].includes(activeTier)) setOutput('both');
         else if (OUTPUTS.some(item => item.id === selectedOutput)) setOutput(selectedOutput);
         const dressId = params.get('dress') || prefs.dressId;
         if (dressId) (dressId.startsWith('recent:') ? getRecentDresses() : getDressGallery()).then(items => { if (alive) setDress(items.find(item => item.id === dressId && item.isAvailable) || null); }).catch(() => {});
@@ -245,7 +244,7 @@ export default function CinematicStudio() {
   useEffect(() => { const previews = urls.current; return () => { for (const url of previews) URL.revokeObjectURL(url); }; }, []);
   useEffect(() => {
     studioBody.current?.parentElement?.scrollTo({ top: 0, behavior: 'auto' });
-  }, [output, custom, templateOpen, subject, job?.id, bundleSubmittingAt]);
+  }, [output, custom, templateOpen, subject, job?.id, bundleSubmittingAt, exploring]);
   useEffect(() => {
     let alive = true;
     const refresh = () => getStudioConfig().then(value => { if (alive) setConfig(value); }).catch(() => {});
@@ -259,12 +258,31 @@ export default function CinematicStudio() {
     const timer = setInterval(() => getStudioExperience(job.id).then(value => { if (alive) { setJob(value); setError(''); } }).catch(() => { if (alive) setError('Connection interrupted. Your request is saved; reconnect before starting another generation.'); }), 2500);
     return () => { alive = false; clearInterval(timer); };
   }, [job?.id, job?.image.status, job?.video.status, job?.video.upscaleStatus]);
+  useEffect(() => {
+    if (job) window.dispatchEvent(new CustomEvent(CREATION_EVENT, { detail: job }));
+  }, [job]);
+  useEffect(() => {
+    function openCurrent(event) {
+      if (event.detail !== job?.id) return;
+      setExploring(false); setTier(job.tier); setOutput(job.outputType);
+      setCustom(job.workflow === 'prompt');
+    }
+    window.addEventListener(OPEN_CREATION_EVENT, openCurrent);
+    return () => window.removeEventListener(OPEN_CREATION_EVENT, openCurrent);
+  }, [job]);
+
+  function explore() {
+    if (busy) return;
+    setExploring(true); setTemplateOpen(false); setChosenTemplates({}); setError('');
+    if (job?.id) sessionStorage.setItem(BROWSING_CREATION, job.id);
+  }
 
   function remember(change) {
     localStorage.setItem(PREFS, JSON.stringify({ ...readPrefs(), tier: tierId, mode, generationMode, subjectMode: subject, imageSubjectMode: imageSubject, videoSubjectMode: videoSubject, scene: sceneId, videoScene: sceneId, imageScene: imageSceneId, outputType: output, ...change }));
   }
   function chooseTier(id, isCustom = false) {
-    if (job) reset();
+    if (busy) return;
+    if (job) explore();
     setTemplateOpen(false);
     setChosenTemplates({});
     setCustom(id === 'custom' || isCustom); setTier(id); remember({ tier: id });
@@ -276,12 +294,12 @@ export default function CinematicStudio() {
     setDuration(choice.duration); setResolution(choice.resolution);
     if (id === 'budget') { setOutput('both'); setGenerationMode('balance'); }
     if (['premium','flagship'].includes(id))setGenerationMode('balance');
-    if (id === 'ultrafast') {setOutput('video');setGenerationMode('speed');setScene(config.ultraFastScenes?.[0]?.id);}
+    if (id === 'ultrafast') {setOutput('both');setGenerationMode('speed');setScene(config.ultraFastScenes?.[0]?.id);}
     if (id === 'custom') { setOutput('video'); setGenerationMode(customSource ? 'balance' : 'speed'); }
     setError('');
   }
   function chooseOutput(id) {
-    if (working || tierId === 'budget') return;
+    if (working || tierId === 'budget' || (tierId === 'ultrafast' && !['both','video'].includes(id))) return;
     reset();
     setOutput(id);
     setSubject(tierId === 'flagship' && id !== 'image' ? 'couple' : 'solo');
@@ -294,6 +312,8 @@ export default function CinematicStudio() {
     setChosenTemplates({});
   }
   function chooseGuidedVideo(item, assets, templateSubject) {
+    if (tierId === 'flagship' && assets.aspectRatio) setRatio(assets.aspectRatio);
+    if (tierId === 'ultrafast' && assets.aspectRatio) setRatio(assets.aspectRatio);
     if (item.id === 'pure-elegance-landscape') {
       setRatio('16:9');
       setResolution('1080p');
@@ -304,20 +324,24 @@ export default function CinematicStudio() {
     chooseTemplate('video', item.id, templateSubject);
   }
   function chooseTemplate(kind, id, templateSubject) {
+    if (busy) return;
+    if (job) explore();
     const selectedSubject = templateSubject || subject;
+    const independent = ['premium','flagship'].includes(tierId);
+    if (independent) { setOutput(kind); setSubject(selectedSubject); }
     const nextChosen = { ...chosenTemplates, [kind]: true };
     if (kind === 'image') {
       setImageScene(id); setImageSubject(selectedSubject);
       if (output !== 'both') setSubject(selectedSubject);
-      remember({ subjectMode: selectedSubject, imageSubjectMode: selectedSubject, imageScene: id });
+      remember({ subjectMode: selectedSubject, imageSubjectMode: selectedSubject, imageScene: id, ...(independent ? { outputType: kind } : {}) });
     } else {
       setScene(id); setVideoSubject(selectedSubject);
       if (output !== 'both') setSubject(selectedSubject);
-      remember({ subjectMode: selectedSubject, videoSubjectMode: selectedSubject, scene: id, videoScene: id });
+      remember({ subjectMode: selectedSubject, videoSubjectMode: selectedSubject, scene: id, videoScene: id, ...(independent ? { outputType: kind } : {}) });
     }
     setChosenTemplates(nextChosen);
     setError('');
-    if (output !== 'both' || nextChosen.image && nextChosen.video) setTemplateOpen(true);
+    if (independent || output !== 'both' || nextChosen.image && nextChosen.video) setTemplateOpen(true);
   }
   function chooseBundleSubject(kind, value) {
     if (kind === 'image') setImageSubject(value); else setVideoSubject(value);
@@ -325,7 +349,10 @@ export default function CinematicStudio() {
     remember(kind === 'image' ? { imageSubjectMode: value } : { videoSubjectMode: value });
   }
   function chooseBundle(pair) {
+    if (busy) return;
+    if (job) explore();
     const image = pair.imageTemplate, video = pair.videoTemplate;
+    setOutput('both');
     if (video.assets.aspectRatio) setRatio(video.assets.aspectRatio);
     setImageScene(image.item.id); setScene(video.item.id);
     setImageSubject(image.subject); setVideoSubject(video.subject); setSubject(video.subject);
@@ -369,7 +396,7 @@ export default function CinematicStudio() {
     try { setJob(await fn(job.id)); } catch (err) { setError(err.message); } finally { setBusy(false); }
   }
   async function generate() {
-    if (working || !custom && !templateOpen) return;
+    if (!canStartCreation(job, busy) || !custom && !templateOpen) return;
     if (!creditQuote || creditQuote.key !== quoteKey || creditQuote.expiresAt <= Date.now()) {
       setQuoteRefresh(value=>value+1); return;
     }
@@ -388,14 +415,25 @@ export default function CinematicStudio() {
         recentDressKey: dress?.id?.startsWith('recent:') ? dress.id.slice(7) : undefined,
         brideId: bride[0]?.brideId, brideImageId: bride[0]?.brideImageId,
       }, { brideImage: bride[0]?.file, groomImage: needsGroom ? groom[0]?.file : undefined, dressImages: dress ? [] : dressPhotos.map(photo => photo.file) });
-      setJob(created); localStorage.setItem(LAST_JOB, created.id);
+      const previews = [bride[0] && { ...bride[0], label: 'Bride reference' }, views[0] && { ...views[0], label: 'Dress reference' }].filter(Boolean).map(photo => {
+        const src = photo.file ? URL.createObjectURL(photo.file) : photo.url;
+        if (photo.file) urls.current.add(src);
+        return { src, label: photo.label };
+      });
+      jobPreviews.current.set(created.id, previews);
+      setJob(created); setExploring(false); sessionStorage.removeItem(BROWSING_CREATION); localStorage.setItem(LAST_JOB, created.id);
     } catch (err) { setError(err.message); }
     finally { setBusy(false); setBundleSubmittingAt(null); setQuoteRefresh(value=>value+1); }
   }
-  function reset() { setTemplateOpen(false); setChosenTemplates({}); setJob(null); setError(''); localStorage.removeItem(LAST_JOB); }
+  function reset() {
+    if (generationRunning) { explore(); return; }
+    setTemplateOpen(false); setChosenTemplates({}); setJob(null); setExploring(false); setError('');
+    localStorage.removeItem(LAST_JOB); sessionStorage.removeItem(BROWSING_CREATION);
+    window.dispatchEvent(new CustomEvent(CREATION_EVENT, { detail: null }));
+  }
   const enoughPhotos = bride.length > 0 && views.length > 0 && (!needsGroom || groom.length > 0);
   const referenceReady = custom ? output === 'image' || !selectedVideoModel?.followsSource || Boolean(customSource) : output === 'image' || generationMode === 'speed' || Boolean(sceneAssets?.hasReferenceVideo);
-  const ready = config && available && referenceReady && !working && !sourceUploading && (custom ? prompt.trim().length >= 5 && (!needsGroom || bride.length > 0 && groom.length > 0) : enoughPhotos);
+  const ready = config && available && referenceReady && canStartCreation(job, busy) && !sourceUploading && (custom ? prompt.trim().length >= 5 && (!needsGroom || bride.length > 0 && groom.length > 0) : enoughPhotos);
   const quoteValues = {tier:tierId,mode,generationMode:custom ? customSource ? 'balance' : 'speed' : generationMode,subjectMode:output==='both'?videoSubject:subject,
     imageSubjectMode:output==='both'?imageSubject:subject,videoSubjectMode:output==='both'?videoSubject:subject,
     scene:sceneId,videoScene:sceneId,imageScene:imageSceneId,outputType:output,workflow:custom?'prompt':'preset',
@@ -406,63 +444,59 @@ export default function CinematicStudio() {
   useEffect(() => {
     let active=true;
     setCreditQuote(null); setQuoteError('');
-    if (!config || (!custom && !templateOpen) || custom && (prompt.trim().length < 5 || !referenceReady || sourceUploading) || job || working) return;
+    if (!config || (!custom && !templateOpen) || custom && (prompt.trim().length < 5 || !referenceReady || sourceUploading) || job && !exploring || generationRunning || busy) return;
     const timer=setTimeout(()=>getStudioCreditQuote(JSON.parse(quoteKey)).then(value=>{
       if(active) setCreditQuote({...value,key:quoteKey});
     }).catch(err=>{if(active)setQuoteError(err.message);}),400);
     const renewal=setTimeout(()=>{if(active)setQuoteRefresh(value=>value+1);},90000);
     return ()=>{active=false;clearTimeout(timer);clearTimeout(renewal);};
-  },[quoteKey,quoteRefresh,templateOpen,Boolean(config),job?.id,working,custom,referenceReady,sourceUploading]);
+  },[quoteKey,quoteRefresh,templateOpen,Boolean(config),job?.id,working,custom,referenceReady,sourceUploading,exploring,generationRunning,busy]);
 
   const header = <div className="s-modhead film-header creation-header">
     <span className="s-eyebrow">Ladies Planet · Creation Studio</span>
     <h1 className="s-modhead__title">A look to remember.</h1>
     <p className="s-modhead__sub">Your people. Your outfit. A wedding story made for them.</p>
+    <label className="creation-notice"><input type="checkbox" checked={testingDetailsEnabled()} onChange={event=>{localStorage.setItem('lp_office_testing_details',event.target.checked?'on':'off');window.location.reload();}} /> Office testing details — model names, resolution and stopwatch</label>
+    {testingDetailsEnabled() && <div className="creation-notice"><strong>Testing · actual routing</strong><p>Image: GPT Image 2 · 2K · Medium · Landscape 16:9</p><p>Video: {modelLabel(tierId === 'ultrafast' ? 'grok_video_v15' : tierId === 'budget' ? 'wan3_0_prime' : tierId === 'flagship' ? config?.flagshipVideoModel || 'hf_mult_motion_control_flash' : premiumModel)} · {resolution} · {ratio}</p><small>Elapsed timers include preparation, queue and finishing—not provider compute time alone. Turn this off before the client demo.</small></div>}
     {!guided && <EngineConnection />}
-    {!custom && tierId === 'budget' && <label className="creation-model-select">ChatGPT image quality<NativeSelect value={imageResolution} options={[{id:'1k',label:'1K · Medium'},{id:'2k',label:'2K · Medium'}]} onChange={event=>setImageResolution(event.target.value)} disabled={working} /></label>}
-    {guided && tierId === 'premium' && output !== 'image' && <label className="creation-model-select">Video model
+    {!custom && output !== 'video' && <label className="creation-model-select">Image output<span className="custom-source-setting">{testingDetailsEnabled() ? 'GPT Image 2 · 2K · Medium · Landscape' : 'Landscape · High quality'}</span><small>All bridal images use the landscape format and minimum required image quality.</small></label>}
+    {guided && tierId === 'premium' && output !== 'image' && <label className="creation-model-select">Video style
       <NativeSelect value={premiumModel} options={premiumModels} onChange={event => setPremiumModel(event.target.value)} disabled={working || !config} />
-      <small>All Higgsfield-supported qualities for the selected model. Credits update with your selection.</small>
+      <small>Available qualities for the selected style. Credits update with your selection.</small>
     </label>}
     {guided ? <div className="guided-choices">
-      <section><span className="s-eyebrow">01 · What to create</span><div className="guided-options">{OUTPUTS.map(item => <button type="button" key={item.id} className={output === item.id ? 'is-selected' : ''} onClick={() => chooseOutput(item.id)} disabled={working}><strong>{item.id === 'both' ? 'All · image + video' : item.label}</strong><small>{item.id === 'both' ? 'Both start together. See your image first while the film continues.' : item.description}</small></button>)}</div></section>
-      <section><span className="s-eyebrow">02 · Choose mode</span><div className="guided-options">{['ultrafast','budget', 'premium', 'flagship', 'custom'].map(id => <button type="button" key={id} className={tierId === id ? 'is-selected' : ''} onClick={() => chooseTier(id)} disabled={working || !config}><strong>{{ultrafast:'Ultra Fast',budget:'Quick',premium:'Premium',flagship:'Flagship',custom:'Custom'}[id]}</strong><small>{{ultrafast:'Grok 1.5 · Images only',budget:'Everyday bridal creation',premium:'Higher-end bridal film',flagship:'Signature couple motion · Higher cost',custom:'Your prompt · Full control'}[id]}</small></button>)}</div></section>
-      {!custom && <section><span className="s-eyebrow">03 · Frame and quality</span><div className="guided-options guided-options--compact">{[['9:16', 'Portrait'], ['16:9', 'Landscape']].map(([id, label]) => <button type="button" key={id} className={ratio === id ? 'is-selected' : ''} onClick={() => setRatio(id)} disabled={working}><strong>{label}</strong><small>{id}</small></button>)}</div>{output !== 'image' && <label className="creation-model-select">Video quality<NativeSelect value={resolution} options={videoResolutions.map(id => ({id,label:id}))} onChange={event => setResolution(event.target.value)} disabled={working || tierId === 'budget'} /></label>}{tierId === 'budget' && output !== 'image' && <p className="creation-muted">Quick uses Wan 3.0 Prime at fixed 480p. Higher quality is available in Premium or Custom.</p>}</section>}
+      <section><span className="s-eyebrow">01 · What to create</span><div className="guided-options">{OUTPUTS.filter(item => tierId === 'ultrafast' ? item.id !== 'image' : tierId === 'flagship' ? item.id !== 'both' : true).map(item => <button type="button" key={item.id} className={output === item.id ? 'is-selected' : ''} onClick={() => chooseOutput(item.id)} disabled={working}><strong>{tierId === 'ultrafast' && item.id === 'video' ? 'Video only · Testing' : item.id === 'both' ? 'All · image + video' : item.label}</strong><small>{tierId === 'ultrafast' && item.id === 'video' ? 'Test a video prompt without generating an image.' : item.id === 'both' ? 'Both start together. See your image first while the film continues.' : item.description}</small></button>)}</div></section>
+      <section><span className="s-eyebrow">02 · Choose mode</span><div className="guided-options">{['ultrafast','budget', 'premium', 'flagship', 'custom'].map(id => <button type="button" key={id} className={tierId === id ? 'is-selected' : ''} onClick={() => chooseTier(id)} disabled={busy || !config}><strong>{{ultrafast:'Ultra Fast',budget:'Quick',premium:'Premium',flagship:'Flagship',custom:'Custom'}[id]}</strong><small>{{ultrafast:'Image-guided bridal film',budget:'Everyday bridal creation',premium:'Higher-end bridal film',flagship:'Signature couple motion · Higher cost',custom:'Your prompt · Full control'}[id]}</small></button>)}</div></section>
+      {!custom && <section><span className="s-eyebrow">03 · Frame and quality</span><div className="guided-options guided-options--compact">{[['9:16', 'Portrait'], ['16:9', 'Landscape']].filter(([id]) => output !== 'image' || id === '16:9').map(([id, label]) => <button type="button" key={id} className={(output === 'image' ? id === '16:9' : ratio === id) ? 'is-selected' : ''} onClick={() => setRatio(id)} disabled={working || output === 'image'}><strong>{label}</strong><small>{id}</small></button>)}</div>{output !== 'image' && <label className="creation-model-select">Video quality<NativeSelect value={resolution} options={videoResolutions.map(id => ({id,label:qualityLabel(id)}))} onChange={event => setResolution(event.target.value)} disabled={working || tierId === 'budget'} /></label>}{tierId === 'budget' && output !== 'image' && <p className="creation-muted">Quick uses Normal quality. Higher quality is available in Premium or Custom.</p>}</section>}
     </div> : <>
     <div className="film-tabs" aria-label="Creation choices">
       {['ultrafast','budget', 'premium', 'flagship'].map(id => {
         const item = config?.tiers.find(value => value.id === id);
-        return <button key={id} disabled={!config || working} aria-pressed={!custom && tierId === id} onClick={() => chooseTier(id)} className={'film-tab ' + (!custom && tierId === id ? 'is-selected' : '')}><span>{item?.label || id}</span><small>{item ? item.available ? 'Ready' : id === 'premium' ? 'Verification needed' : 'Reconnect needed' : 'Loading…'}</small></button>;
+        return <button key={id} disabled={!config || busy} aria-pressed={!custom && tierId === id} onClick={() => chooseTier(id)} className={'film-tab ' + (!custom && tierId === id ? 'is-selected' : '')}><span>{item?.label || id}</span><small>{item ? item.available ? 'Ready' : id === 'premium' ? 'Verification needed' : 'Reconnect needed' : 'Loading…'}</small></button>;
       })}
-      <button disabled={!config || working} aria-pressed={custom} onClick={() => chooseTier('custom')} className={'film-tab ' + (custom ? 'is-selected' : '')}><span>Custom</span><small>Your idea · Your settings</small></button>
+      <button disabled={!config || busy} aria-pressed={custom} onClick={() => chooseTier('custom')} className={'film-tab ' + (custom ? 'is-selected' : '')}><span>Custom</span><small>Your idea · Your settings</small></button>
     </div>
     {!custom && tierId !== 'ultrafast' && output !== 'image' && <div className="creation-choice" role="group" aria-label="Video reference mode">
       {[['speed', 'Speed · Photos only'], ['balance', 'Balance · Reference video']].map(([id, label]) => <button key={id} disabled={working} aria-pressed={generationMode === id} className={generationMode === id ? 'is-selected' : ''} onClick={() => { setGenerationMode(id); setTemplateOpen(false); setChosenTemplates({}); remember({ generationMode: id }); }}>{label}</button>)}
     </div>}
     {!custom && <div className="creation-output-choices" role="group" aria-label="What would you like to create?">
-      {OUTPUTS.map(item => { const Icon = item.icon; return <Motion.button key={item.id} type="button" disabled={!config || working} aria-pressed={output === item.id} className={'creation-output-card ' + (output === item.id ? 'is-selected' : '')} onClick={() => chooseOutput(item.id)} whileHover={reduced ? undefined : { y: -3 }} whileTap={reduced ? undefined : { scale: 0.99 }}>
-        <Icon size={23} /><span><strong>{item.label}</strong><small>{item.description}</small></span>{output === item.id && <Check size={16} />}
+      {OUTPUTS.filter(item => tierId === 'ultrafast' ? item.id !== 'image' : tierId === 'flagship' ? item.id !== 'both' : true).map(item => { const Icon = item.icon; return <Motion.button key={item.id} type="button" disabled={!config || working} aria-pressed={output === item.id} className={'creation-output-card ' + (output === item.id ? 'is-selected' : '')} onClick={() => chooseOutput(item.id)} whileHover={reduced ? undefined : { y: -3 }} whileTap={reduced ? undefined : { scale: 0.99 }}>
+        <Icon size={23} /><span><strong>{tierId === 'ultrafast' && item.id === 'video' ? 'Video only · Testing' : item.label}</strong><small>{tierId === 'ultrafast' && item.id === 'video' ? 'Test a video prompt without generating an image.' : item.description}</small></span>{output === item.id && <Check size={16} />}
       </Motion.button>; })}
     </div>}
     </>}
   </div>;
 
-  const results = job ? <div className="film-experience">
-    <div className="creation-summary"><div><span className="s-eyebrow">{job.outputType === 'both' ? `Image: ${(job.imageSubjectMode || job.subjectMode) === 'couple' ? 'Bride & groom' : 'Bride only'} · Video: ${(job.videoSubjectMode || job.subjectMode) === 'couple' ? 'Bride & groom' : 'Bride only'}` : job.subjectMode === 'couple' ? 'Bride & groom' : 'Bride only'} · {job.workflow === 'prompt' ? 'Custom' : job.outputType === 'image' ? 'Image only' : job.outputType === 'video' ? 'Video only' : 'Image + video · Combined'}</span><h2>Your creation, all in one place.</h2></div>{!working && <Button variant="ghost" onClick={reset}>New creation <ArrowRight size={14} /></Button>}</div>
-    <GenerationTiming state={{ ...job, status: job.finishedAt ? [job.image, job.video].some(part => ['error', 'blocked'].includes(part.status)) ? 'error' : 'ready' : [job.image, job.video].some(part => part.status === 'interrupted') ? 'interrupted' : 'generating' }} serverNow={job.serverNow} overall label={job.video.isPreview || job.video.upscaleStartedAt ? 'Time to preview' : undefined} />
+  const results = showCreationResults(job, exploring) ? <div className="film-experience">
+    <div className="creation-summary"><div><span className="s-eyebrow">{job.outputType === 'both' ? `Image: ${(job.imageSubjectMode || job.subjectMode) === 'couple' ? 'Bride & groom' : 'Bride only'} · Video: ${(job.videoSubjectMode || job.subjectMode) === 'couple' ? 'Bride & groom' : 'Bride only'}` : job.subjectMode === 'couple' ? 'Bride & groom' : 'Bride only'} · {job.workflow === 'prompt' ? 'Custom' : job.outputType === 'image' ? 'Image only' : job.outputType === 'video' ? 'Video only' : 'Image + video · Combined'}</span><h2>Your creation, all in one place.</h2></div><Button variant="ghost" disabled={busy} onClick={generationRunning ? explore : reset}>{generationRunning ? 'Explore other modes' : 'New creation'} <ArrowRight size={14} /></Button></div>
+    {testingDetailsEnabled() && <div className="creation-notice"><strong>Saved generation settings</strong><p>Video: {modelLabel(job.model)} · {job.historyMetadata?.video?.resolution || 'Resolution not recorded'}</p><p>Image: GPT Image 2 · 2K · Medium</p></div>}
     <div className={'film-result-grid ' + (job.image.status === 'skipped' || job.video.status === 'skipped' ? 'film-result-grid--single' : '')}>
-      <ResultCard title="Bridal look" state={job.image} serverNow={job.serverNow} kind="image" referencePreviews={[
-        bride[0]?.url && { src: bride[0].url, label: 'Bride reference' },
-        views[0]?.url && { src: views[0].url, label: 'Dress reference' },
-      ].filter(Boolean)}
+      <ResultCard title="Bridal look" state={job.image} serverNow={job.serverNow} kind="image" referencePreviews={jobPreviews.current.get(job.id) || []}
         onApprove={!busy && job.video.status === 'awaiting_approval' ? () => action(approveStudioImage) : null}
         onRegenerate={!busy && ['awaiting_approval', 'skipped', 'blocked', 'error', 'interrupted'].includes(job.video.status) ? () => action(regenerateStudioImage) : null} />
-      {(job.outputType !== 'both' || ['ready', 'error', 'interrupted', 'blocked'].includes(job.image.status)) && <ResultCard title="Wedding film" state={job.video} serverNow={job.serverNow} kind="video" referencePreviews={[
-        bride[0]?.url && { src: bride[0].url, label: 'Bride reference' },
-        views[0]?.url && { src: views[0].url, label: 'Dress reference' },
-      ].filter(Boolean)} onRetry={!busy ? () => action(retryStudioVideo) : null} onUpscale={!busy && job.video.upscaleStatus!=='generating' ? ()=>action(upscaleStudioVideo) : null} />}
+      {(job.outputType !== 'both' || ['ready', 'error', 'interrupted', 'blocked'].includes(job.image.status)) && <ResultCard title="Wedding film" state={job.video} serverNow={job.serverNow} kind="video" referencePreviews={[...(job.image.status === 'ready' && job.image.url ? [{src:job.image.url,label:'Your completed image'}] : []), ...(jobPreviews.current.get(job.id) || [])]} onRetry={!busy ? () => action(retryStudioVideo) : null} onUpscale={!busy && job.video.upscaleStatus!=='generating' ? ()=>action(upscaleStudioVideo) : null} />}
     </div>
-    {error && <p className="film-error" role="alert">{error}</p>}
+    {error && <p className="film-error" role="alert">{clientText(error)}</p>}
   </div> : bundleSubmittingAt ? <div className="film-experience">
     <div className="creation-summary"><div><span className="s-eyebrow">Image + video · Combined</span><h2>Starting your creation.</h2></div></div>
     <div className="film-result-grid film-result-grid--single">
@@ -474,31 +508,31 @@ export default function CinematicStudio() {
     {!config ? <div className="creation-empty"><Sparkles size={30} /><p role="status">{error || 'Preparing Creation Studio…'}</p></div> : <>
       {!custom && <div className="creation-scene-summary">
         <div><span className="s-eyebrow">Your selected templates</span>
-          {output !== 'video' && <strong className="creation-selected-template"><ImageIcon size={17} /> Image · {imageScene?.subjects?.[output === 'both' ? imageSubject : subject]?.label || imageScene?.label}</strong>}
-          {output !== 'image' && <strong className="creation-selected-template"><Film size={17} /> Video · {sceneAssets?.label || scene?.label}</strong>}
+          {output !== 'video' && <strong className="creation-selected-template"><ImageIcon size={17} /> Image · {shortLabel(imageScene, imageScene?.subjects?.[output === 'both' ? imageSubject : subject], 'image')}</strong>}
+          {output !== 'image' && <strong className="creation-selected-template"><Film size={17} /> Video · {shortLabel(scene, sceneAssets)}</strong>}
           <span>{output !== 'image' && generationMode === 'balance' && sceneAssets?.hasReferenceVideo ? 'Saved reference clip will be used' : 'Photos only; no reference clip sent'} · {output === 'both' ? `Image: ${imageSubjectLabel} · Video: ${videoSubjectLabel}` : subject === 'couple' ? 'Bride & groom' : 'Bride only'}</span></div>
         <Button variant="ghost" disabled={working} onClick={() => setTemplateOpen(false)}><SlidersHorizontal size={14} /> Back to templates</Button>
       </div>}
-      {!guided && tierId === 'premium' && output !== 'image' && <label className="creation-model-select">Premium video model
-        <NativeSelect value={premiumModel} options={config.premiumModels || []} onChange={event => setPremiumModel(event.target.value)} disabled={working} />
+      {!guided && tierId === 'premium' && output !== 'image' && <label className="creation-model-select">Premium video style
+        <NativeSelect value={premiumModel} options={premiumModels} onChange={event => setPremiumModel(event.target.value)} disabled={working} />
       </label>}
-      {tierId === 'premium' && output !== 'image' && <p className="creation-muted">Template approval in Quick does not verify this Premium model.</p>}
+      {tierId === 'premium' && output !== 'image' && <p className="creation-muted">Template approval in Quick does not verify this Premium style.</p>}
       {!guided && !custom && generationMode === 'speed' && output !== 'image' && <label className="creation-model-select">Video frame
         <NativeSelect value={ratio} options={[{ id: '9:16', label: 'Portrait · 9:16' }, { id: '16:9', label: 'Landscape · 16:9' }]} onChange={event => setRatio(event.target.value)} disabled={working} />
       </label>}
-      {!custom && output !== 'image' && <p className="creation-muted">Selected output: {ratio} · {resolution}. Length follows the template.</p>}
-      {tierId==='ultrafast' && <div className="creation-notice"><strong>Grok Imagine 1.5 · Image references only</strong><p>Attach your bride, dress views and the included jewellery sheet. The prompt describes all four shots. No reference video is uploaded. Actual generation speed and output quality still need testing.</p><ol><li>0–2s: Face portrait and gentle push-in</li><li>2–5s: Full outfit and natural movement</li><li>5–8s: Dupatta and couture reveal</li><li>8–10s: Closing facial portrait</li></ol></div>}
+      {!custom && output !== 'image' && <p className="creation-muted">Selected output: {ratio} · {qualityLabel(resolution)}. Length follows the template.</p>}
+      {tierId==='ultrafast' && <div className="creation-notice"><strong>Ultra Fast · Image references only</strong><p>Attach your bride and dress views; the jewellery sheet is included automatically. The exact saved prompt describes the shots. No reference video is uploaded. {sceneAssets?.hasMusic?'The supplied original music is added after generation. ':''}Actual generation speed and output quality still need testing.</p>{sceneAssets?.shotTimeline && <ol>{sceneAssets.shotTimeline.map(shot=><li key={shot}>{shot}</li>)}</ol>}</div>}
       {custom && <div className="creation-custom"><span className="s-eyebrow">Custom creation</span><h2>Your vision, your direction.</h2><label htmlFor="custom-prompt" className="s-label">Prompt</label><TextArea id="custom-prompt" rows={9} maxLength={10000} value={prompt} onChange={event => setPrompt(event.target.value)} placeholder="Describe your scene, people, dress, motion, camera and lighting. Your prompt is sent exactly as written…" disabled={working} /><small className="creation-muted">{prompt.length.toLocaleString()} / 10,000 characters</small>
         <div className="creation-custom__settings">
-          {output !== 'image' && <label>Video model<NativeSelect value={premiumModel} options={premiumModels} onChange={event=>{setPremiumModel(event.target.value);setDuration(10);}} disabled={working} /></label>}
+          {output !== 'image' && <label>Video style<NativeSelect value={premiumModel} options={premiumModels} onChange={event=>{setPremiumModel(event.target.value);setDuration(10);}} disabled={working} /></label>}
           {output !== 'image' && <label>Duration{sourceControlsOutput ? <span className="custom-source-setting">{customSource ? customSource.duration.toFixed(2) + 's · From reference' : 'Upload reference video'}</span> : <NativeSelect value={duration} options={customDurations.map(value => ({ id: value, label: value + ' seconds' }))} onChange={event => setDuration(Number(event.target.value))} disabled={working} />}</label>}
-          {output !== 'image' && <label>Video quality<NativeSelect value={resolution} options={videoResolutions.map(value => ({ id: value, label: value.toUpperCase() }))} onChange={event => setResolution(event.target.value)} disabled={working} /></label>}
-          <label>Frame{sourceControlsOutput ? <span className="custom-source-setting">{customSource?.aspectRatio || 'From reference'}</span> : <NativeSelect value={ratio} options={[{id:'9:16',label:'Portrait · 9:16'},{id:'16:9',label:'Landscape · 16:9'}]} onChange={event => setRatio(event.target.value)} disabled={working} />}</label>
-          {output !== 'video' && <label>Image model<span className="custom-source-setting">GPT Image 2 · Medium</span></label>}
-          {output !== 'video' && <label>Image quality<NativeSelect value={imageResolution} options={[{id:'1k',label:'1K'},{id:'2k',label:'2K'}]} onChange={event=>setImageResolution(event.target.value)} disabled={working}/></label>}
+          {output !== 'image' && <label>Video quality<NativeSelect value={resolution} options={videoResolutions.map(value => ({ id: value, label: qualityLabel(value) }))} onChange={event => setResolution(event.target.value)} disabled={working} /></label>}
+          <label>Frame{output === 'image' ? <span className="custom-source-setting">Landscape · 16:9</span> : sourceControlsOutput ? <span className="custom-source-setting">{customSource?.aspectRatio || 'From reference'}</span> : <NativeSelect value={ratio} options={[{id:'9:16',label:'Portrait · 9:16'},{id:'16:9',label:'Landscape · 16:9'}]} onChange={event => setRatio(event.target.value)} disabled={working} />}</label>
+          {output !== 'video' && <label>Image creation<span className="custom-source-setting">Bridal photography</span></label>}
+          {output !== 'video' && <label>Image output<span className="custom-source-setting">Landscape · High quality</span></label>}
         </div>
         {output !== 'image' && <><label className="creation-check"><input type="checkbox" checked={sound} onChange={event => setSound(event.target.checked)} disabled={working} /> Generate audio</label>{premiumModel === 'wan3_0_prime' && <label className="creation-check"><input type="checkbox" checked={enableThinking} onChange={event=>setEnableThinking(event.target.checked)} disabled={working}/> Thinking · Better prompt adherence, slower generation</label>}</>}
-        <p className="creation-muted">Images are optional. Seedance 2.5 Edit requires a video; its duration and frame follow that video.</p>
+        <p className="creation-muted">Images are optional. Reference Edit requires a video; its duration and frame follow that video.</p>
       </div>}
       {custom && output !== 'image' && <div className="custom-reference-panel"><div className="custom-reference-heading"><div><span className="s-eyebrow">Motion reference</span><h3>Reference video</h3></div>{customSource && <Button variant="ghost" onClick={()=>{setCustomSource(null);setGenerationMode('speed');}} disabled={working}>Remove</Button>}</div>
         {customSource ? <><FilmPlayer src={customSource.previewUrl} title="Custom reference"/><p className="creation-muted">{customSource.name} · {customSource.duration.toFixed(2)}s · {customSource.aspectRatio}</p></> : <div className="custom-reference-empty"><Film size={34}/><strong>{sourceUploading ? 'Preparing your reference…' : 'Add a motion reference'}</strong><span>MP4, MOV or WEBM · Up to 30 seconds · 100 MB</span></div>}
@@ -511,21 +545,21 @@ export default function CinematicStudio() {
       </fieldset>
       {!custom && output === 'both' && <div className="creation-combined-speed">
         <span className="s-label">One click starts both requests</span>
-        <p className="creation-muted">This bundle uses Higgsfield MCP for both image and video. The image is shown first; no provider request runs until the owner enables paid creation.</p>
+        <p className="creation-muted">This bundle creates both an image and a video. The image is shown first; no provider request runs until the owner enables paid creation.</p>
       </div>}
       {!custom && output === 'video' && <p className="creation-muted">Your photos and selected video template go straight to film creation. No generated image or image approval is needed.</p>}
       {!available && <p className="creation-notice" role="status">{tierId === 'budget' && /video rights confirmation/i.test(config.budgetMessage || '')
         ? 'Action needed in the dedicated Google Flow Chrome window: review the “Rights to use this video” dialog and choose your own response. This page checks the connection again automatically; no generation or credits have been used.'
-        : tierId === 'budget' ? config.budgetMessage : 'This quality needs the boutique owner to update the account connection.'}</p>}
-      {!referenceReady && <p className="creation-notice" role="status">{custom ? 'Upload a reference video to use Seedance 2.5 Edit.' : 'This template needs a saved reference clip. Choose a marked template.'}</p>}
-      {error && <p className="film-error" role="alert">{error}</p>}
+        : tierId === 'budget' ? clientText(config.budgetMessage) : 'This quality needs the boutique owner to update the account connection.'}</p>}
+      {!referenceReady && <p className="creation-notice" role="status">{custom ? 'Upload a reference video to use Reference Edit.' : 'This template needs a saved reference clip. Choose a marked template.'}</p>}
+      {error && <p className="film-error" role="alert">{clientText(error)}</p>}
       <div className="creation-credit-quote" aria-live="polite">
         {output === 'both' && creditQuote?.key === quoteKey && <p>Image: {creditQuote.costs?.image} credits · Video: {creditQuote.costs?.video} credits</p>}
-        {creditQuote?.key === quoteKey ? <p>Creation cost: <strong>{creditQuote.credits} credits</strong>. Clicking Generate approves this charge.</p> : <p>{quoteError || (custom && prompt.trim().length < 5 ? 'Write your prompt to see the credit cost.' : !referenceReady ? 'Add the required reference to see the credit cost.' : 'Checking the current credit cost…')}</p>}
+        {creditQuote?.key === quoteKey ? <p>Creation cost: <strong>{creditQuote.credits} credits</strong>. Clicking Generate approves this charge.</p> : <p>{generationRunning ? 'Your current creation is running. You can explore here; return using View progress. New generation is available after it finishes.' : clientText(quoteError) || (custom && prompt.trim().length < 5 ? 'Write your prompt to see the credit cost.' : !referenceReady ? 'Add the required reference to see the credit cost.' : 'Checking the current credit cost…')}</p>}
         {quoteError && <Button variant="ghost" onClick={()=>setQuoteRefresh(value=>value+1)}>Refresh credit quote</Button>}
       </div>
       <div className="creation-generate">
-        <div><span className="s-eyebrow">{custom ? 'Custom' : needsGroom ? '04 / Ready to create' : '03 / Ready to create'}</span><p>{!custom && output === 'image' ? 'Image only' : (tier?.label || '') + ' · ' + (custom ? duration : sceneAssets?.duration || tier?.duration) + 's · ' + resolution?.toUpperCase() + ' · ' + ratio}</p></div>
+        <div><span className="s-eyebrow">{custom ? 'Custom' : needsGroom ? '04 / Ready to create' : '03 / Ready to create'}</span><p>{!custom && output === 'image' ? 'Image only' : (tier?.label || '') + ' · ' + (custom ? duration : sceneAssets?.duration || tier?.duration) + 's · ' + qualityLabel(resolution) + ' · ' + ratio}</p></div>
         <Motion.button className="s-btn s-btn--gold creation-generate__button" disabled={!ready || !creditQuote || creditQuote.key !== quoteKey} onClick={generate} whileHover={reduced ? undefined : { y: -2 }} whileTap={reduced ? undefined : { scale: 0.98 }}><Sparkles size={17} />{busy ? 'Starting your creation…' : output === 'video' ? 'Generate video' : output === 'image' ? 'Generate image' : 'Generate image + video'}{creditQuote?.key === quoteKey && !busy ? ` · ${creditQuote.credits} credits` : ''}</Motion.button>
       </div>
     </>}
@@ -539,13 +573,13 @@ export default function CinematicStudio() {
         const image = pair.imageTemplate, video = pair.videoTemplate;
         const audience = value => value.subject === 'couple' ? 'Bride & groom' : 'Bride only';
         const category = value => ({ 'pre-wedding': 'Pre-wedding', wedding: 'Wedding', 'post-wedding': 'Post-wedding' }[value.item.category] || 'Pre-wedding');
-        return <Motion.button type="button" key={pair.key} className="creation-bundle-card" whileHover={reduced ? undefined : { y: -3 }} onClick={() => chooseBundle(pair)}>
+        return <Motion.button type="button" key={pair.key} className={'creation-bundle-card' + (video.assets.cardDesign === 'reel-study' ? ' is-reel-study' : '')} whileHover={reduced ? undefined : { y: -3 }} onClick={() => chooseBundle(pair)}>
           <div className="creation-bundle-visuals">
             <div className="creation-bundle-visual">{image.assets.previewUrl ? <img src={image.assets.previewUrl} alt={'Image template preview: ' + (image.assets.label || image.item.label)} loading="lazy" /> : <ImageIcon size={24} />}<span>IMAGE {pair.imageNumber}</span>{testStatus('image', image.subject, image.assets) === 'passed' && <b className="creation-test-badge is-passed"><Check size={12} /> Passed</b>}</div>
             <div className="creation-bundle-join">+</div>
             <div className="creation-bundle-visual">{video.assets.previewUrl ? <img src={video.assets.previewUrl} alt={'Video prompt reference: ' + (video.assets.label || video.item.label)} loading="lazy" /> : <Film size={24} />}<span>VIDEO {pair.videoNumber}</span>{testStatus('video', video.subject, video.assets) === 'passed' && <b className="creation-test-badge is-passed"><Check size={12} /> Passed</b>}</div>
           </div>
-          <div className="creation-bundle-copy"><strong>{image.assets.label || image.item.label} + {video.assets.label || video.item.label}</strong>
+          <div className="creation-bundle-copy">{video.assets.cardDesign === 'reel-study' && <span className="reel-study-label">New · Reel Study · Original music</span>}<strong>{shortLabel(image.item, image.assets, 'image')} + {shortLabel(video.item, video.assets)}</strong>
             <div className="creation-card-labels"><span className="creation-card-label">Image · {category(image)} · {audience(image)}</span><span className="creation-card-label">Video · {category(video)} · {audience(video)}</span></div>
             <p>{image.assets.description || image.item.description} · {video.assets.description || video.item.description}</p>
             <span className="creation-bundle-action">Use this bundle <ArrowRight size={14} /></span>
@@ -563,33 +597,34 @@ export default function CinematicStudio() {
         const audience = templateSubject === 'couple' ? 'Bride & groom' : 'Bride only';
         return <Motion.button key={item.id + '-' + templateSubject} aria-pressed={Boolean(chosenTemplates[kind]) && item.id === (kind === 'image' ? imageSceneId : sceneId)} className={'film-scene film-scene--' + index % 4 + (chosenTemplates[kind] && item.id === (kind === 'image' ? imageSceneId : sceneId) ? ' is-selected' : '')} whileHover={reduced ? undefined : { y: -4 }} onClick={() => chooseTemplate(kind, item.id, templateSubject)}>
           <div className="film-scene__art">{assets?.previewUrl ? <img src={assets.previewUrl} alt={'Reference moment for ' + (assets?.label || item.label)} loading="lazy" /> : <>{templateSubject === 'couple' ? <Users size={32} /> : kind === 'image' ? <ImageIcon size={32} /> : <Film size={32} />}<span>{String(index + 1).padStart(2, '0')}</span></>}<b className="creation-ai-badge">AI · {templateTestId(item, templateSubject)}</b><b className={'creation-test-badge ' + (testStatus(kind, templateSubject, assets) === 'passed' ? 'is-passed' : 'is-pending')}>{testStatus(kind, templateSubject, assets) === 'passed' ? <><Check size={12} /> Passed</> : 'Not tested'}</b><small>{audience} · {kind === 'video' && assets?.hasReferenceVideo ? 'Reference clip' : kind === 'image' ? 'Image recipe' : 'Video recipe'}</small></div>
-          <div className="film-scene__copy"><strong>{assets?.templateNumber ? '#' + assets.templateNumber + ' · ' : ''}{assets?.label || item.label}</strong><div className="creation-card-labels"><span className="creation-card-label">{{'pre-wedding':'Pre-wedding', wedding:'Wedding', 'post-wedding':'Post-wedding'}[item.category] || 'Pre-wedding'}</span><span className="creation-card-label">{audience}</span></div><p>{assets?.description || item.description}</p><small>{kind === 'video' && assets?.sound === false ? (assets.duration || 10) + 's · ' + (assets.aspectRatio === '9:16' ? 'Portrait 9:16' : 'Landscape 16:9') + ' · ' + (assets.hasMusic ? 'Original reference music' : 'No audio') : ''}</small>{assets?.sourceFilename && <p className="creation-source-name" title={assets.sourceFilename}>Reference: {assets.sourceFilename}</p>}<span>{output === 'both' ? 'Choose ' + kind + ' template' : 'Open template'} <ArrowRight size={14} /></span></div>
+          <div className="film-scene__copy"><strong>{shortLabel(item, assets, kind)}</strong><div className="creation-card-labels"><span className="creation-card-label">{{'pre-wedding':'Pre-wedding', wedding:'Wedding', 'post-wedding':'Post-wedding'}[item.category] || 'Pre-wedding'}</span><span className="creation-card-label">{audience}</span></div><p>{assets?.description || item.description}</p><small>{kind === 'video' && assets?.sound === false ? (assets.duration || 10) + 's · ' + (assets.aspectRatio === '9:16' ? 'Portrait 9:16' : 'Landscape 16:9') + ' · ' + (assets.hasMusic ? 'Original reference music' : 'No audio') : ''}</small>{assets?.sourceFilename && <p className="creation-source-name" title={assets.sourceFilename}>Reference: {assets.sourceFilename}</p>}<span>{output === 'both' ? 'Choose ' + kind + ' template' : 'Open template'} <ArrowRight size={14} /></span></div>
         </Motion.button>;
       })}</div> : <p className="creation-muted">No completed {kind} templates yet.</p>}
     </section>)}
 
-    {error && <p className="film-error" role="alert">{error}</p>}
+    {error && <p className="film-error" role="alert">{clientText(error)}</p>}
   </Motion.div>;
 
   const guidedTemplates = <div className="guided-library">
     <span className="s-eyebrow">04 · Choose your visual templates</span>
     <h2>{output === 'both' ? 'Choose a bridal look and a film.' : output === 'image' ? 'Choose an image template.' : 'Choose a video template.'}</h2>
-    <p className="creation-muted">{tierId === 'ultrafast' && !visibleScenes?.length ? 'Ultra Fast templates are hidden for now. Your approved prompts will appear here when added.' : tierId === 'flagship' ? 'Choose your wedding scene, then add the bride, groom and dress photos.' : 'Pick a scene, then add the bride and dress photos.'}</p>
+    <p className="creation-muted">{imageScenes.length} image prompts available. {tierId === 'ultrafast' && !visibleScenes?.length ? 'Ultra Fast templates are hidden for now. Your approved prompts will appear here when added.' : tierId === 'flagship' ? 'Choose your wedding scene, then add the bride, groom and dress photos.' : 'Pick a scene, then add the bride and dress photos.'}</p>
     {output !== 'video' && <section className="guided-template-section"><h3><ImageIcon size={18} /> Bridal image {chosenTemplates.image && <Check size={16} />}</h3>
       <div className="guided-template-grid">{completedScenes('image').map(({ item, recipe }) => <button type="button" key={item.id + recipe.subject} className={chosenTemplates.image && imageSceneId === item.id ? 'is-selected' : ''} onClick={() => chooseTemplate('image', item.id, recipe.subject)}>
-        <div className="guided-template-art">{recipe.assets.previewUrl ? <img src={recipe.assets.previewUrl} alt="" loading="lazy" /> : <ImageIcon size={28} />}</div><strong>{recipe.assets.label || item.label}</strong><small>{recipe.subject === 'couple' ? 'Bride & groom' : 'Bride only'} · {testStatus('image', recipe.subject, recipe.assets) === 'passed' ? 'Passed' : 'Not tested'}</small>
+        <div className="guided-template-art">{recipe.assets.previewUrl ? <img src={recipe.assets.previewUrl} alt="" loading="lazy" /> : <ImageIcon size={28} />}</div><strong>{shortLabel(item, recipe.assets, 'image')}</strong><small>{recipe.subject === 'couple' ? 'Bride & groom' : 'Bride only'} · {testStatus('image', recipe.subject, recipe.assets) === 'passed' ? 'Passed' : 'Not tested'}</small>
       </button>)}</div></section>}
     {output !== 'image' && <section className="guided-template-section"><h3><Film size={18} /> Bridal film {chosenTemplates.video && <Check size={16} />}</h3>
-      <div className="guided-template-grid">{completedScenes('video').map(({ item, recipe }) => <button type="button" key={item.id + recipe.subject} aria-pressed={Boolean(chosenTemplates.video && sceneId === item.id)} className={'guided-video-card ' + (['courtyard-v2', 'garden-v2', 'royal-garden-v2', 'luxury-bridal-v2', 'elegance-landscape-v2'].includes(recipe.assets.version) ? 'is-prompt-refresh ' : '') + (item.copiedFromQuick || testStatus('video', recipe.subject, recipe.assets) === 'passed' ? 'is-verified' : 'needs-verification') + (chosenTemplates.video && sceneId === item.id ? ' is-selected' : '')} onClick={() => chooseGuidedVideo(item, recipe.assets, recipe.subject)}>
+      <div className="guided-template-grid">{completedScenes('video').map(({ item, recipe }) => <button type="button" key={item.id + recipe.subject} aria-pressed={Boolean(chosenTemplates.video && sceneId === item.id)} className={'guided-video-card ' + (recipe.assets.cardDesign === 'reel-study' ? 'is-reel-study ' : '') + (['courtyard-v2', 'garden-v2', 'royal-garden-v2', 'luxury-bridal-v2', 'elegance-landscape-v2'].includes(recipe.assets.version) ? 'is-prompt-refresh ' : '') + (item.copiedFromQuick || testStatus('video', recipe.subject, recipe.assets) === 'passed' ? 'is-verified' : 'needs-verification') + (chosenTemplates.video && sceneId === item.id ? ' is-selected' : '')} onClick={() => chooseGuidedVideo(item, recipe.assets, recipe.subject)}>
+        {recipe.assets.cardDesign === 'reel-study' && <span className="reel-study-label">New · Reel Study · Original music</span>}
         {['courtyard-v2', 'garden-v2', 'royal-garden-v2', 'luxury-bridal-v2', 'elegance-landscape-v2'].includes(recipe.assets.version) && <span className="prompt-refresh-label">Updated prompt · V2</span>}
-        <div className="guided-template-art">{recipe.assets.previewUrl ? <img src={recipe.assets.previewUrl} alt="" loading="lazy" /> : <Film size={28} />}</div><strong>{recipe.assets.label || item.label}</strong><small>{recipe.subject === 'couple' ? 'Bride & groom' : 'Bride only'} · {recipe.assets.hasReferenceVideo ? 'Reference motion' : 'Photos only'} · {recipe.assets.aspectRatio || ratio}</small>
+        <div className="guided-template-art">{recipe.assets.previewUrl ? <img src={recipe.assets.previewUrl} alt="" loading="lazy" /> : <Film size={28} />}</div><strong>{shortLabel(item, recipe.assets)}</strong><small>{recipe.subject === 'couple' ? 'Bride & groom' : 'Bride only'} · {recipe.assets.hasReferenceVideo ? 'Reference motion' : 'Photos only'} · {recipe.assets.aspectRatio || ratio}</small>
       </button>)}{tierId === 'premium' && visibleScenes?.filter(item=>item.comingSoon).map(item=><button type="button" disabled key={item.id} className="guided-video-card needs-verification is-coming-soon"><div className="guided-template-art">{item.subjects.solo?.previewUrl ? <img src={item.subjects.solo.previewUrl} alt="" loading="lazy" /> : <Film size={28}/>}</div><strong>{item.subjects.solo?.label || item.label}</strong><small>Coming soon</small></button>)}</div></section>}
     {output === 'both' && chosenTemplates.image && chosenTemplates.video && <Button variant="gold" onClick={() => setTemplateOpen(true)}>Continue to photos <ArrowRight size={14} /></Button>}
-    {error && <p className="film-error" role="alert">{error}</p>}
+    {error && <p className="film-error" role="alert">{clientText(error)}</p>}
   </div>;
 
   return <>
-    <StudioLayout canvas={<div ref={studioBody} className="creation-studio">{header}{results || (!config || custom || templateOpen ? form : tierId === 'budget' ? templates : guided ? guidedTemplates : templates)}</div>} />
+    <StudioLayout canvas={<div ref={studioBody} className="creation-studio">{header}{results || (!config || custom || templateOpen ? form : templateLibraryMode(tierId, output, guided) === 'bundles-and-cards' ? templates : guidedTemplates)}</div>} />
     {dressPicker && <DressPicker selectedId={dress?.id} onSelect={selectDress} onClose={() => setDressPicker(false)} />}
     {bridePicker && <BridePicker currentPhoto={bride[0]} onSelect={photo => { setBride([photo]); setError(''); }} onClose={() => setBridePicker(false)} />}
 

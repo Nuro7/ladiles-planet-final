@@ -357,9 +357,9 @@ Bride from <<<element_1>>> walks gracefully toward camera through grand mandap c
 //  REFERENCE ASSETS — kept for future use, NOT passed into API calls
 //  WARNING: These URLs contain real people — never pass into image_list or video_list
 // ─────────────────────────────────────────────────────────────────────────────
-const WEDDING_REF_IMAGE_1         = '';
-const WEDDING_REF_IMAGE_2         = '';
-const GRAND_ENTRANCE_REF_VIDEO    = '';
+const WEDDING_REF_IMAGE_1 = process.env.WEDDING_REF_IMAGE_1 || '';
+const WEDDING_REF_IMAGE_2 = process.env.WEDDING_REF_IMAGE_2 || '';
+const GRAND_ENTRANCE_REF_VIDEO = process.env.GRAND_ENTRANCE_REF_VIDEO || '';
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  SCENARIO EXPAND PROMPTS — POST /v1/images/editing/expand

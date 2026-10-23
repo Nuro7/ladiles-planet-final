@@ -10,16 +10,18 @@ import EmptyState from '../experience/EmptyState';
 import { Segmented, Skeleton } from '../primitives';
 import { getImageHistory, downloadFile } from '../../api/bridalImage';
 import { getStudioHistory } from '../../api/studioVideo';
-import { formatElapsed } from '../experience/elapsedTime';
+import { fetchWithAuth } from '../../utils/api';
+import { qualityLabel, clientText } from '../clientLabels';
 import FilmPlayer from '../experience/FilmPlayer';
+import { ImageLightbox } from '../experience/ImageViewer';
 import hiddenHistoryItems from '../historyHiddenItems.json';
 import '../historyMetadata.css';
 
 const API = import.meta.env.VITE_API_URL || '/api';
 function HistoryDetails({item}) {
   const m=item.metadata || {};
-  const rows=[['Model',m.model],['Mode',m.mode],['Prompt / template',m.template?.replace(/-/g,' ')],['Prompt characters',m.promptCharacters==null?null:m.promptCharacters.toLocaleString()],['Character limit',m.promptLimit],['Quality',m.resolution],['Video length',m.duration?m.duration+'s':null],['Frame',m.aspectRatio],['Generation time',item.elapsedMs!=null?formatElapsed(item.elapsedMs):null]];
-  return <div className="history-metadata"><strong>Generation details</strong><dl>{rows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value || 'Not recorded'}</dd></div>)}</dl><small>{m.source || 'Historical record'}</small></div>;
+  const rows=[['Mode',m.mode],['Prompt / template',m.template?.replace(/-/g,' ')],['Prompt characters',m.promptCharacters==null?null:m.promptCharacters.toLocaleString()],['Character limit',m.promptLimit],['Quality',m.resolution ? qualityLabel(m.resolution) : null],['Video length',m.duration?m.duration+'s':null],['Frame',m.aspectRatio]];
+  return <div className="history-metadata"><strong>Generation details</strong><dl>{rows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{clientText(value) || 'Not recorded'}</dd></div>)}</dl><small>Historical record</small></div>;
 }
 
 export default function HistoryModule() {
@@ -28,15 +30,16 @@ export default function HistoryModule() {
   const [filter, setFilter] = useState('all');
   const [failed, setFailed] = useState(() => new Set());
   const [selectedFilm, setSelectedFilm] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     let alive = true;
     (async () => {
       const [imgs, vids, creations, showcases] = await Promise.all([
         getImageHistory().catch(() => []),
-        fetch(`${API}/videos?type=generated`).then((r) => r.json()).then((j) => j?.data || []).catch(() => []),
+        fetchWithAuth(`${API}/videos?type=generated`).then((r) => r.json()).then((j) => j?.data || []).catch(() => []),
         getStudioHistory().catch(() => []),
-        fetch(`${API}/videos/studio/showcases`).then((r) => r.json()).then((j) => j?.data || []).catch(() => []),
+        fetchWithAuth(`${API}/videos/studio/showcases`).then((r) => r.json()).then((j) => j?.data || []).catch(() => []),
       ]);
       if (!alive) return;
       const legacyMetadata=v=>({model:v.model || null,template:v.template_name || v.scenario || null,resolution:v.resolution || null,duration:v.duration || null,aspectRatio:v.aspect_ratio || null,promptCharacters:typeof v.prompt==='string'?Array.from(v.prompt).length:null,source:'Historical database record'});
@@ -93,12 +96,13 @@ export default function HistoryModule() {
                 <span style={{ position: 'absolute', zIndex: 1, display: 'grid', placeItems: 'center', width: 48, height: 48, borderRadius: '50%', color: '#f5d783', background: '#280b13cf', border: '1px solid #d4af6a' }}><Play size={23} fill="currentColor" /></span>
               </button>
             ) : (
-              <img src={it.url} alt="" onError={() => setFailed((s) => new Set(s).add(it.url))}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <button type="button" onClick={() => setSelectedImage(it)} aria-label="View image full screen" style={{ width: '100%', height: '100%', padding: 0, border: 0, background: '#180b0e', cursor: 'zoom-in' }}>
+                <img src={it.url} alt="Bridal image" onError={() => setFailed((s) => new Set(s).add(it.url))} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </button>
             )}
             <div style={{ position: 'absolute', top: 8, left: 8 }}>
               <span className="s-badge" style={{ background: 'rgba(0,0,0,.55)', backdropFilter: 'blur(6px)', fontSize: 10 }}>
-                {it.title || (it.kind === 'video' ? 'Film' : 'Poster')}{it.elapsedMs != null ? ' · ' + formatElapsed(it.elapsedMs) : ''}
+                {clientText(it.title) || (it.kind === 'video' ? 'Film' : 'Poster')}
               </span>
             </div>
             <HistoryDetails item={it}/>
@@ -116,7 +120,7 @@ export default function HistoryModule() {
     );
   }
 
-  return <><StudioLayout header={header} canvas={canvas} />{selectedFilm &&
+  return <><StudioLayout header={header} canvas={canvas} />{selectedImage && <ImageLightbox src={selectedImage.url} title={clientText(selectedImage.title) || 'Bridal image'} onClose={() => setSelectedImage(null)}/>} {selectedFilm &&
     <div role="dialog" aria-modal="true" aria-label={selectedFilm.title || 'Film player'}
       onClick={() => setSelectedFilm(null)} style={{ position: 'fixed', zIndex: 1000, inset: 0, display: 'grid', placeItems: 'center', padding: 22, background: '#0b0406e8' }}>
       <div onClick={event => event.stopPropagation()} style={{ width: 'min(1100px, 100%)', maxHeight: 'calc(100vh - 44px)' }}>

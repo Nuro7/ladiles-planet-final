@@ -1,0 +1,30 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+process.env.FLOW_MCP_HOME=fs.mkdtempSync(path.join(os.tmpdir(),'lp-queue-'));
+delete process.env.FLOW_MCP_PAUSE_MIN_S;delete process.env.FLOW_MCP_PAUSE_MAX_S;
+const {JobQueue}=await import('../dist/queue.js');
+test('Idle queue does not add a random delay between completed requests',async()=>{
+  const queue=new JobQueue(async()=>[]);
+  const params={prompt:'Test',type:'image',max_credits:0,output_dir:process.env.FLOW_MCP_HOME,file_stem:'test'};
+  const first=queue.add(params);
+  for(let i=0;i<20&&first.status!=='done';i++)await new Promise(r=>setTimeout(r,10));
+  assert.equal(first.status,'done');
+  const next=queue.add(params);
+  for(let i=0;i<20&&next.status!=='done';i++)await new Promise(r=>setTimeout(r,10));
+  assert.equal(next.status,'done');assert.equal(queue.pausedReason,null);
+});
+test('Generation waits while a preview upscale owns the browser',async()=>{
+  let release;let runs=0;
+  const queue=new JobQueue(async()=>{runs++;return [];});
+  const download=queue.exclusive(()=>new Promise(resolve=>{release=resolve;}));
+  assert.equal(queue.busy,true);
+  const job=queue.add({prompt:'Test',type:'image',max_credits:0,output_dir:process.env.FLOW_MCP_HOME,file_stem:'locked-test'});
+  assert.equal(job.status,'queued');assert.equal(runs,0);
+  await assert.rejects(queue.exclusive(async()=>{}),/busy/);
+  release();await download;
+  for(let i=0;i<20&&job.status!=='done';i++)await new Promise(r=>setTimeout(r,10));
+  assert.equal(job.status,'done');assert.equal(runs,1);assert.equal(queue.busy,false);
+});

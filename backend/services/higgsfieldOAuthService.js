@@ -28,11 +28,11 @@
 
 const axios  = require('axios');
 const crypto = require('crypto');
-const fs     = require('fs');
+const { privateJsonStore } = require('../utils/privateJsonStore');
 const path   = require('path');
 
 // ─── Storage paths ───────────────────────────────────────────
-const DATA_DIR        = path.join(__dirname, '..', 'data');
+const DATA_DIR        = process.env.HIGGSFIELD_OAUTH_DATA_DIR || path.join(__dirname, '..', 'data');
 const CLIENT_FILE     = path.join(DATA_DIR, 'higgsfield-oauth-client.json');
 const TOKEN_FILE      = path.join(DATA_DIR, 'higgsfield-oauth-tokens.json');
 const PENDING_FILE    = path.join(DATA_DIR, 'higgsfield-oauth-pending.json');
@@ -52,17 +52,17 @@ const REDIRECT_URI = process.env.HIGGSFIELD_OAUTH_REDIRECT_URI
 
 class HiggsfieldOAuthService {
 
-    constructor() {
-        this._ensureDataDir();
+    constructor(options = {}) {
+        this.storage = privateJsonStore(options.directory || DATA_DIR, options.encryptionKey || process.env.HIGGSFIELD_TOKEN_ENCRYPTION_KEY);
+        this.clientFile = path.basename(CLIENT_FILE);
+        this.tokenFile = path.basename(TOKEN_FILE);
+        this.pendingFile = path.basename(PENDING_FILE);
+        this.connectionEpoch = 0;
     }
 
-    _ensureDataDir() {
-        if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-    }
-
-    _readJson(file)              { try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return null; } }
-    _writeJson(file, data)       { fs.writeFileSync(file, JSON.stringify(data, null, 2), { mode: 0o600 }); }
-    _deleteFile(file)            { if (fs.existsSync(file)) fs.unlinkSync(file); }
+    _readJson(file) { return this.storage.read(path.basename(file)); }
+    _writeJson(file, value) { this.storage.write(path.basename(file), value); }
+    _deleteFile(file) { this.storage.remove(path.basename(file)); }
 
     // ─────────────────────────────────────────────────────────────────────────
     //  STEP 1 — DYNAMIC CLIENT REGISTRATION (one-time per backend)
@@ -71,6 +71,10 @@ class HiggsfieldOAuthService {
     //  client_id (and optionally client_secret) we'll use for OAuth.
     // ─────────────────────────────────────────────────────────────────────────
     async ensureClientRegistered() {
+        if (!this.registering) this.registering = this._registerClient().finally(() => { this.registering = null; });
+        return this.registering;
+    }
+    async _registerClient() {
         const existing = this._readJson(CLIENT_FILE);
         if (existing?.client_id) {
             console.log(`✓ [HiggsfieldOAuth] Reusing client_id: ${existing.client_id.slice(0, 8)}...`);
@@ -92,7 +96,7 @@ class HiggsfieldOAuthService {
 
         const client = res.data;
         if (!client?.client_id) {
-            throw new Error('Higgsfield registration returned no client_id: ' + JSON.stringify(client));
+            throw new Error('Higgsfield registration returned no client ID.');
         }
         console.log(`✅ [HiggsfieldOAuth] Registered: client_id=${client.client_id.slice(0, 8)}...`);
         this._writeJson(CLIENT_FILE, client);
@@ -105,7 +109,7 @@ class HiggsfieldOAuthService {
     //  Generate PKCE pair + random state, save to pending, return URL.
     //  Frontend redirects the user's browser to this URL.
     // ─────────────────────────────────────────────────────────────────────────
-    async buildAuthorizeUrl() {
+    async buildAuthorizeUrl(ownerId) {
         const client = await this.ensureClientRegistered();
 
         const codeVerifier  = crypto.randomBytes(64).toString('base64url');
@@ -113,7 +117,12 @@ class HiggsfieldOAuthService {
         const state         = crypto.randomBytes(16).toString('hex');
 
         // Store the verifier + state so the callback can verify them
-        this._writeJson(PENDING_FILE, { codeVerifier, state, savedAt: Date.now() });
+        const now = Date.now();
+        const existing = this._readJson(PENDING_FILE) || {};
+        const attempts = Object.fromEntries(Object.entries(existing.attempts || {}).filter(([, item]) => now - item.savedAt < 10 * 60 * 1000));
+        if (Object.keys(attempts).length >= 10) throw new Error('Too many pending connections. Wait ten minutes before reconnecting.');
+        attempts[state] = { codeVerifier, savedAt: now, ownerId: ownerId || null };
+        this._writeJson(PENDING_FILE, { attempts });
 
         const params = new URLSearchParams({
             response_type         : 'code',
@@ -135,10 +144,16 @@ class HiggsfieldOAuthService {
     //  redirects the user back with ?code=... &state=...
     // ─────────────────────────────────────────────────────────────────────────
     async handleCallback({ code, state }) {
-        const pending = this._readJson(PENDING_FILE);
+        if (typeof state !== 'string' || !/^[a-f0-9]{32}$/.test(state)) throw new Error('Invalid OAuth state. Start authorization again.');
+        const pendingState = this._readJson(PENDING_FILE);
+        const pending = pendingState?.attempts?.[state];
         if (!pending)                throw new Error('No pending OAuth flow — start over from /connect');
-        if (pending.state !== state) throw new Error('OAuth state mismatch — possible CSRF attempt');
+        if (process.env.NODE_ENV === 'production' && pending.ownerId !== process.env.HIGGSFIELD_OWNER_USER_ID) throw new Error('Connection owner changed. Start authorization again.');
+        if (!pending.savedAt || Date.now() - pending.savedAt > 10 * 60 * 1000) throw new Error('OAuth request expired. Start again.');
         if (!code)                   throw new Error('No authorization code received from Higgsfield');
+        delete pendingState.attempts[state];
+        this._writeJson(PENDING_FILE, pendingState); // Consume before exchange; never replay.
+        const epoch = this.connectionEpoch;
 
         const client = await this.ensureClientRegistered();
 
@@ -159,12 +174,14 @@ class HiggsfieldOAuthService {
         );
 
         const tokens = tokenRes.data;
+        if (epoch !== this.connectionEpoch) throw new Error('Connection cancelled. Start authorization again.');
         if (!tokens.access_token) {
-            throw new Error('Token exchange returned no access_token: ' + JSON.stringify(tokens));
+            throw new Error('Token exchange returned no access token.');
         }
 
         // Compute absolute expiry
         const expiresAt = Date.now() + (Number(tokens.expires_in || 3600) * 1000);
+        this.connectionEpoch++;
         const stored = {
             access_token  : tokens.access_token,
             refresh_token : tokens.refresh_token || null,
@@ -174,7 +191,6 @@ class HiggsfieldOAuthService {
         };
 
         this._writeJson(TOKEN_FILE, stored);
-        this._deleteFile(PENDING_FILE);
 
         console.log(`✅ [HiggsfieldOAuth] Tokens stored (expires in ${tokens.expires_in}s)`);
         return { connected: true, expires_in: tokens.expires_in };
@@ -196,13 +212,15 @@ class HiggsfieldOAuthService {
         // Refresh if expiring within next 60 seconds
         if (stored.expires_at && Date.now() > stored.expires_at - 60_000) {
             console.log('🔄 [HiggsfieldOAuth] Token near expiry — refreshing...');
-            return await this._refreshToken(stored);
+            if (!this.refreshing) this.refreshing = this._refreshToken(stored).finally(() => { this.refreshing = null; });
+            return await this.refreshing;
         }
 
         return stored.access_token;
     }
 
     async _refreshToken(stored) {
+        const epoch = this.connectionEpoch;
         if (!stored.refresh_token) {
             throw new Error('Access token expired and no refresh_token available — reconnect required');
         }
@@ -222,7 +240,8 @@ class HiggsfieldOAuthService {
         );
 
         const fresh = res.data;
-        if (!fresh.access_token) throw new Error('Refresh failed: ' + JSON.stringify(fresh));
+        if (epoch !== this.connectionEpoch) throw new Error('Connection changed during refresh. Try again.');
+        if (!fresh.access_token) throw new Error('Refresh returned no access token. Reconnect Higgsfield.');
 
         const updated = {
             access_token  : fresh.access_token,
@@ -253,6 +272,7 @@ class HiggsfieldOAuthService {
     }
 
     disconnect() {
+        this.connectionEpoch++;
         this._deleteFile(TOKEN_FILE);
         this._deleteFile(PENDING_FILE);
         console.log('🔌 [HiggsfieldOAuth] Disconnected — token files removed');
@@ -260,3 +280,5 @@ class HiggsfieldOAuthService {
 }
 
 module.exports = new HiggsfieldOAuthService();
+
+module.exports.HiggsfieldOAuthService = HiggsfieldOAuthService;

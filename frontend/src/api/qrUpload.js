@@ -17,6 +17,7 @@ const objectPath = (sessionId) => `${sessionId}/photo.jpg`;
 
 /** Short, URL-safe id — kept small so the QR stays low-density and easy to scan. */
 export function newSessionId() {
+  if (import.meta.env.PROD) throw new Error('Anonymous QR uploads are disabled for security. Upload from a signed-in device.');
   const raw = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`;
   return raw.replace(/[^a-z0-9]/gi, '').slice(0, 12).toLowerCase();
 }
@@ -48,6 +49,7 @@ export async function compressImage(file, maxDim = 1600, quality = 0.9) {
 
 /** Phone side — upload the chosen photo, return its public URL. */
 export async function sendPhoto(sessionId, file) {
+  if (import.meta.env.PROD) throw new Error('Anonymous QR uploads are disabled for security.');
   const compressed = await compressImage(file);
   const { error } = await supabase.storage
     .from(QR_BUCKET)

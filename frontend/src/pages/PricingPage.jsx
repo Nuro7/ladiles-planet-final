@@ -13,6 +13,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import LadiesPlanetLogo from '../components/LadiesPlanetLogo';
 import PlanUpgradeModal from '../components/PlanUpgradeModal';
+import { fetchWithAuth as fetch } from '../utils/api';
 
 const API = import.meta.env.VITE_API_URL || '/api';
 

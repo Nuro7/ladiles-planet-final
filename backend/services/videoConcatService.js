@@ -16,8 +16,7 @@
 const fs    = require('fs');
 const path  = require('path');
 const os    = require('os');
-const axios = require('axios');
-const { spawn } = require('child_process');
+const axios = require('../utils/safeRemoteMedia');
 const { randomUUID } = require('crypto');
 
 const TMP_DIR = path.join(os.tmpdir(), 'ladies-planet-concat');
@@ -27,7 +26,7 @@ async function _downloadToTemp(url, label) {
     const ext = (url.split('.').pop() || 'mp4').split('?')[0].slice(0, 4);
     const file = path.join(TMP_DIR, `${label}-${randomUUID()}.${ext}`);
     console.log(`📥 [Concat] Downloading ${label} → ${file}`);
-    const r = await axios.get(url, { responseType: 'arraybuffer', timeout: 120000 });
+    const r = await axios.get(url, { responseType: 'arraybuffer', timeout: 120000, maxContentLength: 300 * 1024 * 1024 });
     fs.writeFileSync(file, Buffer.from(r.data));
     return file;
 }
@@ -84,20 +83,6 @@ async function concatVideos(urls) {
     return outPath;
 }
 
-function _runFfmpeg(args) {
-    return new Promise((resolve, reject) => {
-        const p = spawn('ffmpeg', args, { stdio: ['ignore', 'pipe', 'pipe'] });
-        let stderrTail = '';
-        p.stderr.on('data', (d) => {
-            // Keep only the last ~2KB of stderr for error reporting.
-            stderrTail = (stderrTail + d.toString()).slice(-2000);
-        });
-        p.on('error', (err) => reject(new Error('ffmpeg spawn failed: ' + err.message)));
-        p.on('close', (code) => {
-            if (code === 0) resolve();
-            else reject(new Error(`ffmpeg exit ${code}: ${stderrTail.slice(-500)}`));
-        });
-    });
-}
+function _runFfmpeg(args) { return require('./studioMediaService').run(args); }
 
 module.exports = { concatVideos };

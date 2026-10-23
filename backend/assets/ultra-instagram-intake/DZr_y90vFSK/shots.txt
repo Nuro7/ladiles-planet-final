@@ -1,0 +1,20 @@
+LADIES PLANET — AMBER MIRROR RITUAL
+SETTING: amber/orange bridal dressing room, ornate oval gold mirror above a pale vanity, soft haze and warm bokeh. Uploaded garment and dupatta replace source colours and design.
+SHOT-BY-SHOT EFFECTS TIMELINE
+0–0.25s: Soft face-and-necklace detail, lowered gaze, fingertips against necklace, warm dark-to-light opening.
+0.25–0.37s: Quick ringed hands resting on embroidered skirt.
+0.37–0.55s: Wrist/bracelet macro, hand turns slightly to catch amber light.
+0.55–0.73s: Brief seated portrait beside oval mirror, hand near chin, full bridal styling.
+0.73–0.92s: Hand with bangles rests across pale curved seat/vanity edge, shallow focus.
+0.92–1.10s: Tight eye and face partially concealed behind jewellery/soft foreground, gaze toward lens.
+1.10–1.23s: Hand rises beside face, partly covering one eye; calm, direct gaze.
+1.23–1.33s: Quick wrist and embroidered fabric insert.
+1.33–1.43s: Eyes above a lifted matching dupatta border, direct gaze.
+1.43–3.37s: Gold-mirror portrait: bride visible in the reflection, out-of-focus real shoulder/hand in foreground. She subtly raises her gaze and gives a small smile, warm shallow-focus drift. Reflected face is the same target bride, not a second person.
+3.37–5.22s: Tight necklace-and-lower-face shot, eyes lowered, ringed fingers delicately touch ornament at collarbone; focus settles on jewellery and embroidery.
+5.22–7.03s: Wider seated three-quarter portrait at vanity with mirror behind. She looks down, hand near cheek, skirt drapes over seat. Soft amber haze clears slightly, camera gently moves laterally.
+7.03–8.98s: Close face, one decorated hand vertically covers one eye; visible eye opens toward lens, serene confident expression, warm bokeh on wrist. Keep facial anatomy stable through occlusion.
+8.98–10s: Cut to hand-and-bangle close-up above skirt, tiny wrist rotation, focus glints on referenced stones and border; quiet ending.
+MASTER EFFECTS INVENTORY: fast opening cuts, mirror/reflection framing, warm haze, shallow focus and tiny lateral drift.
+EFFECTS DENSITY MAP: 0–1.43 high; 1.43–7.03 low; 7.03–10 medium.
+ENERGY ARC: ornamental flashes, reflective intimacy, confident eye portrait, final jewellery detail.

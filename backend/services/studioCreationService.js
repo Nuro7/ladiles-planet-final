@@ -11,7 +11,8 @@ const { transitionTiming, refreshCreationTiming } = require('../utils/studioTimi
 const generationRoute = require('./studioGenerationRoute');
 const { studioErrorMessage } = require('../utils/studioErrorMessage');
 
-const store = createStore(process.env.STUDIO_EXPERIENCE_STORE || path.join(__dirname, '..', 'data', 'studio-experiences.json'), []);
+const store = createStore(process.env.STUDIO_EXPERIENCE_STORE || path.join(__dirname, '..', 'data', 'studio-experiences.json'), [], { backup:true });
+const runtime = require('./runtimeService');
 const jobs = new Map();
 const loaded = store.read().then(saved => {
   for (const job of saved) {
@@ -41,7 +42,7 @@ function publicJob(job) {
       template:image?job.imageScene:job.videoScene || job.scene,
       resolution:image?options?.imageResolution:options?.resolution,
       duration:image?null:options?.duration,
-      aspectRatio:image?job.tier==='custom'?options?.aspectRatio:(job.imageSubjectMode || job.subjectMode)==='couple'?'4:3':'3:4':options?.aspectRatio,
+      aspectRatio:image?options?.imageAspectRatio || (job.tier==='custom'?options?.aspectRatio:(job.imageSubjectMode || job.subjectMode)==='couple'?'4:3':'3:4'):options?.aspectRatio,
       source:'Saved platform request',
     });
   }
@@ -102,16 +103,26 @@ function imageInstructions(job) {
     'The written scene description guides setting and light. No external style image is attached. Natural skin texture and anatomy; no text.',
   ].join('\n');
 }
-async function renderImage(job) {
+function renderImage(job) {
+  return runtime.track(() => runtime.generations.run(() => renderImageWork(job))
+    .catch(error => update(job, 'image', { status:'error', message:studioErrorMessage(error) })));
+}
+async function renderImageWork(job) {
   await update(job, 'image', { status: 'generating', stage:'preparing', message: 'References ready. Preparing your bridal look…' });
   try {
     const refs = references(job, 'image');
+    if (/^BRIDAL_IMAGE_0[3-8]$/.test(job.options.imageTemplateId || '') && !job.assets.imageProvider) {
+      const sheet = await require('node:fs/promises').readFile(path.join(__dirname, '../assets/global/bridal-ornaments-reference.png'));
+      const uploaded = await storage.uploadImage(process.env.SUPABASE_BUCKET_NAME,
+        'experiences/' + job.id + '/image-bridal-ornaments-reference.png', sheet, 'image/png');
+      refs.push({ role: 'bridal jewellery sheet', url: uploaded.publicUrl });
+    }
     const result = await imageClient.generateImage({
       brideImageUrl: job.assets.brideUrl, dressImageUrl: job.assets.dressUrl,
       references: refs, prompt: imageInstructions(job), sessionId: job.id,
       flowDressKey: job.options.flowDressKey,
       referenceImagePath: job.options.imageReferenceImagePath || null,
-      aspectRatio: job.tier === 'custom' ? job.options.aspectRatio : (job.imageSubjectMode || job.subjectMode) === 'couple' ? '4:3' : '3:4', recoverId: job.assets.imageProvider,
+      aspectRatio: job.options.imageAspectRatio || (job.tier === 'custom' ? job.options.aspectRatio : (job.imageSubjectMode || job.subjectMode) === 'couple' ? '4:3' : '3:4'), recoverId: job.assets.imageProvider,
       approvedCredits: job.options.approvedCreditCosts?.image,
       imageResolution: job.options.imageResolution,
       onAttempt: async () => {job.assets.imageSubmissionUncertain=true;await save();},
@@ -121,7 +132,8 @@ async function renderImage(job) {
       if (job.image.status === 'generating') update(job, 'image', { progress, message }).catch(error => console.error('[Studio] Image progress:', error.message));
     });
     if (!result.imageUrl) throw new Error('The image provider returned no image.');
-    await update(job, 'image', { status: 'ready', url: result.imageUrl, message: job.outputType === 'image' ? 'Your bridal look is ready.' : 'Your bridal look is ready. The film request is already underway.' });
+    job.assets.localImageFile = await require('./studioMediaService').saveGeneratedImage(result.imageUrl, job.id);
+    await update(job, 'image', { status: 'ready', url: '/api/videos/studio/media/' + job.id + '/image', message: job.outputType === 'image' ? 'Your bridal look is ready.' : 'Your bridal look is ready. The film request is already underway.' });
   } catch (error) {
     console.error('[Studio] Image:', error.message);
     if (error.code === 'SUBMISSION_UNCERTAIN') job.assets.imageSubmissionUncertain = true;
@@ -131,7 +143,11 @@ async function renderImage(job) {
       await update(job, 'video', { status: 'blocked', message: 'The film is waiting for a successful bridal image. Recover the image first.' });
   }
 }
-async function renderVideo(job, approved = false, recover = false) {
+function renderVideo(job, approved = false, recover = false) {
+  return runtime.track(() => runtime.generations.run(() => renderVideoWork(job, approved, recover))
+    .catch(error => update(job, 'video', { status:'error', message:studioErrorMessage(error) })));
+}
+async function renderVideoWork(job, approved = false, recover = false) {
   await update(job, 'video', { status: 'generating', stage:'preparing', message: recover ? 'Recovering the existing film…' : 'References ready. Preparing your film…' });
   try {
     const onProgress = (progress, message, details = {}) => {
@@ -168,7 +184,8 @@ async function ensureVideo(options) {
   const balance = await require('./higgsfieldMCPClient').getBalance();
   if (!Number.isFinite(Number(balance.credits))) throw new Error('Higgsfield connection is not ready. No generation was submitted.');
 }
-async function prepareAndStart(job, bride, groom, dressFiles, selectedDress, savedBride) {
+function prepareAndStart(...args) { return runtime.track(() => prepareAndStartWork(...args)); }
+async function prepareAndStartWork(job, bride, groom, dressFiles, selectedDress, savedBride) {
   try {
     for (const part of ['image','video']) if(job[part].status!=='skipped') await update(job,part,{stage:'uploading',message:'Checking and uploading your reference photos…'});
     const readiness = ensureVideo(job.options);
@@ -308,14 +325,15 @@ async function upscaleVideo(id) {
   job.video.upscaleStartedAt=new Date().toISOString();
   delete job.video.upscaleFinishedAt;
   await save();
-  (async()=>{
+  runtime.track(async()=>{
     try{
       const url=await video.upscale(id,job.options,{provider:job.assets.provider,upscaledRawFile:job.assets.upscaledRawFile,onUpscaledRaw:async file=>{job.assets.upscaledRawFile=file;await save();}},(_,message)=>update(job,'video',{message}).catch(error=>console.error('[Studio] Upscale progress:',error.message)));
       job.assets.localVideoFile=video.localResults.get(id);
       await update(job,'video',{url,isPreview:false,quality:'1080p',upscaleStatus:'done',upscaleFinishedAt:new Date().toISOString(),message:'Your 1080p final video is ready.'});
     }catch(error){console.error('[Studio] Upscale:',error.message);await update(job,'video',{upscaleStatus:'error',upscaleFinishedAt:new Date().toISOString(),message:'Upscaling needs attention: '+studioErrorMessage(error)+' Your preview remains available.'});}
-  })().catch(error=>console.error('[Studio] Upscale:',error.message));
+  }).catch(error=>console.error('[Studio] Upscale:',error.message));
   return publicJob(job);
 }
 async function localVideoFile(id,version) { await loaded; const assets=jobs.get(id)?.assets;return (version==='preview'?assets?.previewVideoFile:assets?.localVideoFile) || null; }
-module.exports = { start, get, list, approve, regenerateImage, retryVideo, upscaleVideo, localVideoFile, references };
+async function localImageFile(id) { await loaded; return jobs.get(id)?.assets?.localImageFile || null; }
+module.exports = { start, get, list, approve, regenerateImage, retryVideo, upscaleVideo, localVideoFile, localImageFile, references };

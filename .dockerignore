@@ -1,0 +1,16 @@
+**/node_modules
+**/.git
+**/.env
+**/.env.*
+**/production.env
+**/data
+**/dist
+**/*.log
+**/log.txt
+**/*.exe
+**/tests
+backend/scripts/*
+!backend/scripts/clean-visible-logo.js
+backend/tools
+frontend/public/template-previews/*.jpg
+frontend/public/template-previews/*.png

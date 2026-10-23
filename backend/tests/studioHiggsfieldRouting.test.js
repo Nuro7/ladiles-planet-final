@@ -20,7 +20,7 @@ test('Quick locks Wan Prime; Premium and Custom allow only the two approved mode
   assert.deepEqual(higgsfield.selectedModel({ tier: 'premium', model: 'seedance_2_5' }),
     { id: 'seedance_2_5', mode: 'video_edit' });
   for (const model of ['seedance_2_0','seedance_2_0_fast','seedance_2_0_mini']) assert.throws(()=>higgsfield.selectedModel({tier:'premium',model}));
-  assert.deepEqual(higgsfield.selectedModel({tier:'flagship'}),{id:'hf_mult_motion_control'});
+  assert.deepEqual(higgsfield.selectedModel({tier:'flagship'}),{id:require('../services/studioFlagshipModel').current()});
 });
 
 test('Custom preserves the typed prompt and validates source-dependent edit settings', () => {
@@ -81,11 +81,14 @@ test('All studio images select GPT Image 2 medium 2K and never submit while appr
   };
   try {
     await assert.rejects(higgsfield.makeImage({ prompt: 'Full bridal portrait', brideImageUrl: 'https://example.com/bride.jpg',
-      dressImageUrl: 'https://example.com/dress.jpg', aspectRatio: '3:4', sessionId: 'test' }), { code: 'OWNER_APPROVAL_REQUIRED' });
+      dressImageUrl: 'https://example.com/dress.jpg', aspectRatio: '3:4', imageResolution: '1k', sessionId: 'test' }), { code: 'OWNER_APPROVAL_REQUIRED' });
     const quote = calls.find(call => call.name === 'generate_image');
     assert.equal(quote.input.params.model, 'gpt_image_2');
     assert.equal(quote.input.params.quality, 'medium');
     assert.equal(quote.input.params.resolution, '2k');
+    assert.equal(quote.input.params.aspect_ratio, '16:9');
+    const { MANNEQUIN_EXCLUSION } = require('../services/studioImagePromptRules');
+    assert.equal(quote.input.params.prompt, require('../services/studioImageOutputPolicy').landscapeImagePrompt('Full bridal portrait') + '\n\n' + MANNEQUIN_EXCLUSION);
     assert.equal(quote.input.params.medias.length, 2);
     assert.ok(quote.input.params.medias.every(media => media.role === 'image'));
     assert.equal(calls.filter(call => call.name === 'generate_image' && !call.input.params.get_cost).length, 0);

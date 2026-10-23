@@ -1,4 +1,6 @@
 const imageScenes = require('./studioImageTemplates');
+const path=require('node:path');
+const {readFileSync}=require('node:fs');
 const concepts = [
   ['ultra-garden', 'Garden Couture Story', 'A daylight garden, leafy walkway and pink bougainvillea. Bright soft natural light, green and pink background, warm realistic skin.', 'She takes two unhurried steps along the garden path, then pauses with a small natural smile.'],
   ['ultra-palace', 'Palace Couture Reveal', 'An open sandstone palace courtyard with carved arches and a pale stone floor. Soft reflected morning light, warm architectural depth.', 'She takes one step beneath an arch, then makes a gentle quarter-turn toward the camera.'],
@@ -29,3 +31,14 @@ module.exports = concepts.map(([id,label,setting,action],index)=>({id,label,desc
   previewUrl:imageScenes[index%imageScenes.length]?.subjects.solo.previewUrl,
   referenceImageUrl:null,referenceImagePaths:[],sourceVideoPath:null,sourceVideoUrl:null,hasWrittenShotPlan:true,
 },couple:{available:false}}}));
+const luxuryRoot=path.join(__dirname,'../assets/ultra-fast-luxury-01');
+module.exports.unshift({id:'ultra-luxury-01',label:'01 · Luxury Bridal Film',description:'Owner-supplied reclining bridal sequence with the supplied original soundtrack.',category:'pre-wedding',subjects:{solo:{
+  available:true,hidden:false,templateId:'ULTRA_LUXURY_01',templateNumber:1,label:'01 · Luxury Bridal Film',
+  prompt:readFileSync(path.join(luxuryRoot,'prompt.txt'),'utf8').replace(/\r\n/g,'\n').trim(),verbatimPrompt:true,
+  version:'ultra-luxury-v2-identity',duration:10,aspectRatio:'16:9',sound:false,status:'owner-supplied-not-tested',
+  previewUrl:'/api/videos/studio/template-thumbnail/ULTRA_LUXURY_01',thumbnailPath:path.join(luxuryRoot,'template-thumbnail.jpg'),
+  musicPath:path.join(luxuryRoot,'music.m4a'),useSourceAudio:false,
+  referenceImageUrl:null,referenceImagePaths:[],sourceVideoPath:null,sourceVideoUrl:null,hasWrittenShotPlan:true,
+  shotTimeline:['0–1s: Fade into reclining portrait','1–2s: Face and forehead jewellery push-in','2–3s: Dupatta over upper face','3–5s: Lateral eyes, ornament and border detail','5–6s: Wider reclining bride reveal','6–8s: Dress and spread dupatta reveal','8–9s: Tight face and warm flare','9–10s: Hold serene close-up'],
+},couple:{available:false}}});
+module.exports.push(...require('./studioUltraReelTemplates'));

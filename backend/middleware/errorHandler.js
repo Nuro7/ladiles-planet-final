@@ -3,6 +3,11 @@
  * Centralized error handling for the application
  */
 const errorHandler = (err, req, res, next) => {
+    if (process.env.NODE_ENV === 'production') {
+        console.error('[API error]', err.code || err.name || 'Error');
+        const status = err.type === 'entity.too.large' || err.code === 'LIMIT_FILE_SIZE' ? 413 : (err.status >= 400 && err.status < 500 ? err.status : 500);
+        return res.status(status).json({ success: false, error: status === 413 ? 'Request is too large.' : status === 500 ? 'Request failed. Please contact the owner.' : 'Invalid request.' });
+    }
     console.error('Error:', err);
 
     // Supabase errors

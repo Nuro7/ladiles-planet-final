@@ -80,11 +80,12 @@ async function resolve(body) {
   const defaults = (await store.read()).defaults;
   const values = { ...defaults, ...body };
   if(values.tier==='ultrafast') {
+    if (!['both','video'].includes(values.outputType)) throw new Error('Ultra Fast supports image + video bundles or video-only testing.');
     const scenes=require('./studioUltraFastTemplates');
     const scene=scenes.find(item=>item.id===(values.videoScene || values.scene)) || (values.outputType==='image'?scenes[0]:null);
     if(!scene)throw new Error('Choose an Ultra Fast image-based video template.');
     if(scene.subjects.solo.hidden || scene.subjects.solo.available===false)throw new Error('Ultra Fast templates are hidden until the owner provides approved prompts.');
-    const options=config.resolve({...values,workflow:'preset',generationMode:'speed',scene:scene.id,subjectMode:'solo'},scene.subjects.solo);
+    const options=config.resolve({...values,...(scene.subjects.solo.lockLandscape ? {aspectRatio:'16:9'} : {}),workflow:'preset',generationMode:'speed',scene:scene.id,subjectMode:'solo'},scene.subjects.solo);
     if(values.outputType!=='video'){
       const image=imageScenes.find(item=>item.id===values.imageScene);
       if(!image)throw new Error('Choose an image template for this bundle.');
@@ -133,11 +134,15 @@ async function publicConfig() {
     comingSoon: Boolean(scene.subjects.solo?.comingSoon), copiedFromQuick: Boolean(scene.subjects.solo?.copiedFromQuick),
     subjects: Object.fromEntries(await Promise.all(['solo', 'couple'].map(async subject => {
       const entry = await recipe(scene.id, subject, tier, generationMode);
+      entry.previewUrl = require('./templateArtwork').previewUrl(entry.templateId);
       return [subject, { label: entry.label || scene.label, description: entry.description || scene.description, available: entry.available !== false, templateId: entry.templateId, templateNumber: entry.templateNumber, sound: entry.sound, previewUrl: entry.previewUrl || (entry.thumbnailPath ? '/api/videos/studio/template-thumbnail/' + encodeURIComponent(entry.templateId) : entry.referenceImageUrl), sourceFilename: entry.sourceFilename || null, referenceVideoUrl: entry.sourceVideoUrl, hasReferenceImage: Boolean(entry.referenceImageUrl || entry.referenceImagePath), hasReferenceVideo: Boolean(entry.sourceVideoUrl || entry.sourceVideoPath || entry.sourceVideoAsset), hasImagePrompt: typeof entry.imagePrompt === 'string' && entry.imagePrompt.trim().length >= 5, hasVideoPrompt: typeof entry.prompt === 'string' && entry.prompt.trim().length >= 5, reusesFlowClip: Boolean(entry.sourceVideoAsset), hasMusic: Boolean(entry.musicPath || entry.useSourceAudio), version: entry.version, duration: entry.duration || null, aspectRatio: entry.aspectRatio || null }];
     }))),
   }))); }
-  const ultraFastScenes=require('./studioUltraFastTemplates').filter(scene=>!scene.subjects.solo.hidden).map(scene=>({...scene,subjects:{solo:{...scene.subjects.solo,prompt:undefined,hasVideoPrompt:true,hasWrittenShotPlan:true,hasReferenceImage:false,hasReferenceVideo:false},couple:{available:false}}}));
-  return { defaults: value.defaults, ultraFastScenes, flagshipScenes: await publicScenes(config.flagshipScenes, 'shared', 'balance'), imageScenes: await publicScenes(imageScenes, 'shared', 'speed'), scenes: await publicScenes(config.premiumSpeedScenes, 'shared', 'speed'),
+  const ultraFastScenes=require('./studioUltraFastTemplates').filter(scene=>!scene.subjects.solo.hidden).map(scene=>{
+    const {prompt,musicPath,thumbnailPath,...recipe}=scene.subjects.solo;
+    return {...scene,subjects:{solo:{...recipe,previewUrl:require('./templateArtwork').previewUrl(recipe.templateId),hasMusic:Boolean(musicPath),hasVideoPrompt:true,hasWrittenShotPlan:true,hasReferenceImage:false,hasReferenceVideo:false},couple:{available:false}}};
+  });
+  return { defaults: value.defaults, flagshipVideoModel:require('./studioFlagshipModel').current(), ultraFastScenes, flagshipScenes: await publicScenes(config.flagshipScenes, 'shared', 'balance'), imageScenes: await publicScenes(imageScenes, 'shared', 'speed'), scenes: await publicScenes(config.premiumSpeedScenes, 'shared', 'speed'),
     premiumSpeedScenes: await publicScenes(config.premiumSpeedScenes, 'shared', 'speed'),
     premiumBalanceScenes: await publicScenes(config.premiumBalanceScenes, 'shared', 'balance'),
     budgetScenes: await publicScenes(config.budgetScenes, 'budget'), budgetSpeedScenes: await publicScenes(config.budgetSpeedScenes, 'budget', 'speed') };
@@ -149,7 +154,7 @@ async function list(tier = 'shared') {
     id: scene.id, label: scene.label, description: scene.description,
     subjects: Object.fromEntries(await Promise.all(['solo', 'couple'].map(async subject => {
       const { sourceVideoPath, referenceImagePath, musicPath, ...entry } = await recipe(scene.id, subject, tier);
-      return [subject, { ...entry, hasReferenceVideo: Boolean(sourceVideoPath || entry.sourceVideoUrl || entry.sourceVideoAsset), hasMusic: Boolean(musicPath || entry.useSourceAudio) }];
+      return [subject, { ...entry, previewUrl:require('./templateArtwork').previewUrl(entry.templateId), hasReferenceVideo: Boolean(sourceVideoPath || entry.sourceVideoUrl || entry.sourceVideoAsset), hasMusic: Boolean(musicPath || entry.useSourceAudio) }];
     }))),
   })));
 }

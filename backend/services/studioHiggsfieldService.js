@@ -26,7 +26,7 @@ async function submit(tool, params, sessionId, onAttempt, onResponse) {
 
 function selectedModel(options) {
   if (options.tier === 'ultrafast') return {id:'grok_video_v15'};
-  if (options.tier === 'flagship') return { id: 'hf_mult_motion_control' };
+  if (options.tier === 'flagship') return { id: require('./studioFlagshipModel').isMotionModel(options.model) ? options.model : require('./studioFlagshipModel').current() };
   const id = options.tier === 'budget' ? 'wan3_0_prime' : options.model || 'wan3_0_prime';
   require('./studioModels').videoModel(id);
   return id === 'seedance_2_5' ? { id, mode: 'video_edit' } : { id };
@@ -34,12 +34,14 @@ function selectedModel(options) {
 
 function videoParams(options, medias = []) {
   const model = selectedModel(options);
+  // Defence in depth: even an accidental caller-supplied clip cannot reach Grok.
+  if (model.id === 'grok_video_v15') medias = medias.filter(item => item.role === 'image_references');
   const params = { model: model.id, prompt: options.prompt, aspect_ratio: options.aspectRatio,
     duration: options.duration, resolution: options.resolution, medias, count: 1 };
   if (model.mode) params.mode = model.mode;
-  if (!['hf_mult_motion_control','grok_video_v15'].includes(model.id)) params.generate_audio = Boolean(options.sound);
+  if (!require('./studioFlagshipModel').isMotionModel(model.id) && model.id !== 'grok_video_v15') params.generate_audio = Boolean(options.sound);
   if (model.id === 'wan3_0_prime') params.enable_thinking = Boolean(options.enableThinking);
-  if (model.mode === 'video_edit' || model.id === 'hf_mult_motion_control') {
+  if (model.mode === 'video_edit' || require('./studioFlagshipModel').isMotionModel(model.id)) {
     if (!medias.some(item => item.role === 'video_references')) throw new Error('This model needs a reference video. Upload one before generating.');
     delete params.duration;
     delete params.aspect_ratio;
@@ -75,6 +77,11 @@ async function imageMedias(references, role = 'image_references') {
 }
 
 function requireOwnerApproval(cost, approvedCredits) {
+  if (process.env.NODE_ENV === 'production' && process.env.HIGGSFIELD_SPEND_ENABLED !== 'true') {
+    const error = new Error('Paid generation is disabled by the owner. No generation was submitted.');
+    error.code = 'OWNER_APPROVAL_REQUIRED';
+    throw error;
+  }
   if (Number.isFinite(approvedCredits)) {
     if (cost > approvedCredits) throw new Error('The credit price increased. Get a new quote before generating.');
     return;
@@ -97,12 +104,14 @@ function quotedCredits(result) {
 }
 
 async function makeImage({ prompt, references, brideImageUrl, dressImageUrl, aspectRatio, sessionId, recoverId, onSubmitted, onAttempt, onResponse, approvedCredits, imageResolution = '2k' }) {
-  if (!['1k', '2k'].includes(imageResolution)) throw new Error('Choose 1K or 2K image quality.');
   const model = 'GPT Image 2';
   if (recoverId) return { imageUrl: await mcp._pollJob(recoverId, sessionId, 'image'), jobId: recoverId, provider: 'higgsfield-mcp', model, aspectRatio: aspectRatio || '3:4', resolution: imageResolution };
+  const imagePolicy = require('./studioImageOutputPolicy');
+  imageResolution = imagePolicy.IMAGE_RESOLUTION;
+  aspectRatio = imagePolicy.IMAGE_ASPECT_RATIO;
   const imageReferences = references || [{ role: 'bride', url: brideImageUrl }, { role: 'dress', url: dressImageUrl }];
   const medias = await imageMedias(imageReferences, 'image');
-  const params = { model: 'gpt_image_2', prompt, aspect_ratio: aspectRatio || '3:4',
+  const params = { model: 'gpt_image_2', prompt: require('./studioImagePromptRules').withMannequinExclusion(imagePolicy.landscapeImagePrompt(prompt)), aspect_ratio: aspectRatio,
     resolution: imageResolution, quality: 'medium', medias, count: 1 };
   const quote = await mcp._mcpCall('generate_image', { params: { ...params, get_cost: true } });
   requireOwnerApproval(quotedCredits(quote), approvedCredits);

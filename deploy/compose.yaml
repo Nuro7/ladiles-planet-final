@@ -1,0 +1,63 @@
+name: ladies-planet
+services:
+  app:
+    build:
+      context: ..
+      args:
+        VITE_SUPABASE_URL: ${SUPABASE_URL:?Set SUPABASE_URL}
+        VITE_SUPABASE_ANON_KEY: ${SUPABASE_KEY:?Set SUPABASE_KEY}
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 6m
+    env_file: production.env
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: "5050"
+      FRONTEND_URL: https://${APP_DOMAIN:?Set APP_DOMAIN}
+      HIGGSFIELD_OAUTH_REDIRECT_URI: https://${APP_DOMAIN}/api/higgsfield-oauth/callback
+      FLOW_MCP_AUTOSTART: "false"
+      ALLOW_LOCAL_DEV_AUTH: "false"
+      TRUSTED_PROXY_CIDRS: 172.29.0.2/32
+    volumes:
+      - app-data:/app/backend/data
+    networks:
+      studio:
+        ipv4_address: 172.29.0.3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile.docker:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks:
+      studio:
+        ipv4_address: 172.29.0.2
+    depends_on:
+      app:
+        condition: service_healthy
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+volumes:
+  app-data:
+  caddy-data:
+  caddy-config:
+networks:
+  studio:
+    ipam:
+      config:
+        - subnet: 172.29.0.0/24

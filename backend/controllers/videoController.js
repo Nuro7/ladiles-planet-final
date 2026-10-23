@@ -392,7 +392,7 @@ class VideoController {
         // Prefer MCP/OAuth balance (consumer subscription credits)
         // — that's the pool that actually gets charged for our generations.
         try {
-            const balance = await higgsfieldMCPClient.getBalance();
+            const balance = await require('../services/studioBalanceCache').get();
             return res.json({ success: true, data: balance });
         } catch (e) { mcpErr = e; }
 

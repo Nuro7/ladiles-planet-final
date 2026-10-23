@@ -60,12 +60,28 @@ const approved = [
     description: 'A full-length lehenga flare in a leafy stone courtyard.', preview: archivedTemplates[1].subjects.solo.previewUrl,
     prompt: approvedPrompt('6. IMAGE PROMPT 2', '7. PROMPTS 3–10') },
 ];
+approved.push({ id: 'image-regal-staircase', number: 3, label: 'Regal Staircase',
+  description: 'Full-length staircase portrait with dramatic cinematic lighting.',
+  preview: '/template-previews/image-03.png',
+  prompt: readFileSync(path.join(__dirname, '../assets/approved-image-prompts/prompt-03-staircase.txt'), 'utf8').trim() });
+const additionalSource = readFileSync(path.join(__dirname, '../assets/approved-image-prompts/user-image-prompts-03-to-08.txt'), 'utf8').replace(/\r\n/g, '\n');
+for (let number = 4; number <= 8; number++) {
+  const section = additionalSource.split(`#prompt${number} — `)[1];
+  if (!section) throw new Error(`Missing image prompt ${number}`);
+  const label = section.split('\n')[0].trim();
+  const body = section.slice(section.indexOf('Create a photorealistic'));
+  const prompt = body.split(/\n\s*=+\s*\n/)[0].trim();
+  if (!prompt.startsWith('Create a photorealistic') || !prompt.includes('MANNEQUIN REMOVAL:')) throw new Error(`Incomplete image prompt ${number}`);
+  approved.push({ id: `image-owner-${number}`, number, label,
+    description: 'Owner-supplied landscape bridal photograph. Bride identity and exact dress from your uploads.',
+    preview: `/template-previews/image-${String(number).padStart(2, '0')}.png`, prompt });
+}
 module.exports = approved.map(item => ({
   id: item.id, label: item.label, description: item.description, category: 'pre-wedding',
   subjects: { solo: {
     templateId: `BRIDAL_IMAGE_${String(item.number).padStart(2, '0')}`,
     templateNumber: item.number, label: item.label, description: item.description,
-    imagePrompt: item.prompt, aspectRatio: '4:5', status: 'user-approved',
+    imagePrompt: item.number >= 3 ? item.prompt : require('./studioImageOutputPolicy').landscapeImagePrompt(item.prompt), aspectRatio: '16:9', imageResolution: '2k', status: 'user-approved', ownerApproved: true,
     previewUrl: item.preview, available: true, version: 2,
   }, couple: { available: false } },
 }));

@@ -1,0 +1,2210 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remove Gemini Watermark Free — No Upload | SEEB4 Erase</title>
+<meta name="description" content="Free Gemini watermark remover for images and video. Nothing is uploaded — the whole conversion runs in your browser, on your own device. No sign-up, open source.">
+<link rel="canonical" href="https://seeb4erase.seeb4coding.in/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="seeb4coding">
+<meta name="theme-color" content="#4f21e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#120f1c" media="(prefers-color-scheme: dark)">
+
+<!-- Relative, not absolute: the icon resolves whether the page is served or opened off disk. -->
+<link rel="icon" type="image/png" href="assets/seeb4erase-mark.png">
+<link rel="apple-touch-icon" href="assets/seeb4erase-mark.png">
+
+<!--
+  Social cards. These URLs must be absolute — a crawler resolves them against
+  nothing, so a relative path silently yields no preview image.
+-->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SEEB4 Erase">
+<meta property="og:url" content="https://seeb4erase.seeb4coding.in/">
+<meta property="og:title" content="Remove Gemini Watermark Free — No Upload | SEEB4 Erase">
+<meta property="og:description" content="Free Gemini watermark remover for images and video. Nothing is uploaded — the whole conversion runs in your browser, on your own device.">
+<meta property="og:image" content="https://seeb4erase.seeb4coding.in/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SEEB4 Erase — remove Gemini watermarks instantly, nothing uploaded">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Remove Gemini Watermark Free — No Upload | SEEB4 Erase">
+<meta name="twitter:description" content="Free Gemini watermark remover for images and video. Nothing is uploaded — the whole conversion runs in your browser, on your own device.">
+<meta name="twitter:image" content="https://seeb4erase.seeb4coding.in/assets/og-cover.png">
+<script src="vendor/tailwind.js"></script>
+<script src="vendor/mp4box.all.min.js"></script>
+<script src="vendor/mp4-muxer.min.js"></script>
+<style type="text/tailwindcss">
+  /*
+   * Tailwind v4 wires `dark:` to prefers-color-scheme, so the theme button's
+   * `.dark` class on <html> did nothing and only the OS setting had any effect.
+   * Point the variant at the class instead — the boot script still adds it when
+   * the OS prefers dark, so system preference keeps working as the default.
+   */
+  @custom-variant dark (&:where(.dark, .dark *));
+
+  /* Native controls — <select>, scrollbars, range tracks — follow this, not the
+     class, so state it explicitly or they stay light inside a dark panel. */
+  :root { color-scheme: light; }
+  :root.dark { color-scheme: dark; }
+
+  /*
+   * seeb4coding brand tokens. The whole UI accent is these eight values plus
+   * --color-ink, so retheming is an edit here and nowhere else: every control,
+   * badge and slider reads `brand-*` rather than a literal colour.
+   *
+   * Ramp is sampled from the SEEB4<> logo gradient — blue-violet on the left
+   * of the wordmark, lighter violet on the chevron — with the logo's near-black
+   * (#231f20) darkened slightly for text contrast.
+   */
+  @theme {
+    --color-brand-50:  #f3efff;
+    --color-brand-100: #e6ddff;
+    --color-brand-300: #b49cff;
+    --color-brand-400: #8f6bff;
+    --color-brand-500: #6d35f5;
+    --color-brand-600: #4f21e6;
+    --color-brand-700: #3f18bd;
+    --color-brand-800: #2f1191;
+    --color-ink: #1b1725;
+  }
+  /* Range inputs need a hand-rolled track to look consistent across browsers. */
+  input[type=range] { -webkit-appearance: none; appearance: none; background: transparent; }
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 6px; border-radius: 999px;
+    background: linear-gradient(to right, #6d35f5 var(--pct, 50%), #e2e8f0 var(--pct, 50%));
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; margin-top: -5px;
+    height: 16px; width: 16px; border-radius: 999px; background: #6d35f5;
+    border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); cursor: pointer;
+  }
+  input[type=range]::-moz-range-track {
+    height: 6px; border-radius: 999px; background: #e2e8f0;
+  }
+  input[type=range]::-moz-range-progress { height: 6px; border-radius: 999px; background: #6d35f5; }
+  input[type=range]::-moz-range-thumb {
+    height: 14px; width: 14px; border: 2px solid #fff; border-radius: 999px; background: #6d35f5;
+  }
+  .dark input[type=range]::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #6d35f5 var(--pct, 50%), #334155 var(--pct, 50%));
+  }
+  .dark input[type=range]::-moz-range-track { background: #334155; }
+  .pane { image-rendering: pixelated; }
+  /*
+   * Tailwind v4 resets buttons to cursor:default, which makes every control in the
+   * panel feel dead. Restore the pointer once, here, for everything clickable.
+   */
+  button:not(:disabled), summary, label[for], select, [role="button"] { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  input[type=range]:not(:disabled) { cursor: ew-resize; }
+  input[type=range]:not(:disabled)::-webkit-slider-thumb { cursor: grab; }
+  input[type=range]:not(:disabled)::-webkit-slider-thumb:active { cursor: grabbing; }
+  input[type=checkbox]:not(:disabled), input[type=radio]:not(:disabled) { cursor: pointer; }
+  /*
+   * A native modal <dialog> centres itself with `margin: auto` — which Tailwind's
+   * preflight zeroes along with every other margin, dropping it into the top-left
+   * corner. Put the centring back, and keep a tall dialog scrollable in the viewport.
+   */
+  dialog[open] {
+    margin: auto;
+    max-height: min(90svh, 44rem);
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body class="bg-white text-slate-700 dark:bg-slate-950 dark:text-slate-300 antialiased">
+
+<!-- ═══════════════════════════ site nav ═══════════════════════════ -->
+<header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/85">
+  <div class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5 sm:px-6">
+    <a href="#top" class="flex shrink-0 items-center gap-2.5">
+      <!--
+        The product mark, cropped square from the full lockup so it stays legible
+        at nav size. Transparent PNG, so it sits on either theme unchanged; the
+        complete lockup with the tagline is assets/logo-seeb4erase-removebg-preview.png.
+      -->
+      <img src="assets/seeb4erase-mark.png" alt="" aria-hidden="true"
+           class="size-9 shrink-0 object-contain">
+      <span class="text-[15px] font-bold tracking-tight text-slate-900 dark:text-white">
+        <span class="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent dark:from-brand-400 dark:to-brand-300">SEEB4</span>
+        Erase
+      </span>
+    </a>
+
+    <nav class="ml-3 hidden items-center gap-5 text-[13px] font-medium text-slate-600 lg:flex dark:text-slate-400">
+      <a href="#tool" class="hover:text-brand-600 dark:hover:text-brand-400">Tool</a>
+      <a href="#how" class="hover:text-brand-600 dark:hover:text-brand-400">How it works</a>
+      <a href="#features" class="hover:text-brand-600 dark:hover:text-brand-400">Features</a>
+      <a href="#compare" class="hover:text-brand-600 dark:hover:text-brand-400">Compare</a>
+      <a href="#faq" class="hover:text-brand-600 dark:hover:text-brand-400">FAQ</a>
+    </nav>
+
+    <div class="flex-1"></div>
+
+    <button id="btn-theme" title="Toggle theme" class="grid size-8 shrink-0 place-items-center rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="size-4">
+        <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/>
+      </svg>
+    </button>
+    <a href="https://github.com/seeb4coding/seeb4-erase" target="_blank" rel="noopener"
+       class="hidden items-center gap-1.5 rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 sm:flex dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+      <svg viewBox="0 0 16 16" fill="currentColor" class="size-3.5" aria-hidden="true">
+        <path d="M8 0a8 8 0 00-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-2.92-.88-2.92-2.9 0-.64.23-1.18.6-1.59-.06-.15-.26-.75.06-1.55 0 0 .49-.16 1.6.6a5.5 5.5 0 013 0c1.11-.76 1.6-.6 1.6-.6.32.8.12 1.4.06 1.55.37.41.6.95.6 1.59 0 2.03-1.15 2.7-2.93 2.9.3.26.56.76.56 1.53l-.01 2.24c0 .21.15.46.55.38A8 8 0 008 0z"/>
+      </svg>
+      GitHub
+    </a>
+    <a href="#tool" class="shrink-0 rounded-lg bg-brand-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm shadow-brand-600/25 hover:bg-brand-700">
+      Remove a watermark
+    </a>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ hero ═══════════════════════════ -->
+<section id="top" class="relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
+  <!-- Decorative wash only — pointer-events-none so it never eats a click. -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -top-32 left-1/2 size-[38rem] -translate-x-1/2 rounded-full bg-brand-500/15 blur-3xl dark:bg-brand-500/20"></div>
+    <div class="absolute -bottom-40 -right-24 size-[26rem] rounded-full bg-brand-400/10 blur-3xl"></div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
+    <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1fr)] lg:gap-12">
+
+      <!-- ── copy column ── -->
+      <div class="text-center lg:text-left">
+        <div class="mx-auto flex w-fit flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-brand-500/30 bg-brand-500/5 px-3 py-1 text-[11px] font-medium text-brand-700 lg:mx-0 dark:text-brand-300">
+          <span>100% free</span><span class="text-brand-500/40">·</span>
+          <span>nothing uploaded</span><span class="text-brand-500/40">·</span>
+          <span>no sign-up</span>
+        </div>
+
+        <h1 class="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl dark:text-white">
+          Remove
+          <span class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 bg-clip-text text-transparent dark:from-brand-400 dark:via-brand-400 dark:to-brand-300">Gemini watermarks</span>
+          instantly
+        </h1>
+
+        <p class="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-slate-600 lg:mx-0 dark:text-slate-400">
+          Drop an image or video and download it clean. Your file is never uploaded — the whole
+          conversion runs on your own device, inside this tab, and it stays free forever.
+        </p>
+
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
+          <a href="#tool" class="rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 hover:bg-brand-700">
+            Remove a watermark — free
+          </a>
+          <a href="#how" class="rounded-xl border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+            See how it works
+          </a>
+        </div>
+
+        <ul class="mx-auto mt-8 grid max-w-md gap-3 text-left lg:mx-0">
+          <li class="flex gap-2.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 size-4 shrink-0 text-brand-600 dark:text-brand-400"><path d="M20 6L9 17l-5-5"/></svg>
+            <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+              <span class="font-semibold text-slate-900 dark:text-white">Your file never leaves.</span>
+              No server, no API, no account — it works with the network unplugged.
+            </p>
+          </li>
+          <li class="flex gap-2.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 size-4 shrink-0 text-brand-600 dark:text-brand-400"><path d="M20 6L9 17l-5-5"/></svg>
+            <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+              <span class="font-semibold text-slate-900 dark:text-white">Maths, not AI guesswork.</span>
+              The blend that added the mark is inverted, so you get your own pixels back — not
+              invented ones.
+            </p>
+          </li>
+          <li class="flex gap-2.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 size-4 shrink-0 text-brand-600 dark:text-brand-400"><path d="M20 6L9 17l-5-5"/></svg>
+            <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+              <span class="font-semibold text-slate-900 dark:text-white">Video keeps its audio.</span>
+              MP4 in, MP4 out, soundtrack copied packet-for-packet.
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ── before / after column ── -->
+      <div id="demo" class="scroll-mt-20">
+        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <p class="text-[11px] font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+            Real output · drag to compare
+          </p>
+          <!-- pane switch -->
+          <div class="flex w-fit gap-1 rounded-xl border border-slate-200 bg-slate-50 p-1 dark:border-slate-800 dark:bg-slate-900">
+            <button id="demo-tab-image" data-pane="image"
+                    class="rounded-lg px-4 py-1.5 text-xs font-semibold text-slate-600 hover:bg-white dark:text-slate-400 dark:hover:bg-slate-800">
+              Image
+            </button>
+            <button id="demo-tab-video" data-pane="video"
+                    class="rounded-lg bg-brand-600 px-4 py-1.5 text-xs font-semibold text-white">
+              Video
+            </button>
+          </div>
+        </div>
+
+        <!--
+          One split container for both panes. A CSS variable holds the wipe position; the
+          CLEANED layer is what gets clipped in from the left, so the mark — which sits in
+          the bottom-right corner — is visible by default and wipes away as you drag right.
+        -->
+        <div id="demo-wrap" style="--split:45%"
+             class="relative select-none overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-2xl ring-1 ring-slate-900/5 dark:border-slate-800">
+
+          <!-- image pane -->
+          <div data-pane="image" class="relative hidden aspect-video">
+            <img src="assets/Before.jpeg" alt="Gemini image with its watermark still on it"
+                 decoding="async" class="absolute inset-0 size-full object-cover">
+            <div class="absolute inset-0" style="clip-path: inset(0 calc(100% - var(--split)) 0 0)">
+              <img src="assets/After.png" alt="The same Gemini image with the watermark removed"
+                   decoding="async" class="absolute inset-0 size-full object-cover">
+            </div>
+          </div>
+
+          <!-- video pane: the default, so its sources attach as soon as the script runs -->
+          <div data-pane="video" class="relative aspect-video">
+            <video id="demo-video-before" data-src="assets/Before.mp4" muted loop playsinline autoplay
+                   class="absolute inset-0 size-full object-cover"></video>
+            <div class="absolute inset-0" style="clip-path: inset(0 calc(100% - var(--split)) 0 0)">
+              <video id="demo-video-after" data-src="assets/After.mp4" muted loop playsinline autoplay
+                     class="absolute inset-0 size-full object-cover"></video>
+            </div>
+          </div>
+
+          <!-- wipe handle -->
+          <div class="pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white/90 shadow-[0_0_12px_rgba(0,0,0,.45)]"
+               style="left: var(--split)" aria-hidden="true">
+            <div class="absolute top-1/2 left-1/2 grid size-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-slate-700 shadow-lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4">
+                <path d="M9 7l-4 5 4 5M15 7l4 5-4 5"/>
+              </svg>
+            </div>
+          </div>
+
+          <span class="pointer-events-none absolute top-3 left-3 z-10 rounded-full bg-brand-600/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur">
+            After — cleaned
+          </span>
+          <span class="pointer-events-none absolute top-3 right-3 z-10 rounded-full bg-slate-900/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur">
+            Before — watermarked
+          </span>
+          <span class="pointer-events-none absolute bottom-3 right-3 z-10 flex items-center gap-1.5 rounded-full bg-slate-900/70 px-2.5 py-1 text-[10px] font-medium text-white/90 backdrop-blur">
+            the mark sits in this corner
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="size-3" aria-hidden="true">
+              <path d="M7 7l10 10M17 11v6h-6"/>
+            </svg>
+          </span>
+
+          <!--
+            The control itself: transparent, full-bleed, so a drag anywhere over the frame
+            moves the wipe. Keyboard arrows work on it too.
+          -->
+          <input id="demo-range" type="range" min="0" max="100" value="45" step="0.1"
+                 aria-label="Reveal more of the original or the cleaned version"
+                 class="absolute inset-0 z-20 size-full cursor-ew-resize opacity-0">
+        </div>
+
+        <!--
+          The mark is 48 px inside a 2752 px frame, so at page scale it is a few pixels wide.
+          These panels are the same two files, magnified on the mark's corner with
+          background-position, so no extra images are needed.
+        -->
+        <div class="mt-3 grid grid-cols-2 gap-3">
+          <figure>
+            <div class="aspect-[3/2] rounded-xl border border-slate-200 bg-slate-900 bg-no-repeat dark:border-slate-800"
+                 style="background-image:url('assets/Before.jpeg'); background-size:700%; background-position:100% 100%;"
+                 role="img" aria-label="The watermark corner magnified, before cleaning"></div>
+            <figcaption class="mt-1.5 text-center text-[11px] font-medium text-slate-500 dark:text-slate-400">
+              Before — still sample, zoomed on the mark
+            </figcaption>
+          </figure>
+          <figure>
+            <div class="aspect-[3/2] rounded-xl border border-brand-500/40 bg-slate-900 bg-no-repeat"
+                 style="background-image:url('assets/After.png'); background-size:700%; background-position:100% 100%;"
+                 role="img" aria-label="The same corner magnified after cleaning"></div>
+            <figcaption class="mt-1.5 text-center text-[11px] font-medium text-brand-600 dark:text-brand-400">
+              After — same crop, same zoom
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="mt-2.5 text-center text-[11px] leading-relaxed text-slate-400 dark:text-slate-500">
+          Untouched Gemini output on the right, the same file after a drop and a download on the
+          left. Stills come out about 99% clean; video lands near 93%, because it has to be
+          re-encoded.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ the tool ═══════════════════════════ -->
+<section id="tool" class="scroll-mt-14 border-b border-slate-200 bg-slate-50 py-10 dark:border-slate-800 dark:bg-slate-900/40">
+  <div class="mx-auto max-w-6xl px-3 sm:px-6">
+    <div class="mb-5 text-center">
+      <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">Clean a file now</h2>
+      <p class="mx-auto mt-2 max-w-xl text-sm text-slate-600 dark:text-slate-400">
+        Position, size and opacity are measured for you. Most files need nothing but the drop.
+      </p>
+    </div>
+
+  <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-900">
+
+    <!-- ───────────────────────── panel bar ───────────────────────── -->
+    <header class="flex items-center gap-3 border-b border-slate-200 px-4 py-3 dark:border-slate-800">
+      <div class="min-w-0 flex-1">
+        <p class="truncate text-[13px] font-semibold text-slate-900 dark:text-white">Watermark removal</p>
+        <p class="truncate text-xs text-slate-500 dark:text-slate-400">Reverse alpha blending — runs entirely in this browser</p>
+      </div>
+      <button id="btn-calibrate" class="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+        Calibrate
+      </button>
+    </header>
+
+    <!-- ───────────────────────── empty state ───────────────────────── -->
+    <section id="empty" class="p-6">
+      <div id="drop" tabindex="0" role="button"
+           class="cursor-pointer rounded-xl border-2 border-dashed border-slate-300 px-6 py-14 text-center transition hover:border-brand-500 focus:border-brand-500 focus:outline-none dark:border-slate-700">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mx-auto size-10 text-slate-400">
+          <path d="M12 16V4m0 0L8 8m4-4 4 4"/><path d="M3 15v3a3 3 0 003 3h12a3 3 0 003-3v-3"/>
+        </svg>
+        <p class="mt-3 font-semibold text-slate-900 dark:text-white">Drop an image or video</p>
+        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">PNG · JPG · WEBP · MP4 · MOV — or click to browse</p>
+        <p class="mx-auto mt-4 max-w-md text-xs leading-relaxed text-slate-400 dark:text-slate-500">
+          <span class="font-semibold text-brand-600 dark:text-brand-400">Nothing is uploaded — the conversion happens on your device.</span>
+          Pixels are read with Canvas, video frames with WebCodecs, and the file is rebuilt
+          in a tab that never makes a network call. 100% free, forever.
+        </p>
+      </div>
+      <input id="file" type="file" class="hidden" accept="image/*,video/mp4,video/quicktime,video/webm">
+    </section>
+
+    <!-- ───────────────────────── workspace ───────────────────────── -->
+    <section id="work" class="hidden">
+      <div class="grid gap-0 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
+
+        <!-- ── left: preview + placement ── -->
+        <div class="space-y-3 border-b border-slate-200 p-4 lg:border-b-0 lg:border-r dark:border-slate-800">
+          <!-- file chip -->
+          <div class="flex items-center gap-2 rounded-lg border border-slate-200 px-2.5 py-2 dark:border-slate-800">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="size-4 shrink-0 text-brand-600 dark:text-brand-400">
+              <rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 9l5 3-5 3V9z"/>
+            </svg>
+            <span id="f-name" class="min-w-0 flex-1 truncate text-xs font-medium"></span>
+            <span id="f-dims" class="shrink-0 text-[11px] text-slate-400"></span>
+            <button id="btn-change" class="shrink-0 rounded border border-slate-300 px-1.5 py-0.5 text-[11px] hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Change</button>
+            <button id="btn-remove" title="Remove this file and start over"
+                    class="grid size-6 shrink-0 place-items-center rounded border border-slate-300 text-slate-500 hover:border-rose-400 hover:bg-rose-50 hover:text-rose-600 dark:border-slate-700 dark:hover:border-rose-500/60 dark:hover:bg-rose-500/10 dark:hover:text-rose-400">
+              <span class="sr-only">Remove file</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-3.5" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- scrubber (video only) -->
+          <div id="scrub-wrap" class="hidden">
+            <div class="flex items-center gap-2">
+              <span id="t-now" class="w-10 shrink-0 text-[11px] tabular-nums text-slate-500">0:00</span>
+              <input id="scrub" type="range" min="0" max="100" value="0" step="0.1" class="h-4 flex-1">
+              <span id="t-end" class="w-10 shrink-0 text-right text-[11px] tabular-nums text-slate-500">0:00</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">Click a preview to place the mask</p>
+            <button id="btn-zoom" class="rounded border border-slate-300 px-2 py-0.5 text-[11px] hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Zoom on</button>
+          </div>
+
+          <!-- before / after -->
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <p class="mb-1 text-[10px] font-semibold tracking-wider text-slate-400">ORIGINAL</p>
+              <canvas id="c-orig" class="pane aspect-square w-full cursor-crosshair rounded-lg border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-800"></canvas>
+              <p id="cap-orig" class="mt-1 text-[10px] text-slate-400">—</p>
+            </div>
+            <div>
+              <p class="mb-1 text-[10px] font-semibold tracking-wider text-slate-400">CLEANED</p>
+              <canvas id="c-clean" class="pane aspect-square w-full cursor-crosshair rounded-lg border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-800"></canvas>
+              <p id="cap-clean" class="mt-1 text-[10px] tabular-nums text-slate-400">—</p>
+            </div>
+          </div>
+
+          <!-- placement -->
+          <div class="rounded-lg border border-slate-200 p-3 dark:border-slate-800">
+            <div class="mb-2 flex items-center justify-between gap-2">
+              <p class="text-[11px] font-semibold tracking-wide text-slate-600 dark:text-slate-300">WATERMARK POSITION</p>
+              <div class="flex shrink-0 items-center gap-1">
+                <button id="btn-lock" title="Keep this position and size for the next file of the same size, instead of re-detecting"
+                        class="rounded-full border border-slate-300 px-2 py-0.5 text-[10px] text-slate-500 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Lock off</button>
+                <button id="btn-auto" class="rounded-full border border-slate-300 px-2 py-0.5 text-[10px] text-slate-500 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Auto</button>
+              </div>
+            </div>
+            <div class="mb-2 grid grid-cols-3 gap-2">
+              <label class="flex items-center gap-1.5">
+                <span class="text-[11px] text-slate-400">X</span>
+                <input id="pos-x" type="number" class="w-full rounded border border-slate-300 bg-transparent px-2 py-1 text-xs tabular-nums dark:border-slate-700">
+              </label>
+              <label class="flex items-center gap-1.5">
+                <span class="text-[11px] text-slate-400">Y</span>
+                <input id="pos-y" type="number" class="w-full rounded border border-slate-300 bg-transparent px-2 py-1 text-xs tabular-nums dark:border-slate-700">
+              </label>
+              <label class="flex items-center gap-1.5" title="Size of the mark itself, in pixels. Measured automatically; MASK SIZE × grows the treated area around it.">
+                <span class="text-[11px] text-slate-400">PX</span>
+                <input id="pos-size" type="number" min="8" class="w-full rounded border border-slate-300 bg-transparent px-2 py-1 text-xs tabular-nums dark:border-slate-700">
+              </label>
+            </div>
+            <div id="nudges" class="grid grid-cols-4 gap-1.5"></div>
+            <p class="mt-2 text-[10px] leading-relaxed text-slate-400">
+              X/Y is the mark's top-left and PX its measured size. Click a preview to move it,
+              nudge by 1 / 10 px, or press <b>Auto</b> to re-measure both.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── right: settings ── -->
+        <div class="min-w-0 p-4">
+          <div class="mb-3 grid grid-cols-2 gap-2">
+            <div id="tab-image" class="rounded-lg border px-3 py-2">
+              <p class="text-[11px] font-semibold tracking-wide">IMAGE</p>
+              <p class="mt-0.5 text-[10px] text-slate-400">Canvas — instant, lossless PNG out</p>
+            </div>
+            <div id="tab-video" class="rounded-lg border px-3 py-2">
+              <p class="text-[11px] font-semibold tracking-wide">VIDEO</p>
+              <p class="mt-0.5 text-[10px] text-slate-400">WebCodecs — audio copied untouched</p>
+            </div>
+          </div>
+
+          <div id="banner" class="mb-3 flex gap-2 rounded-lg bg-brand-500/10 px-3 py-2 text-[11px] leading-relaxed text-brand-800 dark:text-brand-300">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mt-px size-3.5 shrink-0">
+              <circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/>
+            </svg>
+            <span id="banner-text">Using system defaults. Settings are remembered in this browser only.</span>
+          </div>
+
+          <div id="controls" class="max-h-[52vh] space-y-3.5 overflow-y-auto pr-1"></div>
+        </div>
+      </div>
+
+      <!-- ── footer ── -->
+      <footer class="flex flex-wrap items-center gap-2 border-t border-slate-200 px-4 py-3 dark:border-slate-800">
+        <button id="btn-reset" class="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
+          Reset defaults
+        </button>
+        <div id="status" class="min-w-0 flex-1 truncate text-[11px] text-slate-500 dark:text-slate-400"></div>
+        <button id="btn-save" class="rounded-lg border border-brand-500 px-3 py-1.5 text-xs font-semibold text-brand-700 hover:bg-brand-50 dark:text-brand-400 dark:hover:bg-brand-500/10">
+          Save settings
+        </button>
+        <button id="btn-apply" class="rounded-lg bg-brand-600 px-4 py-1.5 text-xs font-semibold text-white hover:bg-brand-700 disabled:opacity-50">
+          Apply &amp; download
+        </button>
+      </footer>
+
+      <div id="prog-wrap" class="hidden border-t border-slate-200 px-4 py-2 dark:border-slate-800">
+        <div class="h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+          <div id="prog" class="h-full w-0 rounded-full bg-brand-500 transition-[width] duration-150"></div>
+        </div>
+        <p id="prog-text" class="mt-1 text-[11px] tabular-nums text-slate-500"></p>
+      </div>
+
+      <div id="result" class="hidden border-t border-slate-200 px-4 py-3 dark:border-slate-800"></div>
+    </section>
+  </div>
+
+    <p class="mx-auto mt-4 max-w-3xl text-center text-[11px] leading-relaxed text-slate-400 dark:text-slate-500">
+      Removes the visible mark only. Invisible provenance signals such as SynthID are not alpha
+      overlays and survive — AI-generated media stays AI-generated, so keep labelling it.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ how it works ═══════════════════════════ -->
+<section id="how" class="scroll-mt-14 border-b border-slate-200 py-14 dark:border-slate-800">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400">How it works</p>
+      <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
+        There is no AI in here. There is algebra.
+      </h2>
+      <p class="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+        The generator drew your frame first, then blended a semi-transparent sparkle on top.
+        That blend is one equation per pixel — and an equation that mixed two things can be
+        run backwards to get them apart again.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-8 max-w-2xl overflow-x-auto rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900/60">
+      <p class="text-center font-mono text-[13px] text-slate-500 dark:text-slate-400">
+        frame = α·overlay + (1−α)·original
+      </p>
+      <div class="my-3 flex items-center justify-center gap-2 text-xs text-slate-400">
+        <span class="h-px w-16 bg-slate-200 dark:bg-slate-700"></span>
+        <span>solve for the original</span>
+        <span class="h-px w-16 bg-slate-200 dark:bg-slate-700"></span>
+      </div>
+      <p class="text-center font-mono text-sm font-semibold text-brand-700 dark:text-brand-300">
+        original = (frame − α·overlay) ⁄ (1−α)
+      </p>
+      <p class="mt-4 text-center text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+        Nothing is inpainted, hallucinated or redrawn. The original pixels were still in your
+        file the whole time — scaled and offset, waiting to be divided back out.
+      </p>
+    </div>
+
+    <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <li class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <span class="grid size-7 place-items-center rounded-lg bg-brand-600 text-xs font-bold text-white">1</span>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">Drop your file</p>
+        <p class="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          PNG, JPG, WEBP, MP4 or MOV. Pixels are read with Canvas and video frames with
+          WebCodecs, straight from disk.
+        </p>
+      </li>
+      <li class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <span class="grid size-7 place-items-center rounded-lg bg-brand-600 text-xs font-bold text-white">2</span>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">The mark is found</p>
+        <p class="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          A matched filter sweeps the whole frame — not just the corner — and locks onto the
+          sparkle's exact position and pixel size, at any resolution.
+        </p>
+      </li>
+      <li class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <span class="grid size-7 place-items-center rounded-lg bg-brand-600 text-xs font-bold text-white">3</span>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">α is solved</p>
+        <p class="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          Too little correction leaves a bright ghost, too much leaves a dark one. The tool
+          bisects between them until the leftover is zero.
+        </p>
+      </li>
+      <li class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <span class="grid size-7 place-items-center rounded-lg bg-brand-600 text-xs font-bold text-white">4</span>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">Download clean</p>
+        <p class="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          Images come back as lossless PNG. Video is remuxed to MP4 with the original audio
+          copied across untouched.
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ features ═══════════════════════════ -->
+<section id="features" class="scroll-mt-14 border-b border-slate-200 bg-slate-50 py-14 dark:border-slate-800 dark:bg-slate-900/40">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400">Features</p>
+      <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
+        Built by measuring, not by guessing
+      </h2>
+      <p class="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+        Every default in here had to beat a number on a real file before it shipped.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Finds the mark anywhere</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          Marks don't always sit in the corner. The search covers the entire frame and lands
+          pixel-exact at 0.95–0.99 confidence — dead centre, top-left, wherever it actually is.
+        </p>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Opacity is solved, not picked</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          No two-preset menu to gamble with. Given a true α of 1.00, 0.62 or 0.77 it recovers
+          0.999, 0.618 and 0.769 — including the values presets can't reach.
+        </p>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <h3 class="text-sm font-semibold text-slate-900 dark:text-white">A score that means something</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          It reports the percentage of the mark's amplitude actually removed, and warns you
+          when a file came out badly instead of quietly calling it a success.
+        </p>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Video at any resolution</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          The mark is 48 px at 720p and 72 px at 1080p, so the detector tries each plausible
+          scale rather than assuming one. Audio is copied, never re-encoded.
+        </p>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Calibrate for other marks</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          A different logo, or next year's sparkle? Feed it one solid-black sample and it
+          measures the overlay's real transparency from your own output.
+        </p>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <h3 class="text-sm font-semibold text-slate-900 dark:text-white">One file, zero install</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          No build step, no server, no npm, no extension. Download the folder, open
+          <code class="rounded bg-slate-100 px-1 py-0.5 font-mono text-[11px] dark:bg-slate-800">index.html</code>,
+          and read every line of it if you like.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ comparison ═══════════════════════════ -->
+<section id="compare" class="scroll-mt-14 border-b border-slate-200 py-14 dark:border-slate-800">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400">Compare</p>
+      <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
+        Why do it locally at all?
+      </h2>
+    </div>
+
+    <div class="mt-8 overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800">
+      <table class="w-full min-w-[36rem] border-collapse text-left text-sm">
+        <thead>
+          <tr class="bg-slate-50 dark:bg-slate-900/60">
+            <th class="px-4 py-3 font-medium text-slate-500 dark:text-slate-400"></th>
+            <th class="px-4 py-3 font-semibold text-brand-700 dark:text-brand-300">SEEB4 Erase</th>
+            <th class="px-4 py-3 font-medium text-slate-600 dark:text-slate-400">Upload-to-a-website removers</th>
+            <th class="px-4 py-3 font-medium text-slate-600 dark:text-slate-400">AI inpainting</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200 text-xs dark:divide-slate-800">
+          <tr>
+            <th class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300">Where your file goes</th>
+            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">Nowhere — stays on your device</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">Uploaded to someone's server</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">Usually uploaded to a GPU</td>
+          </tr>
+          <tr>
+            <th class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300">Cost</th>
+            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">Free, MIT licensed</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">Free tier, then credits</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">Subscription or per-image</td>
+          </tr>
+          <tr>
+            <th class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300">What comes back</th>
+            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">Your original pixels, divided back out</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">Varies — often a blur or a patch</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">Invented pixels that look plausible</td>
+          </tr>
+          <tr>
+            <th class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300">Video with its audio</th>
+            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">Yes — audio copied untouched</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">Often paywalled or absent</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">Rare, slow, expensive</td>
+          </tr>
+          <tr>
+            <th class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300">Works offline</th>
+            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">Yes, network unplugged</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">No</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">No</td>
+          </tr>
+          <tr>
+            <th class="px-4 py-3 text-left font-medium text-slate-700 dark:text-slate-300">Can you read the code</th>
+            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">Yes, all of it, on GitHub</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">No</td>
+            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">No</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 text-center text-[11px] text-slate-400 dark:text-slate-500">
+      The trade-off is honest: this only undoes marks that were alpha-blended on. For anything
+      burned in some other way, an inpainting tool is the right tool.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FAQ ═══════════════════════════ -->
+<section id="faq" class="scroll-mt-14 border-b border-slate-200 bg-slate-50 py-14 dark:border-slate-800 dark:bg-slate-900/40">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    <div class="text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400">FAQ</p>
+      <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">Questions worth asking</h2>
+    </div>
+
+    <div class="mt-8 space-y-2.5">
+      <details class="group rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-slate-900 dark:text-white">
+          Is it really free, or free-until-it-isn't?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-slate-400 transition group-open:rotate-180"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-2.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+          Free, permanently. There is no account, no credit counter and no paid tier to upsell
+          you to — there is no server to charge you for. It is MIT licensed, so you can also
+          fork it, host it, or ship it inside something of your own.
+        </p>
+      </details>
+
+      <details class="group rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-slate-900 dark:text-white">
+          Does my photo or video get uploaded anywhere?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-slate-400 transition group-open:rotate-180"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-2.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+          No. Your file is decoded, edited and rebuilt by this tab on your own machine, and
+          there is no code path in the project that sends one anywhere. If you want to prove it
+          rather than take our word: open your browser's network tab, or disconnect from the
+          internet entirely and use it as normal.
+        </p>
+      </details>
+
+      <details class="group rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-slate-900 dark:text-white">
+          Which watermarks can it actually remove?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-slate-400 transition group-open:rotate-180"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-2.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+          Marks that were alpha-blended over a finished frame — Gemini's corner sparkle being
+          the case it ships tuned for. A mark burned in with a multiply, screen or displacement
+          effect is a different equation and won't come out cleanly. Google's invisible SynthID
+          provenance signal is not an overlay at all and is left completely untouched.
+        </p>
+      </details>
+
+      <details class="group rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-slate-900 dark:text-white">
+          Does video work as well as images?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-slate-400 transition group-open:rotate-180"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-2.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+          Almost. Stills reach around 99% of the mark removed; a real 720p clip lands near 93%,
+          because compression and chroma subsampling mean the stored pixels aren't exactly the
+          values that were blended. Video also has to be re-encoded — every tool has that
+          problem, since changed pixels are changed data. Raise VIDEO BITRATE × for busy clips.
+        </p>
+      </details>
+
+      <details class="group rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-slate-900 dark:text-white">
+          A faint mark is still there. What do I change?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-slate-400 transition group-open:rotate-180"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-2.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+          Fix the placement, not the strength. Click the preview to move the box, or type X, Y
+          and PX and watch the % removed. If a dark sparkle outline is left behind, switch
+          MARK OUTLINE on. Leave BASE STRENGTH at 1.00 — the solver already assumes it, so
+          anything else scales its answer away from the optimum.
+        </p>
+      </details>
+
+      <details class="group rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-slate-900 dark:text-white">
+          Which browsers does it need?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-slate-400 transition group-open:rotate-180"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-2.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+          Images work in any current browser. Video needs WebCodecs, which means Chrome, Edge
+          or another Chromium build. No extension and no install either way.
+        </p>
+      </details>
+
+      <details class="group rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-slate-900 dark:text-white">
+          Is it OK to use this?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-slate-400 transition group-open:rotate-180"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-2.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+          Removing a mark doesn't hand you any rights to the work underneath. Use it on output
+          you're entitled to use — your own generations, your own footage, content you have
+          permission for — and check your generator's terms, which may require the mark to
+          stay. AI-generated media is still AI-generated afterwards, so keep labelling it.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ closing CTA ═══════════════════════════ -->
+<section class="border-b border-slate-200 py-14 dark:border-slate-800">
+  <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+    <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
+      Drop a file. Get it back clean.
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-slate-600 dark:text-slate-400">
+      No upload, no sign-up, no watermark on the way out either.
+    </p>
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-2.5">
+      <a href="#tool" class="rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 hover:bg-brand-700">
+        Open the tool
+      </a>
+      <a href="https://github.com/seeb4coding/seeb4-erase" target="_blank" rel="noopener"
+         class="rounded-xl border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+        Star it on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ footer ═══════════════════════════ -->
+<footer class="bg-slate-50 py-12 dark:bg-slate-900/40">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <!-- Both lockups carry dark text, so each sits on a white chip to stay legible in dark mode. -->
+        <span class="inline-block rounded-xl bg-white p-3 shadow-sm">
+          <img src="assets/logo-seeb4erase-removebg-preview.png"
+               alt="SEEB4 Erase — see it, remove it, perfect it" class="h-20 w-auto">
+        </span>
+        <p class="mt-3 max-w-sm text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+          A free, open-source tool built to prove a point: the honest version of a paid
+          watermark remover is a single web page that never touches your files.
+        </p>
+        <div class="mt-4 flex items-center gap-2.5">
+          <span class="text-[11px] text-slate-400 dark:text-slate-500">A tool by</span>
+          <a href="https://seeb4coding.in" target="_blank" rel="noopener"
+             class="inline-block rounded-lg bg-white p-1.5 shadow-sm transition hover:shadow">
+            <img src="assets/seeb4coding-logo.jpeg" alt="seeb4coding — coding meets innovation" class="h-6 w-auto">
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-900 dark:text-white">Tool</p>
+        <ul class="mt-3 space-y-2 text-xs text-slate-500 dark:text-slate-400">
+          <li><a href="#tool" class="hover:text-brand-600 dark:hover:text-brand-400">Remove a watermark</a></li>
+          <li><a href="#how" class="hover:text-brand-600 dark:hover:text-brand-400">How it works</a></li>
+          <li><a href="#features" class="hover:text-brand-600 dark:hover:text-brand-400">Features</a></li>
+          <li><a href="#faq" class="hover:text-brand-600 dark:hover:text-brand-400">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-900 dark:text-white">Open source</p>
+        <ul class="mt-3 space-y-2 text-xs text-slate-500 dark:text-slate-400">
+          <li><a href="https://github.com/seeb4coding/seeb4-erase" target="_blank" rel="noopener" class="hover:text-brand-600 dark:hover:text-brand-400">Source on GitHub</a></li>
+          <li><a href="https://github.com/seeb4coding/seeb4-erase/issues" target="_blank" rel="noopener" class="hover:text-brand-600 dark:hover:text-brand-400">Report an issue</a></li>
+          <li><a href="https://github.com/seeb4coding/seeb4-erase/blob/main/LICENSE" target="_blank" rel="noopener" class="hover:text-brand-600 dark:hover:text-brand-400">MIT license</a></li>
+          <li><a href="https://seeb4coding.in" target="_blank" rel="noopener" class="hover:text-brand-600 dark:hover:text-brand-400">seeb4coding.in</a></li>
+          <li><a href="https://blog.seeb4coding.in" target="_blank" rel="noopener" class="hover:text-brand-600 dark:hover:text-brand-400">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-2 border-t border-slate-200 pt-6 text-[11px] text-slate-400 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800 dark:text-slate-500">
+      <p>© 2026 seeb4coding · MIT licensed · not affiliated with Google or Gemini</p>
+      <p>Use it on content you have the rights to. Keep labelling AI-generated media.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ───────────────────────── calibration dialog ───────────────────────── -->
+<dialog id="cal" class="w-[min(92vw,640px)] rounded-2xl border border-slate-200 bg-white p-0 text-slate-800 backdrop:bg-slate-900/50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
+  <div class="border-b border-slate-200 px-5 py-3 dark:border-slate-800">
+    <h2 class="font-semibold text-slate-900 dark:text-white">Measure the mask from your own output</h2>
+    <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
+      The α mask isn't published anywhere, so measure it instead of guessing.
+    </p>
+  </div>
+  <div class="space-y-3 px-5 py-4">
+    <ol class="list-decimal space-y-1 pl-5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+      <li>Ask the generator for <code class="rounded bg-slate-100 px-1 dark:bg-slate-800">a completely solid pure black image</code>; save the watermarked result as PNG.</li>
+      <li>Drop it here. <b>One black image is enough</b> — over black the blend reduces to
+          <code class="rounded bg-slate-100 px-1 dark:bg-slate-800">α = luma / 255</code>, so α comes out exactly.</li>
+      <li>Any other background needs a second, clearly different tone (e.g. solid mid-grey)
+          so α and the mark's colour can be separated. PNG only — JPEG noise blurs α.</li>
+    </ol>
+    <div id="cal-drop" tabindex="0" role="button"
+         class="cursor-pointer rounded-xl border-2 border-dashed border-slate-300 px-4 py-8 text-center text-xs text-slate-500 hover:border-brand-500 focus:outline-none dark:border-slate-700">
+      Drop one solid-black sample (or two tones) — or click to browse
+    </div>
+    <input id="cal-file" type="file" multiple accept="image/*" class="hidden">
+    <div id="cal-list" class="space-y-1"></div>
+    <pre id="cal-out" class="hidden max-h-48 overflow-auto rounded-lg bg-slate-50 p-3 text-[11px] leading-relaxed dark:bg-slate-800/60"></pre>
+  </div>
+  <div class="flex items-center gap-2 border-t border-slate-200 px-5 py-3 dark:border-slate-800">
+    <button id="cal-close" class="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Close</button>
+    <div class="flex-1"></div>
+    <button id="cal-download" class="hidden rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download mask PNG</button>
+    <button id="cal-fit" disabled class="rounded-lg bg-brand-600 px-4 py-1.5 text-xs font-semibold text-white hover:bg-brand-700 disabled:opacity-50">Fit mask</button>
+  </div>
+</dialog>
+
+<script src="seeb4-erase.js"></script>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+/* ───────── theme ───────── */
+const prefDark = matchMedia("(prefers-color-scheme: dark)").matches;
+if (localStorage.getItem("seeb4-theme") === "dark" || (!localStorage.getItem("seeb4-theme") && prefDark)) {
+  document.documentElement.classList.add("dark");
+}
+$("btn-theme").onclick = () => {
+  const dark = document.documentElement.classList.toggle("dark");
+  localStorage.setItem("seeb4-theme", dark ? "dark" : "light");
+  render();
+};
+
+/* ───────── control spec, mirroring the reference tool's panel ───────── */
+const CONTROLS = [
+  { key: "logo", type: "select", label: "WATERMARK LOGO", hint: "which mask to blend against",
+    options: [["sparkle", "Original — measured (recommended)"], ["generated", "Original — generated fit"],
+              ["custom", "Custom mask PNG…"], ["calibrated", "Calibrated (measured)"]] },
+  { key: "maskScale", label: "MASK SIZE ×", hint: "grow the treated area — 1.10–1.40× catches fringe pixels",
+    min: 0.05, max: 3, step: 0.01, fmt: v => v.toFixed(2) + "×" },
+  { key: "baseStrength", label: "BASE STRENGTH", hint: "overall intensity of the reverse-blend correction",
+    min: 0.05, max: 2, step: 0.01, fmt: v => v.toFixed(2) },
+  { key: "opacity", type: "select", label: "OPACITY", hint: "auto solves for the real α instead of guessing from presets",
+    options: [["auto", "Auto — solve α (recommended)"], ["1", "1.00 — solid stamp"], ["0.62", "0.62 — lighter mark"],
+              ["custom", "Custom α gain…"]],
+    // A gain, not an alpha: the applied peak is mask peak (0.506) x this. Above
+    // ~1.96 the peak would exceed the blend ceiling and simply clamp.
+    custom: { min: 0.05, max: 2.6, step: 0.005, dp: 3 } },
+  { key: "stroke", type: "select", label: "MARK OUTLINE", hint: "turn on if a dark sparkle outline is left behind (1080p video)",
+    options: [["false", "Off — white mark only"], ["true", "On — mark has a dark outline"]] },
+  { key: "strokeAlpha", label: "OUTLINE α", hint: "how dark the outline is — 0.20 was fitted on real 1080p frames",
+    min: 0.02, max: 0.6, step: 0.01, fmt: v => v.toFixed(2), needs: c => String(c.stroke) === "true" },
+  { key: "blendCeiling", label: "BLEND CEILING", hint: "cap on α so 1/(1−α) stays stable; above this, pixels are diffused",
+    min: 0.5, max: 1, step: 0.01, fmt: v => v.toFixed(2) },
+  { key: "overlayLuma", label: "OVERLAY LUMA", hint: "assumed brightness of the mark (grey-mask path only)",
+    min: 200, max: 255, step: 1, fmt: v => String(Math.round(v)) },
+  { key: "edgeDiffusion", type: "select", label: "EDGE DIFFUSION", hint: "feather the patched core into its surroundings",
+    options: [["auto", "Auto (α ≥ 1 + grey mask)"], ["on", "Always on"], ["off", "Off"]] },
+  { key: "diffusionStrength", label: "DIFFUSION STRENGTH", hint: "how aggressively the seam is blended",
+    min: 0.1, max: 1, step: 0.05, fmt: v => v.toFixed(2) },
+  { key: "dilationRadius", label: "DILATION RADIUS (PX)", hint: "grow the patched set so the seam sits on solid pixels",
+    min: 0, max: 5, step: 1, fmt: v => String(Math.round(v)) },
+  { key: "maxDiffusionPasses", label: "MAX DIFFUSION PASSES", hint: "relaxation iterations — more is smoother but slower",
+    min: 10, max: 200, step: 10, fmt: v => String(Math.round(v)) },
+  { key: "bitrateScale", label: "VIDEO BITRATE ×", hint: "1.5–2.0× helps high-motion clips survive the re-encode",
+    min: 0.5, max: 3, step: 0.1, fmt: v => v.toFixed(1) + "×", videoOnly: true },
+  // Capped at 95%: a flawless image lands near 99% and lossy video near 90%, so a
+  // threshold above ~95% can never be satisfied and warns on every single file.
+  { key: "warnQuality", label: "WARN IF REMOVED ≤", hint: "safety net — 85% suits video, 95% is the useful maximum",
+    min: 0.1, max: 0.95, step: 0.01, fmt: v => (v * 100).toFixed(0) + "%" },
+];
+
+const BASE = { logo: "sparkle", ...SEEB4.DEFAULTS };
+// The engine stores stroke as a boolean and strokeAlpha as null ("use the fitted
+// value"). Neither survives a <select> or a slider, so the panel holds a string and
+// a concrete number, and engineCfg converts back.
+BASE.stroke = String(SEEB4.DEFAULTS.stroke);
+BASE.strokeAlpha = SEEB4.STROKE.alpha;
+delete BASE.position; delete BASE.opacityChoices;
+
+// Bumped when a default changes meaning. A value saved under an older version
+// silently overrides the new default, which is how a pinned OPACITY kept
+// defeating the α solver long after "auto" became the recommended setting.
+// v3: BASE STRENGTH's default dropped from 1.10 to 1.00 and the mask became the
+// measured one. A saved 1.10 is the single worst thing that can be in this
+// object -- it walks the solved α off its optimum by 10%, costing ~10 points of
+// removal -- so it has to be cleared rather than respected.
+// v4: OPACITY's default changed from "auto" to a pinned gain of 0.575. A stored
+// "auto" from v3 would otherwise keep winning and the new default would never be
+// seen -- the same trap in the other direction.
+const SETTINGS_VERSION = 4;
+const RESET_ON_UPGRADE = ["opacity", "baseStrength", "warnQuality", "logo"];
+
+let migrationNote = "";
+let cfg = load();
+let state = {
+  file: null, kind: null, width: 0, height: 0,
+  video: null, duration: 0, time: 0,
+  anim: null,
+  zoom: true, position: null, markSize: null,
+  // `manual` separates a placement the user chose from one the detector found.
+  // Previously a detected result was written straight into `position`, which the
+  // engine then treats as pinned -- so one bad detection (e.g. on a video frame
+  // that had not decoded yet) stuck permanently and auto never ran again.
+  // `detected` caches the automatic result so detection need not rerun on every
+  // slider nudge, and Auto simply clears it.
+  manual: false, detected: null,
+  locked: false, lockedPlacement: null,
+  mask: null, customMask: null, calibratedMask: null,
+  busy: false, lastPreview: null,
+  // Last α gain the solver reported, used to seed "Custom α gain…".
+  lastGain: null
+};
+
+function load() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem("seeb4-settings") || "{}") || {}; } catch { saved = {}; }
+
+  const stored = Number(localStorage.getItem("seeb4-settings-version") || 0);
+  if (stored < SETTINGS_VERSION) {
+    const dropped = RESET_ON_UPGRADE.filter(k => k in saved);
+    for (const k of dropped) delete saved[k];
+    try {
+      localStorage.setItem("seeb4-settings-version", String(SETTINGS_VERSION));
+      localStorage.setItem("seeb4-settings", JSON.stringify(saved));
+    } catch { /* storage may be unavailable; defaults still apply */ }
+    if (dropped.length) {
+      migrationNote = `Reset ${dropped.join(", ")} to the current defaults — ` +
+        `the mask is measured now and BASE STRENGTH must be 1.00 for the solved α ` +
+        `to land on target. Your other settings were kept.`;
+    }
+  }
+
+  const cfg = { ...BASE, ...saved };
+  // Clamp saved values into each control's current range, so a value stored
+  // before a range changed cannot linger in an unusable state.
+  for (const c of CONTROLS) {
+    if (c.type === "select" || typeof cfg[c.key] !== "number") continue;
+    cfg[c.key] = clamp(cfg[c.key], c.min, c.max);
+  }
+  return cfg;
+}
+
+/* ───────── build controls ───────── */
+function buildControls() {
+  const host = $("controls");
+  host.innerHTML = "";
+  for (const c of CONTROLS) {
+    const wrap = document.createElement("div");
+    wrap.dataset.key = c.key;
+    c._wrap = wrap;
+    if (c.videoOnly) wrap.dataset.videoOnly = "1";
+
+    const head = document.createElement("div");
+    head.className = "flex items-baseline gap-1.5";
+    head.innerHTML = `
+      <span class="text-[11px] font-semibold tracking-wide text-slate-600 dark:text-slate-300">${esc(c.label)}</span>
+      <span class="min-w-0 flex-1 truncate text-[10px] text-slate-400" title="${esc(c.hint)}">${esc(c.hint)}</span>`;
+    wrap.appendChild(head);
+
+    if (c.type === "select") {
+      const sel = document.createElement("select");
+      sel.className = "mt-1 w-full rounded-lg border border-slate-300 bg-transparent px-2 py-1.5 text-xs dark:border-slate-700 dark:bg-slate-900";
+      for (const [v, label] of c.options) {
+        const o = document.createElement("option");
+        o.value = v; o.textContent = label;
+        sel.appendChild(o);
+      }
+      wrap.appendChild(sel);
+
+      // A control with `custom` keeps a number box beside the menu, shown only
+      // while the stored value is not one of the presets. The menu alone cannot
+      // express "0.85": it would fall through every option and render blank.
+      let num = null;
+      if (c.custom) {
+        const row = document.createElement("div");
+        row.className = "mt-1 flex items-center gap-2";
+        num = document.createElement("input");
+        num.type = "number";
+        num.min = c.custom.min; num.max = c.custom.max; num.step = c.custom.step;
+        num.className = "w-24 rounded-lg border border-slate-300 bg-transparent px-2 py-1 text-xs tabular-nums dark:border-slate-700 dark:bg-slate-900";
+        const note = document.createElement("span");
+        note.className = "text-[10px] text-slate-400";
+        row.append(num, note);
+        wrap.appendChild(row);
+        // Show what the typed gain actually becomes, since a gain is not an alpha.
+        c._note = () => {
+          const peak = SEEB4.maskPeak(activeMask() || SEEB4.defaultMask());
+          const a = Math.min(Number(cfg[c.key]) * peak, cfg.blendCeiling);
+          note.textContent = Number.isFinite(a) ? `peak α ${a.toFixed(3)}` : "";
+        };
+        num.oninput = () => {
+          const v = clamp(Number(num.value), c.custom.min, c.custom.max);
+          if (!Number.isFinite(v)) return;
+          cfg[c.key] = Number(v.toFixed(c.custom.dp));
+          if (c._note) c._note(); // refresh the derived read-out
+          dirty(); schedulePreview();
+        };
+        // Commit the clamp only on blur, so typing "0.0" is not fought mid-keystroke.
+        num.onblur = () => { num.value = cfg[c.key]; };
+        c._row = row;
+      }
+
+      // "custom" is a real, selectable value for LOGO (pick a PNG) but a *mode*
+      // for a control with a `custom` range, so only exclude it in the latter case.
+      const presets = c.options.map(([v]) => v)
+        .filter((v) => !(c.custom && v === "custom"));
+      const sync = () => {
+        const v = String(cfg[c.key]);
+        const isPreset = presets.includes(v);
+        sel.value = isPreset ? v : "custom";
+        if (c._row) {
+          c._row.classList.toggle("hidden", isPreset);
+          if (!isPreset) num.value = cfg[c.key];
+          if (c._note) c._note();
+        }
+      };
+      c._sync = sync;
+      sel.onchange = () => onSelect(c, sel).then(sync);
+      sync();
+    } else {
+      const row = document.createElement("div");
+      row.className = "mt-1 flex items-center gap-2";
+      const minus = stepBtn("−"), plus = stepBtn("+");
+      const val = document.createElement("span");
+      val.className = "w-14 shrink-0 text-right text-xs font-semibold tabular-nums text-brand-600 dark:text-brand-400";
+      const range = document.createElement("input");
+      range.type = "range"; range.min = c.min; range.max = c.max; range.step = c.step;
+      range.className = "h-4 w-full";
+
+      const sync = () => {
+        const v = Number(cfg[c.key]);
+        range.value = v;
+        val.textContent = c.fmt ? c.fmt(v) : v;
+        range.style.setProperty("--pct", ((v - c.min) / (c.max - c.min) * 100).toFixed(1) + "%");
+      };
+      const set = (v) => {
+        const dec = (String(c.step).split(".")[1] || "").length;
+        cfg[c.key] = Number(clamp(v, c.min, c.max).toFixed(dec));
+        sync(); dirty(); schedulePreview();
+      };
+      range.oninput = () => set(Number(range.value));
+      minus.onclick = () => set(Number(cfg[c.key]) - c.step);
+      plus.onclick = () => set(Number(cfg[c.key]) + c.step);
+
+      row.append(minus, range, val, plus);
+      wrap.appendChild(row);
+      c._sync = sync;
+      sync();
+    }
+    host.appendChild(wrap);
+  }
+  applyVisibility();
+}
+
+/** Hide controls whose `needs` predicate is not satisfied by the current cfg. */
+function applyVisibility() {
+  for (const c of CONTROLS) {
+    if (!c._wrap || !c.needs) continue;
+    c._wrap.classList.toggle("hidden", !c.needs(cfg));
+  }
+}
+
+function stepBtn(label) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.textContent = label;
+  b.className = "grid size-6 shrink-0 place-items-center rounded border border-slate-300 text-xs text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800";
+  return b;
+}
+
+async function onSelect(c, sel) {
+  if (c.key === "logo" && sel.value === "custom") {
+    const picked = await pickMaskFile();
+    if (!picked) { sel.value = cfg.logo; return; }
+    state.customMask = picked;
+  }
+  if (c.key === "logo" && sel.value === "calibrated" && !state.calibratedMask) {
+    setStatus("No calibrated mask yet — use Calibrate first.", true);
+    sel.value = cfg.logo;
+    return;
+  }
+  // "Custom" is a mode, not a value. Seed it from whatever α the solver last
+  // landed on, so the box opens at the answer the user was just shown rather
+  // than at an arbitrary constant they then have to hunt for.
+  if (sel.value === "custom" && c.custom) {
+    const seed = typeof cfg[c.key] === "number" ? cfg[c.key]
+      : typeof state.lastGain === "number" ? state.lastGain : 1;
+    cfg[c.key] = Number(clamp(seed, c.custom.min, c.custom.max).toFixed(c.custom.dp));
+    dirty(); schedulePreview();
+    return;
+  }
+  cfg[c.key] = c.key === "opacity" && sel.value !== "auto" ? Number(sel.value) : sel.value;
+  applyVisibility();
+  dirty(); schedulePreview();
+}
+
+function pickMaskFile() {
+  return new Promise((resolve) => {
+    const input = document.createElement("input");
+    input.type = "file"; input.accept = "image/png,image/*";
+    input.onchange = async () => {
+      const f = input.files && input.files[0];
+      if (!f) return resolve(null);
+      const bmp = await createImageBitmap(f);
+      const cv = document.createElement("canvas");
+      cv.width = bmp.width; cv.height = bmp.height;
+      const cx = cv.getContext("2d", { willReadFrequently: true });
+      cx.drawImage(bmp, 0, 0);
+      resolve(SEEB4.maskFromImageData(cx.getImageData(0, 0, bmp.width, bmp.height)));
+    };
+    input.click();
+  });
+}
+
+/* ───────── nudges ───────── */
+const NUDGES = [
+  ["←", -1, 0], ["↑", 0, -1], ["↓", 0, 1], ["→", 1, 0],
+  ["⇐", -10, 0], ["⇑", 0, -10], ["⇓", 0, 10], ["⇒", 10, 0],
+];
+function buildNudges() {
+  const host = $("nudges");
+  host.innerHTML = "";
+  for (const [glyph, dx, dy] of NUDGES) {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = glyph;
+    b.className = "rounded border border-slate-300 py-1.5 text-xs text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800";
+    b.onclick = () => {
+      if (!state.position) return;
+      setPosition(state.position.x + dx, state.position.y + dy);
+    };
+    host.appendChild(b);
+  }
+}
+
+function setPosition(x, y) {
+  state.manual = true;
+  const size = state.markSize
+    || (state.detected && state.detected.size)
+    || SEEB4.defaultBox(state.width, state.height, 1).size;
+  state.markSize = size;
+  state.position = {
+    x: clamp(Math.round(x), 0, Math.max(0, state.width - size)),
+    y: clamp(Math.round(y), 0, Math.max(0, state.height - size)),
+  };
+  $("pos-x").value = state.position.x;
+  $("pos-y").value = state.position.y;
+  rememberLock();
+  schedulePreview();
+}
+
+/** The placement currently in effect, whoever chose it. */
+function effectivePlacement() {
+  if (state.manual && state.position) {
+    return { x: state.position.x, y: state.position.y, size: state.markSize };
+  }
+  return state.detected;
+}
+
+/** Keep a locked placement in step with manual adjustments. */
+function rememberLock() {
+  if (!state.locked) return;
+  const place = effectivePlacement();
+  if (!place) return;
+  state.lockedPlacement = {
+    x: place.x, y: place.y, size: place.size,
+    width: state.width, height: state.height,
+  };
+}
+
+$("pos-x").onchange = () => setPosition(Number($("pos-x").value), state.position ? state.position.y : 0);
+$("pos-y").onchange = () => setPosition(state.position ? state.position.x : 0, Number($("pos-y").value));
+$("pos-size").onchange = () => {
+  state.manual = true;
+  state.markSize = clamp(Math.round(Number($("pos-size").value)), 8, Math.min(state.width, state.height));
+  $("pos-size").value = state.markSize;
+  if (!state.position && state.detected) {
+    state.position = { x: state.detected.x, y: state.detected.y };
+  }
+  rememberLock();
+  schedulePreview();
+};
+// Auto re-measures both the position and the mark's size.
+$("btn-auto").onclick = () => {
+  state.locked = false;
+  renderLock();
+  state.manual = false;
+  state.detected = null;
+  state.position = null;
+  state.markSize = null;
+  setStatus("re-measuring…");
+  schedulePreview();
+};
+
+// Lock keeps a hand-placed mark across files, for batches the detector cannot
+// place on its own -- so a manual fix is done once, not once per file.
+function renderLock() {
+  const b = $("btn-lock");
+  b.textContent = state.locked ? "Locked" : "Lock off";
+  b.className = state.locked
+    ? "rounded-full border border-brand-500 bg-brand-500/10 px-2 py-0.5 text-[10px] font-semibold text-brand-700 dark:text-brand-400"
+    : "rounded-full border border-slate-300 px-2 py-0.5 text-[10px] text-slate-500 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800";
+}
+$("btn-lock").onclick = () => {
+  state.locked = !state.locked;
+  if (state.locked) {
+    // Locking pins whatever is on screen, detected or hand-placed.
+    const place = effectivePlacement();
+    if (place) {
+      state.manual = true;
+      state.position = { x: place.x, y: place.y };
+      state.markSize = place.size;
+    }
+    rememberLock();
+  }
+  renderLock();
+};
+
+$("btn-zoom").onclick = () => {
+  state.zoom = !state.zoom;
+  $("btn-zoom").textContent = state.zoom ? "Zoom on" : "Zoom off";
+  schedulePreview();
+};
+
+for (const id of ["c-orig", "c-clean"]) {
+  $(id).onclick = (ev) => {
+    const p = state.lastPreview;
+    if (!p) return;
+    const cv = $(id), r = cv.getBoundingClientRect();
+    // Canvas shows p.crop scaled to fit; map the click back to frame coords.
+    const fx = p.crop.x + ((ev.clientX - r.left) / r.width) * p.crop.size;
+    const fy = p.crop.y + ((ev.clientY - r.top) / r.height) * p.crop.size;
+    setPosition(fx - p.box.size / 2, fy - p.box.size / 2);
+  };
+}
+
+/* ───────── file intake ───────── */
+function wireDrop(dropId, onFiles) {
+  const drop = $(dropId);
+  ["dragenter", "dragover"].forEach(e => drop.addEventListener(e, ev => {
+    ev.preventDefault(); drop.classList.add("border-brand-500");
+  }));
+  ["dragleave", "drop"].forEach(e => drop.addEventListener(e, ev => {
+    ev.preventDefault(); drop.classList.remove("border-brand-500");
+  }));
+  drop.addEventListener("drop", ev => {
+    const files = [...(ev.dataTransfer?.files || [])];
+    if (files.length) onFiles(files);
+  });
+  drop.addEventListener("keydown", ev => {
+    if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); drop.click(); }
+  });
+}
+
+$("drop").onclick = () => $("file").click();
+$("btn-change").onclick = () => $("file").click();
+$("file").onchange = () => { if ($("file").files[0]) openFile($("file").files[0]); };
+
+/**
+ * Detach the current file and go back to the drop state.
+ *
+ * Everything measured *from* the file goes; everything the user chose *about*
+ * how to work -- lock, zoom, a calibrated or custom mask, the settings panel --
+ * stays, because clearing a file is not the same as resetting preferences.
+ */
+function clearFile() {
+  if (state.busy) return;
+
+  if (state.video) { URL.revokeObjectURL(state.video.src); state.video = null; }
+  if (state.anim) { state.anim.close(); state.anim = null; }
+
+  Object.assign(state, {
+    file: null, kind: null, width: 0, height: 0,
+    duration: 0, time: 0,
+    position: null, markSize: null, manual: false, detected: null,
+    lastPreview: null, lastGain: null
+  });
+
+  // Without this the input still holds the old selection, so choosing the same
+  // file again fires no change event and the drop appears to do nothing.
+  $("file").value = "";
+
+  for (const id of ["c-orig", "c-clean"]) {
+    const cv = $(id);
+    cv.getContext("2d").clearRect(0, 0, cv.width, cv.height);
+    cv.width = cv.height = 0;
+  }
+  $("cap-orig").textContent = "—";
+  $("cap-clean").textContent = "—";
+  $("f-name").textContent = "";
+  $("f-dims").textContent = "";
+  $("pos-x").value = ""; $("pos-y").value = ""; $("pos-size").value = "";
+
+  $("scrub-wrap").classList.add("hidden");
+  $("scrub").value = "0";
+  $("t-now").textContent = "0:00";
+  $("t-end").textContent = "0:00";
+
+  $("result").classList.add("hidden");
+  $("result").innerHTML = "";
+  $("prog-wrap").classList.add("hidden");
+  $("prog").style.width = "0%";
+  $("prog-text").textContent = "";
+  $("btn-apply").disabled = false;
+
+  $("work").classList.add("hidden");
+  $("empty").classList.remove("hidden");
+  setStatus("file removed — drop another whenever you like");
+  render();
+}
+
+$("btn-remove").onclick = clearFile;
+// Escape clears the file, but not while the calibration dialog owns Escape.
+addEventListener("keydown", (ev) => {
+  if (ev.key === "Escape" && state.file && !$("cal").open) clearFile();
+});
+wireDrop("drop", files => openFile(files[0]));
+addEventListener("dragover", e => e.preventDefault());
+addEventListener("drop", e => {
+  e.preventDefault();
+  if (!state.busy && e.dataTransfer?.files?.length && !$("cal").open) openFile(e.dataTransfer.files[0]);
+});
+
+const VIDEO_RE = /\.(mp4|mov|m4v|webm|mkv)$/i;
+
+/**
+ * Open an animated still image (GIF, animated WebP/AVIF) via ImageDecoder.
+ * Returns null for a single-frame image, or if the API is unavailable.
+ */
+async function openAnimated(file) {
+  if (typeof ImageDecoder === "undefined") return null;
+  const type = file.type || (/\.gif$/i.test(file.name) ? "image/gif" : "");
+  if (!type) return null;
+  let dec;
+  try {
+    dec = new ImageDecoder({ data: await file.arrayBuffer(), type });
+    await dec.tracks.ready;
+  } catch { return null; }
+
+  const track = dec.tracks && dec.tracks.selectedTrack;
+  const frames = track ? track.frameCount : 1;
+  if (!track || !track.animated || frames < 2) {
+    try { dec.close(); } catch {}
+    return null;
+  }
+
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  return {
+    kind: type.replace("image/", "").toUpperCase(),
+    frames,
+    async frame(index) {
+      const { image } = await dec.decode({ frameIndex: clamp(index | 0, 0, frames - 1) });
+      canvas.width = image.displayWidth;
+      canvas.height = image.displayHeight;
+      // A GIF frame can be partial, so clear before drawing rather than
+      // compositing onto whatever the previous frame left behind.
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(image, 0, 0);
+      image.close();
+      return canvas;
+    },
+    close() { try { dec.close(); } catch {} },
+  };
+}
+
+async function openFile(file) {
+  state.file = file;
+  state.kind = VIDEO_RE.test(file.name) || file.type.startsWith("video/") ? "video" : "image";
+  state.position = null;
+  state.markSize = null;
+  state.manual = false;
+  state.detected = null;
+  $("result").classList.add("hidden");
+  $("f-name").textContent = file.name;
+
+  if (state.video) { URL.revokeObjectURL(state.video.src); state.video = null; }
+  if (state.anim) { state.anim.close(); state.anim = null; }
+
+  if (state.kind === "video") {
+    const v = document.createElement("video");
+    v.muted = true; v.preload = "auto"; v.playsInline = true;
+    v.src = URL.createObjectURL(file);
+    // Wait for frame data, not just metadata. At readyState 1 the dimensions are
+    // known but there is nothing to draw yet, and since currentTime and the
+    // scrubber both start at 0 no seek follows to force a decode -- so the first
+    // preview analysed an empty canvas and could not place the mark at all.
+    await new Promise((res, rej) => {
+      v.onerror = () => rej(new Error("this browser cannot decode " + file.name + " for preview"));
+      if (v.readyState >= 2) { res(); return; }
+      v.onloadeddata = res;
+    });
+    state.video = v;
+    state.width = v.videoWidth; state.height = v.videoHeight;
+    state.duration = v.duration;
+    state.time = 0;
+    $("scrub").max = String(v.duration);
+    $("scrub").value = "0";
+    $("t-end").textContent = fmtTime(v.duration);
+    $("scrub-wrap").classList.remove("hidden");
+  } else {
+    // An animated image has to be treated like a clip, not a still: reading only
+    // frame 0 means a blank or lead-in frame leaves nothing to detect, which is
+    // exactly how a GIF ends up looking like "auto placement is broken".
+    state.anim = await openAnimated(file);
+    if (state.anim) {
+      const first = await state.anim.frame(0);
+      state.width = first.width; state.height = first.height;
+      state.time = 0;
+      $("scrub").min = "0";
+      $("scrub").max = String(state.anim.frames - 1);
+      $("scrub").step = "1";
+      $("scrub").value = "0";
+      $("t-now").textContent = "1";
+      $("t-end").textContent = String(state.anim.frames);
+      $("scrub-wrap").classList.remove("hidden");
+      setStatus(`animated ${state.anim.kind} · ${state.anim.frames} frames — scrub to pick one; ` +
+        `the output is a single still PNG`, true);
+    } else {
+      const bmp = await createImageBitmap(file);
+      state.width = bmp.width; state.height = bmp.height;
+      bmp.close && bmp.close();
+      $("scrub").min = "0"; $("scrub").step = "0.1";
+      $("scrub-wrap").classList.add("hidden");
+    }
+  }
+
+  // A locked placement only carries over to a frame of the same size, since
+  // pixel coordinates mean nothing at a different resolution.
+  const L = state.lockedPlacement;
+  if (state.locked && L && L.width === state.width && L.height === state.height) {
+    state.manual = true;
+    state.position = { x: L.x, y: L.y };
+    state.markSize = L.size;
+    $("pos-x").value = L.x;
+    $("pos-y").value = L.y;
+    $("pos-size").value = L.size;
+  } else if (state.locked) {
+    setStatus(`locked placement is for ${L ? L.width + "×" + L.height : "another size"}; re-detecting`, true);
+  }
+
+  $("f-dims").textContent = `${state.width}×${state.height}`;
+  $("empty").classList.add("hidden");
+  $("work").classList.remove("hidden");
+  render();
+  await schedulePreview(true);
+}
+
+const fmtTime = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+
+$("scrub").oninput = () => {
+  state.time = Number($("scrub").value);
+  // For an animated image the scrubber counts frames, not seconds.
+  $("t-now").textContent = state.anim
+    ? String((state.time | 0) + 1)
+    : fmtTime(state.time);
+  schedulePreview();
+};
+
+/* ───────── preview ───────── */
+function activeMask() {
+  if (cfg.logo === "custom" && state.customMask) return state.customMask;
+  if (cfg.logo === "calibrated" && state.calibratedMask) return state.calibratedMask;
+  // The drawn approximation, kept as an escape hatch. It costs real quality --
+  // a scalar gain cannot correct a shape error, so it floors removal near 94%
+  // where the measured mask reaches ~99% -- but it is the only option that does
+  // not assume the 2026 sparkle, so keep it reachable.
+  if (cfg.logo === "generated") return SEEB4.sparkleMask(96);
+  return null; // engine falls back to its measured mask
+}
+
+function engineCfg() {
+  const out = { ...cfg };
+  delete out.logo;
+  out.stroke = String(out.stroke) === "true";
+  if (!out.stroke) delete out.strokeAlpha;
+  if (out.opacity !== "auto") out.opacity = Number(out.opacity);
+
+  // A user placement wins; otherwise reuse the cached detection; otherwise leave
+  // both null so the engine measures them.
+  const place = state.manual
+    ? (state.position ? { x: state.position.x, y: state.position.y, size: state.markSize } : null)
+    : state.detected;
+  out.position = place ? { x: place.x, y: place.y } : null;
+  out.markSize = place ? place.size : null;
+
+  const m = activeMask();
+  if (m) out.mask = m;
+  return out;
+}
+
+/** Resolve once the element has a drawable frame, or give up after a moment. */
+function frameReady(v) {
+  if (v.readyState >= 2) return Promise.resolve();
+  return new Promise((res) => {
+    const done = () => { v.removeEventListener("loadeddata", done); res(); };
+    v.addEventListener("loadeddata", done);
+    setTimeout(done, 3000);
+  });
+}
+
+async function frameSource() {
+  if (state.kind === "image") {
+    return state.anim ? await state.anim.frame(state.time) : state.file;
+  }
+  const v = state.video;
+  await frameReady(v);
+  if (Math.abs(v.currentTime - state.time) > 0.01) {
+    await new Promise((res) => {
+      const done = () => { v.removeEventListener("seeked", done); res(); };
+      v.addEventListener("seeked", done);
+      v.currentTime = Math.min(state.time, Math.max(0, v.duration - 0.05));
+    });
+  }
+  const cv = document.createElement("canvas");
+  cv.width = state.width; cv.height = state.height;
+  cv.getContext("2d").drawImage(v, 0, 0);
+  return cv;
+}
+
+let previewToken = 0;
+let previewTimer = null;
+function schedulePreview(now) {
+  clearTimeout(previewTimer);
+  return new Promise((resolve) => {
+    previewTimer = setTimeout(async () => { await doPreview(); resolve(); }, now ? 0 : 90);
+  });
+}
+
+async function doPreview() {
+  if (!state.file) return;
+  const token = ++previewToken;
+  try {
+    const source = await frameSource();
+    if (token !== previewToken) return;
+    const p = await SEEB4.previewCrops(source, engineCfg(), state.zoom);
+    if (token !== previewToken) return;
+    state.lastPreview = p;
+
+    // Show whatever was measured, and cache it -- but only if detection actually
+    // succeeded. A blank or undecoded frame gives a non-positive score, and
+    // caching that would freeze the mark at a meaningless spot.
+    if (!state.manual && p.position) {
+      const score = p.stats.detectScore;
+      if (score == null || score > 0.15) {
+        state.detected = { x: p.position.x, y: p.position.y, size: p.stats.markSize };
+      } else {
+        state.detected = null;
+        setStatus(`could not locate the mark (score ${Number(score).toFixed(3)}) — ` +
+          `place it by clicking the preview, or scrub to a frame where it is visible`, true);
+      }
+    }
+    const shown = state.manual
+      ? { x: state.position ? state.position.x : p.box.x,
+          y: state.position ? state.position.y : p.box.y, size: state.markSize }
+      : { x: p.position.x, y: p.position.y, size: p.stats.markSize };
+    $("pos-x").value = shown.x;
+    $("pos-y").value = shown.y;
+    $("pos-size").value = shown.size;
+
+    paint($("c-orig"), p, p.original, true);
+    paint($("c-clean"), p, p.cleaned, false);
+
+    // Label by who chose the placement, not by whether this particular preview
+    // re-ran detection -- a cached auto result is still automatic.
+    $("cap-orig").textContent = state.manual
+      ? `manual · mark ${shown.size}px`
+      : `auto · mark ${shown.size}px` +
+        (p.stats.detectScore == null ? "" : ` · fit ${p.stats.detectScore.toFixed(3)}`) +
+        (p.stats.detectAnchored ? " · corner" : "");
+
+    const r = p.stats.quality;
+    const warn = r <= cfg.warnQuality;
+    $("cap-clean").innerHTML =
+      `α≤${p.stats.alphaPeak.toFixed(3)} · left ${Math.abs(p.stats.residualAmplitude).toFixed(1)}/` +
+      `${Math.abs(p.stats.markAmplitude).toFixed(0)} · ` +
+      `<span class="${warn ? "font-semibold text-amber-600 dark:text-amber-400" : ""}">` +
+      `${(r * 100).toFixed(1)}% removed</span>`;
+
+    const op = p.stats.opacityUsed;
+    // Remembered so "Custom α gain…" can open at the solved value.
+    if (typeof op === "number") state.lastGain = op;
+    const bits = [`α gain ${typeof op === "number" ? op.toFixed(3) : op}` +
+                  (p.stats.gainSolved === false ? " (hit a limit)" : "")];
+    if (p.stats.lost) bits.push(`${p.stats.lost} px above ceiling`);
+    if (p.stats.diffused) bits.push(`${p.stats.diffused} px diffused`);
+    // A weak fit is worth saying even when the removal number looks fine, because
+    // a box on empty background can score well by removing nothing.
+    if (p.stats.detectConfident === false && !state.manual) {
+      bits.push("⚠ nothing in this frame looks like the mask — place it by hand");
+    }
+    if (warn) {
+      bits.push(`⚠ only ${(r * 100).toFixed(1)}% removed — ` +
+        // A pinned OPACITY is the first thing to question, but the shipped default
+        // is itself pinned, so it gets the softer wording: on the default the user
+        // has not done anything wrong, they just have not tried Auto yet.
+        (cfg.opacity !== "auto" && cfg.opacity !== BASE.opacity ? "OPACITY is pinned; set it to Auto"
+          : cfg.opacity !== "auto" ? "try OPACITY on Auto so α is solved for this file"
+          : cfg.baseStrength !== 1 ? "BASE STRENGTH is not 1.00"
+          : p.stats.detectConfident === false ? "detection is unreliable here; place the mark by hand"
+          : "check the position and PX size"));
+    }
+    setStatus(bits.join(" · "), warn);
+  } catch (err) {
+    setStatus(err.message, true);
+  }
+}
+
+/** Draw the crop window, scaled to the canvas, with the mask box outlined. */
+function paint(canvas, p, img, showGuide) {
+  const side = 320;
+  canvas.width = side; canvas.height = side;
+  const ctx = canvas.getContext("2d");
+
+  const tmp = document.createElement("canvas");
+  tmp.width = p.crop.size; tmp.height = p.crop.size;
+  const tctx = tmp.getContext("2d");
+  const sub = tctx.createImageData(p.crop.size, p.crop.size);
+  for (let y = 0; y < p.crop.size; y++) {
+    for (let x = 0; x < p.crop.size; x++) {
+      const s = ((p.crop.y + y) * img.width + (p.crop.x + x)) * 4;
+      const d = (y * p.crop.size + x) * 4;
+      sub.data[d] = img.data[s];
+      sub.data[d + 1] = img.data[s + 1];
+      sub.data[d + 2] = img.data[s + 2];
+      sub.data[d + 3] = 255;
+    }
+  }
+  tctx.putImageData(sub, 0, 0);
+
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(tmp, 0, 0, side, side);
+
+  const k = side / p.crop.size;
+  ctx.strokeStyle = "rgba(20,184,166,.9)";
+  ctx.setLineDash([4, 3]);
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect((p.box.x - p.crop.x) * k, (p.box.y - p.crop.y) * k, p.box.size * k, p.box.size * k);
+}
+
+/* ───────── apply ───────── */
+$("btn-apply").onclick = async () => {
+  if (!state.file || state.busy) return;
+  state.busy = true;
+  $("btn-apply").disabled = true;
+  $("result").classList.add("hidden");
+  const started = performance.now();
+
+  try {
+    let out, name = state.file.name.replace(/\.[^.]+$/, "");
+    if (state.kind === "image") {
+      setStatus("processing image…");
+      // Pass the frame actually on screen, so an animated image is processed at
+      // the frame the user chose rather than always at frame 0.
+      out = await SEEB4.processImage(await frameSource(), engineCfg(), {});
+      const op = out.stats.opacityUsed;
+      finish(out.blob, `${name}-clean.png`, [
+        `${out.width}×${out.height}`,
+        `mark ${out.stats.markSize}px at (${out.stats.box.x}, ${out.stats.box.y}), treated box ${out.stats.box.size}px`,
+        `α gain ${typeof op === "number" ? op.toFixed(3) : op}, peak α ${out.stats.alphaPeak.toFixed(3)}`,
+        out.stats.lost ? `${out.stats.lost} px above ceiling` : "nothing above ceiling",
+        out.stats.diffused ? `${out.stats.diffused} px diffused` : null,
+        state.anim
+          ? `frame ${(state.time | 0) + 1} of ${state.anim.frames} — animation is not preserved`
+          : null,
+        `${(out.stats.quality * 100).toFixed(1)}% of the mark removed ` +
+        `(${Math.abs(out.stats.residualAmplitude).toFixed(1)} of ` +
+        `${Math.abs(out.stats.markAmplitude).toFixed(0)} luma levels left)`,
+        "lossless PNG",
+      ], out.stats.quality);
+    } else {
+      $("prog-wrap").classList.remove("hidden");
+      out = await SEEB4.processVideo(state.file, engineCfg(), {
+        onProgress: (done, total) => {
+          const pct = total ? clamp((100 * done) / total, 0, 100) : 0;
+          $("prog").style.width = pct + "%";
+          $("prog-text").textContent = `${done}${total ? " / " + total : ""} frames · ${pct.toFixed(0)}%`;
+        },
+        onPlacement: (box, score, markSize) => setStatus(
+          `mark ${markSize}px at (${box.x}, ${box.y})` +
+          (score == null ? " (manual)" : ` · fit ${score.toFixed(3)}`)
+        ),
+      });
+      $("prog").style.width = "100%";
+      const vop = out.opacityUsed;
+      finish(out.blob, `${name}-clean.mp4`, [
+        `${out.frames} frames at ${out.width}×${out.height}, ${out.fps.toFixed(2)} fps`,
+        `mark ${out.markSize}px at (${out.box.x}, ${out.box.y})`,
+        out.audio
+          ? `audio copied untouched (${out.audio.codec}, ${out.audio.channels}ch ` +
+            `${out.audio.sampleRate}Hz, ${out.audio.copied} packets` +
+            (out.audio.trimmed
+              ? `; ${out.audio.trimmed} trimmed from before the first frame, ` +
+                `sync within ${(out.audio.skewUs / 1000).toFixed(0)}ms`
+              : "") + ")"
+          : (out.audioDropped ? "audio dropped (no usable packets)" : "no audio track"),
+        `re-encoded at ${(out.bitrate / 1e6).toFixed(1)} Mbps`,
+        `α gain ${typeof vop === "number" ? vop.toFixed(3) : vop}`,
+        `worst frame: ${(out.worstQuality * 100).toFixed(1)}% of the mark removed`,
+      ], out.worstQuality);
+    }
+    setStatus(`done in ${((performance.now() - started) / 1000).toFixed(1)}s`);
+  } catch (err) {
+    console.error(err);
+    setStatus(err.message, true);
+    $("result").classList.remove("hidden");
+    $("result").innerHTML = `<p class="text-xs font-medium text-rose-600 dark:text-rose-400">Failed: ${esc(err.message)}</p>`;
+  } finally {
+    state.busy = false;
+    $("btn-apply").disabled = false;
+    $("prog-wrap").classList.add("hidden");
+    $("prog").style.width = "0";
+  }
+};
+
+function finish(blob, filename, lines, pearson) {
+  const url = URL.createObjectURL(blob);
+  const warn = pearson != null && pearson <= cfg.warnQuality;
+  $("result").classList.remove("hidden");
+  $("result").innerHTML = `
+    <div class="flex flex-wrap items-center gap-3">
+      <a href="${url}" download="${esc(filename)}"
+         class="rounded-lg bg-brand-600 px-4 py-1.5 text-xs font-semibold text-white hover:bg-brand-700">
+        Download ${esc(filename)}
+      </a>
+      <span class="text-[11px] text-slate-500 dark:text-slate-400">${(blob.size / 1048576).toFixed(2)} MB</span>
+    </div>
+    <ul class="mt-2 space-y-0.5 text-[11px] text-slate-500 dark:text-slate-400">
+      ${lines.filter(Boolean).map(l => `<li>· ${esc(l)}</li>`).join("")}
+    </ul>
+    ${warn ? `<p class="mt-2 rounded-lg bg-amber-500/10 px-3 py-2 text-[11px] text-amber-700 dark:text-amber-400">
+      Only ${(pearson * 100).toFixed(1)}% of the mark was removed, at or below your
+      ${(cfg.warnQuality * 100).toFixed(0)}% threshold. ${
+        cfg.opacity !== "auto" && cfg.opacity !== BASE.opacity
+          ? `OPACITY is pinned to <b>${cfg.opacity}</b> — set it back to <b>Auto</b> so α is solved
+             for this file instead of assumed; that is the usual cause when the position and PX size
+             already look right.`
+          : cfg.opacity !== "auto"
+          ? `OPACITY is on its default gain of <b>${cfg.opacity}</b>, which is assumed rather than
+             measured for this file. Switch it to <b>Auto — solve α</b>; that is the usual fix when
+             the position and PX size already look right.`
+          : cfg.baseStrength !== 1
+            ? `BASE STRENGTH is <b>${cfg.baseStrength}</b> rather than 1.00, which fights the solved α.
+               Reset it, then fix placement if the mark still shows.`
+            : `Usually the position or the PX size is off — press <b>Auto</b> to re-measure, or nudge
+               them and watch the preview.`
+      }</p>` : ""}`;
+  const a = document.createElement("a");
+  a.href = url; a.download = filename;
+  a.click();
+}
+
+/* ───────── settings persistence ───────── */
+let isDirty = false;
+function dirty() {
+  isDirty = true;
+  $("banner-text").textContent = "Unsaved changes. Click Save settings to reuse them next time.";
+}
+$("btn-save").onclick = () => {
+  const save = { ...cfg };
+  localStorage.setItem("seeb4-settings", JSON.stringify(save));
+  localStorage.setItem("seeb4-settings-version", String(SETTINGS_VERSION));
+  isDirty = false;
+  $("banner-text").textContent = "Settings saved in this browser.";
+};
+$("btn-reset").onclick = () => {
+  cfg = { ...BASE };
+  localStorage.removeItem("seeb4-settings");
+  state.position = null;
+  buildControls();
+  $("banner-text").textContent = "Back to system defaults.";
+  schedulePreview();
+};
+
+function setStatus(text, isWarn) {
+  const el = $("status");
+  el.textContent = text || "";
+  el.className = "min-w-0 flex-1 truncate text-[11px] " +
+    (isWarn ? "font-medium text-amber-600 dark:text-amber-400" : "text-slate-500 dark:text-slate-400");
+}
+
+function render() {
+  const isVideo = state.kind === "video";
+  const on = "rounded-lg border px-3 py-2 border-brand-500 bg-brand-500/10";
+  const off = "rounded-lg border px-3 py-2 border-slate-200 opacity-50 dark:border-slate-800";
+  $("tab-image").className = isVideo ? off : on;
+  $("tab-video").className = isVideo ? on : off;
+  document.querySelectorAll("[data-video-only]").forEach(el => {
+    el.classList.toggle("hidden", !isVideo);
+  });
+}
+
+/* ───────── calibration ───────── */
+const calSamples = [];
+$("btn-calibrate").onclick = () => $("cal").showModal();
+$("cal-close").onclick = () => $("cal").close();
+$("cal-drop").onclick = () => $("cal-file").click();
+$("cal-file").onchange = () => addCalFiles([...$("cal-file").files]);
+wireDrop("cal-drop", addCalFiles);
+
+async function addCalFiles(files) {
+  for (const f of files) {
+    try {
+      const bmp = await createImageBitmap(f);
+      const cv = document.createElement("canvas");
+      cv.width = bmp.width; cv.height = bmp.height;
+      const cx = cv.getContext("2d", { willReadFrequently: true });
+      cx.drawImage(bmp, 0, 0);
+      bmp.close && bmp.close();
+      const img = cx.getImageData(0, 0, cv.width, cv.height);
+
+      // Median per channel is exact for a flat image, and the mark is tiny.
+      const bg = [0, 1, 2].map(c => {
+        const vals = [];
+        for (let i = c; i < img.data.length; i += 4 * 97) vals.push(img.data[i]);
+        vals.sort((a, b) => a - b);
+        return vals[vals.length >> 1];
+      });
+      calSamples.push({ name: f.name, img, background: bg });
+    } catch (err) {
+      alert(`${f.name}: ${err.message}`);
+    }
+  }
+  renderCal();
+}
+
+function renderCal() {
+  // One sample suffices when it is solid black; otherwise two tones are needed.
+  const black = calSamples.length === 1 &&
+    calSamples[0].background.every(v => v <= 6);
+  $("cal-fit").disabled = calSamples.length < 1 || (calSamples.length === 1 && !black);
+  $("cal-list").innerHTML = calSamples.map((s, i) => `
+    <div class="flex items-center gap-2 rounded-lg border border-slate-200 px-2.5 py-1.5 text-[11px] dark:border-slate-800">
+      <span class="min-w-0 flex-1 truncate font-medium">${esc(s.name)}</span>
+      <span class="shrink-0 text-slate-400">${s.img.width}×${s.img.height}</span>
+      <span class="shrink-0 tabular-nums text-slate-400">rgb(${s.background.join(",")})</span>
+      <button data-drop="${i}" class="shrink-0 rounded border border-slate-300 px-1.5 text-slate-500 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">×</button>
+    </div>`).join("");
+  $("cal-list").querySelectorAll("[data-drop]").forEach(b => {
+    b.onclick = () => { calSamples.splice(Number(b.dataset.drop), 1); renderCal(); };
+  });
+}
+
+let fittedMask = null;
+$("cal-fit").onclick = () => {
+  const out = $("cal-out");
+  out.classList.remove("hidden");
+  try {
+    const r = SEEB4.calibrate(calSamples, {});
+    fittedMask = r.mask;
+    state.calibratedMask = r.mask;
+    out.textContent =
+      `samples        ${calSamples.length} (${calSamples.map(s => s.name).join(", ")})\n` +
+      `resolution     ${r.resolution.width}×${r.resolution.height}\n` +
+      `method         ${r.method}\n` +
+      `mark box       x=${r.box.x} y=${r.box.y} size=${r.box.size}\n` +
+      `inset          ${r.inset.x}×${r.inset.y} px from the corner\n` +
+      `peak alpha     ${r.peakAlpha.toFixed(4)}\n` +
+      `overlay luma   ${r.overlayLuma.toFixed(1)}\n` +
+      `fit residual   ${r.residual.toFixed(4)} bytes` +
+      (r.residual > 1.5
+        ? "\n\nWARNING: residual above 1.5 bytes. The samples are probably not flat\nunder the mark, or the mark differs between them."
+        : "\n\nThe fitted overlay reproduces your samples almost exactly.");
+    $("cal-download").classList.remove("hidden");
+
+    // Adopt everything that was measured, so the panel reflects reality. The
+    // fitted box already carries the mask's transparent padding, so its size and
+    // origin are exactly what the engine should use.
+    cfg.logo = "calibrated";
+    cfg.overlayLuma = clamp(Math.round(r.overlayLuma), 200, 255);
+    cfg.maskScale = 1.0;
+    // 1.00 is the only value that leaves the solved α where the solver put it;
+    // anything else scales it straight back off the optimum.
+    cfg.baseStrength = 1.0;
+    cfg.opacity = "auto";
+    if (state.file && state.width === r.resolution.width && state.height === r.resolution.height) {
+      state.markSize = r.box.size;
+      state.position = { x: r.box.x, y: r.box.y };
+      $("pos-size").value = r.box.size;
+      $("pos-x").value = r.box.x;
+      $("pos-y").value = r.box.y;
+    }
+    buildControls();
+    dirty();
+    schedulePreview();
+  } catch (err) {
+    out.textContent = "Error: " + err.message;
+  }
+};
+
+$("cal-download").onclick = async () => {
+  if (!fittedMask) return;
+  const blob = await SEEB4.maskToPngBlob(fittedMask);
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "mask.png";
+  a.click();
+};
+
+/* ───────── boot ───────── */
+buildControls();
+buildNudges();
+renderLock();
+render();
+if (migrationNote) $("banner-text").textContent = migrationNote;
+if (typeof VideoEncoder === "undefined") {
+  $("banner-text").textContent =
+    "This browser has no WebCodecs — images will work, video will not. Use Chrome or Edge.";
+}
+</script>
+
+<!-- ───────── landing page: before/after wipe ───────── -->
+<script>
+"use strict";
+(function () {
+  const wrap = document.getElementById("demo-wrap");
+  const range = document.getElementById("demo-range");
+  if (!wrap || !range) return;
+
+  const setSplit = (v) => wrap.style.setProperty("--split", v + "%");
+  range.addEventListener("input", () => setSplit(range.value));
+  setSplit(range.value);
+
+  const panes = wrap.querySelectorAll("[data-pane]");
+  const tabs = [document.getElementById("demo-tab-image"), document.getElementById("demo-tab-video")];
+  const on = "rounded-lg bg-brand-600 px-4 py-1.5 text-xs font-semibold text-white";
+  const off = "rounded-lg px-4 py-1.5 text-xs font-semibold text-slate-600 hover:bg-white dark:text-slate-400 dark:hover:bg-slate-800";
+
+  const before = document.getElementById("demo-video-before");
+  const after = document.getElementById("demo-video-after");
+  let videoReady = false;
+
+  /* Sources are attached from JS rather than sitting in the markup, so the two
+     clips are fetched once — when the video pane is first shown — instead of on
+     every load whichever pane is in front. */
+  function startVideo() {
+    if (videoReady) return;
+    videoReady = true;
+    [before, after].forEach((v) => { v.src = v.dataset.src; });
+    // Two independent decoders drift; nudge the clipped one back when it does.
+    after.addEventListener("timeupdate", () => {
+      if (Math.abs(after.currentTime - before.currentTime) > 0.2) before.currentTime = after.currentTime;
+    });
+    play();
+  }
+
+  /* Muted autoplay is normally allowed, but a browser or OS setting can still
+     refuse it. If that happens, the next interaction with the frame starts it. */
+  function play() {
+    Promise.all([before.play(), after.play()].map((p) => (p || Promise.resolve()).catch(() => "blocked")))
+      .then((r) => {
+        if (!r.includes("blocked")) return;
+        wrap.addEventListener("pointerdown", function once() {
+          wrap.removeEventListener("pointerdown", once);
+          play();
+        });
+      });
+  }
+
+  function show(name) {
+    panes.forEach((p) => p.classList.toggle("hidden", p.dataset.pane !== name));
+    tabs.forEach((t) => { t.className = t.dataset.pane === name ? on : off; });
+    if (name !== "video") { if (videoReady) [before, after].forEach((v) => v.pause()); return; }
+    if (videoReady) play(); else startVideo();
+  }
+
+  tabs.forEach((t) => t.addEventListener("click", () => show(t.dataset.pane)));
+
+  // Video is the default pane — show it rather than trusting the markup alone,
+  // so the tab styling and the playing clips can never disagree.
+  show("video");
+})();
+</script>
+
+<!--
+  Structured data. The FAQ entries repeat the visible accordion word for word:
+  Google requires the answer to be present on the page, and a paraphrase here is
+  what turns a rich result into a manual action. Edit both or neither.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://seeb4erase.seeb4coding.in/#app",
+      "name": "SEEB4 Erase",
+      "alternateName": "SEEB4 Erase — Gemini watermark remover",
+      "url": "https://seeb4erase.seeb4coding.in/",
+      "description": "Free watermark remover for Gemini images and video. It inverts the alpha composite that added the mark, entirely in the browser — nothing is uploaded and no server is involved.",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Photo and video editing",
+      "operatingSystem": "Any — runs in Chrome, Edge or any Chromium browser. Images work in any modern browser.",
+      "browserRequirements": "Requires JavaScript. Video needs WebCodecs (Chrome or Edge).",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "license": "https://github.com/seeb4coding/seeb4-erase/blob/main/LICENSE",
+      "codeRepository": "https://github.com/seeb4coding/seeb4-erase",
+      "screenshot": "https://seeb4erase.seeb4coding.in/assets/og-cover.png",
+      "featureList": [
+        "Removes alpha-blended watermarks from images and video",
+        "Runs entirely on your device — no upload, no account, works offline",
+        "Finds the mark anywhere in the frame at its measured pixel size",
+        "Solves the mark's opacity instead of guessing from presets",
+        "Reports what percentage of the mark was actually removed",
+        "Video is remuxed to MP4 with the original audio copied untouched",
+        "Free and open source under the MIT licence"
+      ],
+      "author": { "@id": "https://seeb4coding.in/#org" },
+      "publisher": { "@id": "https://seeb4coding.in/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://seeb4coding.in/#org",
+      "name": "seeb4coding",
+      "url": "https://seeb4coding.in",
+      "slogan": "Coding meets innovation",
+      "logo": "https://seeb4erase.seeb4coding.in/assets/seeb4coding-logo.jpeg"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://seeb4erase.seeb4coding.in/#website",
+      "url": "https://seeb4erase.seeb4coding.in/",
+      "name": "SEEB4 Erase",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://seeb4coding.in/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://seeb4erase.seeb4coding.in/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it really free, or free-until-it-isn't?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free, permanently. There is no account, no credit counter and no paid tier to upsell you to — there is no server to charge you for. It is MIT licensed, so you can also fork it, host it, or ship it inside something of your own."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does my photo or video get uploaded anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Your file is decoded, edited and rebuilt by this tab on your own machine, and there is no code path in the project that sends one anywhere. If you want to prove it rather than take our word: open your browser's network tab, or disconnect from the internet entirely and use it as normal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which watermarks can it actually remove?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Marks that were alpha-blended over a finished frame — Gemini's corner sparkle being the case it ships tuned for. A mark burned in with a multiply, screen or displacement effect is a different equation and won't come out cleanly. Google's invisible SynthID provenance signal is not an overlay at all and is left completely untouched."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does video work as well as images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost. Stills reach around 99% of the mark removed; a real 720p clip lands near 93%, because compression and chroma subsampling mean the stored pixels aren't exactly the values that were blended. Video also has to be re-encoded — every tool has that problem, since changed pixels are changed data. Raise VIDEO BITRATE × for busy clips."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A faint mark is still there. What do I change?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fix the placement, not the strength. Click the preview to move the box, or type X, Y and PX and watch the % removed. If a dark sparkle outline is left behind, switch MARK OUTLINE on. Leave BASE STRENGTH at 1.00 — the solver already assumes it, so anything else scales its answer away from the optimum."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which browsers does it need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Images work in any current browser. Video needs WebCodecs, which means Chrome, Edge or another Chromium build. No extension and no install either way."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it OK to use this?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Removing a mark doesn't hand you any rights to the work underneath. Use it on output you're entitled to use — your own generations, your own footage, content you have permission for — and check your generator's terms, which may require the mark to stay. AI-generated media is still AI-generated afterwards, so keep labelling it."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

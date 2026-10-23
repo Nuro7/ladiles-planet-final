@@ -15,7 +15,7 @@ function cleanupError(message) {
 }
 
 function processVideo(input, output) {
-  return new Promise((resolve, reject) => {
+  return require('./runtimeService').media.run(() => new Promise((resolve, reject) => {
     // Argument arrays prevent filenames from becoming shell commands. The isolated
     // worker performs frame processing without blocking the web server event loop.
     const child = spawn(process.execPath, [worker, '--input', input, '--output', output, '--ffmpeg', media.binary(), '--contour', '2'], {
@@ -51,7 +51,7 @@ function processVideo(input, output) {
         reject(cleanupError('Film finishing returned an incomplete result. Recover the saved film.'));
       }
     });
-  });
+  }));
 }
 
 /**

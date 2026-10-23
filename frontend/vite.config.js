@@ -14,6 +14,8 @@ export default defineConfig({
         server.middlewares.use('/api/video', async (req, res) => {
           const url = new URL(req.url, `http://${req.headers.host}`);
           const id = url.searchParams.get('id');
+          const allowed = new Set(['1eF-lRp7i1bfLAUXSus89I_AkwUEUifD1','1pgD5n8c-WMb1ujBrTsanncQaTPzY8Ifk','1L582RHeSPVYg13LrGS149e-rpU5LvAEk','1dOInq0yUq9TOnny82NWNztNwVuy6KOrW','14pV_NRMlsjBB_QSG32QUGSeTd9iv4Td-','17engzF5_ScEQuvNWi5lApGletLONR19t']);
+          if (!['GET','HEAD'].includes(req.method) || !allowed.has(id)) { res.statusCode = 404; res.end(); return; }
           if (!id) {
             res.statusCode = 400;
             res.end('Missing file id');
@@ -22,7 +24,7 @@ export default defineConfig({
 
           const driveUrl = `https://drive.usercontent.google.com/download?id=${id}&export=download`;
 
-          res.setHeader('Access-Control-Allow-Origin', '*');
+          res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
           res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
           res.setHeader('Access-Control-Allow-Headers', 'Range, Content-Type');
 
@@ -43,6 +45,8 @@ export default defineConfig({
               url: driveUrl,
               headers: headers,
               responseType: 'stream',
+              timeout: 15000,
+              maxRedirects: 0,
               validateStatus: () => true,
             });
 

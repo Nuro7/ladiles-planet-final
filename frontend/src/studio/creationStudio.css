@@ -72,6 +72,10 @@
 .creation-bundle-card { display:block; min-width:0; padding:0; overflow:hidden; border:1px solid var(--border); border-radius:15px; color:var(--text); background:var(--surface); text-align:left; cursor:pointer; transition:border-color .2s,box-shadow .2s; }
 .creation-bundle-card:hover,.creation-bundle-card:focus-visible { border-color:var(--gold); box-shadow:0 10px 30px #0003; }
 .creation-bundle-card:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+.creation-bundle-card.is-reel-study,.guided-template-grid button.guided-video-card.is-reel-study { border:2px solid #85c9d3; background:linear-gradient(145deg,#173440,#24212f); box-shadow:inset 0 0 0 4px #85c9d314; }
+.reel-study-label { display:block; width:fit-content; margin:0 0 10px; padding:6px 9px; border:1px solid #85c9d36b; border-radius:7px; background:#0d2c38; color:#cdf6f8; font-size:11px; font-weight:700; letter-spacing:.04em; }
+.guided-video-card.is-reel-study { position:relative; }
+.guided-video-card.is-reel-study .reel-study-label { position:absolute; z-index:2; top:9px; left:8px; right:8px; width:auto; text-align:center; }
 .creation-bundle-visuals { display:grid; grid-template-columns:1fr 24px 1fr; align-items:center; gap:7px; padding:10px; background:var(--surface-2,#1c1518); }
 .creation-bundle-visual { position:relative; height:170px; overflow:hidden; display:grid; place-items:center; color:var(--gold); background:#110d0f; border-radius:8px; }
 .creation-bundle-visual img { width:100%; height:100%; object-fit:cover; }
