@@ -18,6 +18,7 @@ const authRoutes = require('./routes/authRoutes');
 const brideRoutes = require('./routes/brideRoutes');
 const higgsfieldOAuthRoutes = require('./routes/higgsfieldOAuthRoutes');
 const pricingRoutes = require('./routes/pricingRoutes');
+const landingVideoRoutes = require('./routes/landingVideoRoutes');
 const { protect } = require('./middleware/authMiddleware');
 const studioAccess = require('./middleware/studioAccess');
 const ownerAccess = require('./middleware/ownerAccess');
@@ -70,6 +71,9 @@ app.get('/api', (req, res) => {
         timestamp: new Date().toISOString()
     });
 });
+
+// Public landing-page clips (Google Drive proxy; replaces the Vercel-only frontend/api/video.js)
+app.use('/api/video', landingVideoRoutes);
 
 app.get('/api/health', (req, res) => {
     res.json({
@@ -140,8 +144,13 @@ console.log('  /api/brides (Authenticated)');
 if (process.env.NODE_ENV === 'production') {
     const path = require('node:path');
     const dist = path.join(__dirname, '../frontend/dist');
-    app.use(express.static(dist, { dotfiles: 'deny' }));
-    app.get(/^(?!\/api(?:\/|$)).*/, (req, res) => res.sendFile(path.join(dist, 'index.html')));
+    // PWA: revalidate the service worker, manifest and app shell; hashed assets never change.
+    const noCache = /(^|\/)(sw\.js|manifest\.webmanifest|index\.html)$/;
+    app.use(express.static(dist, { dotfiles: 'deny', setHeaders(res, file) {
+        if (noCache.test(file.replace(/\\/g, '/'))) res.setHeader('Cache-Control', 'no-cache');
+        else if (file.includes(`${path.sep}assets${path.sep}`)) res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    } }));
+    app.get(/^(?!\/api(?:\/|$)).*/, (req, res) => res.sendFile(path.join(dist, 'index.html'), { headers: { 'Cache-Control': 'no-cache' } }));
 }
 // 404 handler
 app.use((req, res) => {
