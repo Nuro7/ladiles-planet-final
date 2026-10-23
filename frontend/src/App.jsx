@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import PwaStatus from './pwa/PwaStatus';
 
 // ── Public landing (eager: it's the entry point, must paint instantly) ──
 import LandingPage from './pages/LandingPage';
@@ -33,6 +34,7 @@ function RouteFallback() {
 function App() {
     return (
         <AuthProvider>
+            <PwaStatus />
             <Router>
                 <Suspense fallback={<RouteFallback />}>
                     <Routes>

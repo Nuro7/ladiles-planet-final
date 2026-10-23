@@ -12,10 +12,13 @@ export default function EngineConnection() {
   const [status, setStatus] = useState(null);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
+  const [notOwner, setNotOwner] = useState(false);
 
   async function refresh() {
     try {
       const response = await fetch(`${API}/higgsfield-oauth/status`, { cache: 'no-store', headers: await ownerHeaders() });
+      // Only the owner manages the connection; staff simply don't see this panel.
+      if (response.status === 403) { setNotOwner(true); return; }
       if (!response.ok) throw new Error('Connection status is unavailable. Check that the backend is running.');
       const result = await response.json();
       setStatus(result.data);
@@ -52,6 +55,7 @@ export default function EngineConnection() {
     } catch (cause) { setError(cause.message); setBusy(false); }
   }
 
+  if (notOwner) return null;
   return <section className="creation-engine" aria-label="AI engine connection">
     <div>
       <strong>AI Engine connection</strong>
