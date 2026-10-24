@@ -1,0 +1,42 @@
+PROJECT: LADIES PLANET — VEILED CORRIDOR REVERIE
+MODEL: WAN 3.0 PRIME | 15 SECONDS | 16:9 LANDSCAPE | SILENT
+
+OBJECTIVE
+Recreate VIDEO 1 shot for shot with a different bride. Replace only the woman's identity, complete outfit and jewellery. Everything else stays the same. This is replacement, not a new concept or unchanged copy of VIDEO 1.
+
+REFERENCE ROLES
+VIDEO 1 = motion, expressions, gaze, hand and finger positions, poses, camera angle and movement, framing, shot order, cuts, timing, slow motion, environment and lighting. Never use its woman's face, outfit, dupatta or jewellery.
+FIRST image = the BRIDE. Facial identity only.
+FOLLOWING images = the DRESS. All views show ONE garment and its matching dupatta.
+Jewellery reference: see section 5.
+
+1. FACE IDENTITY
+The bride is the woman in the BRIDE image in every frame, not a similar woman. Preserve face shape and proportions, eyes and spacing, eyebrows, nose, lips, cheeks, jaw, chin, forehead, hairline, skin tone, natural asymmetry and skin texture. Never blend or alternate with VIDEO 1's woman. The face follows every head turn, tilt and light change; no pasted or floating face, seams or beauty filter. Ignore the BRIDE image's clothing and accessories.
+
+2. MOTION AND SHOT TIMELINE
+0.0–1.3s: Backlit side-profile medium portrait beside tall curtains; one hand rises toward the bright window, chin turns slightly and she holds a soft smile; gentle lateral drift.
+1.3–3.0s: Frontal medium portrait; both hands lift the matching dupatta edge horizontally before her face, then lower it enough to reveal her eyes and smile; clean cut.
+3.0–6.2s: Stylized extreme beauty close-up showing two overlapping side-by-side views of the same bride's face; eyes remain lowered, then one gaze lifts with a slight smile as the composite drifts slowly.
+6.2–8.4s: Distant full-length corridor view; she advances toward camera from the doorway with measured steps, skirt and dupatta trailing naturally; centered slow push-in.
+8.4–10.9s: Closer full-length corridor tracking shot; she continues forward, lightly holds the skirt and hanging bridal tassels, smiles, then pivots toward the mirror so the veil and skirt follow with weight.
+10.9–11.9s: Warm seated close portrait; head tilts down, one hand rests against her temple and she smiles gently; steady frame.
+11.9–13.8s: Dark low-key profile close-up; she raises one hand and presses a soft kiss to her fingers, eyes lowered, with narrow side light shaping face and jewellery.
+13.8–15.0s: Return to the warm seated portrait; hand remains at her temple, gaze lifts toward camera and the restrained smile holds as the image fades darker.
+Match VIDEO 1's speed, source composite effect and cut points exactly. No extra shots, poses, gestures, camera moves or effects.
+
+3. EXACT DRESS AND DUPATTA
+The DRESS images are the only authority for the outfit: colour, silhouette, neckline, sleeves, bodice, fabric, embroidery motifs and placement, borders and construction. The matching dupatta from the DRESS images is mandatory; VIDEO 1 decides only how it moves and is held. Never reuse VIDEO 1's outfit or dupatta. Unseen areas stay plain and consistent, not invented.
+
+4. NO MANNEQUIN
+Take only the garment from the DRESS images. Ignore any mannequin, stand, hanger or display bust. Zero mannequin parts or white plastic patches on the bride; natural human body, skin and proportions.
+
+5. JEWELLERY
+{{JEWELLERY_BLOCK}}
+
+6. ENVIRONMENT
+Refined hotel bridal suite and warm beige corridor with tall cream curtains, bright window backlight, wood doors, mirrors and subdued amber interior light. Preserve the contrast between airy window scenes and the dark profile portrait. Do not reproduce the source watermark or add text, logos, people or props.
+
+7. CONTINUITY
+Same face, dress, dupatta and jewellery in every frame, including both views in the composite close-up. Realistic hands with five fingers, natural fabric weight and folds. No flicker, morphing embroidery, colour shifts, floating jewellery, distorted limbs, watermark or captions.
+
+PRIORITIES: 1) VIDEO 1 shot sequence and motion. 2) Bride face identity. 3) Exact dress and dupatta. 4) No mannequin. 5) Jewellery rule. 6) Natural anatomy and continuity.

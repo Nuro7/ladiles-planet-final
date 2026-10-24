@@ -1,0 +1,43 @@
+PROJECT: LADIES PLANET — RED-LIT MIRROR BRIDE
+MODEL: WAN 3.0 PRIME | 15 SECONDS | 16:9 LANDSCAPE | SILENT
+
+OBJECTIVE
+Recreate VIDEO 1 shot for shot with a different bride. Replace only three things: the woman's identity, her complete outfit and her jewellery. Everything else in VIDEO 1 stays the same. This is subject-and-wardrobe replacement, not a new concept and not an unchanged copy of VIDEO 1.
+
+REFERENCE ROLES
+VIDEO 1 = motion, expressions, gaze, hand and finger positions, poses, camera angle and movement, framing, shot order, cuts, timing, slow motion, environment and lighting. Never use its woman's face, outfit, dupatta or jewellery.
+FIRST image = the BRIDE. Facial identity only.
+FOLLOWING images = the DRESS. All views show ONE garment and its matching dupatta.
+Jewellery reference: see section 5.
+
+1. FACE IDENTITY
+The bride is the woman in the BRIDE image in every frame, not a similar woman. Preserve face shape and proportions, eyes and spacing, eyebrows, nose, lips, cheeks, jaw, chin, forehead, hairline, skin tone, natural asymmetry and skin texture. Never blend or alternate with VIDEO 1's woman. The face follows every head turn, tilt and light change; no pasted or floating face, no seams, no beauty filter. Ignore the BRIDE image's clothing and accessories.
+
+2. MOTION AND SHOT TIMELINE
+0.0–1.0s: Overhead close detail of crossed hennaed hands and wrists resting on the spread skirt; saturated red light with moving circular colour flares, gentle focus drift, hard cut.
+1.0–2.8s: High-angle seated medium portrait; the bride holds the dupatta edge in both hands, gaze lowered toward it, then begins lifting her eyes; slow dreamy motion with red/orange halos.
+2.8–4.2s: Front high-angle medium shot; she raises her right hand beside her ear and meets camera with a composed expression; shallow focus pulses softly.
+4.2–6.4s: Slightly wider seated portrait against a cushioned chair; right hand stays near her ear, head tips back and eyes look upward; camera drifts minimally through saturated red light.
+6.4–7.5s: Return to the high-angle pose; she holds the dupatta edge and lowers her gaze back toward camera as a flare passes; hard cut.
+7.5–8.8s: Bright neutral-room close crop from chest to forehead; her hennaed right palm is upright beside her face while she looks down and off-camera; soft haze and slight focus drift.
+8.8–10.4s: Mirror-room composition; three-quarter profile appears beyond a large white sculptural vase and pale pampas, with her reflection behind; she looks toward the mirror during a gentle lateral reveal.
+10.4–12.5s: Frontal close portrait behind out-of-focus pale flowers; she faces camera with a calm gaze as the camera holds and the foreground haze drifts.
+12.5–15.0s: Extreme soft-focus bridal detail in warm neutral light; hands and embroidered fabric move slowly behind translucent foreground blur, preserving the abstract framing until the end.
+Match VIDEO 1's speed and cut points exactly. No extra shots, poses, gestures or camera moves.
+
+3. EXACT DRESS AND DUPATTA
+The DRESS images are the only authority for the outfit: colour, silhouette, neckline, sleeves, bodice, fabric, embroidery motifs and placement, borders and construction. The matching dupatta from the DRESS images is mandatory; VIDEO 1 decides only how it moves and is held. Never reuse VIDEO 1's outfit or dupatta. Unseen areas stay plain and consistent, not invented.
+
+4. NO MANNEQUIN
+Take only the garment from the DRESS images. Ignore any mannequin, stand, hanger or display bust. Zero mannequin parts or white plastic patches on the bride; natural human body, skin and proportions.
+
+5. JEWELLERY
+{{JEWELLERY_BLOCK}}
+
+6. ENVIRONMENT
+Preserve the first red-lit interior with cushioned seating, deep shadows and circular coloured flares, then the hard cut to the bright neutral dressing room with mirror, white sculptural vase and pale pampas. Keep the shallow depth of field, haze, colour grade and framing. Do not reproduce the source watermark or introduce text, logos, people, props or effects.
+
+7. CONTINUITY
+Same face, dress, dupatta and jewellery in every frame. Realistic hands with five fingers, natural fabric weight and folds. No flicker, morphing embroidery, colour shifts, floating jewellery, distorted limbs, watermark or captions.
+
+PRIORITIES: 1) VIDEO 1 shot sequence and motion. 2) Bride face identity. 3) Exact dress and dupatta. 4) No mannequin. 5) Jewellery rule. 6) Natural anatomy and continuity.

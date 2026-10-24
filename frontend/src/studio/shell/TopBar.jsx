@@ -51,7 +51,7 @@ export default function TopBar() {
         onClick={() => navigate('/studio/settings')}
         title={user?.email || 'Profile'}
         style={{
-          width: 32, height: 32, borderRadius: 50, cursor: 'pointer',
+          width: 'var(--avatar-size, 32px)', height: 'var(--avatar-size, 32px)', borderRadius: 50, cursor: 'pointer', flexShrink: 0,
           background: 'linear-gradient(135deg, #ECD9A8, #8E6A3C)', color: '#2A0207',
           border: 'none', fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-display)',
         }}>

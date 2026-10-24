@@ -60,3 +60,5 @@
 @media (max-width: 1100px) { .film-tabs { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media (max-width: 700px) { .film-result-grid { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .film-scene-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; } .film-scene__copy { padding: 12px; } .film-experience { padding: 18px; } }
+/* Long action labels ("Set prompts & references") wrap inside narrow scene cards instead of clipping. */
+.film-scene__copy .s-btn { white-space: normal; text-align: left; line-height: 1.25; max-width: 100%; }

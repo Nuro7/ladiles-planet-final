@@ -13,6 +13,20 @@ const generationRoute = require('./studioGenerationRoute');
 const higgsfieldStudio = require('./studioHiggsfieldService');
 const { referenceRules } = require('./bridalReferenceRules');
 const bridalOrnamentsPath = path.join(__dirname, '..', 'assets', 'global', 'bridal-ornaments-reference.png');
+const JEWELLERY_PLACEHOLDER = '{{JEWELLERY_BLOCK}}';
+const JEWELLERY_FOUND = 'The LAST image is the JEWELLERY reference. Reproduce its exact pieces, design, stones, colours, metal finish, size and placement on the bride. Wear only those pieces; do not add others. Ignore its stand, box, model and background. Never copy VIDEO 1\'s jewellery. Ornaments stay attached and identical in every frame.';
+const JEWELLERY_MINIMAL = 'No jewellery reference is attached. Use minimal, delicate bridal jewellery only: small stud or small drop earrings, one fine thin necklace or none, a few thin bangles. No heavy choker, maang tikka, matha patti, nath or layered sets. Never copy VIDEO 1\'s jewellery. Keep the same minimal pieces in every frame.';
+
+function prepareDatabaseJewellery(options, references) {
+  if (options.jewelleryMode !== 'database-or-minimal') return { options, references };
+  const occurrences = String(options.prompt || '').split(JEWELLERY_PLACEHOLDER).length - 1;
+  if (occurrences !== 1) throw new Error('This Premium template must contain exactly one jewellery placeholder. No generation was submitted.');
+  const jewellery = references.find(ref => ref.role === 'jewellery' && ref.url);
+  const withoutJewellery = references.filter(ref => ref.role !== 'jewellery');
+  const ordered = jewellery ? [...withoutJewellery, jewellery] : withoutJewellery;
+  const prompt = options.prompt.replace(JEWELLERY_PLACEHOLDER, jewellery ? JEWELLERY_FOUND : JEWELLERY_MINIMAL);
+  return { options: { ...options, prompt }, references: ordered };
+}
 
 function credentials() {
   const combined = (process.env.HF_CREDENTIALS || '').trim();
@@ -119,10 +133,15 @@ async function render(id, options, input = {}, onProgress = () => {}) {
   const route = generationRoute.resolve(options.tier, options.generationMode);
   options = generationRoute.enforce(route, options, input.source || input.sourceVideoUrl);
   if (route.provider === 'higgsfield-mcp') {
-    const references = input.references || (input.imageUrls || []).map((url, index) => ({ role: index ? 'dress view' : 'bride', url }));
-    const ornaments = await storage.uploadImage(process.env.SUPABASE_BUCKET_NAME,
-      'experiences/' + id + '/bridal-ornaments-reference.png', await readFile(bridalOrnamentsPath), 'image/png');
-    references.push({ role: 'bridal jewellery sheet', url: ornaments.publicUrl });
+    let references = input.references || (input.imageUrls || []).map((url, index) => ({ role: index ? 'dress view' : 'bride', url }));
+    if (options.jewelleryMode === 'database-or-minimal') {
+      ({ options, references } = prepareDatabaseJewellery(options, references));
+    } else {
+      const ornaments = await storage.uploadImage(process.env.SUPABASE_BUCKET_NAME,
+        'experiences/' + id + '/bridal-ornaments-reference.png', await readFile(bridalOrnamentsPath), 'image/png');
+      references.push({ role: 'bridal jewellery sheet', url: ornaments.publicUrl });
+    }
+    require('./studioPromptValidation').validateVideoPrompt(options);
     onProgress(undefined, 'Preparing references and checking the credit cost…');
     const result = await higgsfieldStudio.makeVideo({ options, references, sessionId: id,
       provider: input.provider, onSubmitted: input.onSubmitted, onAttempt: input.onAttempt, onResponse: input.onResponse });
@@ -258,4 +277,4 @@ async function upscale(id,options,input,onProgress=()=>{}) {
   localResults.set(id,file);
   return '/api/videos/studio/media/'+id+'?version=1080p';
 }
-module.exports = { start, render, upscale, credentials, localResults, buildRequest, poll, budgetFiles };
+module.exports = { start, render, upscale, credentials, localResults, buildRequest, poll, budgetFiles, prepareDatabaseJewellery };

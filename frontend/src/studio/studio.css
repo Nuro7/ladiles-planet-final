@@ -669,3 +669,24 @@
     transition-duration: .001ms !important; scroll-behavior: auto !important;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   TOUCH (tablet / phone) — comfortable tap targets, and 16px form text so
+   iOS Safari doesn't zoom the page when a field is focused.
+   ══════════════════════════════════════════════════════════════════════════ */
+@media (pointer: coarse) {
+  .studio-root { --avatar-size: 40px; }
+  .studio-root input:not([type=checkbox]):not([type=radio]):not([type=range]),
+  .studio-root select, .studio-root textarea { font-size: 16px; }
+  .s-credits { min-height: 40px; }
+  .s-topbar__brand { display: inline-flex; align-items: center; min-height: 44px; }
+  /* The whole search box is the tap target, not just the one-line input inside it. */
+  .creation-bundle-search { min-height: 44px; padding-top: 0; padding-bottom: 0; }
+  .studio-root .creation-bundle-search input { min-height: 42px; }
+  /* Four 16px dropdowns per row truncate on tablets; two per row reads in full. */
+  .studio-root .creation-custom__settings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Touch screens keep :hover after a tap; don't leave cards lifted. */
+@media (hover: none) {
+  .wardrobe-card:hover { transform: none; }
+}

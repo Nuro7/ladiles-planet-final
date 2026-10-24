@@ -119,6 +119,8 @@ export default function Footer() {
         .cine-foot-legal { display: flex; gap: 22px; }
         .cine-foot-legal a { color: rgba(var(--cine-ivory-rgb),0.5); transition: color 0.25s ease; }
         .cine-foot-legal a:hover { color: var(--cine-gold); }
+        /* Finger-sized footer links on touch screens. */
+        @media (pointer: coarse) { .cine-foot-cols a, .cine-foot-legal a { display: inline-flex; align-items: center; min-height: 44px; } }
 
         @media (max-width: 860px){
           .cine-foot-top { grid-template-columns: 1fr; }
