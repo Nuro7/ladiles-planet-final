@@ -48,4 +48,4 @@
 .creation-form--custom .creation-credit-quote{border:1px solid #705137;background:#25191d;border-radius:12px;padding:14px 20px}
 @media(max-width:900px){.creation-form--custom{grid-template-columns:1fr}.creation-form--custom .creation-custom{position:static;grid-row:auto}.creation-form--custom .custom-reference-panel,.creation-form--custom .creation-upload-grid{grid-column:1;grid-row:auto}}
 @media(max-width:1050px){.guided-choices{grid-template-columns:1fr}.guided-options{flex-wrap:wrap}}
-@media(max-width:600px){.guided-options{flex-direction:column}.guided-library{padding:20px 14px 50px}.guided-template-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.guided-template-art{height:145px}}
+@media(max-width:600px){.guided-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.guided-options button:last-child:nth-child(odd){grid-column:1/-1}.guided-options button{padding:12px}.guided-options button small{font-size:11px;line-height:1.4}.guided-library{padding:20px 14px 50px}.guided-template-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.guided-template-art{height:145px}}

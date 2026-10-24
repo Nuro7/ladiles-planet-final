@@ -259,6 +259,37 @@ for (const catalog of [budgetScenes, premiumBalanceScenes]) {
     if (!updated) { item.subjects.solo = { ...item.subjects.solo, available: false, comingSoon: true }; }
   }
 }
+const premiumWanTemplates = [
+  { number:25, id:'premium-wan-01-garden-bridal-reverie', templateId:'PREMIUM_WAN_01', label:'Garden Bridal Reverie', category:'wedding', aspectRatio:'9:16', description:'A fifteen-second garden bridal portrait with hand details, soft turns and a full-length veranda finish.' },
+  { number:26, id:'premium-wan-02-red-lit-mirror-bride', templateId:'PREMIUM_WAN_02', label:'Red-Lit Mirror Bride', category:'wedding', aspectRatio:'16:9', description:'A fifteen-second red-lit bridal portrait with mirror, flare and soft-focus details.' },
+  { number:27, id:'premium-wan-03-ivory-garden-veil', templateId:'PREMIUM_WAN_03', label:'Ivory Garden Veil', category:'wedding', aspectRatio:'9:16', description:'A fifteen-second garden portrait built around full-dress views and a sweeping veil turn.' },
+  { number:28, id:'premium-wan-04-crimson-tapestry-letter', templateId:'PREMIUM_WAN_04', label:'Crimson Tapestry Letter', category:'wedding', aspectRatio:'9:16', description:'A fifteen-second intimate bridal story with candle, bouquet and handwritten-letter moments.' },
+  { number:29, id:'premium-wan-05-crimson-veil-courtyard', templateId:'PREMIUM_WAN_05', label:'Crimson Veil Courtyard', category:'wedding', aspectRatio:'9:16', description:'A fifteen-second courtyard veil reveal, garden portrait and full-length turn.' },
+  { number:30, id:'premium-wan-06-veiled-corridor-reverie', templateId:'PREMIUM_WAN_06', label:'Veiled Corridor Reverie', category:'wedding', aspectRatio:'16:9', description:'A fifteen-second landscape bridal film with veil reveal, corridor walk and low-light portraits.' },
+].map(definition => {
+  const root = path.join(__dirname, '..', 'assets', 'premium-wan-' + definition.number);
+  const sourceVideoPath = path.join(root, 'reference-15s.mp4');
+  return {
+    id: definition.id, label: definition.label, category: definition.category,
+    description: definition.description, generationModes: ['balance'],
+    subjects: {
+      solo: {
+        available: true, label: definition.label, description: definition.description,
+        templateId: definition.templateId, templateNumber: definition.number,
+        status: 'testing', version: 'premium-wan-v1',
+        prompt: readFileSync(path.join(root, 'prompt.txt'), 'utf8').trim(), verbatimPrompt: true,
+        duration: 15, aspectRatio: definition.aspectRatio, sound: false, useSourceAudio: false,
+        musicPath: path.join(root, 'music.m4a'), sourceVideoPath,
+        sourceAspectRatioPath: sourceVideoPath, sourceFilename: 'reference-15s.mp4',
+        thumbnailPath: path.join(root, 'template-thumbnail.jpg'),
+        referenceImagePath: path.join(root, 'template-thumbnail.jpg'), referenceImagePaths: [],
+        referenceVideoRole: 'source-locked', jewelleryMode: 'database-or-minimal',
+      },
+      couple: { available: false },
+    },
+  };
+});
+premiumBalanceScenes.push(...premiumWanTemplates);
 tiers.find(t=>t.id==='budget').resolution = '480p';
 tiers.find(t=>t.id==='budget').resolutions = ['480p'];
 tiers.find(t=>t.id==='budget').model = 'Wan 3.0 Prime';
@@ -315,6 +346,7 @@ function resolve(body, recipe) {
     flowProjectUrl: selectedRecipe?.flowProjectUrl || null,
     referenceImageUrl: selectedRecipe?.referenceImageUrl || null,
     musicPath: selectedRecipe?.musicPath || null, useSourceAudio: Boolean(selectedRecipe?.useSourceAudio),
+    jewelleryMode: selectedRecipe?.jewelleryMode || null,
     sound: selectedRecipe?.sound ?? (body.sound !== 'false' && body.sound !== false) };
 }
 module.exports = { tiers, scenes, flagshipScenes, budgetScenes, budgetSpeedScenes, premiumSpeedScenes, premiumBalanceScenes, budgetBrideOnlyDemo, resolve };

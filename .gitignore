@@ -8,7 +8,10 @@ backend/data/
 **/.git/
 *.log
 .local-run/
+.tools/
 .test-temp/
+integrations/instaloader/
+backend/assets/premium-wan-intake/analysis/
 *.zip
 *.mp4
 *.mov
@@ -33,3 +36,5 @@ outputs/
 **/*.exe
 **/log.txt
 backend/test-db-connection.js
+*.part
+backend/assets/premium-wan-validation/inputs/

@@ -1,0 +1,42 @@
+PROJECT: LADIES PLANET — CRIMSON VEIL COURTYARD
+MODEL: WAN 3.0 PRIME | 15 SECONDS | 9:16 VERTICAL | SILENT
+
+OBJECTIVE
+Recreate VIDEO 1 shot for shot with a different bride. Replace only the woman's identity, complete outfit and jewellery. Everything else stays the same. This is replacement, not a new concept or unchanged copy of VIDEO 1.
+
+REFERENCE ROLES
+VIDEO 1 = motion, expressions, gaze, hand and finger positions, poses, camera angle and movement, framing, shot order, cuts, timing, slow motion, environment and lighting. Never use its woman's face, outfit, dupatta or jewellery.
+FIRST image = the BRIDE. Facial identity only.
+FOLLOWING images = the DRESS. All views show ONE garment and its matching dupatta.
+Jewellery reference: see section 5.
+
+1. FACE IDENTITY
+The bride is the woman in the BRIDE image in every frame, not a similar woman. Preserve face shape and proportions, eyes and spacing, eyebrows, nose, lips, cheeks, jaw, chin, forehead, hairline, skin tone, natural asymmetry and skin texture. Never blend or alternate with VIDEO 1's woman. The face follows every head turn, tilt and light change; no pasted or floating face, seams or beauty filter. Ignore the BRIDE image's clothing and accessories.
+
+2. MOTION AND SHOT TIMELINE
+0.0–1.7s: Frontal medium portrait beneath the pale portico; the matching dupatta covers her face as a translucent veil, body still and gaze faintly visible; restrained push-in and bright flare into the cut.
+1.7–3.9s: Low-angle medium close portrait against horizontal stone louvers; she holds the dupatta edge across her chest with both hands, reveals her face and smiles directly toward camera.
+3.9–6.1s: Garden-side medium portrait; body angled toward screen right, one hand rises holding a tiny white flower, chin lifts and her eyes follow it with a warm smile; slight lateral drift.
+6.1–7.7s: Tighter garden portrait; both hands touch the dupatta edges beside her temples, gently settling it over her hair as her expression becomes composed and her gaze meets camera.
+7.7–10.9s: Full-length architectural portrait beside the louvered wall and terrace; she stands poised with hands low near the skirt, makes a small weight shift and smiles while the camera eases wider.
+10.9–13.0s: Full-length lawn portrait; she completes one smooth turn as the skirt follows with weight and the matching dupatta streams outward, then faces camera while the fabric settles.
+13.0–14.3s: Tight three-quarter portrait beside the carved wooden doorway; cheek rests on one hand, eyes glance sideways and a reserved smile forms during a gentle push.
+14.3–15.0s: Garden medium close portrait; shoulders turn slightly toward screen right while one hand gathers her hair near the shoulder and she holds a soft sideward smile.
+Match VIDEO 1's speed and cut points exactly. No extra shots, poses, gestures or camera moves.
+
+3. EXACT DRESS AND DUPATTA
+The DRESS images are the only authority for the outfit: colour, silhouette, neckline, sleeves, bodice, fabric, embroidery motifs and placement, borders and construction. The matching dupatta from the DRESS images is mandatory; VIDEO 1 decides only how it moves and is held. Never reuse VIDEO 1's outfit or dupatta. Unseen areas stay plain and consistent, not invented.
+
+4. NO MANNEQUIN
+Take only the garment from the DRESS images. Ignore any mannequin, stand, hanger or display bust. Zero mannequin parts or white plastic patches on the bride; natural human body, skin and proportions.
+
+5. JEWELLERY
+{{JEWELLERY_BLOCK}}
+
+6. ENVIRONMENT
+Elegant tropical residence courtyard with pale stone porticos, horizontal louvered walls, carved wooden doors, tiled terrace, lawn and dense manicured greenery under bright overcast daylight. Keep the source's natural colour, soft flare, depth of field and framing. Do not reproduce its watermark or add text, logos, people, props or effects.
+
+7. CONTINUITY
+Same face, dress, dupatta and jewellery in every frame. Realistic hands with five fingers, natural fabric weight and folds. No flicker, morphing embroidery, colour shifts, floating jewellery, distorted limbs, watermark or captions.
+
+PRIORITIES: 1) VIDEO 1 shot sequence and motion. 2) Bride face identity. 3) Exact dress and dupatta. 4) No mannequin. 5) Jewellery rule. 6) Natural anatomy and continuity.

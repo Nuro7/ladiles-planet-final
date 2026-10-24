@@ -90,7 +90,16 @@ function references(job, kind = 'video') {
   const hasSceneStillSet = kind === 'video' && job.options.referenceImagePaths?.length;
   const styleUrl = kind === 'image' ? null : hasSceneStillSet ? null : job.options.referenceImageUrl;
   if (styleUrl) result.push({ role: 'scene style only', url: styleUrl });
+  if (kind === 'video' && job.options.jewelleryMode === 'database-or-minimal' && job.assets.jewelleryUrl) {
+    result.push({ role: 'jewellery', url: job.assets.jewelleryUrl });
+  }
   return result;
+}
+
+function jewelleryUrl(selectedDress) {
+  const jewellery = selectedDress?.metadata?.jewellery || selectedDress?.jewellery;
+  return jewellery?.image_url || jewellery?.imageUrl || jewellery?.url ||
+    selectedDress?.metadata?.jewellery_image_url || selectedDress?.jewelleryImageUrl || null;
 }
 function imageInstructions(job) {
   if (job.tier === 'custom') return job.options.prompt;
@@ -203,7 +212,8 @@ async function prepareAndStartWork(job, bride, groom, dressFiles, selectedDress,
     if (assetResult.status === 'rejected') throw assetResult.reason;
     const prepared = assetResult.value;
     job.assets = { brideUrl: prepared.brideUrl, groomUrl: prepared.groomUrl,
-      dressUrl: selectedDress?.imageUrl || prepared.dressViews[0]?.url, dressViews: prepared.dressViews };
+      dressUrl: selectedDress?.imageUrl || prepared.dressViews[0]?.url, dressViews: prepared.dressViews,
+      jewelleryUrl: jewelleryUrl(selectedDress) };
     if (prepared.flowDressKey) job.options.flowDressKey = prepared.flowDressKey;
     await save();
 

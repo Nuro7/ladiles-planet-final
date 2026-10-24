@@ -16,7 +16,8 @@ function key(scene, subject, tier = 'shared') {
     if (subject !== 'solo') throw new Error('These image templates are Bride only.');
     return 'image:' + scene + ':' + subject;
   }
-  const source = tier === 'budget' ? [...config.budgetScenes, ...config.budgetSpeedScenes] : config.scenes;
+  const source = tier === 'budget' ? [...config.budgetScenes, ...config.budgetSpeedScenes]
+    : [...config.scenes, ...config.premiumSpeedScenes, ...config.premiumBalanceScenes];
   if (!source.some(item => item.id === scene) || !['solo', 'couple'].includes(subject)) throw new Error('Choose a valid scene and Bride only or Bride & groom.');
   if (!['shared', 'budget'].includes(tier)) throw new Error('Choose a valid template quality.');
   return (tier === 'budget' ? 'budget:' : '') + scene + ':' + subject;
@@ -38,7 +39,9 @@ async function recipe(scene, subject = 'solo', tier = 'shared', generationMode =
   // previously persisted copy as well, otherwise it can reappear after a
   // restart even though it no longer exists in the source configuration.
   if (tier === 'budget' && generationMode === 'speed' && saved.templateId === 'BUDGET_SPEED_01') return { ...base };
-  const entry = { ...base, ...saved, prompt: withBridalOrnaments(saved.prompt || base.prompt) };
+  const rawPrompt = saved.prompt || base.prompt;
+  const preservesExactPrompt = (saved.verbatimPrompt ?? base.verbatimPrompt) === true || (saved.jewelleryMode || base.jewelleryMode) === 'database-or-minimal';
+  const entry = { ...base, ...saved, prompt: preservesExactPrompt ? rawPrompt : withBridalOrnaments(rawPrompt) };
   if (scene === 'royal-red-garden-veil-turn' && subject === 'solo') {
     entry.prompt = require('node:fs').readFileSync(path.join(__dirname, '../assets/royal-red-garden/prompt-wan-v3.txt'), 'utf8').replace(/\r\n/g, '\n').trim();
     entry.verbatimPrompt = true;
