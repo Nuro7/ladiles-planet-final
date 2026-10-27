@@ -6,7 +6,6 @@ import MagneticButton from '../primitives/MagneticButton';
 import HeroSlides from './HeroSlides';
 import useReducedMotion from '../hooks/useReducedMotion';
 import useBreakpoint from '../../hooks/useBreakpoint';
-import { useScrollTo } from '../smooth/lenisContext';
 import { SIGNAGE_BG, STUDIO_URL } from '../data';
 
 const Arrow = (p) => (
@@ -29,7 +28,6 @@ const STALL_MS = 14000;
  * reveal so it plays as the loader lifts.
  */
 export default function Hero({ ready }) {
-  const scrollTo = useScrollTo();
   const reduced = useReducedMotion();
   const bp = useBreakpoint();
   const isMobile = bp === 'mobile';
@@ -148,7 +146,7 @@ export default function Hero({ ready }) {
               Enter Studio <Arrow />
             </MagneticButton>
 
-            <MagneticButton onClick={() => scrollTo('#cine-experience')} className="cine-btn cine-btn-ghost" style={{
+            <MagneticButton href={STUDIO_URL} className="cine-btn cine-btn-ghost" style={{
               justifyContent: 'center',
               width: isMobile ? '100%' : 'auto',
               maxWidth: isMobile ? '340px' : 'none',
