@@ -4,7 +4,7 @@ import VideoBackground from '../primitives/VideoBackground';
 import ParticleField from '../primitives/ParticleField';
 import MagneticButton from '../primitives/MagneticButton';
 import Reveal from '../primitives/Reveal';
-import { VIDEOS } from '../data';
+import { VIDEOS, STUDIO_URL } from '../data';
 
 const Arrow = (p) => (
   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden {...p}>
@@ -56,7 +56,7 @@ export default function FinalCTA() {
         </h2>
         <Reveal variant="up" delay={0.35}>
           <div style={{ marginTop: 'clamp(32px,5vh,52px)', display: 'flex', justifyContent: 'center' }}>
-            <MagneticButton to="/studio" strength={0.5} className="cine-btn cine-btn-gold cine-sweep-host" style={{ minHeight: 62, padding: '0 42px', fontSize: '0.92rem' }}>
+            <MagneticButton href={STUDIO_URL} strength={0.5} className="cine-btn cine-btn-gold cine-sweep-host" style={{ minHeight: 62, padding: '0 42px', fontSize: '0.92rem' }}>
               Create My Bridal Experience <Arrow />
             </MagneticButton>
           </div>

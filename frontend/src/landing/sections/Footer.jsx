@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LadiesPlanetLogo from '../../components/LadiesPlanetLogo';
 import Reveal from '../primitives/Reveal';
 import { useScrollTo } from '../smooth/lenisContext';
+import { STUDIO_URL } from '../data';
 
 const SOCIALS = [
   { label: 'Instagram', href: 'https://www.instagram.com/ladies_planet_/', d: 'M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM17.5 6.5h.01M4 8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z' },
@@ -52,9 +53,9 @@ export default function Footer() {
               </div>
               <div>
                 <span className="cine-foot-h">Studio</span>
-                <Link to="/studio">Bridal Studio</Link>
-                <Link to="/studio">Bridal Poster</Link>
-                <Link to="/studio">Bridal Film</Link>
+                <a href={STUDIO_URL}>Bridal Studio</a>
+                <a href={STUDIO_URL}>Bridal Poster</a>
+                <a href={STUDIO_URL}>Bridal Film</a>
                 <Link to="/pricing">Pricing</Link>
               </div>
               <div className="cine-foot-news">

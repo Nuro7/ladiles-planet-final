@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -22,16 +22,10 @@ function RouteFallback() {
   return <div style={{ minHeight: '100svh', background: '#320004' }} aria-hidden />;
 }
 
-/** Shows the external studio inside this app so its address stays hidden. */
-function StudioEmbed() {
-  return (
-    <iframe
-      src={STUDIO_URL}
-      title="Ladies Planet Studio"
-      allow="camera; microphone; fullscreen; clipboard-read; clipboard-write"
-      style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, background: '#320004' }}
-    />
-  );
+/** Sends any studio path to the external studio app. */
+function StudioRedirect() {
+  useEffect(() => { window.location.replace(STUDIO_URL); }, []);
+  return <RouteFallback />;
 }
 
 function App() {
@@ -43,20 +37,19 @@ function App() {
                     <Routes>
                         {/* ── Public: AI Bridal Wall ── */}
                         <Route path="/"           element={<LandingPage />} />
-                        <Route path="/seedance-test" element={<Navigate to="/studio" replace />} />
+                        <Route path="/seedance-test" element={<StudioRedirect />} />
                         <Route path="/pricing"    element={<PricingPage />} />
                         <Route path="/type-lab"   element={<TypeLab />} />
                         {/* Phone-side of the studio's "scan to upload" QR */}
                         <Route path="/m/upload/:sessionId" element={<MobileUpload />} />
 
-                        {/* ── Studio: the external Higgsfield app, shown in-app ── */}
-                        <Route path="/studio/*"     element={<StudioEmbed />} />
-                        <Route path="/image-studio" element={<Navigate to="/studio" replace />} />
-                        <Route path="/studio-embed" element={<Navigate to="/studio" replace />} />
+                        {/* ── Studio lives on the external Higgsfield app ── */}
+                        <Route path="/studio/*"     element={<StudioRedirect />} />
+                        <Route path="/image-studio" element={<StudioRedirect />} />
 
                         {/* ── Login removed: auth paths go straight to the studio ── */}
-                        <Route path="/login"  element={<Navigate to="/studio" replace />} />
-                        <Route path="/signup" element={<Navigate to="/studio" replace />} />
+                        <Route path="/login"  element={<StudioRedirect />} />
+                        <Route path="/signup" element={<StudioRedirect />} />
 
                         {/* ── Protected admin routes (moved to /admin/*) ── */}
                         <Route element={<ProtectedRoute />}>

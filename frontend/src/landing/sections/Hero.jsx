@@ -6,7 +6,7 @@ import MagneticButton from '../primitives/MagneticButton';
 import HeroSlides from './HeroSlides';
 import useReducedMotion from '../hooks/useReducedMotion';
 import useBreakpoint from '../../hooks/useBreakpoint';
-import { SIGNAGE_BG } from '../data';
+import { SIGNAGE_BG, STUDIO_URL } from '../data';
 
 const Arrow = (p) => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden {...p}>
@@ -138,7 +138,7 @@ export default function Hero({ ready }) {
             justifyContent: isMobile ? 'center' : 'flex-start',
             marginTop: 'clamp(30px, 4.4vh, 52px)',
           }}>
-            <MagneticButton to="/studio" className="cine-btn cine-btn-gold cine-sweep-host" style={{
+            <MagneticButton href={STUDIO_URL} className="cine-btn cine-btn-gold cine-sweep-host" style={{
               justifyContent: 'center',
               width: isMobile ? '100%' : 'auto',
               maxWidth: isMobile ? '340px' : 'none',
@@ -146,7 +146,7 @@ export default function Hero({ ready }) {
               Enter Studio <Arrow />
             </MagneticButton>
 
-            <MagneticButton to="/studio" className="cine-btn cine-btn-ghost" style={{
+            <MagneticButton href={STUDIO_URL} className="cine-btn cine-btn-ghost" style={{
               justifyContent: 'center',
               width: isMobile ? '100%' : 'auto',
               maxWidth: isMobile ? '340px' : 'none',
