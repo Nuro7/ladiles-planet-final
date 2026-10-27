@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import LadiesPlanetLogo from '../../components/LadiesPlanetLogo';
 import useBreakpoint from '../../hooks/useBreakpoint';
 import { useScrollTo } from '../smooth/lenisContext';
-import { STUDIO_URL } from '../data';
 
 /**
  * Floating glass navigation. Fades in after the loader, condenses + blurs
@@ -72,7 +71,7 @@ export default function FloatingNav() {
           }} />
         )}
         {/* Bridal Studio mark → enter the studio */}
-        <a href={STUDIO_URL}
+        <Link to="/studio"
           aria-label="Enter Bridal Studio"
           style={{ display: 'inline-flex', alignItems: 'center' }}>
           <img
@@ -85,7 +84,7 @@ export default function FloatingNav() {
               transition: 'height 0.5s var(--cine-ease)',
             }}
           />
-        </a>
+        </Link>
       </div>
     </motion.header>
   );
