@@ -87,10 +87,5 @@ export const STATS = [
 
 export { IMG };
 
-/**
- * Keep Studio navigation inside the installed Vercel PWA. The actual
- * Higgsfield application is rendered by App.jsx inside the /studio route so
- * Chrome does not switch the top-level PWA to an out-of-scope origin.
- */
-export const STUDIO_URL = '/studio';
-export const HIGGSFIELD_STUDIO_URL = 'https://ladies-planet.higgsfield.app/';
+/** External studio every "Enter Studio" link opens. */
+export const STUDIO_URL = 'https://ladies-planet.higgsfield.app/';
