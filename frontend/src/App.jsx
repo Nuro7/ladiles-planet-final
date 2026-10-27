@@ -28,6 +28,18 @@ function StudioRedirect() {
   return <RouteFallback />;
 }
 
+/** Test page: shows the external studio inside this app so its address stays hidden. */
+function StudioEmbed() {
+  return (
+    <iframe
+      src={STUDIO_URL}
+      title="Ladies Planet Studio"
+      allow="camera; microphone; fullscreen; clipboard-read; clipboard-write"
+      style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, background: '#320004' }}
+    />
+  );
+}
+
 function App() {
     return (
         <AuthProvider>
@@ -46,6 +58,7 @@ function App() {
                         {/* ── Studio lives on the external Higgsfield app ── */}
                         <Route path="/studio/*"     element={<StudioRedirect />} />
                         <Route path="/image-studio" element={<StudioRedirect />} />
+                        <Route path="/studio-embed" element={<StudioEmbed />} />
 
                         {/* ── Login removed: auth paths go straight to the studio ── */}
                         <Route path="/login"  element={<StudioRedirect />} />

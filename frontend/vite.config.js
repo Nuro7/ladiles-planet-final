@@ -21,7 +21,7 @@ export default defineConfig({
         short_name: 'LP Studio',
         description: 'Ladies Planet bridal creation studio.',
         lang: 'en',
-        start_url: '/studio/cinematic',
+        start_url: '/',
         scope: '/',
         display: 'standalone',
         orientation: 'any',
