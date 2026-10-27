@@ -86,3 +86,6 @@ export const STATS = [
 ];
 
 export { IMG };
+
+/** External studio every "Enter Studio" link opens. */
+export const STUDIO_URL = 'https://ladies-planet.higgsfield.app/';
