@@ -19,9 +19,6 @@ const Templates          = lazy(() => import('./studio/modules/Templates'));
 const Collections        = lazy(() => import('./studio/modules/Collections'));
 const StudioSettings     = lazy(() => import('./studio/modules/Settings'));
 
-const LoginPage          = lazy(() => import('./pages/LoginPage'));
-const SignupPage         = lazy(() => import('./pages/SignupPage'));
-
 const HomePage            = lazy(() => import('./pages/HomePage'));
 const DressManagementPage = lazy(() => import('./pages/DressManagementPage'));
 const BrideManagementPage = lazy(() => import('./pages/BrideManagementPage'));
@@ -47,7 +44,6 @@ function App() {
                         <Route path="/m/upload/:sessionId" element={<MobileUpload />} />
 
                         {/* ── AI Studio — premium creative shell with nested modules ── */}
-                        <Route element={<ProtectedRoute />}>
                         <Route path="/studio" element={<StudioApp />}>
                             <Route index                element={<Navigate to="/studio/cinematic" replace />} />
                             <Route path="poster"        element={<Navigate to="/studio/cinematic?output=image" replace />} />
@@ -57,13 +53,12 @@ function App() {
                             <Route path="collections"   element={<Collections />} />
                             <Route path="settings"      element={<StudioSettings />} />
                         </Route>
-                        </Route>
                         {/* Legacy image-studio path → new Poster Studio */}
                         <Route path="/image-studio" element={<Navigate to="/studio/cinematic?output=image" replace />} />
 
-                        {/* ── Auth ── */}
-                        <Route path="/login"  element={<LoginPage />} />
-                        <Route path="/signup" element={<Navigate to="/login" replace />} />
+                        {/* ── Login removed: auth paths go straight to the studio ── */}
+                        <Route path="/login"  element={<Navigate to="/studio/cinematic" replace />} />
+                        <Route path="/signup" element={<Navigate to="/studio/cinematic" replace />} />
 
                         {/* ── Protected admin routes (moved to /admin/*) ── */}
                         <Route element={<ProtectedRoute />}>
