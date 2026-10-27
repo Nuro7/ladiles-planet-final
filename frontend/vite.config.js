@@ -12,8 +12,8 @@ export default defineConfig({
     // Installable tablet app. The service worker caches only the app shell:
     // every /api request (data, login, private media) always goes to the network.
     VitePWA({
-      registerType: 'prompt',
-      injectRegister: null, // registered by src/pwa/PwaStatus.jsx so updates can be prompted
+      registerType: 'autoUpdate',
+      injectRegister: null, // registered by src/pwa/PwaStatus.jsx (hourly update checks)
       includeManifestIcons: false, // already matched by workbox.globPatterns
       manifest: {
         id: '/studio',
@@ -40,6 +40,9 @@ export default defineConfig({
         navigateFallback: '/index.html',
         navigateFallbackDenylist: [/^\/api(\/|$)/],
         cleanupOutdatedCaches: true,
+        // New deploys take over open windows straight away.
+        skipWaiting: true,
+        clientsClaim: true,
         runtimeCaching: [
           {
             urlPattern: ({ url }) => url.origin === 'https://fonts.googleapis.com',
